@@ -1,6 +1,17 @@
 # DW-REACT
 
-This is a basic character sheet generator for Dungeon-World written in React-JS. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a basic character sheet generator for Dungeon-World written in ReactJS and hosted on a Github Pages project page. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and created using the following steps:
+- Ensuring nodejs, npm and create-react-app were installed
+- `npx create-react-app dw-react` to create new blank project
+- Creating new blank repository on Github
+- Adding all files and committing them to local git-repo as well as setting remote origin
+- Clearing out the src dir except index files and pushing changes to GitHub
+- Following the deployment instructions here (https://create-react-app.dev/docs/deployment/#github-pages) to ensure the project is set up for a GitHub pages deployment
+
+
+Optionally to help with development:
+- Ensure browser has React Developer Tools
+- Ensure has 'react' and 'linter-eshint' when using Atom
 
 ## Available Scripts
 
@@ -29,6 +40,11 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+### `npm run deploy`
+
+Builds and then subsequently deploys to a 'gh-pages' branch of the targeted git repo
+
+
 ### `npm run eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
@@ -42,29 +58,3 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
