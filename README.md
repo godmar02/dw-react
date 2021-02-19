@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# DW-REACT
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a basic character sheet generator for Dungeon-World written in React-JS. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
