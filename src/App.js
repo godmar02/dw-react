@@ -1,40 +1,23 @@
-import React, {Component} from 'react'
-import Table from './Table'
-import Form from './Form'
+import React, { useState, useEffect } from 'react';
+import * as FirestoreService from './services/firestore';
 
-class App extends Component {
-  state = {
-    characters: []
-  }
+function App() {
 
-  removeCharacter = (index) => {
-    const {characters} = this.state
+  const [user, setUser] = useState();
+  const [userId, setUserId] = useState();
+  const [error, setError] = useState();
 
-    this.setState({
-      characters: characters.filter((character, i) => {
-        return i !== index
-      })
+  // Use an effect to authenticate user
+  useEffect(() => {
+    FirestoreService.authenticateAnonymously().then(userCredential => {
+      setUserId(userCredential.user.uid);
     })
-  }
+    .catch(() => setError('anonymous-auth-failed'));
+  });
 
-  handleSubmit = (character) => {
-    this.setState({
-      characters: [
-        ...this.state.characters,
-        character
-      ]
-    })
-  }
-
-  render() {
-    const {characters} = this.state
-
-    return (<div className="container">
-      <Table characterData={characters} removeCharacter={this.removeCharacter}/>
-      <Form handleSubmit={this.handleSubmit}/>
-    </div>)
-  }
-
+  return (
+    <div> </div>
+  );
 }
 
-export default App
+export default App;
