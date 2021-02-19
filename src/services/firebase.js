@@ -25,17 +25,5 @@ const provider = new firebase.auth.GoogleAuthProvider();
 
 //Authenticate with Firebase using the Google provider object
 export const signInWithGoogle = () => {
-  return firebase.auth()
-  .signInWithPopup(provider)
-  .then((result) => {
-    /** @type {firebase.auth.OAuthCredential} */
-
-    // The signed-in user info.
-    var user = result.user;
-    console.info("Authenticated user UID:", user.uid);
-    console.info("Authenticated user email:", user.email);
-
-  }).catch((error) => {
-    // Handle Errors here.
-  });
+  return auth.signInWithPopup(provider);
 };
