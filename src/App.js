@@ -9,7 +9,7 @@ function App() {
 
   // Use an effect to authenticate user
   useEffect(() => {
-    FirestoreService.authenticateAnonymously().then(userCredential => {
+    FirestoreService.authenticateGoogle().then(userCredential => {
       setUserId(userCredential.user.uid);
     })
     .catch(() => setError('anonymous-auth-failed'));

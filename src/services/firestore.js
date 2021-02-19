@@ -21,6 +21,7 @@ const db = firebase.firestore();
 
 // Set up firebase auth with google
 const provider = new firebase.auth.GoogleAuthProvider();
+
 //Authenticate with Firebase using the Google provider object.
 export const authenticateGoogle = () => {
   return firebase.auth()
