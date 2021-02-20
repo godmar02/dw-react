@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import * as FirestoreService from './services/firebase';
+import React, {useState, useEffect} from 'react';
+import * as FirestoreService from '../services/firebase';
 
 function App() {
 
@@ -11,13 +11,10 @@ function App() {
   useEffect(() => {
     FirestoreService.signInWithGoogle().then(userCredential => {
       setUserId(userCredential.user.uid);
-    })
-    .catch(() => setError('google-auth-failed'));
+    }).catch(() => setError('google-auth-failed'));
   });
 
-  return (
-    <div>AUTHENTICATED</div>
-  );
+  return (<div>AUTHENTICATED</div>);
 }
 
 export default App;
