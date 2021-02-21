@@ -11,32 +11,6 @@ button {
   opacity: 0.5;
 }
 
-
-div.answerContainer {
-  border-bottom: 1px solid;
-  float: left;
-  width: 100%;
-  display: none;
-}
-
-div.expandIndicator {
-  text-align: right;
-  float: right;
-  padding-right: 8px;
-  width: 1%;
-}
-
-
-h2 {
-  display: inline;
-}
-
-p {
-  max-height: 999999px;
-  font-size: 17px;
-}
-
-select,
 input,
 textarea {
   box-sizing: border-box;
@@ -55,35 +29,15 @@ textarea {
   vertical-align: middle;
 }
 
-select::-ms-expand {
-  display: none;
-}
-
-input.checkbox {
-  appearance: checkbox;
-  margin: 0;
-  height: 40px;
-  min-width: 10px;
-  max-width: 40px;
-  background-color: #eee;
-  border: 1px solid #696969;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-input.checkbox::after {
-  content: "";
+textarea {
+  resize: none;
+  overflow: hidden;
 }
 
 table {
   border-style: solid;
   border-width: medium;
   border-radius: 5px;
-}
-
-textarea {
-  resize: none;
-  overflow: hidden;
 }
 
 th {
@@ -94,26 +48,4 @@ th {
   padding: 5px;
   border-radius: 5px;
   border: 1px solid #A9A9A9;
-}
-
-.expandAll {
-  border-top: 1px solid;
-  margin-top: 25px;
-}
-
-.shortfield {
-  width: 80px;
-}
-
-.tallfield {
-  height: 80px;
-}
-
-.textpress {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-.textpress:active {
-  background-color: lightgrey;
 }

@@ -41,3 +41,11 @@ button.deleteRow {
 .profDetails div:first-child {
   color: white;
 }
+
+.shortfield {
+  width: 80px;
+}
+
+.tallfield {
+  height: 80px;
+}
