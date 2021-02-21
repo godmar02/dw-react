@@ -6,11 +6,6 @@ import * as FirestoreService from './services/firebase';
 
 export const AuthContext = React.createContext(null);
 
-//function Index() {
-//  FirestoreService.SignInWithGoogle();
-//  return (<App isLoggedIn={false}/>);
-//}
-
 class Index extends React.Component {
 
   constructor() {
@@ -37,16 +32,9 @@ class Index extends React.Component {
     return (
       <div className='user-info'>
         {
-
           this.state.currentUser ?
             (<div>
-              <div>
-                <img src={this.state.currentUser.photoURL} alt={this.state.currentUser.photoURL}/>
-              </div>
-              <div>Name: {this.state.currentUser.displayName}</div>
-              <div>Email: {this.state.currentUser.email}</div>
-              <App currentUser={this.state.currentUser}/>
-
+              <App currentUser={this.state.currentUser} />
               <button onClick={() => FirestoreService.auth.signOut()}>LOG OUT</button>
             </div>
             ) :
