@@ -1,5 +1,6 @@
 import React from 'react';
 import '../index.css';
+import '../index-custom.css';
 import ProfilePicture from './ProfilePicture';
 import ProfileDetails from './ProfileDetails';
 

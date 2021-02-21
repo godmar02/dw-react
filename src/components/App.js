@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import GlobalState from './contexts/GlobalState';
 import '../index.css';
+import '../index-custom.css';
 import UserProfile from './UserProfile'
 import AppHeader from './AppHeader'
 import CharacterSheet from './CharacterSheet'

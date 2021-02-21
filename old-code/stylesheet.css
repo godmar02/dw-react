@@ -11,18 +11,6 @@ button {
   opacity: 0.5;
 }
 
-button.deleteRow {
-  background: #eee url(/images/icons/bin.png) center/15px no-repeat;
-}
-
-button:hover {
-  opacity: 1;
-}
-
-button:active,
-.grey {
-  background-color: lightgrey;
-}
 
 div.answerContainer {
   border-bottom: 1px solid;
@@ -38,19 +26,6 @@ div.expandIndicator {
   width: 1%;
 }
 
-div.question {
-  border-bottom: 1px solid;
-  padding-top: 14px;
-  padding-bottom: 14px;
-  float: left;
-  width: 100%;
-}
-
-div.questionText {
-  font-size: 17px;
-  float: left;
-  width: 92%;
-}
 
 h2 {
   display: inline;
@@ -78,10 +53,6 @@ textarea {
   border-radius: 5px;
   text-align: center;
   vertical-align: middle;
-}
-
-select {
-  background: url(/images/icons/down_arrow.png) no-repeat right;
 }
 
 select::-ms-expand {

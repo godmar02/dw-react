@@ -1,5 +1,6 @@
 import React from 'react';
 import '../index.css';
+import '../index-custom.css';
 
 function ProfileDetails(props) {
     return (<div className="profDetails">
