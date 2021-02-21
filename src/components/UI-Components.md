@@ -1,17 +1,19 @@
-- Index
-  - App
-    - UserProfile
+- Index / - responsible for Auth
+  - App - loads app components and hold state
+    - UserProfile - shows logged in user
       - ProfilePicture
       - ProfileDetails
-    - AppHeader
-    - CharacterSheet
-      - CharDetails
-      - CharType
-      - AbilitiesTable...
-    - CampaignSidebar
+    - AppHeader - indicates to user where they are
+    - CampaignSidebar - allows user navigation
       - CampaignDetails
         - CampaignHeader
         - CharacterList
         - CampaignViews
         - CampaignOptions
       - CreateCampaign
+    - CharacterSheet /{campaign}/{character}
+      - CharDetails
+      - CharType
+      - AbilitiesTable...
+    - Campaign /{campaign} GM view?
+ 
