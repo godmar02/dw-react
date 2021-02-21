@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <body>
   <div id="main">
     <br>
-    <form id="values">
       <div id="attvalues">
         <table style="width: 75%;" id="sheetHeaderTable">
           <tr>
@@ -26,16 +26,7 @@
             <th style="width: 25%;"><label for="charaName">CHARACTER</label></th>
             <td><input type="text" class="charaName" id="charaName"></td>
           </tr>
-          <tr>
-            <th style="width: 25%;"><label for="charVer">VERSION</label></th>
-            <td><input type="number" class="grey" readonly id="charVer"></td>
-          </tr>
         </table>
-        <br>
-        <button type="button" class="saveCharacter" id="saveCharacter0">Save</button>
-        <button type="button" class="loadCharacter" id="loadCharacter0">Load</button>
-        <button type="button" class="clearCharacter" id="clearCharacter0">Clear</button>
-        <br>
         <br>
         <table style="width: 100%;" id="basicInfoTable">
           <tr>
@@ -296,74 +287,25 @@
           <tfoot></tfoot>
         </table>
         <br>
-        <button type="button" class="saveCharacter" id="saveCharacter1">Save</button>
-        <button type="button" class="loadCharacter" id="loadCharacter1">Load</button>
-        <button type="button" class="clearCharacter" id="clearCharacter1">Clear</button>
       </div>
-    </form>
     <p>For information on Character Sheet usage and useful guides or links, read the <a href="#top" target="_top" class="faqLink" id="faqLink">FAQ</a>.</p>
   </div>
   <div style="display:none; max-width: 800px" id="faq">
-    <h2>Frequently Asked Questions</h2>
-    <br>
-    <br>
-    <p><a href="javascript:;" class="textpress sheetLink" style="float: left" target="_top" id="sheetLink0">&lt;&lt;&lt; Back to the Character Sheet!</a><a href="javascript:;" class="textpress expandAll" id="expandAll0">+ Expand
-        all</a></p>
-    <div class="question" style="border-top: 1px solid; margin-top: 25px;" id="questionContainer0">
-      <div class="questionText"><b>How do I use the Character Sheet?</b></div>
-      <div class="expandIndicator" id="expandIndicator0">+</div>
-    </div>
-    <div class="answerContainer" id="answerContainer0">
-      <p>TBC.</p>
-    </div>
-    <div class="question" id="questionContainer1">
-      <div class="questionText"><b>Can I use the Character Sheet offline?</b></div>
-      <div class="expandIndicator" id="expandIndicator1">+</div>
-    </div>
-    <div class="answerContainer" id="answerContainer1">
-      <p>Sort of. Follow these instructions:<br /><br />
-        <i>Any platform</i>: If you don't quit your browser app, you should be able to use the Character Sheet without internet access as long as the browser stays in memory. The Character Sheet is a static website and doesn't require the use of
-        bandwith. Otherwise, most desktop browsers support saving pages so you can store them offline for later use. Some mobile browsers like Chrome also support this.<br /><br />
-        <i>PC</i>: Go to the Character Sheet website, right-click on any empty space and press Save as... or Save Page As... to get the index.html file. Alternatively, you can download the file from <a
-          href="https://github.com/godmar02/godmar02.github.io" target="_blank">GitHub</a>. After you downloaded it, simply drag the .html file into your browser to run the Character Sheet.<br /><br />
-        <i>iOS</i>: Repeat the PC process. Download an app called HTML Viewer Q by Spica. Connect your device to iTunes. In iTunes, select your device and go to File Sharing. Select HTML Viewer, press Add File and find the .html file you downloaded
-        on your PC. Disconnect your device, run HTML Viewer and press on a book-like icon at the bottom right. Switch from Bookmarks to Files and select the downloaded .html file.<br /><br />
-        <i>Android</i>: Repeat the PC process. If you used the PC, connect your device and transfer the .html file to it. Download the HTML Viewer app by Yogev Haham and run it. Press the paper-like icon at the upper right. Find and select the
-        downloaded .html file, then press the browser view icon in the upper right.</p>
-    </div>
-    <div class="question" id="questionContainer2">
-      <div class="questionText"><b>Who are you?</b></div>
-      <div class="expandIndicator" id="expandIndicator2">+</div>
-    </div>
-    <div class="answerContainer" id="answerContainer2">
-      <p>Never you mind.</p>
-    </div>
-    <br>
-    <p><a href="javascript:;" class="textpress expandAll" id="expandAll1">+ Expand all</a></p>
-    <div style="float: left; position: relative; top: 6px; width: 100%">
-      <p><b>Links:</b></p>
-      <a href="https://a-dungeon-world.fandom.com/wiki/A_Dungeon_World_Wiki" target="_blank">Wiki</a><br />
-      <a href="https://www.reddit.com/r/DungeonWorld/" target="_blank">Reddit</a><br /><br />
+    <p><b>Links:</b></p>
+    <a href="https://a-dungeon-world.fandom.com/wiki/A_Dungeon_World_Wiki" target="_blank">Wiki</a><br />
+    <a href="https://www.reddit.com/r/DungeonWorld/" target="_blank">Reddit</a><br /><br />
 
-      <a href="https://dungeon-world.com/" target="_blank">Official Game Website</a><br />
-      <a href="https://a-dungeon-world.fandom.com/wiki/Free_Playbooks" target="_blank">Free Playbooks</a><br />
-      <a href="https://drive.google.com/file/d/1O3-dNuIxoiVkIrH20LIzzA38r9sVsiEI/view?usp=sharing" target="_blank">Dungeon World First Edition by Sage LaTorra and Adam Koebel</a><br />
-      <a href="https://drive.google.com/file/d/1uAJBlTFUbpPcNRBI7iHQ3eD2QT5Hxhu3/view?usp=sharing" target="_blank">Dungeon World Playbooks v2.0 Designed by Stefan Grambart</a><br />
-      <a href="https://drive.google.com/file/d/1S2ntGyK17puyC01XfxSGIIaq-1w86gkd/view?usp=sharing" target="_blank">Truncheon World: The Truncated Dungeon World by Sage LaTorra and Adam Koebel</a><br /><br />
+    <a href="https://dungeon-world.com/" target="_blank">Official Game Website</a><br />
+    <a href="https://a-dungeon-world.fandom.com/wiki/Free_Playbooks" target="_blank">Free Playbooks</a><br />
+    <a href="https://drive.google.com/file/d/1O3-dNuIxoiVkIrH20LIzzA38r9sVsiEI/view?usp=sharing" target="_blank">Dungeon World First Edition by Sage LaTorra and Adam Koebel</a><br />
+    <a href="https://drive.google.com/file/d/1uAJBlTFUbpPcNRBI7iHQ3eD2QT5Hxhu3/view?usp=sharing" target="_blank">Dungeon World Playbooks v2.0 Designed by Stefan Grambart</a><br />
+    <a href="https://drive.google.com/file/d/1S2ntGyK17puyC01XfxSGIIaq-1w86gkd/view?usp=sharing" target="_blank">Truncheon World: The Truncated Dungeon World by Sage LaTorra and Adam Koebel</a><br /><br />
 
-      <a href="https://github.com/godmar02/dw-js" target="_blank">My GitHub</a><br />
-      <a href="https://github.com/godmar02/dw-js/blob/master/Changelog.md" target="_blank">Changelog</a><br /><br />
+    <a href="https://github.com/godmar02/dw-js" target="_blank">My GitHub</a><br />
+    <a href="https://github.com/godmar02/dw-js/blob/master/Changelog.md" target="_blank">Changelog</a><br /><br />
 
-      <a href="javascript:;" class="textpress sheetLink" target="_top" id="sheetLink1">&lt;&lt;&lt; Back to the Character Sheet!</a><br />
-    </div>
+    <a href="javascript:;" class="textpress sheetLink" target="_top" id="sheetLink1">&lt;&lt;&lt; Back to the Character Sheet!</a><br />
   </div>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-firestore.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
-  <script src="/dw-js/code/firebase-init.js"></script>
-  <script src="/dw-js/code/firebase-auth.js"></script>
-  <script src="/dw-js/code/main.js"></script>
 </body>
 
 </html>
