@@ -7,7 +7,7 @@
     - CharacterSheet
       - CharDetails
       - CharType
-      - ...
+      - AbilitiesTable...
     - CampaignSidebar
       - CampaignDetails
         - CampaignHeader

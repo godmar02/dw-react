@@ -150,38 +150,26 @@ function CharacterSheet() {
          <tr>
            <td>
              <select tabIndex={-1} className="abilityAffliction" id="strAffliction">
-               <option>Unafflicted</option>
-               <option>Weak</option>
              </select>
            </td>
            <td>
              <select tabIndex={-1} className="abilityAffliction" id="dexAffliction">
-               <option>Unafflicted</option>
-               <option>Shaky</option>
              </select>
            </td>
            <td>
              <select tabIndex={-1} className="abilityAffliction" id="conAffliction">
-               <option>Unafflicted</option>
-               <option>Sick</option>
              </select>
            </td>
            <td>
              <select tabIndex={-1} className="abilityAffliction" id="intAffliction">
-               <option>Unafflicted</option>
-               <option>Stunned</option>
              </select>
            </td>
            <td>
              <select tabIndex={-1} className="abilityAffliction" id="wisAffliction">
-               <option>Unafflicted</option>
-               <option>Confused</option>
              </select>
            </td>
            <td>
              <select tabIndex={-1} className="abilityAffliction" id="chaAffliction">
-               <option>Unafflicted</option>
-               <option>Scarred</option>
              </select>
            </td>
          </tr>

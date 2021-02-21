@@ -1,0 +1,8 @@
+{
+  "strength": ["Unafflicted","Weak"],
+  "dexterity": ["Unafflicted","Shaky"],
+  "constitution": ["Unafflicted","Sick"],
+  "intelligence": ["Unafflicted","Stunned"],
+  "wisdom": ["Unafflicted","Confused"],
+  "charisma": ["Unafflicted","Scarred"]
+}
