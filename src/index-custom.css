@@ -1,6 +1,6 @@
-button.deleteRow {
-  background: #eee url(./images/bin.png) center/15px no-repeat;
-}
+/*button.deleteRow {
+  background-image: url(./images/bin.png);
+}*/
 
 .profPicture {
   -webkit-background-size: 32px 32px;
