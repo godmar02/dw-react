@@ -1,22 +1,19 @@
-import React from 'react';
+import React, {useState} from 'react';
+import GlobalState from './contexts/GlobalState';
+import '../index.css';
 import UserProfile from './UserProfile'
 import AppHeader from './AppHeader'
+import CharacterSheet from './CharacterSheet'
 
-class App extends React.Component {
-  constructor(props) {
-      super(props);
-      this.state = {
-        value: null,
-      };
-    }
+function App(props) {
+  const [state, setState] = useState({});
+  const currentUser = props.currentUser;
 
-  render() {
-    const currentUser = this.props.currentUser;
-    return (<div>
-      <UserProfile currentUser={currentUser}/>
-      <AppHeader/>
-    </div>)
-  }
+  return (<GlobalState.Provider value={[state, setState]}>
+    <UserProfile currentUser={currentUser}/>
+    <AppHeader/>
+    <CharacterSheet/>
+  </GlobalState.Provider>)
 }
 
 export default App;

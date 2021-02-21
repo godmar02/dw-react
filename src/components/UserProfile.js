@@ -1,4 +1,5 @@
 import React from 'react';
+import '../index.css';
 import ProfilePicture from './ProfilePicture';
 import ProfileDetails from './ProfileDetails';
 
