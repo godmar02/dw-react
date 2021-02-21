@@ -2,6 +2,7 @@ import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
 
+// Initialise Firebase and setting up firestore and auth for use later
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
@@ -12,18 +13,13 @@ const firebaseConfig = {
   appId: process.env.REACT_APP_FIREBASE_APP_ID,
   measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
 };
-
-// Initialise Firebase
 firebase.initializeApp(firebaseConfig);
-
-// Set up firestor and auth const
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 
-// Set up firebase auth with google
+//Authenticate with Firebase-auth using the Google provider object
 const provider = new firebase.auth.GoogleAuthProvider();
+provider.setCustomParameters({ prompt: 'select_account' });
+export const SignInWithGoogle = () => auth.signInWithPopup(provider);
 
-//Authenticate with Firebase using the Google provider object
-export const signInWithGoogle = () => {
-  return auth.signInWithPopup(provider);
-};
+export default firebase;

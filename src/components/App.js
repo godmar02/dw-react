@@ -1,20 +1,8 @@
-import React, {useState, useEffect} from 'react';
-import * as FirestoreService from '../services/firebase';
+import React from 'react';
+import UserProfile from './UserProfile'
 
-function App() {
-
-  const [user, setUser] = useState();
-  const [userId, setUserId] = useState();
-  const [error, setError] = useState();
-
-  // Use an effect to authenticate user
-  useEffect(() => {
-    FirestoreService.signInWithGoogle().then(userCredential => {
-      setUserId(userCredential.user.uid);
-    }).catch(() => setError('google-auth-failed'));
-  });
-
-  return (<div>AUTHENTICATED</div>);
+function App(props) {
+  return(<UserProfile currentUser={props} />)
 }
 
 export default App;
