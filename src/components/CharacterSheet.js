@@ -17,11 +17,10 @@ function CharacterSheet() {
 
   // Setting state for Character using useEffect hook
   useEffect(() => {
-    setCharacter(character => ({
-      ...character,
-      address: "address1"
-    }))
-  }, [character, setCharacter]);
+    setCharacter({
+      name: "name1"
+    })
+  }, [setCharacter]);
 
   // Use a custom hook to subscribe to the character provided as a URL query parameter
   //const [character, setCharacter] = useQueryString('character');

@@ -3,11 +3,11 @@ import CharacterState from './contexts/CharacterState'
 
 function CharacterTypeTable() {
 
-  // Accessing and setting charSheet using context and use effects
+  // Accessing and adding to character using context and useEffect
   const [character, setCharacter] = useContext(CharacterState);
   useEffect(() => {
-    setCharacter(character => ({...character, address: "adress2"}))
-  }, [character, setCharacter]);
+    setCharacter(character => ({...character, address: "adress"}))
+  }, [setCharacter]);
   console.log(character);
 
   return (
