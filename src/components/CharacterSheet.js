@@ -13,9 +13,10 @@ import ClassFeaturesTable from './ClassFeaturesTable'
 
 function CharacterSheet() {
 
-  let { id } = useParams();
+  // retrieve URL parameters for usage
+  let { campaign } = useParams();
 
-  console.log(id);
+  console.log(campaign);
 
   // Definitions for state
   const [character, setCharacter] = useState({});

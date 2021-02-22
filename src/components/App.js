@@ -15,9 +15,9 @@ function App(props) {
     <Router>
       <NavSidebar/>
       <Switch>
-        <Route path="/" component={CharacterSheet} />
-        <Route path="/:campaign" component={CharacterSheet} />
-        <Route path="/:campaign/:character" component={CharacterSheet} />
+        <Route path="/" children={<CharacterSheet/>} />
+        <Route path="/:campaign" children={<CharacterSheet/>} />
+        <Route path="/:campaign/:character" children={<CharacterSheet/>} />
         <Route component={ErrorPage} />
       </Switch>
     </Router>
