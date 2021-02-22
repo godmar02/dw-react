@@ -8,7 +8,6 @@ function CharacterTypeTable() {
   useEffect(() => {
     setCharacter(character => ({...character, address: "adress"}))
   }, [setCharacter]);
-  console.log(character);
 
   return (
     <table style={{

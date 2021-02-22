@@ -19,41 +19,33 @@ function CharacterSheet() {
   useEffect(() => {
     setCharacter({
           owner: "owner",
-          player: "player",
-          adventure: "adventure",
           charaName: "charaName",
           look: "look",
           backstory: "backstory",
           dwClass: "dwClass",
           race: "race",
           alignment: "alignment",
-          level: "level",
-          xp: "xp",
-          abilities: {
-            str: "str",
-            strAffliction: "strAffliction",
-            dex: "dex",
-            dexAffliction: "dexAffliction",
-            con: "con",
-            conAffliction: "conAffliction",
-            int: "int",
-            intAffliction: "intAffliction",
-            wis: "wis",
-            wisAffliction: "wisAffliction",
-            cha: "cha",
-            chaAffliction: "chaAffliction"
-          },
-          armour: "armour",
-          hp: "hp",
-          funds: "funds",
-          bonds: "bonds",
+          level: 1,
+          xp: 1,
+          abilities: [
+            {category: "str", afflicition: true},
+            {category: "dex", afflicition: false},
+            {category: "con", afflicition: false},
+            {category: "int", afflicition: false},
+            {category: "wis", afflicition: false},
+            {category: "cha", afflicition: false}
+          ],
+          armour: 1,
+          hp:1,
+          funds: 10,
+          bonds: ["bond0"],
           gear: {
-            items: "items",
-            itemsWeights: "itemsWeights"
+            items: ["item0"],
+            itemsWeights: [1]
           },
           classFeatures: {
-            classFeatures: "classFeatures",
-            classFeaturesCheckboxes: "classFeaturesCheckboxes"
+            classFeatures: ["classFeature0"],
+            classFeaturesCheckboxes: [true]
           }
         })
   }, [setCharacter]);
