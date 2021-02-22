@@ -1,7 +1,5 @@
 import React, { useContext, useEffect } from 'react';
 import GlobalState from './contexts/GlobalState';
-import '../index.css';
-import '../custom.css';
 
 function CharacterSheet() {
   const [state, setState] = useContext(GlobalState);

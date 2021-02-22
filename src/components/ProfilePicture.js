@@ -1,6 +1,4 @@
 import React from 'react';
-import '../index.css';
-import '../custom.css';
 
 function ProfilePicture(props) {
   return (<img
