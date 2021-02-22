@@ -18,13 +18,13 @@ function CharacterSheet() {
   // Setting state for Character using useEffect hook
   useEffect(() => {
     setCharacter({
-          owner: "owner",
-          charaName: "charaName",
-          look: "look",
-          backstory: "backstory",
-          dwClass: "dwClass",
-          race: "race",
-          alignment: "alignment",
+          owner: "owner@email.com",
+          charaName: "Bob",
+          look: "scraggly",
+          backstory: "sad backstory",
+          dwClass: "Class1",
+          race: "Race1",
+          alignment: "Alignment1",
           level: 1,
           xp: 1,
           abilities: [
