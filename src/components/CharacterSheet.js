@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import CharacterSheetContext from './contexts/CharacterSheetState';
+import CharacterState from './contexts/CharacterState';
 import SheetHeader from './SheetHeader'
 import BasicInfoTable from './BasicInfoTable'
 import CharacterTypeTable from './CharacterTypeTable'
@@ -8,12 +8,18 @@ import AbilitiesTable from './AbilitiesTable'
 import BondsTable from './BondsTable'
 import GearTable from './GearTable'
 import ClassFeaturesTable from './ClassFeaturesTable'
+//import useQueryString from './hooks/useQueryString'
 
 function CharacterSheet() {
 
-  const [state, setState] = useState({});
+  const [character, setCharacter] = useState({});
+  //const [groceryList, setGroceryList] = useState();
 
-  return (<CharacterSheetContext.Provider value={[state, setState]}>
+  // Use a custom hook to subscribe to the grocery list ID provided as a URL query parameter
+  //const [groceryListId, setGroceryListId] = useQueryString('listId');
+
+
+  return (<CharacterState.Provider value={[character, setCharacter]}>
     <SheetHeader/>
     <br/>
     <BasicInfoTable/>
@@ -30,7 +36,7 @@ function CharacterSheet() {
     <br/>
     <ClassFeaturesTable/>
     <br/>
-  </CharacterSheetContext.Provider>);
+  </CharacterState.Provider>);
 }
 
 export default CharacterSheet;

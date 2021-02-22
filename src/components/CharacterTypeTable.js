@@ -1,6 +1,14 @@
-import React from 'react';
+import React, {useContext, useEffect} from 'react';
+import CharacterState from './contexts/CharacterState'
 
 function CharacterTypeTable() {
+
+  // Accessing and setting charSheet using context and use effects
+  const [character, setCharacter] = useContext(CharacterState);
+  useEffect(() => {
+    setCharacter(character => ({...character, address: "dsfsdfsdfsdf"}))
+  }, [character, setCharacter]);
+  console.log(character);
 
   return (
     <table style={{
