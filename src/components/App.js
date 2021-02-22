@@ -1,5 +1,6 @@
 import React from 'react';
 import {BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import ErrorPage from './ErrorPage'
 import NavSidebar from './NavSidebar';
 import UserProfile from './UserProfile';
 import AppHeader from './AppHeader';
@@ -14,9 +15,10 @@ function App(props) {
     <Router>
       <NavSidebar/>
       <Switch>
-        <Route path="/:id" children={<CharacterSheet/>} />
-        <Route path="/:id" children={<CharacterSheet/>} />
-        <Route path="/:id" children={<CharacterSheet/>} />
+        <Route path="/" component={CharacterSheet} />
+        <Route path="/:campaign" component={CharacterSheet} />
+        <Route path="/:campaign/:character" component={CharacterSheet} />
+        <Route component={ErrorPage} />
       </Switch>
     </Router>
   </div>)
