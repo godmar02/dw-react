@@ -1,5 +1,5 @@
 {
-  "classes": ["Barbarian",
+  "dwClasses": ["Barbarian",
     "Bard",
     "Cleric",
     "Druid",
