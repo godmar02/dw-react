@@ -1,6 +1,6 @@
 import React from 'react';
 import '../index.css';
-import '../index-custom.css';
+import '../custom.css';
 
 function AppHeader() {
   return (
