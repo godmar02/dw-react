@@ -1,13 +1,6 @@
-import React, { useContext, useEffect } from 'react';
-import GlobalState from './contexts/GlobalState';
+import React from 'react';
 
-function CharacterSheet() {
-  const [state, setState] = useContext(GlobalState);
-  useEffect(() => {
-    setState(state => ({...state, address: "dsfsdfsdfsdf"}))
-  }, []);
-
-  console.log(state);
+function AbilitiesTable() {
 
   return (
      <table style={{"width":"100%"}} id="abilitiesTable">
@@ -88,4 +81,4 @@ function CharacterSheet() {
     );
 }
 
-export default CharacterSheet;
+export default AbilitiesTable;

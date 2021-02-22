@@ -11,7 +11,6 @@ class Index extends React.Component {
 
   constructor() {
     super();
-
     this.state = {
       currentUser: null
     };

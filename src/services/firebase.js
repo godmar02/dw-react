@@ -15,11 +15,46 @@ const firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 export const auth = firebase.auth();
-export const firestore = firebase.firestore();
+export const db = firebase.firestore();
 
-//Authenticate with Firebase-auth using the Google provider object
+// Authenticate with Firebase-auth using the Google provider object
 const provider = new firebase.auth.GoogleAuthProvider();
 provider.setCustomParameters({ prompt: 'select_account' });
-export const SignInWithGoogle = () => auth.signInWithPopup(provider);
+export function SignInWithGoogle() { auth.signInWithPopup(provider)};
 
+// Firestore operations
+export function createGroceryList(userName, userId) {
+    return db.collection('groceryLists')
+        .add({
+            created: firebase.firestore.FieldValue.serverTimestamp(),
+            createdBy: userId,
+            users: [{
+                userId: userId,
+                name: userName
+            }]
+        });
+};
+
+export function getGroceryList(groceryListId) {
+    return db.collection('groceryLists')
+        .doc(groceryListId)
+        .get();
+};
+
+export function getGroceryListItems(groceryListId) {
+    return db.collection('groceryLists')
+        .doc(groceryListId)
+        .collection('items')
+        .get();
+}
+
+export function streamGroceryListItems(groceryListId, observer) {
+    return db.collection('groceryLists')
+        .doc(groceryListId)
+        .collection('items')
+        .orderBy('created')
+        .onSnapshot(observer);
+};
+
+// Default Export
 export default firebase;
