@@ -21,6 +21,7 @@ function CharacterSheet() {
       name: "name1"
     })
   }, [setCharacter]);
+  console.log(character);
 
   // Use a custom hook to subscribe to the character provided as a URL query parameter
   //const [character, setCharacter] = useQueryString('character');
