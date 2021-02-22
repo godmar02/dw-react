@@ -1,6 +1,7 @@
 import React from 'react';
-import {races} from '../data/raceList'
-import {dwClasses} from '../data/classList'
+import {races} from '../data/raceList';
+import {dwClasses} from '../data/classList';
+import {alignments} from '../data/classAlignments';
 
 function CharacterTypeTable() {
 
@@ -55,7 +56,15 @@ function CharacterTypeTable() {
           <label htmlFor="alignment">ALIGNMENT</label>
         </th>
         <td>
-          <select tabIndex={-1} id="alignment"/>
+          <select tabIndex={-1} id="alignment">
+            {
+              dwClasses.map((data) => {
+                return (<option>
+                  {data}
+                </option>);
+              })
+            }
+          </select>
         </td>
         <td>
           <textarea className="grey" readOnly="readOnly" id="alignmentAttribute" defaultValue={""}/>

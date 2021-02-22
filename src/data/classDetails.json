@@ -3,7 +3,6 @@
     "damage": "d10",
     "baseHp": 8,
     "baseLoad": 8,
-    "alignments": ["Chaotic", "Neutral"],
     "alignmentAttributes": {
       "Chaotic": "You eschew a convention of the civilized world.",
       "Neutral": "Teach someone the ways of your people."
@@ -23,7 +22,6 @@
     "damage": "d6",
     "baseHp": 6,
     "baseLoad": 9,
-    "alignments": ["Good", "Neutral", "Chaotic"],
     "alignmentAttributes": {
       "Good": "Perform your art to aid someone else.",
       "Neutral": "Avoid a conflict or defuse a tense situation.",
@@ -44,7 +42,6 @@
     "damage": "d6",
     "baseHp": 6,
     "baseLoad": 10,
-    "alignments": ["Good", "Lawful", "Evil"],
     "alignmentAttributes": {
       "Good": "Endanger yourself to heal another.",
       "Lawful": "Endanger yourself following the precepts of your church or god.",
@@ -65,7 +62,6 @@
     "damage": "d6",
     "baseHp": 6,
     "baseLoad": 6,
-    "alignments": ["Chaotic", "Good", "Neutral"],
     "alignmentAttributes": {
       "Chaotic": "Destroy a symbol of civilization.",
       "Good ": "Help something or someone grow.",
@@ -86,7 +82,6 @@
     "damage": "d10",
     "baseHp": 10,
     "baseLoad": 12,
-    "alignments": ["Good", "Neutral", "Evil"],
     "alignmentAttributes": {
       "Good": "Defend those weaker than you.",
       "Neutral": "Defeat a worthy opponent.",
@@ -107,7 +102,6 @@
     "damage": "d10",
     "baseHp": 10,
     "baseLoad": 12,
-    "alignments": ["Lawful", "Good"],
     "alignmentAttributes": {
       "Lawful": "Deny mercy to a criminal or unbeliever.",
       "Good ": "Endanger yourself to protect someone weaker than you."
@@ -127,7 +121,6 @@
     "damage": "d8",
     "baseHp": 8,
     "baseLoad": 11,
-    "alignments": ["Chaotic", "Good", "Neutral"],
     "alignmentAttributes": {
       "Chaotic": "Free someone from literal or figurative bonds.",
       "Good ": "Endanger yourself to combat an unnatural threat.",
@@ -148,7 +141,6 @@
     "damage": "d8",
     "baseHp": 6,
     "baseLoad": 9,
-    "alignments": ["Chaotic", "Neutral", "Evil"],
     "alignmentAttributes": {
       "Chaotic": "Leap into danger without a plan.",
       "Neutral": "Avoid detection or infiltrate a location.",
@@ -169,7 +161,6 @@
     "damage": "d4",
     "baseHp": 4,
     "baseLoad": 7,
-    "alignments": ["Good", "Neutral", "Evil"],
     "alignmentAttributes": {
       "Good": "Use magic to directly aid another.",
       "Neutral ": "Discover something about a magical mystery.",
