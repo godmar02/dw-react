@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import CharacterState from './contexts/CharacterState';
+import { useParams } from "react-router";
 import SheetHeader from './SheetHeader'
 import BasicInfoTable from './BasicInfoTable'
 import CharacterTypeTable from './CharacterTypeTable'
@@ -11,6 +12,10 @@ import ClassFeaturesTable from './ClassFeaturesTable'
 //import useQueryString from './hooks/useQueryString'
 
 function CharacterSheet() {
+
+  let { id } = useParams();
+
+  console.log(id);
 
   // Definitions for state
   const [character, setCharacter] = useState({});

@@ -4,7 +4,7 @@
       - ProfilePicture
       - ProfileDetails
     - AppHeader - indicates to user where they are
-    - CampaignSidebar - allows user navigation
+    - NavSidebar - allows user navigation
       - CampaignDetails
         - CampaignHeader
         - CharacterList
