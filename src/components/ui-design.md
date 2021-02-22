@@ -16,3 +16,7 @@
       - CharType
       - AbilitiesTable...
     - Campaign /{campaign} GM view?
+
+
+NEED CONTEXT BASED LOADING AND SAVING OF UPDATES TO STATE
+NEED URL BASED ROUTING

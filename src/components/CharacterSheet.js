@@ -18,8 +18,44 @@ function CharacterSheet() {
   // Setting state for Character using useEffect hook
   useEffect(() => {
     setCharacter({
-      name: "name1"
-    })
+          owner: "owner",
+          player: "player",
+          adventure: "adventure",
+          charaName: "charaName",
+          look: "look",
+          backstory: "backstory",
+          dwClass: "dwClass",
+          race: "race",
+          alignment: "alignment",
+          level: "level",
+          xp: "xp",
+          abilities: {
+            str: "str",
+            strAffliction: "strAffliction",
+            dex: "dex",
+            dexAffliction: "dexAffliction",
+            con: "con",
+            conAffliction: "conAffliction",
+            int: "int",
+            intAffliction: "intAffliction",
+            wis: "wis",
+            wisAffliction: "wisAffliction",
+            cha: "cha",
+            chaAffliction: "chaAffliction"
+          },
+          armour: "armour",
+          hp: "hp",
+          funds: "funds",
+          bonds: "bonds",
+          gear: {
+            items: "items",
+            itemsWeights: "itemsWeights"
+          },
+          classFeatures: {
+            classFeatures: "classFeatures",
+            classFeaturesCheckboxes: "classFeaturesCheckboxes"
+          }
+        })
   }, [setCharacter]);
   console.log(character);
 
