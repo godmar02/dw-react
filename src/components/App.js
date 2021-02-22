@@ -1,18 +1,16 @@
-import React, {useState} from 'react';
-import GlobalState from './contexts/GlobalState';
+import React from 'react';
 import UserProfile from './UserProfile'
 import AppHeader from './AppHeader'
 import CharacterSheet from './CharacterSheet'
 
 function App(props) {
-  const [state, setState] = useState({});
   const currentUser = props.currentUser;
 
-  return (<GlobalState.Provider value={[state, setState]}>
+  return (<div>
     <UserProfile currentUser={currentUser}/>
     <AppHeader/>
     <CharacterSheet/>
-  </GlobalState.Provider>)
+  </div>)
 }
 
 export default App;

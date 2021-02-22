@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useState} from 'react';
+import CharacterSheetContext from './contexts/CharacterSheetState';
 import SheetHeader from './SheetHeader'
 import BasicInfoTable from './BasicInfoTable'
 import CharacterTypeTable from './CharacterTypeTable'
@@ -10,7 +11,9 @@ import ClassFeaturesTable from './ClassFeaturesTable'
 
 function CharacterSheet() {
 
-  return (<div>
+  const [state, setState] = useState({});
+
+  return (<CharacterSheetContext.Provider value={[state, setState]}>
     <SheetHeader/>
     <br/>
     <BasicInfoTable/>
@@ -27,7 +30,7 @@ function CharacterSheet() {
     <br/>
     <ClassFeaturesTable/>
     <br/>
-  </div>);
+  </CharacterSheetContext.Provider>);
 }
 
 export default CharacterSheet;

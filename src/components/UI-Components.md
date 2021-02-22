@@ -1,5 +1,5 @@
 - Index / - responsible for Auth
-  - App - loads app components and hold state
+  - App - loads app components
     - UserProfile - shows logged in user
       - ProfilePicture
       - ProfileDetails
@@ -11,9 +11,8 @@
         - CampaignViews
         - CampaignOptions
       - CreateCampaign
-    - CharacterSheet /{campaign}/{character}
+    - CharacterSheet /{campaign}/{character} - holds sheet state
       - CharDetails
       - CharType
       - AbilitiesTable...
     - Campaign /{campaign} GM view?
- 
