@@ -6,7 +6,7 @@ function CharacterTypeTable() {
   // Accessing and setting charSheet using context and use effects
   const [character, setCharacter] = useContext(CharacterState);
   useEffect(() => {
-    setCharacter(character => ({...character, address: "dsfsdfsdfsdf"}))
+    setCharacter(character => ({...character, address: "adress2"}))
   }, [character, setCharacter]);
   console.log(character);
 

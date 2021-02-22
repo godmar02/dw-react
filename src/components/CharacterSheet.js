@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import CharacterState from './contexts/CharacterState';
 import SheetHeader from './SheetHeader'
 import BasicInfoTable from './BasicInfoTable'
@@ -12,12 +12,19 @@ import ClassFeaturesTable from './ClassFeaturesTable'
 
 function CharacterSheet() {
 
+  // Definitions for state
   const [character, setCharacter] = useState({});
-  //const [groceryList, setGroceryList] = useState();
 
-  // Use a custom hook to subscribe to the grocery list ID provided as a URL query parameter
-  //const [groceryListId, setGroceryListId] = useQueryString('listId');
+  // Setting state for Character using useEffect hook
+  useEffect(() => {
+    setCharacter(character => ({
+      ...character,
+      address: "address1"
+    }))
+  }, [character, setCharacter]);
 
+  // Use a custom hook to subscribe to the character provided as a URL query parameter
+  //const [character, setCharacter] = useQueryString('character');
 
   return (<CharacterState.Provider value={[character, setCharacter]}>
     <SheetHeader/>
