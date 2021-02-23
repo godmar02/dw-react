@@ -55,7 +55,8 @@ In the project directory, you can run:
 - set values for read only fields
 - validation
 - sheet header
-- persistence
+- persistence / auto save
 - routes and navbar
-- Create new character
-- Create new campaign
+- Create new character pop-up
+- Create new campaign pop-up 
+
