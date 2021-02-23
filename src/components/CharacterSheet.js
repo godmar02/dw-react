@@ -31,8 +31,8 @@ function CharacterSheet() {
           dwClass: "Class1",
           race: "Race1",
           alignment: "Alignment1",
-          level: 1,
-          xp: 1,
+          level: 2,
+          xp: 2,
           abilities: [
             {category: "str", afflicition: true},
             {category: "dex", afflicition: false},
@@ -41,8 +41,8 @@ function CharacterSheet() {
             {category: "wis", afflicition: false},
             {category: "cha", afflicition: false}
           ],
-          armour: 1,
-          hp:1,
+          armour: 3,
+          hp:2,
           funds: 10,
           bonds: ["bond0"],
           gear: {

@@ -1,6 +1,10 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import CharacterState from './contexts/CharacterState';
 
 function ClassFeaturesTable() {
+
+  // Accessing and adding to character using context and useEffect
+  const [character, setCharacter] = useContext(CharacterState);
 
   return (
     <table style={{

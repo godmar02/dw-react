@@ -1,35 +1,16 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import CharacterState from './contexts/CharacterState';
 
 function SheetHeader() {
+  // Accessing and adding to character using context and useEffect
+  const [character, setCharacter] = useContext(CharacterState);
 
   return (
-    <table style={{
-        "width" : "75%"
-      }} id="sheetHeaderTable">
-      <tbody>
-        <tr>
-          <th style={{
-              "width" : "33%"
-            }}>
-            <label htmlFor="player">PLAYER</label>
-          </th>
-          <td>
-            <select tabIndex={-1} id="player"/>
-          </td>
-        </tr>
-        <tr>
-          <th style={{
-              "width" : "25%"
-            }}>
-            <label htmlFor="adventure">ADVENTURE</label>
-          </th>
-          <td>
-            <select tabIndex={-1} id="adventure"/>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    );
+    <div>
+      <div>PLAYER</div>
+      <div>ADVENTURE</div>
+      <div>{character.charaName}</div>
+    </div>);
 }
 
 export default SheetHeader;
