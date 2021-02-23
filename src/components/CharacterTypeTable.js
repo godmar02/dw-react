@@ -8,6 +8,7 @@ function CharacterTypeTable() {
 
   // Accessing and adding to character using context and useEffect
   const [character, setCharacter] = useContext(CharacterState);
+                const dwc = character.dwClass;
 
   return (
   <table style={{"width" : "100%"}} id="additionalInfoTable">
@@ -60,13 +61,11 @@ function CharacterTypeTable() {
           <select tabIndex={-1} value={character.alignment || "null"} onChange={event => setCharacter(character => ({...character,alignment: event.target.value}))}>
             <option disabled value="null" hidden />
             {
-              const dwc = character.dwClass;
-              alignments.[dwc].map((data, key) => {
-                return (
-                <option value={data} key={key}>
-                  {data}
-                </option>);
-              })
+              character.dwClass && alignments.[dwc].map((data, key) => {
+              return (
+              <option value={data} key={key}>
+                {data}
+              </option>);})
             }
           </select>
         </td>

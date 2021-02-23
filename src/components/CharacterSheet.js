@@ -30,16 +30,16 @@ function CharacterSheet() {
           backstory: "sad backstory",
           dwClass: "Paladin",
           race: "Elf",
-          alignment: "Alignment1",
+          alignment: "Good",
           level: 2,
           xp: 2,
           abilities: [
-            {category: "STR", score: 1, afflicition: "Unafflicted"},
-            {category: "DEX", score: 1, afflicition: "Unafflicted"},
-            {category: "CON", score: 1, afflicition: "Unafflicted"},
-            {category: "INT", score: 1, afflicition: "Unafflicted"},
-            {category: "WIS", score: 1, afflicition: "Unafflicted"},
-            {category: "CHA", score: 1, afflicition: "Unafflicted"}
+            {category: "STR", score: 1, affliction: "Weak"},
+            {category: "DEX", score: 1, affliction: "Unafflicted"},
+            {category: "CON", score: 1, affliction: "Unafflicted"},
+            {category: "INT", score: 1, affliction: "Unafflicted"},
+            {category: "WIS", score: 1, affliction: "Unafflicted"},
+            {category: "CHA", score: 1, affliction: "Unafflicted"}
           ],
           armour: 3,
           hp:2,

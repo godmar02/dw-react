@@ -6,6 +6,12 @@ function BondsTable() {
   // Accessing and adding to character using context and useEffect
   const [character, setCharacter] = useContext(CharacterState);
 
+  const updateBond = index => e => {
+    let newBonds = [...character.bonds]; // copying the old datas array
+    newBonds[index] = {...character.bonds[index], bond: e.target.value}; // replace e.target.value with whatever you want to change it to
+    setCharacter(character => ({...character, bonds: newBonds})); // ??
+  }
+
   return (
     <table style={{"width" : "100%"}} id="bondsTable">
       <thead>
@@ -27,6 +33,7 @@ function BondsTable() {
                  <textarea
                    placeholder="Add 2-3 bonds here"
                    value={bonds.bond}
+                   onChange={updateBond(index)}
                    />
                </td>
                <td>

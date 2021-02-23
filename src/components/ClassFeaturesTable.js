@@ -6,6 +6,18 @@ function ClassFeaturesTable() {
   // Accessing and adding to character using context and useEffect
   const [character, setCharacter] = useContext(CharacterState);
 
+  const updateFeatureCheckbox = index => e => {
+    let newFeatures = [...character.classFeatures]; // copying the old datas array
+    newFeatures[index] = {...character.classFeatures[index], checkbox: e.target.checked}; // replace e.target.value with whatever you want to change it to
+    setCharacter(character => ({...character, classFeatures: newFeatures})); // ??
+  }
+
+  const updateFeature = index => e => {
+    let newFeatures = [...character.classFeatures]; // copying the old datas array
+    newFeatures[index] = {...character.classFeatures[index], feature: e.target.value}; // replace e.target.value with whatever you want to change it to
+    setCharacter(character => ({...character, classFeatures: newFeatures})); // ??
+  }
+
   return (
     <table style={{
         "width" : "100%"
@@ -31,14 +43,14 @@ function ClassFeaturesTable() {
                  <input
                    type="checkbox"
                    className="checkbox"
-                   checked={!!classFeatures.checkbox}/>
+                   checked={!!classFeatures.checkbox}
+                   onChange={updateFeatureCheckbox(index)}/>
                </td>
                  <td>
                    <textarea
                      placeholder="Add any Class Features here (e.g. Spell Lists, Poison Recipes, Druid Balance, Paladin Quests or anything else!)"
-                     defaultValue={""}
                      value={classFeatures.feature}
-                     />
+                     onChange={updateFeature(index)}/>
                  </td>
                  <td>
                    <button

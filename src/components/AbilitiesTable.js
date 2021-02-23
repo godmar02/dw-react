@@ -7,6 +7,18 @@ function AbilitiesTable() {
   // Accessing and adding to character using context and useEffect
   const [character, setCharacter] = useContext(CharacterState);
 
+  const updateAbilityScore = index => e => {
+    let newAbilities = [...character.abilities]; // copying the old datas array
+    newAbilities[index] = {...character.abilities[index], score: e.target.value}; // replace e.target.value with whatever you want to change it to
+    setCharacter(character => ({...character, abilities: newAbilities})); // ??
+  }
+
+  const updateAbilityAffliction = index => e => {
+    let newAbilities = [...character.abilities]; // copying the old datas array
+    newAbilities[index] = {...character.abilities[index], affliction: e.target.value}; // replace e.target.value with whatever you want to change it to
+    setCharacter(character => ({...character, abilities: newAbilities})); // ??
+  }
+
   return (
      <table style={{"width":"100%"}} id="abilitiesTable">
        <thead>
@@ -37,7 +49,7 @@ function AbilitiesTable() {
                   min={1} max={18}
                   className="ability"
                   value={abilities.score}
-                  onChange={event => setCharacter(character => ({...character, score: {...character.abilities[index], score: event.target.value }}))} />
+                  onChange={updateAbilityScore(index)} />
             </td>)
            })
          }
@@ -54,7 +66,6 @@ function AbilitiesTable() {
             </td>)
            })
          }
-
          </tr>
          <tr>
            {
@@ -66,7 +77,7 @@ function AbilitiesTable() {
                   tabIndex={-1}
                   className="abilityAffliction"
                   value={abilities.affliction || "null"}
-                  >
+                  onChange={updateAbilityAffliction(index)}>
                   <option disabled value="null" hidden />
                     {
                       abilityAfflictions.[ab].map((data, key) => {
