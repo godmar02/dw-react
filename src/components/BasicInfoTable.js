@@ -5,12 +5,6 @@ function BasicInfoTable() {
 
   // Accessing and adding to character using context and useEffect
   const [character, setCharacter] = useContext(CharacterState);
-  /*useEffect(() => {
-    setCharacter(character => ({
-      ...character,
-      address: "adress"
-    }))
-  }, [setCharacter]);*/
 
   return (<table style={{"width" : "100%"}} id="basicInfoTable">
     <tbody>

@@ -16,10 +16,12 @@ function CharacterTypeTable() {
           <label style={{"width" : "25%"}} htmlFor="dwClass">CLASS</label>
         </th>
         <td style={{"width" : "25%"}}>
-          <select tabIndex={-1} id="dwClass" onChange={e => setCharacter(character => ({...character,dwClass: e.target.value}))}>
+          <select tabIndex={-1} value={character.dwClass || "null"} id="dwClass" onChange={e => setCharacter(character => ({...character,dwClass: e.target.value}))}>
+            <option disabled value="null" hidden />
             {
               dwClasses.map((data, key) => {
-                return (<option  value={data} key={key}>
+                return (
+                <option value={data} key={key}>
                   {data}
                 </option>);
               })
@@ -33,14 +35,16 @@ function CharacterTypeTable() {
           <label htmlFor="race">RACE</label>
         </th>
         <td>
-          <select tabIndex={-1} id="race" onChange={e => setCharacter(character => ({...character,race: e.target.value}))}>
-          {
-            races.map((data, key) => {
-              return (<option value={data} key={key}>
-                {data}
-              </option>);
-            })
-          }
+          <select tabIndex={-1} value={character.race || "null"} id="race" onChange={e => setCharacter(character => ({...character,race: e.target.value}))}>
+            <option disabled value="null" hidden />
+            {
+              races.map((data, key) => {
+                return (
+                <option value={data} key={key}>
+                  {data}
+                </option>);
+              })
+            }
           </select>
         </td>
         <td>
@@ -52,10 +56,12 @@ function CharacterTypeTable() {
           <label htmlFor="alignment">ALIGNMENT</label>
         </th>
         <td>
-          <select tabIndex={-1} id="alignment" onChange={e => setCharacter(character => ({...character,alignment: e.target.value}))}>
+          <select tabIndex={-1} value={character.alignment || "null"} id="alignment" onChange={e => setCharacter(character => ({...character,alignment: e.target.value}))}>
+            <option disabled value="null" hidden />
             {
               dwClasses.map((data, key) => {
-                return (<option value={data} key={key}>
+                return (
+                <option value={data} key={key}>
                   {data}
                 </option>);
               })

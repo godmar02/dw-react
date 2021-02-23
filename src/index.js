@@ -30,7 +30,7 @@ class Index extends React.Component {
 
   render() {
     return (
-      <div className='user-info'>
+      <>
         {
           this.state.currentUser ?
             (<div>
@@ -40,7 +40,7 @@ class Index extends React.Component {
             ) :
             <button onClick={FirestoreService.SignInWithGoogle}>SIGN IN WITH GOOGLE</button>
         }
-      </div >
+      </>
     );
   }
 }

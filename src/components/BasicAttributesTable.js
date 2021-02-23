@@ -6,7 +6,7 @@ function BasicAttributesTable() {
   // Accessing and adding to character using context and useEffect
   const [character, setCharacter] = useContext(CharacterState);
 
-  return (<div>
+  return (<>
     <table id="basicAttributes">
       <tbody>
         <tr>
@@ -14,13 +14,13 @@ function BasicAttributesTable() {
             <label htmlFor="level">LEVEL</label>
           </th>
           <td>
-            <input type="number" min={1} className="shortfield" defaultValue={1} id="level" value={character.level} onChange={e => setCharacter(character => ({...character,level: e.target.value}))}/>
+            <input type="number" min={1} className="shortfield" id="level" value={character.level || ''} onChange={e => setCharacter(character => ({...character,level: e.target.value}))}/>
           </td>
           <th>
             <label htmlFor="xp">XP</label>
           </th>
           <td>
-            <input type="number" min={0} className="shortfield" defaultValue={0} id="xp" value={character.xp} onChange={e => setCharacter(character => ({...character,xp: e.target.value}))}/>
+            <input type="number" min={0} className="shortfield" id="xp" value={character.xp || ''} onChange={e => setCharacter(character => ({...character,xp: e.target.value}))}/>
           </td>
           <td>
             <input type="text" className="shortfield grey" readOnly="readOnly" id="maxXp"/>
@@ -52,19 +52,21 @@ function BasicAttributesTable() {
             <input type="text" className="shortfield grey" readOnly="readOnly" id="damage"/>
           </td>
           <td>
-            <input type="number" min={0} className="shortfield" defaultValue={0} id="armour" value={character.armour} onChange={e => setCharacter(character => ({...character,armour: e.target.value}))}/>
+            <input type="number" min={0} className="shortfield" id="armour" value={character.armour || ''} onChange={e => setCharacter(character => ({...character,armour: e.target.value}))}/>
           </td>
           <td>
-            <input type="number" min={0} className="shortfield" id="hp" value={character.hp} onChange={e => setCharacter(character => ({...character,hp: e.target.value}))}/>
+            <input type="number" min={0} className="shortfield" id="hp" value={character.hp || ''} onChange={e => setCharacter(character => ({...character,hp: e.target.value}))}/>
           </td>
           <td>
             <input type="text" className="shortfield grey" readOnly="readOnly" id="maxHp"/>
           </td>
-          <td><input type="number" className="shortfield" min={0} defaultValue={0} id="funds" value={character.funds} onChange={e => setCharacter(character => ({...character,funds: e.target.value}))}/></td>
+          <td>
+            <input type="number" className="shortfield" min={0} id="funds" value={character.funds || ''} onChange={e => setCharacter(character => ({...character,funds: e.target.value}))}/>
+          </td>
         </tr>
       </tbody>
     </table>
-  </div>);
+  </>);
 }
 
 export default BasicAttributesTable;

@@ -9,7 +9,7 @@ import CharacterSheet from './CharacterSheet';
 function App(props) {
   const currentUser = props.currentUser;
 
-  return (<div>
+  return (<>
     <UserProfile currentUser={currentUser}/>
     <AppHeader/>
     <Router>
@@ -21,7 +21,7 @@ function App(props) {
         <Route component={ErrorPage} />
       </Switch>
     </Router>
-  </div>)
+  </>)
 }
 
 export default App;

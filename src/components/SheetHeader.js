@@ -7,9 +7,7 @@ function SheetHeader() {
 
   return (
     <div>
-      <div>PLAYER</div>
-      <div>ADVENTURE</div>
-      <div>{character.charaName}</div>
+      <div>Adventure: {character.charaName} ({character.owner})</div>
     </div>);
 }
 

@@ -75,57 +75,6 @@ $(document).ready(function() {
     return total;
   }
 
-  function expandAll() {
-    var questionCount = 3;
-    var expand = true;
-
-    if ($("#expandAll0").text() == "+ Expand all") {
-      expand = true;
-    } else {
-      expand = false;
-    }
-
-    if (expand == true) {
-      //Expand Everything
-      // change Expand All indicators
-      $(".expandIndicator").text("-");
-      $(".answerContainer").attr("style", "display: block;");
-      $(".expandAll").text("- Collapse all");
-      answersExpanded = questionCount;
-    } else {
-      //Collapse Everything
-      $(".expandIndicator").text("+");
-      $(".answerContainer").attr("style", "display: none;");
-      $(".expandAll").text("+ Expand all");
-      answersExpanded = 0;
-    }
-  }
-
-  function expandcontainer(identifier) {
-    var expandIndicator = "expandIndicator" + identifier;
-    var answerContainer = "answerContainer" + identifier;
-    var answerCount = 3;
-
-    if ($("#" + expandIndicator).text() == "+") {
-      //Expand Answer Container
-      $("#" + expandIndicator).text("-");
-      $("#" + answerContainer).attr("style", "display: block;");
-      answersExpanded++;
-      if (answersExpanded == answerCount) {
-        //All answers expanded
-        $(".expandAll").text("- Collapse all");
-      }
-    } else {
-      //Collapse Answer Container
-      $("#" + expandIndicator).text("+");
-      $("#" + answerContainer).attr("style", "display: none;");
-      answersExpanded--;
-      if (answersExpanded != answerCount) {
-        $(".expandAll").text("+ Expand all");
-      }
-    }
-  }
-
   function setHeight(textareaID) {
     var textarea = $("#" + textareaID);
     if (debug == true) {
@@ -304,25 +253,6 @@ $(document).ready(function() {
     } else {
       console.warn("deleteRow() - Cannot delete last row:", tableID);
     }
-  }
-
-  function setPlayerOptions() {
-    $.ajax({
-      url: "/data/playerList.json",
-      dataType: 'json',
-      async: false,
-      success: function(data) {
-        $("#player").empty();
-        $("#player").append("<option hidden disabled selected value='null'></option>");
-        players = data.players;
-        if (debug == true) {
-          console.info("setPlayerOptions() - players:", players);
-        }
-        $.each(players, function(index, value) {
-          $("#player").append(new Option(value, value));
-        });
-      }
-    });
   }
 
   function setAdventureOptions() {
@@ -1122,33 +1052,6 @@ $(document).ready(function() {
 
   $(document).on("click", ".loadCharacter", function() {
     loadCharacter();
-  });
-
-  $(document).on("click", ".faqLink", function() {
-    document.body.scrollTop = document.documentElement.scrollTop = 0;
-    $("#main").hide();
-    $("#faq").show();
-  });
-
-  $(document).on("click", ".expandAll", function() {
-    expandAll();
-  });
-
-  $(document).on("click", ".question", function() {
-    var question = $(this).attr("id");
-    var identifier = question.slice(-1);
-    if (debug == true) {
-      console.info("$(.question).click() - question:", question);
-      console.info("$(.question).click() - identifier:", identifier);
-    }
-
-    expandcontainer(identifier);
-  });
-
-  $(document).on("click", ".sheetLink", function() {
-    document.body.scrollTop = document.documentElement.scrollTop = 0;
-    $("#main").show();
-    $("#faq").hide();
   });
 
   $(".profPicture").hover(function() {

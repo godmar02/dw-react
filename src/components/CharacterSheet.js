@@ -28,8 +28,8 @@ function CharacterSheet() {
           charaName: "Bob",
           look: "scraggly",
           backstory: "sad backstory",
-          dwClass: "Class1",
-          race: "Race1",
+          dwClass: "Paladin",
+          race: "Elf",
           alignment: "Alignment1",
           level: 2,
           xp: 2,
@@ -44,15 +44,15 @@ function CharacterSheet() {
           armour: 3,
           hp:2,
           funds: 10,
-          bonds: ["bond0"],
-          gear: {
-            items: ["item0"],
-            itemsWeights: [1]
-          },
-          classFeatures: {
-            classFeatures: ["classFeature0"],
-            classFeaturesCheckboxes: [true]
-          }
+          bonds: ["bond0", "bond1"],
+          gear: [
+            {item: "item0", weight: 1},
+            {item: "item1", weight: 2}
+          ],
+          classFeatures: [
+            {feature: "classFeature0", checkbox: true},
+            {feature: "classFeature1", checkbox: false},
+          ]
         })
   }, [setCharacter]);
   console.log(character);
@@ -60,7 +60,8 @@ function CharacterSheet() {
   // Use a custom hook to subscribe to the character provided as a URL query parameter
   //const [character, setCharacter] = useQueryString('character');
 
-  return (<CharacterState.Provider value={[character, setCharacter]}>
+  return (
+  <CharacterState.Provider value={[character, setCharacter]}>
     <SheetHeader/>
     <br/>
     <BasicInfoTable/>
