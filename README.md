@@ -56,3 +56,15 @@ In the project directory, you can run:
 ## Learn More
 
 - You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+## To Do
+- component breakup
+- set null alignments on changing race
+- trigger state change for alignment when race changes
+- set values for read only fields
+- validation
+- sheet header
+- persistence
+- routes and navbar
+- Create new character
+- Create new campaign
