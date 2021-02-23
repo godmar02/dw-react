@@ -34,17 +34,20 @@ function CharacterSheet() {
           level: 2,
           xp: 2,
           abilities: [
-            {category: "str", afflicition: true},
-            {category: "dex", afflicition: false},
-            {category: "con", afflicition: false},
-            {category: "int", afflicition: false},
-            {category: "wis", afflicition: false},
-            {category: "cha", afflicition: false}
+            {category: "STR", score: 1, afflicition: "Unafflicted"},
+            {category: "DEX", score: 1, afflicition: "Unafflicted"},
+            {category: "CON", score: 1, afflicition: "Unafflicted"},
+            {category: "INT", score: 1, afflicition: "Unafflicted"},
+            {category: "WIS", score: 1, afflicition: "Unafflicted"},
+            {category: "CHA", score: 1, afflicition: "Unafflicted"}
           ],
           armour: 3,
           hp:2,
           funds: 10,
-          bonds: ["bond0", "bond1"],
+          bonds: [
+            {bond: "bond0"},
+            {bond: "bond1"}
+          ],
           gear: [
             {item: "item0", weight: 1},
             {item: "item1", weight: 2}

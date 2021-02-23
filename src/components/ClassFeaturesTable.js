@@ -23,17 +23,31 @@ function ClassFeaturesTable() {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>
-            <input type="checkbox" className="checkbox" id="classFeatureCheckbox0"/>
-          </td>
-          <td>
-            <textarea placeholder="Add any Class Features here (e.g. Spell Lists, Poison Recipes, Druid Balance, Paladin Quests or anything else!)" id="classFeature0" defaultValue={""}/>
-          </td>
-          <td>
-            <button type="button" className="deleteRow" id="deleteClassFeature0"/>
-          </td>
-        </tr>
+          {
+           character.classFeatures && character.classFeatures.map((classFeatures,index) => {
+           return (
+             <tr key={index}>
+               <td>
+                 <input
+                   type="checkbox"
+                   className="checkbox"
+                   checked={!!classFeatures.checkbox}/>
+               </td>
+                 <td>
+                   <textarea
+                     placeholder="Add any Class Features here (e.g. Spell Lists, Poison Recipes, Druid Balance, Paladin Quests or anything else!)"
+                     defaultValue={""}
+                     value={classFeatures.feature}
+                     />
+                 </td>
+                 <td>
+                   <button
+                     type="button"
+                     className="deleteRow"/>
+                 </td>
+             </tr>)
+          })
+        }
       </tbody>
       <tfoot/>
     </table>

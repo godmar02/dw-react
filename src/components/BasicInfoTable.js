@@ -13,7 +13,7 @@ function BasicInfoTable() {
           <label htmlFor="backstory">BACKSTORY</label>
         </th>
         <td>
-          <textarea placeholder="Describe your character's backstory and anything else about your characters identity here" id="backstory" defaultValue={""} value={character.backstory} onChange={e => setCharacter(character => ({...character,backstory: e.target.value}))}/>
+          <textarea placeholder="Describe your character's backstory and anything else about your characters identity here" defaultValue={""} value={character.backstory} onChange={event => setCharacter(character => ({...character,backstory: event.target.value}))}/>
         </td>
       </tr>
       <tr>
@@ -21,7 +21,7 @@ function BasicInfoTable() {
           <label htmlFor="look">LOOK</label>
         </th>
         <td>
-          <textarea placeholder="Describe your character's appearance here" id="look" defaultValue={""} value={character.look} onChange={e => setCharacter(character => ({...character,look: e.target.value}))}/>
+          <textarea placeholder="Describe your character's appearance here" defaultValue={""} value={character.look} onChange={event => setCharacter(character => ({...character,look: event.target.value}))}/>
         </td>
       </tr>
     </tbody>

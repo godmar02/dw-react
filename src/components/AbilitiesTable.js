@@ -1,5 +1,6 @@
 import React, {useContext} from 'react';
 import CharacterState from './contexts/CharacterState';
+import {abilityAfflictions} from '../data/abilityAfflictions';
 
 function AbilitiesTable() {
 
@@ -10,75 +11,75 @@ function AbilitiesTable() {
      <table style={{"width":"100%"}} id="abilitiesTable">
        <thead>
          <tr>
-           <th><label htmlFor="str">STR</label></th>
-           <th><label htmlFor="dex">DEX</label></th>
-           <th><label htmlFor="con">CON</label></th>
-           <th><label htmlFor="int">INT</label></th>
-           <th><label htmlFor="wis">WIS</label></th>
-           <th><label htmlFor="cha">CHA</label></th>
+           {
+            character.abilities && character.abilities.map((abilities, index) => {
+            return (
+              <th key={index}>
+                <label
+                  htmlFor={abilities.category}
+                  value={abilities.category}
+                  key={index}>
+                  {abilities.category}
+                </label>
+              </th>)
+           })
+         }
          </tr>
        </thead>
        <tbody>
          <tr>
-           <td>
-             <input type="number" min={1} max={18} className="ability" id="str" /></td>
-           <td>
-             <input type="number" min={1} max={18} className="ability" id="dex" /></td>
-           <td>
-             <input type="number" min={1} max={18} className="ability" id="con" /></td>
-           <td>
-             <input type="number" min={1} max={18} className="ability" id="int" /></td>
-           <td>
-             <input type="number" min={1} max={18} className="ability" id="wis" /></td>
-           <td>
-             <input type="number" min={1} max={18} className="ability" id="cha" />
-           </td>
+           {
+            character.abilities && character.abilities.map((abilities, index) => {
+            return (
+              <td key={index}>
+                <input
+                  type="number"
+                  min={1} max={18}
+                  className="ability"
+                  value={abilities.score}
+                  onChange={event => setCharacter(character => ({...character, score: {...character.abilities[index], score: event.target.value }}))} />
+            </td>)
+           })
+         }
          </tr>
          <tr>
-           <td>
-             <input type="text" className="grey tallfield" readOnly id="strModifier" />
-           </td>
-           <td>
-             <input type="text" className="grey tallfield" readOnly id="dexModifier" />
-           </td>
-           <td>
-             <input type="text" className="grey tallfield" readOnly id="conModifier" />
-           </td>
-           <td>
-             <input type="text" className="grey tallfield" readOnly id="intModifier" />
-           </td>
-           <td>
-             <input type="text" className="grey tallfield" readOnly id="wisModifier" />
-           </td>
-           <td>
-             <input type="text" className="grey tallfield" readOnly id="chaModifier" />
-           </td>
+           {
+            character.abilities && character.abilities.map((abilities, index) => {
+            return (
+              <td key={index}>
+                <input
+                  type="text"
+                  className="grey tallfield"
+                  readOnly />
+            </td>)
+           })
+         }
+
          </tr>
          <tr>
-           <td>
-             <select tabIndex={-1} className="abilityAffliction" id="strAffliction">
-             </select>
-           </td>
-           <td>
-             <select tabIndex={-1} className="abilityAffliction" id="dexAffliction">
-             </select>
-           </td>
-           <td>
-             <select tabIndex={-1} className="abilityAffliction" id="conAffliction">
-             </select>
-           </td>
-           <td>
-             <select tabIndex={-1} className="abilityAffliction" id="intAffliction">
-             </select>
-           </td>
-           <td>
-             <select tabIndex={-1} className="abilityAffliction" id="wisAffliction">
-             </select>
-           </td>
-           <td>
-             <select tabIndex={-1} className="abilityAffliction" id="chaAffliction">
-             </select>
-           </td>
+           {
+            character.abilities && character.abilities.map((abilities,index) => {
+            const ab = abilities.category;
+            return (
+              <td key={index}>
+                <select
+                  tabIndex={-1}
+                  className="abilityAffliction"
+                  value={abilities.affliction || "null"}
+                  >
+                  <option disabled value="null" hidden />
+                    {
+                      abilityAfflictions.[ab].map((data, key) => {
+                        return (
+                        <option value={data} key={key}>
+                          {data}
+                        </option>);
+                      })
+                    }
+                </select>
+              </td>)
+           })
+         }
          </tr>
        </tbody>
      </table>

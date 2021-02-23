@@ -21,13 +21,31 @@ function GearTable() {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>
-            <textarea placeholder="Add any items and descriptions here" id="item0" defaultValue={""} />
-          </td>
-          <td colSpan={2}><input type="number" min={0} id="itemWeight0" /></td>
-          <td><button type="button" className="deleteRow" id="deleteItem0" /></td>
-        </tr>
+        {
+         character.gear && character.gear.map((gear,index) => {
+         return (
+           <tr key={index}>
+               <td>
+                 <textarea
+                   placeholder="Add any items and descriptions here"
+                   defaultValue={""}
+                   value={gear.item}
+                   />
+               </td>
+               <td colSpan={2}>
+                 <input
+                   type="number"
+                   min={0}
+                   value={gear.weight}/>
+               </td>
+               <td>
+                 <button
+                   type="button"
+                   className="deleteRow"/>
+               </td>
+           </tr>)
+        })
+      }
       </tbody>
       <tfoot>
         <tr>

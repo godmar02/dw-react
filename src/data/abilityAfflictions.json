@@ -1,8 +1,10 @@
 {
-  "strength": ["Unafflicted","Weak"],
-  "dexterity": ["Unafflicted","Shaky"],
-  "constitution": ["Unafflicted","Sick"],
-  "intelligence": ["Unafflicted","Stunned"],
-  "wisdom": ["Unafflicted","Confused"],
-  "charisma": ["Unafflicted","Scarred"]
+  "abilityAfflictions": {
+    "STR": ["Unafflicted", "Weak"],
+    "DEX": ["Unafflicted", "Shaky"],
+    "CON": ["Unafflicted", "Sick"],
+    "INT": ["Unafflicted", "Stunned"],
+    "WIS": ["Unafflicted", "Confused"],
+    "CHA": ["Unafflicted", "Scarred"]
+  }
 }

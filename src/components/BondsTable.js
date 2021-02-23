@@ -19,14 +19,24 @@ function BondsTable() {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>
-            <textarea placeholder="Add 2-3 bonds here" id="bond0" defaultValue={""}/>
-          </td>
-          <td>
-            <button type="button" className="deleteRow" id="deleteBond0"/>
-          </td>
-        </tr>
+        {
+         character.bonds && character.bonds.map((bonds,index) => {
+         return (
+           <tr key={index}>
+               <td>
+                 <textarea
+                   placeholder="Add 2-3 bonds here"
+                   value={bonds.bond}
+                   />
+               </td>
+               <td>
+                 <button
+                   type="button"
+                   className="deleteRow"/>
+               </td>
+           </tr>)
+        })
+      }
       </tbody>
       <tfoot/>
     </table>
