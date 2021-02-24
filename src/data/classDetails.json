@@ -65,8 +65,8 @@
       "baseLoad": 6,
       "alignmentAttributes": {
         "Chaotic": "Destroy a symbol of civilization.",
-        "Good ": "Help something or someone grow.",
-        "Neutral ": "Eliminate an unnatural menace."
+        "Good": "Help something or someone grow.",
+        "Neutral": "Eliminate an unnatural menace."
       },
       "raceAttributes": {
         "Dwarf": "When you share a drink with someone, you may parley with them using CON instead of CHA.",
@@ -86,7 +86,7 @@
       "alignmentAttributes": {
         "Good": "Defend those weaker than you.",
         "Neutral": "Defeat a worthy opponent.",
-        "Evil ": "Kill a defenseless or surrendered enemy."
+        "Evil": "Kill a defenseless or surrendered enemy."
       },
       "raceAttributes": {
         "Dwarf": "Undefined",
@@ -105,7 +105,7 @@
       "baseLoad": 12,
       "alignmentAttributes": {
         "Lawful": "Deny mercy to a criminal or unbeliever.",
-        "Good ": "Endanger yourself to protect someone weaker than you."
+        "Good": "Endanger yourself to protect someone weaker than you."
       },
       "raceAttributes": {
         "Dwarf": "Undefined",
@@ -124,8 +124,8 @@
       "baseLoad": 11,
       "alignmentAttributes": {
         "Chaotic": "Free someone from literal or figurative bonds.",
-        "Good ": "Endanger yourself to combat an unnatural threat.",
-        "Neutral ": "Help an animal or spirit of the wild."
+        "Good": "Endanger yourself to combat an unnatural threat.",
+        "Neutral": "Help an animal or spirit of the wild."
       },
       "raceAttributes": {
         "Dwarf": "Undefined",
@@ -145,7 +145,7 @@
       "alignmentAttributes": {
         "Chaotic": "Leap into danger without a plan.",
         "Neutral": "Avoid detection or infiltrate a location.",
-        "Evil ": "Shift danger or blame from yourself to someone else."
+        "Evil": "Shift danger or blame from yourself to someone else."
       },
       "raceAttributes": {
         "Dwarf": "Undefined",
@@ -164,8 +164,8 @@
       "baseLoad": 7,
       "alignmentAttributes": {
         "Good": "Use magic to directly aid another.",
-        "Neutral ": "Discover something about a magical mystery.",
-        "Evil ": "Use magic to cause terror and fear."
+        "Neutral": "Discover something about a magical mystery.",
+        "Evil": "Use magic to cause terror and fear."
       },
       "raceAttributes": {
         "Dwarf": "Undefined",

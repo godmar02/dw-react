@@ -1,10 +1,13 @@
 import React, {useContext} from 'react';
 import CharacterState from './contexts/CharacterState';
+import {classDetails} from '../data/classDetails';
 
 function GearTable() {
 
   // Accessing and adding to character using context and useEffect
   const [character, setCharacter] = useContext(CharacterState);
+
+  const dwc = character.dwClass;
 
   // State manipulation
   const updateItem = index => e => {
@@ -88,7 +91,12 @@ function GearTable() {
         <tr>
           <th><label htmlFor="load">LOAD</label></th>
           <td><input type="text" className="grey" readOnly id="load" /></td>
-          <td><input type="text" className="grey" readOnly id="maxLoad" /></td>
+          <td>
+            { (character.dwClass && character.abilities)
+            ? <input type="text" className="shortfield grey" readOnly="readOnly" value={"/ " + (classDetails.[dwc].baseLoad + parseInt(character.abilities.find(x => x.category === 'STR').score ,10)) || ''} />
+            : <input type="text" className="shortfield grey" readOnly="readOnly" value="" />
+            }
+          </td>
           <td />
         </tr>
       </tfoot>

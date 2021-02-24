@@ -45,7 +45,10 @@ function CharacterTypeTable() {
           <label htmlFor="race">RACE</label>
         </th>
         <td>
-          <select tabIndex={-1} value={character.race || "null"} onChange={event => setCharacter(character => ({...character,race: event.target.value}))}>
+          <select
+            tabIndex={-1}
+            value={character.race || "null"}
+            onChange={event => setCharacter(character => ({...character,race: event.target.value}))}>
             <option disabled value="null" hidden />
             {
               races.map((data, key) => {
@@ -69,7 +72,10 @@ function CharacterTypeTable() {
           <label htmlFor="alignment">ALIGNMENT</label>
         </th>
         <td>
-          <select tabIndex={-1} value={character.alignment || "null"} onChange={event => setCharacter(character => ({...character,alignment: event.target.value}))}>
+          <select
+            tabIndex={-1}
+            value={character.alignment || "null"}
+            onChange={event => setCharacter(character => ({...character,alignment: event.target.value}))}>
             <option disabled value="null" hidden />
             {
               character.dwClass && alignments.[dwc].map((data, key) => {

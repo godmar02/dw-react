@@ -49,7 +49,8 @@ In the project directory, you can run:
 - You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 ## To Do
-- set values for read only fields (alignment attribute, max-xp, maxHP, load etc)
+- set ability modifiers
+- set maxload correctly (based upon str modifier not str?)
 - validation (Load, Ability Total)
 - sheet header (bar)
 - persistence / auto save

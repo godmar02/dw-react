@@ -17,7 +17,7 @@ function CharacterSheet() {
   // retrieve URL parameters for usage
   let { campaign } = useParams();
 
-  console.log("campaign",campaign);
+  console.log("campaign:",campaign);
 
   // Definitions for state
   const [character, setCharacter] = useState({});

@@ -1,6 +1,3 @@
-  // variables
-  var debug = true;
-  var answersExpanded = 0;
   var abilityErrors = false;
   var loadErrors = false;
 
@@ -86,127 +83,6 @@
     textarea.outerHeight(newHeight);
   }
 
-  function reindexBodyRows(tableID) {
-
-    if (debug == true) {
-      console.info("reindexBodyRows() - Reindexing table body:", tableID);
-    }
-
-    var tableBody = $("#" + tableID + " tbody");
-    var bodyRows = tableBody.children("tr");
-    var bodyRowsCount = bodyRows.length;
-    var templateRow = bodyRows.get(0);
-    var bodyColCount = templateRow.cells.length;
-
-    if (debug == true) {
-      console.info("reindexBodyRows() - bodyRowsCount:", bodyRowsCount);
-    }
-    if (debug == true) {
-      console.info("reindexBodyRows() - bodyColCount:", bodyColCount);
-    }
-
-    for (var i = 0; i < bodyRowsCount; i++) {
-      for (var j = 0; j < bodyColCount; j++) {
-
-        if (debug == true) {
-          console.info("reindexBodyRows() - Row / Column: " + i + " / " + j);
-        }
-        // set new ID based upon triming existing cellid of format itemN
-        var templateCell = templateRow.cells[j];
-        var templateCellID = templateCell.children[0].id;
-        if (debug == true) {
-          console.info("reindexBodyRows() - templateCellID:", templateCellID);
-        }
-        var templateCellIDPrefix = templateCellID.slice(0, -1);
-        if (debug == true) {
-          console.info("reindexBodyRows() - templateCellIDPrefix: " + templateCellIDPrefix);
-        }
-        var cell = tableBody.get(0).rows[i].cells[j];
-        var newCellID = templateCellIDPrefix + i;
-        if (debug == true) {
-          console.info("reindexBodyRows() - newCellID:", newCellID);
-        }
-        cell.children[0].id = newCellID;
-
-      }
-    }
-  }
-
-  function addRow(tableID) {
-
-    // This works for any generic row but also assumes that any table row cells
-    // you are copying has an id of format id="tableid0" etc so that it
-    // can be incremented by 1 each time
-    // Note table items are zero indexed
-    var tableBody = $("#" + tableID + " tbody");
-    var bodyRows = tableBody.children("tr");
-    var bodyRowsCount = bodyRows.length;
-    var templateRow = bodyRows.get(0);
-    var newRowColCount = templateRow.cells.length;
-    var newRowID = bodyRowsCount;
-
-    if (debug == true) {
-      console.info("addRow() - tableID:", tableID);
-      console.info("addRow() - bodyRowsCount:", bodyRowsCount);
-      console.info("addRow() - newRowColCount:", newRowColCount);
-      console.info("addRow() - newRowID:", newRowID);
-    }
-
-    // to insert single row at end of tbody
-    var newRow = tableBody.get(0).insertRow(-1);
-
-    // to create columns in new row
-    for (var i = 0; i < newRowColCount; i++) {
-
-      if (debug == true) {
-        console.info("addRow() - column:", i);
-      }
-
-      // to insert one column
-      var newCell = newRow.insertCell(i);
-      var templateCell = templateRow.cells[i];
-
-      // set to same as first data row
-      newCell.innerHTML = templateCell.innerHTML;
-
-      // set new ID based upon triming existing cellid of format itemN
-      var templateCellID = templateCell.children[0].id;
-      var templateCellIDPrefix = templateCellID.slice(0, -1);
-      var newCellID = templateCellIDPrefix + newRowID;
-      if (debug == true) {
-        console.info("addRow() - templateCellID:", templateCellID);
-      }
-      if (debug == true) {
-        console.info("addRow() - templateCellIDPrefix:", templateCellIDPrefix);
-      }
-      if (debug == true) {
-        console.info("addRow() - newCellID:", newCellID);
-      }
-      newCell.children[0].id = newCellID;
-
-      // set colspan
-      var templateCellColSpan = templateCell.getAttribute("colspan");
-      if (debug == true) {
-        console.info("addRow() - templateCellColSpan:", templateCellColSpan);
-      }
-      newCell.setAttribute("colspan", templateCellColSpan);
-
-      // Blank or uncheck content
-      newCell.children[0].value = "";
-
-      // Ensure textarea heights are reset
-      if (debug == true) {
-        console.info("addRow() - newCell.children[0].type:", newCell.children[0].type);
-      }
-      if (newCell.children[0].type == "textarea") {
-        if (debug == true) {
-          console.info("addRow() - resetting height:", true);
-        }
-        setHeight(newCellID);
-      }
-    }
-  }
-
   function setTotalLoad() {
     //add weight together and display in load
     var tableBody = $("#gearTable tbody");
@@ -232,43 +108,6 @@
     }
 
     $("#load").val(totalload);
-  }
-
-  function deleteRow(tableID, rowID) {
-    var tableBody = $("#" + tableID + " tbody");
-    var bodyRows = tableBody.children("tr");
-    var bodyRowsCount = bodyRows.length;
-    if (debug == true) {
-      console.info("deleteRow() - bodyRowsCount:", bodyRowsCount);
-    }
-    if (bodyRowsCount != 1) {
-      if (debug == true) {
-        console.info("deleteRow() - Deleting Row:", rowID);
-      }
-      tableBody.get(0).deleteRow(rowID);
-      reindexBodyRows(tableID);
-    } else {
-      console.warn("deleteRow() - Cannot delete last row:", tableID);
-    }
-  }
-
-  function setAdventureOptions() {
-    $.ajax({
-      url: "/data/adventureList.json",
-      dataType: 'json',
-      async: false,
-      success: function(data) {
-        $("#adventure").empty();
-        $("#adventure").append("<option hidden disabled selected value='null'></option>");
-        adventures = data.adventures;
-        if (debug == true) {
-          console.info("setAdventureOptions() - adventures:", adventures);
-        }
-        $.each(adventures, function(index, value) {
-          $("#adventure").append(new Option(value, value));
-        });
-      }
-    });
   }
 
   function validateLoad() {
@@ -409,28 +248,6 @@
     }
   }
 
-  function setRaceAttribute() {
-
-    var dwClass = $("#dwClass").val();
-    var race = $("#race").val();
-    var raceAttribute = "";
-
-    $.ajax({
-      url: "/data/classDetails.json",
-      dataType: 'json',
-      async: false,
-      success: function(data) {
-        if (dwClass && race) {
-          raceAttribute = data[dwClass].raceAttributes[race];
-          $("#raceAttribute").val(raceAttribute);
-        } else {
-          $("#raceAttribute").val("");
-        }
-        setHeight("raceAttribute");
-      }
-    });
-  }
-
   function setDamage() {
 
     var dwClass = $("#dwClass").val();
@@ -452,36 +269,6 @@
         }
       }
     });
-  }
-
-  function setAlignmentAttribute() {
-
-    var dwClass = $("#dwClass").val();
-    var alignmentAttribute = "";
-    var alignment = $("#alignment").val();
-
-    $.ajax({
-      url: "/data/classDetails.json",
-      dataType: 'json',
-      async: false,
-      success: function(data) {
-        alignment = $("#alignment").val();
-        if (dwClass && alignment) {
-          alignmentAttribute = data[dwClass].alignmentAttributes[alignment];
-          $("#alignmentAttribute").val(alignmentAttribute);
-        } else {
-          $("#alignmentAttribute").val("");
-        }
-        setHeight("alignmentAttribute");
-      }
-    });
-  }
-
-  function setOptions() {
-    setPlayerOptions();
-    setAdventureOptions();
-    setDwClassOptions();
-    setRaceOptions();
   }
 
   function clearRows(tableID) {

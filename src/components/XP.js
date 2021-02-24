@@ -17,7 +17,7 @@ function XP() {
             <input type="number" min={0} className="shortfield" id="xp" value={character.xp || ''} onChange={event => setCharacter(character => ({...character,xp: event.target.value}))}/>
           </td>
           <td>
-            <input type="text" className="shortfield grey" readOnly="readOnly" id="maxXp"/>
+            <input type="text" className="shortfield grey" readOnly="readOnly" value={"/ " + (parseInt(character.level,10) + 7) || ''} />
           </td>
         </tr>
       </tbody>

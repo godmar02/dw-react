@@ -4,10 +4,11 @@ import XP from './XP'
 
 function BasicAttributesTable() {
 
-  return (<div className='myForm'>
+  return (
+    <div className='myForm'>
         <div><Level/></div>
-          <div><XP/></div>
-  </div>);
+        <div><XP/></div>
+    </div>);
 }
 
 export default BasicAttributesTable;
