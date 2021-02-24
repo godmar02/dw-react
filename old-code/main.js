@@ -1,6 +1,3 @@
-/*jshint esversion: 6 */
-$(document).ready(function() {
-
   // variables
   var debug = true;
   var answersExpanded = 0;
@@ -274,44 +271,6 @@ $(document).ready(function() {
     });
   }
 
-  function setDwClassOptions() {
-    $.ajax({
-      url: "/data/classList.json",
-      dataType: 'json',
-      async: false,
-      success: function(data) {
-        $("#dwClass").empty();
-        $("#dwClass").append("<option hidden disabled selected value='null'></option>");
-        classes = data.classes;
-        if (debug == true) {
-          console.info("setDwClassOptions() - classes:", classes);
-        }
-        $.each(classes, function(index, value) {
-          $("#dwClass").append(new Option(value, value));
-        });
-      }
-    });
-  }
-
-  function setRaceOptions() {
-    $.ajax({
-      url: "/data/raceList.json",
-      dataType: 'json',
-      async: false,
-      success: function(data) {
-        $("#race").empty();
-        $("#race").append("<option hidden disabled selected value='null'></option>");
-        races = data.races;
-        if (debug == true) {
-          console.info("setRaceOptions() - races:", races);
-        }
-        $.each(races, function(index, value) {
-          $("#race").append(new Option(value, value));
-        });
-      }
-    });
-  }
-
   function validateLoad() {
     var load = parseInt($("#load").val(), 10);
     var maxLoad = parseInt($("#maxLoad").val().replace("/ ", ""), 10);
@@ -490,28 +449,6 @@ $(document).ready(function() {
           $("#damage").val(damage);
         } else {
           $("#damage").val("");
-        }
-      }
-    });
-  }
-
-  function setAlignmentOptions() {
-    $.ajax({
-      url: "/data/classDetails.json",
-      dataType: 'json',
-      async: false,
-      success: function(data) {
-        $("#alignment").empty();
-        $("#alignment").append("<option hidden disabled selected value='null'></option>");
-        var dwClass = $("#dwClass").val();
-        if (dwClass) {
-          alignments = data[dwClass].alignments;
-          if (debug == true) {
-            console.info("setAlignmentOptions() - alignments:", alignments);
-          }
-          $.each(alignments, function(index, value) {
-            $("#alignment").append(new Option(value, value));
-          });
         }
       }
     });
@@ -1042,22 +979,8 @@ $(document).ready(function() {
     setHeight(textareaID);
   });
 
-  $(document).on("click", ".clearCharacter", function() {
-    location.reload(true);
-  });
-
-  $(document).on("click", ".saveCharacter", function() {
-    saveCharacter();
-  });
-
-  $(document).on("click", ".loadCharacter", function() {
-    loadCharacter();
-  });
-
   $(".profPicture").hover(function() {
     $(".profDetails").show();
   }, function() {
     $(".profDetails").hide();
   });
-
-});

@@ -1,7 +1,7 @@
 import React, {useContext, useEffect} from 'react';
 import CharacterState from './contexts/CharacterState';
 
-function BasicInfoTable() {
+function CharacterDetailsTable() {
 
   // Accessing and adding to character using context and useEffect
   const [character, setCharacter] = useContext(CharacterState);
@@ -28,4 +28,4 @@ function BasicInfoTable() {
   </table>);
 }
 
-export default BasicInfoTable;
+export default CharacterDetailsTable;

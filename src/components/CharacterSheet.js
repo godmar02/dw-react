@@ -2,9 +2,10 @@ import React, {useState, useEffect} from 'react';
 import CharacterState from './contexts/CharacterState';
 import { useParams } from "react-router";
 import SheetHeader from './SheetHeader'
-import BasicInfoTable from './BasicInfoTable'
+import CharacterDetailsTable from './CharacterDetailsTable'
 import CharacterTypeTable from './CharacterTypeTable'
 import BasicAttributesTable from './BasicAttributesTable'
+import ExtraAttributes from './ExtraAttributes'
 import AbilitiesTable from './AbilitiesTable'
 import BondsTable from './BondsTable'
 import GearTable from './GearTable'
@@ -67,11 +68,13 @@ function CharacterSheet() {
   <CharacterState.Provider value={[character, setCharacter]}>
     <SheetHeader/>
     <br/>
-    <BasicInfoTable/>
+    <CharacterDetailsTable/>
     <br/>
     <CharacterTypeTable/>
     <br/>
     <BasicAttributesTable/>
+    <br/>
+    <ExtraAttributes/>
     <br/>
     <AbilitiesTable/>
     <br/>

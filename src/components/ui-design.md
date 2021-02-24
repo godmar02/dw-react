@@ -12,11 +12,20 @@
         - CampaignOptions
       - CreateCampaign
     - CharacterSheet /{campaign}/{character} - holds sheet state
-      - CharDetails
-      - CharType
-      - AbilitiesTable...
+      - AbilitiesTable
+      - BasicAttributesTable
+        - Level
+        - XP
+      - BasicInfoTable
+      - BondsTable
+      - CharacterDetailsTable
+      - CharacterTypeTable
+      - ClassFeaturesTables
+      - ExtraAttributes
+        - Damage
+        - Armour
+        - HP
+        - Funds    
+      - GearTable
+      - SheetHeader
     - Campaign /{campaign} GM view?
-
-
-NEED CONTEXT BASED LOADING AND SAVING OF UPDATES TO STATE
-NEED URL BASED ROUTING
