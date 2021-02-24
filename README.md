@@ -49,14 +49,11 @@ In the project directory, you can run:
 - You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 ## To Do
-- component breakup
-- set null alignments on changing race
-- trigger state change for alignment when race changes
+- set null alignments on changing race and trigger state change
 - set values for read only fields
 - validation
 - sheet header
 - persistence / auto save
 - routes and navbar
 - Create new character pop-up
-- Create new campaign pop-up 
-
+- Create new campaign pop-up

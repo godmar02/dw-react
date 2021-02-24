@@ -8,7 +8,7 @@ function CharacterTypeTable() {
 
   // Accessing and adding to character using context and useEffect
   const [character, setCharacter] = useContext(CharacterState);
-                const dwc = character.dwClass;
+  const dwc = character.dwClass;
 
   return (
   <table style={{"width" : "100%"}} id="additionalInfoTable">
@@ -18,7 +18,12 @@ function CharacterTypeTable() {
           <label style={{"width" : "25%"}} htmlFor="dwClass">CLASS</label>
         </th>
         <td style={{"width" : "25%"}}>
-          <select tabIndex={-1} value={character.dwClass || "null"} onChange={event => setCharacter(character => ({...character,dwClass: event.target.value}))}>
+          <select
+            tabIndex={-1}
+            value={character.dwClass || "null"}
+            onChange={event => {
+              setCharacter(character => ({...character,dwClass: event.target.value}));
+              setCharacter(character => ({...character,alignment: "null"}))}}>
             <option disabled value="null" hidden />
             {
               dwClasses.map((data, key) => {
