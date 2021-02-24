@@ -6,16 +6,17 @@ function ClassFeaturesTable() {
   // Accessing and adding to character using context and useEffect
   const [character, setCharacter] = useContext(CharacterState);
 
+  // State manipulation
   const updateFeatureCheckbox = index => e => {
-    let newFeatures = [...character.classFeatures]; // copying the old datas array
-    newFeatures[index] = {...character.classFeatures[index], checkbox: e.target.checked}; // replace e.target.value with whatever you want to change it to
-    setCharacter(character => ({...character, classFeatures: newFeatures})); // ??
+    let newFeatures = [...character.classFeatures]; // copying the old array
+    newFeatures[index] = {...character.classFeatures[index], checkbox: e.target.checked}; // replace value
+    setCharacter(character => ({...character, classFeatures: newFeatures})); // set array back
   }
 
   const updateFeature = index => e => {
-    let newFeatures = [...character.classFeatures]; // copying the old datas array
-    newFeatures[index] = {...character.classFeatures[index], feature: e.target.value}; // replace e.target.value with whatever you want to change it to
-    setCharacter(character => ({...character, classFeatures: newFeatures})); // ??
+    let newFeatures = [...character.classFeatures]; // copying the old array
+    newFeatures[index] = {...character.classFeatures[index], feature: e.target.value}; // replace value
+    setCharacter(character => ({...character, classFeatures: newFeatures})); // set array back
   }
 
   return (

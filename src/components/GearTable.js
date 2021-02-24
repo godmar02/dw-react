@@ -6,16 +6,17 @@ function GearTable() {
   // Accessing and adding to character using context and useEffect
   const [character, setCharacter] = useContext(CharacterState);
 
+  // State manipulation
   const updateItem = index => e => {
-    let newItems = [...character.gear]; // copying the old datas array
-    newItems[index] = {...character.gear[index], item: e.target.value}; // replace e.target.value with whatever you want to change it to
-    setCharacter(character => ({...character, gear: newItems}));
+    let newItems = [...character.gear]; // copying the old array
+    newItems[index] = {...character.gear[index], item: e.target.value}; // replace value
+    setCharacter(character => ({...character, gear: newItems})); // set array back
   }
 
   const updateItemWeight = index => e => {
-    let newItems = [...character.gear]; // copying the old datas array
-    newItems[index] = {...character.gear[index], weight: e.target.value}; // replace e.target.value with whatever you want to change it to
-    setCharacter(character => ({...character, gear: newItems}));
+    let newItems = [...character.gear]; // copying the old array
+    newItems[index] = {...character.gear[index], weight: e.target.value}; // replace value
+    setCharacter(character => ({...character, gear: newItems})); // set array back
   }
 
   return (

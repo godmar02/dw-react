@@ -6,10 +6,24 @@ function BondsTable() {
   // Accessing and adding to character using context and useEffect
   const [character, setCharacter] = useContext(CharacterState);
 
+  // State manipulation
   const updateBond = index => e => {
-    let newBonds = [...character.bonds]; // copying the old datas array
-    newBonds[index] = {...character.bonds[index], bond: e.target.value}; // replace e.target.value with whatever you want to change it to
-    setCharacter(character => ({...character, bonds: newBonds})); // ??
+    let newBonds = [...character.bonds]; // copying the old array
+    newBonds[index] = {...character.bonds[index], bond: e.target.value}; // replace value
+    setCharacter(character => ({...character, bonds: newBonds})); // set array back
+  }
+
+  const deleteBondRow = index => {
+    const newBonds = [...character.bonds]; // copying the old array
+    if (index !== -1) { //don't delete last row
+      newBonds.splice(index, 1); // remove item from array
+      setCharacter(character => ({...character, bonds: newBonds})); // set array back
+    }
+  }
+
+  const addBondsRow = () => {
+    const newBonds = [...character.bonds, {bond: ""}];
+    setCharacter(character => ({...character, bonds: newBonds})); // set array back
   }
 
   return (
@@ -20,7 +34,12 @@ function BondsTable() {
             <label>BONDS</label>
           </th>
           <td>
-            <button type="button" className="addRow" id="addBond">+</button>
+            <button
+              type="button"
+              className="addRow"
+              onClick={() => addBondsRow()}>
+              +
+            </button>
           </td>
         </tr>
       </thead>
@@ -39,7 +58,8 @@ function BondsTable() {
                <td>
                  <button
                    type="button"
-                   className="deleteRow"/>
+                   className="deleteRow"
+                   onClick={() => deleteBondRow(index)}/>
                </td>
            </tr>)
         })
