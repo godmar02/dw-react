@@ -19,6 +19,23 @@ function ClassFeaturesTable() {
     setCharacter(character => ({...character, classFeatures: newFeatures})); // set array back
   }
 
+  // Delete rows in the table
+  const deleteFeatureRow = index => {
+    const newFeatures = [...character.classFeatures]; // copying the old array
+    if (character.classFeatures.length !== 1) { //don't delete last row
+      newFeatures.splice(index, 1); // remove item from array
+      setCharacter(character => ({...character, classFeatures: newFeatures})); // set array back
+    } else {
+      alert('Cannot delete final row');
+    }
+  }
+
+  // Add rows in the table
+  const addFeatureRow = () => {
+    const newFeatures = [...character.classFeatures, {feature: "", checkbox: false}]; // copying the old array and adding blank item
+    setCharacter(character => ({...character, classFeatures: newFeatures})); // set array back
+  }
+
   return (
     <table style={{
         "width" : "100%"
@@ -31,7 +48,12 @@ function ClassFeaturesTable() {
             <label>CLASS FEATURES</label>
           </th>
           <td>
-            <button type="button" className="addRow" id="addClassFeature">+</button>
+            <button
+              type="button"
+              className="addRow"
+              onClick={() => addFeatureRow()}>
+              +
+            </button>
           </td>
         </tr>
       </thead>
@@ -56,7 +78,8 @@ function ClassFeaturesTable() {
                  <td>
                    <button
                      type="button"
-                     className="deleteRow"/>
+                     className="deleteRow"
+                     onClick={() => deleteFeatureRow(index)}/>
                  </td>
              </tr>)
           })

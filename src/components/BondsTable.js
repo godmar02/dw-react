@@ -13,16 +13,20 @@ function BondsTable() {
     setCharacter(character => ({...character, bonds: newBonds})); // set array back
   }
 
+  // Delete rows in the table
   const deleteBondRow = index => {
     const newBonds = [...character.bonds]; // copying the old array
-    if (index !== -1) { //don't delete last row
+    if (character.bonds.length !== 1) { //don't delete last row
       newBonds.splice(index, 1); // remove item from array
       setCharacter(character => ({...character, bonds: newBonds})); // set array back
+    } else {
+      alert('Cannot delete final row');
     }
   }
 
+  // Add rows in the table
   const addBondsRow = () => {
-    const newBonds = [...character.bonds, {bond: ""}];
+    const newBonds = [...character.bonds, {bond: ""}]; // copying the old array and adding blank item
     setCharacter(character => ({...character, bonds: newBonds})); // set array back
   }
 

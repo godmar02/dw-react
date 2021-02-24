@@ -19,6 +19,24 @@ function GearTable() {
     setCharacter(character => ({...character, gear: newItems})); // set array back
   }
 
+  // Delete rows in the table
+  const deleteItemRow = index => {
+    const newItems = [...character.gear]; // copying the old array
+    if (character.gear.length !== 1) { //don't delete last row
+      newItems.splice(index, 1); // remove item from array
+      setCharacter(character => ({...character, gear: newItems})); // set array back
+    } else {
+      alert('Cannot delete final row');
+    }
+  }
+
+  // Add rows in the table
+  const addItemRow = () => {
+    const newItems = [...character.gear, {item: "", weight: ""}]; // copying the old array and adding blank item
+    setCharacter(character => ({...character, gear: newItems})); // set array back
+  }
+  //,
+
   return (
     <table style={{"width":"100%"}} id="gearTable">
       <thead>
@@ -29,7 +47,12 @@ function GearTable() {
           <th style={{"width":"100%"}}><label>ITEM</label></th>
           <th colSpan={2}><label>WEIGHT</label></th>
           <td>
-            <button type="button" className="addRow" id="addItem">+</button>
+            <button
+              type="button"
+              className="addRow"
+              onClick={() => addItemRow()}>
+              +
+            </button>
           </td>
         </tr>
       </thead>
@@ -54,7 +77,8 @@ function GearTable() {
                <td>
                  <button
                    type="button"
-                   className="deleteRow"/>
+                   className="deleteRow"
+                   onClick={() => deleteItemRow(index)}/>
                </td>
            </tr>)
         })
