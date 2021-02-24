@@ -6,7 +6,10 @@ function XP() {
   // Accessing and adding to character using context and useEffect
   const [character, setCharacter] = useContext(CharacterState);
 
-  return (<>
+  return (
+    <table>
+      <tbody>
+        <tr>
           <th>
             <label htmlFor="xp">XP</label>
           </th>
@@ -16,7 +19,9 @@ function XP() {
           <td>
             <input type="text" className="shortfield grey" readOnly="readOnly" id="maxXp"/>
           </td>
-  </>);
+        </tr>
+      </tbody>
+    </table>);
 }
 
 export default XP;
