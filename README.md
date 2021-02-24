@@ -52,7 +52,7 @@ In the project directory, you can run:
 - set ability modifiers
 - set damage
 - set maxload correctly (based upon str modifier not str?)
-- validation (Load, Ability Total)
+- validation (Load, xp, hp,Ability Total)
 - sheet header (bar)
 - persistence / auto save
 - routes and navbar
