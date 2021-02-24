@@ -17,7 +17,7 @@ function CharacterSheet() {
   // retrieve URL parameters for usage
   let { campaign } = useParams();
 
-  console.log(campaign);
+  console.log("campaign",campaign);
 
   // Definitions for state
   const [character, setCharacter] = useState({});
@@ -59,7 +59,7 @@ function CharacterSheet() {
           ]
         })
   }, [setCharacter]);
-  console.log(character);
+  console.log("character state:",character);
 
   // Use a custom hook to subscribe to the character provided as a URL query parameter
   //const [character, setCharacter] = useQueryString('character');

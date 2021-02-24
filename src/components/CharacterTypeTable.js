@@ -3,12 +3,15 @@ import CharacterState from './contexts/CharacterState';
 import {races} from '../data/raceList';
 import {dwClasses} from '../data/classList';
 import {alignments} from '../data/classAlignments';
+import {classDetails} from '../data/classDetails';
 
 function CharacterTypeTable() {
 
   // Accessing and adding to character using context and useEffect
   const [character, setCharacter] = useContext(CharacterState);
   const dwc = character.dwClass;
+  const alig = character.alignment;
+  const race = character.race;
 
   return (
   <table style={{"width" : "100%"}} id="additionalInfoTable">
@@ -55,7 +58,10 @@ function CharacterTypeTable() {
           </select>
         </td>
         <td>
-          <textarea className="grey" readOnly="readOnly" defaultValue={""}/>
+          {(character.dwClass && character.race)
+            ? <textarea className="grey" readOnly="readOnly" value={classDetails.[dwc].raceAttributes.[race]}/>
+            : <textarea className="grey" readOnly="readOnly" defaultValue={""}/>
+          }
         </td>
       </tr>
       <tr>
@@ -75,7 +81,10 @@ function CharacterTypeTable() {
           </select>
         </td>
         <td>
-          <textarea className="grey" readOnly="readOnly" defaultValue={""}/>
+          {(character.dwClass && character.alignment)
+            ? <textarea className="grey" readOnly="readOnly" value={classDetails.[dwc].alignmentAttributes.[alig]}/>
+            : <textarea className="grey" readOnly="readOnly" defaultValue={""}/>
+          }
         </td>
       </tr>
     </tbody>

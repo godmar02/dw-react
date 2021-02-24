@@ -49,10 +49,9 @@ In the project directory, you can run:
 - You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 ## To Do
-- set null alignments on changing race and trigger state change
-- set values for read only fields
-- validation
-- sheet header
+- set values for read only fields (alignment attribute, max-xp, maxHP, load etc)
+- validation (Load, Ability Total)
+- sheet header (bar)
 - persistence / auto save
 - routes and navbar
 - Create new character pop-up
