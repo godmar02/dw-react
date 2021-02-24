@@ -50,6 +50,7 @@ In the project directory, you can run:
 
 ## To Do
 - set ability modifiers
+- set damage
 - set maxload correctly (based upon str modifier not str?)
 - validation (Load, Ability Total)
 - sheet header (bar)
