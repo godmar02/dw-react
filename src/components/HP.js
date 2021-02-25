@@ -8,6 +8,13 @@ function HP() {
   const [character, setCharacter] = useContext(CharacterState);
 
   const dwc = character.dwClass;
+  const maxHp = () => {
+    if (character.dwClass && character.abilities) {
+      return ("/ " + (classDetails.[dwc].baseHp + parseInt(character.abilities.find(x => x.category === 'CON').score ,10)));
+    } else {
+      return ('');
+    }
+  };
 
   return (
     <table id="hp">
@@ -24,10 +31,7 @@ function HP() {
             <input type="number" min={0} className="shortfield" id="hp" value={character.hp || ''} onChange={event => setCharacter(character => ({...character,hp: event.target.value}))}/>
           </td>
           <td>
-            { (character.dwClass && character.abilities)
-            ? <input type="text" className="shortfield grey" readOnly="readOnly" value={"/ " + (classDetails.[dwc].baseHp + parseInt(character.abilities.find(x => x.category === 'CON').score ,10)) || ''} />
-            : <input type="text" className="shortfield grey" readOnly="readOnly" value="" />
-            }
+            <input type="text" className="shortfield grey" readOnly="readOnly" value={maxHp()} />
           </td>
         </tr>
       </tbody>

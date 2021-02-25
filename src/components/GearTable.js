@@ -6,8 +6,22 @@ function GearTable() {
 
   // Accessing and adding to character using context and useEffect
   const [character, setCharacter] = useContext(CharacterState);
-
   const dwc = character.dwClass;
+  const totalLoad = () => {
+    if (character.gear) {
+      return (character.gear.reduce((totalLoad,data) => totalLoad + parseInt(data.weight,10) ,0));
+    } else {
+      return ('');
+    }
+  };
+
+  const maxLoad = () => {
+    if (character.dwClass && character.abilities) {
+      return ("/ " + (classDetails.[dwc].baseLoad + parseInt(character.abilities.find(x => x.category === 'STR').score ,10)));
+    } else {
+      return ('');
+    }
+  };
 
   // State manipulation
   const updateItem = index => e => {
@@ -90,12 +104,11 @@ function GearTable() {
       <tfoot>
         <tr>
           <th><label htmlFor="load">LOAD</label></th>
-          <td><input type="text" className="grey" readOnly id="load" /></td>
           <td>
-            { (character.dwClass && character.abilities)
-            ? <input type="text" className="shortfield grey" readOnly="readOnly" value={"/ " + (classDetails.[dwc].baseLoad + parseInt(character.abilities.find(x => x.category === 'STR').score ,10)) || ''} />
-            : <input type="text" className="shortfield grey" readOnly="readOnly" value="" />
-            }
+            <input type="number" className="shortfield grey" readOnly value={totalLoad()} />
+          </td>
+          <td>
+            <input type="text" className="shortfield grey" readOnly="readOnly" value={maxLoad()} />
           </td>
           <td />
         </tr>

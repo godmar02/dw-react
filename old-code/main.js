@@ -83,33 +83,6 @@
     textarea.outerHeight(newHeight);
   }
 
-  function setTotalLoad() {
-    //add weight together and display in load
-    var tableBody = $("#gearTable tbody");
-    var bodyRows = tableBody.children("tr");
-    var bodyRowsCount = bodyRows.length;
-    var totalload = 0;
-    var itemload = 0;
-    if (debug == true) {
-      console.info("setTotalLoad() - gearTable bodyRowsCount:" + bodyRowsCount);
-    }
-    for (var i = 0; i < bodyRowsCount; i++) {
-      if (debug == true) {
-        console.info("setTotalLoad() - itemID: itemWeight" + i);
-      }
-      itemload = parseInt($("#itemWeight" + i).val(), 10);
-      if (itemload) {
-        totalload = totalload + itemload;
-        if (debug == true) {
-          console.info("setTotalLoad() - itemload:", itemload);
-          console.info("setTotalLoad() - totalload:", totalload);
-        }
-      }
-    }
-
-    $("#load").val(totalload);
-  }
-
   function validateLoad() {
     var load = parseInt($("#load").val(), 10);
     var maxLoad = parseInt($("#maxLoad").val().replace("/ ", ""), 10);
@@ -175,6 +148,33 @@
     }
   }
 
+  function setTotalLoad() {
+    //add weight together and display in load
+    var tableBody = $("#gearTable tbody");
+    var bodyRows = tableBody.children("tr");
+    var bodyRowsCount = bodyRows.length;
+    var totalload = 0;
+    var itemload = 0;
+    if (debug == true) {
+      console.info("setTotalLoad() - gearTable bodyRowsCount:" + bodyRowsCount);
+    }
+    for (var i = 0; i < bodyRowsCount; i++) {
+      if (debug == true) {
+        console.info("setTotalLoad() - itemID: itemWeight" + i);
+      }
+      itemload = parseInt($("#itemWeight" + i).val(), 10);
+      if (itemload) {
+        totalload = totalload + itemload;
+        if (debug == true) {
+          console.info("setTotalLoad() - itemload:", itemload);
+          console.info("setTotalLoad() - totalload:", totalload);
+        }
+      }
+    }
+
+    $("#load").val(totalload);
+  }
+
   function setMaxLoad() {
     var dwClass = $("#dwClass").val();
     var strModifier = parseInt($("#strModifier").val().replace(/\[|\]/g, ""), 10);
@@ -205,47 +205,6 @@
         }
       }
     });
-  }
-
-  function setMaxHp() {
-
-    var dwClass = $("#dwClass").val();
-    var con = parseInt($("#con").val(), 10);
-    var baseHp = 0;
-    var maxHp = 0;
-
-    $.ajax({
-      url: "/data/classDetails.json",
-      dataType: 'json',
-      async: false,
-      success: function(data) {
-        if (dwClass && con) {
-          baseHp = parseInt(data[dwClass].baseHp, 10);
-          if (debug == true) {
-            console.info("setMaxHp() - baseHp:", baseHp);
-          }
-          maxHp = baseHp + con;
-          if (debug == true) {
-            console.info("setMaxHp() - maxHp:", maxHp);
-          }
-          $("#maxHp").val("/ " + maxHp);
-          validateXp();
-        } else {
-          $("#maxHp").val("");
-        }
-      }
-    });
-  }
-
-  function setMaxXp() {
-    var lvl = $("#level").val();
-    if (lvl) {
-      var maxXp = parseInt(lvl, 10) + 7;
-      $("#maxXp").val("/ " + maxXp);
-      validateXp();
-    } else {
-      $("#maxXp").val("");
-    }
   }
 
   function setDamage() {
@@ -674,40 +633,11 @@
   }
 
   // Set various drop down options and size cells
-  setOptions();
   setHeight("bond0");
   setHeight("item0");
   setHeight("classFeature0");
 
   //listener functions
-  $(document).on("change", "#dwClass, #race, #alignment", function() {
-
-    var change = $(this).attr("id");
-
-    if (debug == true) {
-      console.info("$(#dwClass, #race, #alignment).change() - change:", change);
-    }
-
-    // Set stuff
-    setRaceAttribute();
-    setMaxLoad();
-    setMaxHp();
-    setDamage();
-
-    // Set alignment options if class is changing
-    if (change == "dwClass") {
-      setAlignmentOptions();
-    }
-
-    // Set alignment attribute
-    setAlignmentAttribute();
-
-  });
-
-  $(document).on("change", "#level", function() {
-    setMaxXp();
-  });
-
   $(document).on("change", "#xp", function() {
     validateXp();
   });
@@ -722,10 +652,6 @@
     setMaxLoad();
   });
 
-  $(document).on("change", "#con", function() {
-    setMaxHp();
-  });
-
   $(document).on("change", "#hp", function() {
     validateHp();
   });
@@ -733,29 +659,6 @@
   $(document).on("change", "[id^=itemWeight]", function() {
     setTotalLoad();
     validateLoad();
-  });
-
-  $(document).on("click", ".addRow", function() {
-    var tableID = $(this).closest("table").attr("id");
-    if (debug == true) {
-      console.info("$(.addRow).click() - tableID:", tableID);
-    }
-    addRow(tableID);
-  });
-
-  $(document).on("click", ".deleteRow", function() {
-    var tableID = $(this).closest("table").attr("id");
-    var rowID = $(this).attr("id");
-    var row = rowID.slice(-1);
-    if (debug == true) {
-      console.info("$(.deleteRow).click() - tableID:", tableID);
-      console.info("$(.deleteRow).click() - rowID:", rowID);
-      console.info("$(.deleteRow).click() - row:", row);
-    }
-    deleteRow(tableID, row);
-    if (tableID == "gearTable") {
-      setTotalLoad();
-    }
   });
 
   $(document).on("keypress", "textarea", function() {

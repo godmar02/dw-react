@@ -13,6 +13,22 @@ function CharacterTypeTable() {
   const alig = character.alignment;
   const race = character.race;
 
+  const raceAttributes = () => {
+    if (character.dwClass && character.race) {
+      return (classDetails.[dwc].raceAttributes.[race]);
+    } else {
+      return ('');
+    }
+  };
+
+  const alignmentAttributes = () => {
+    if (character.dwClass && character.alignment) {
+      return (classDetails.[dwc].alignmentAttributes.[alig]);
+    } else {
+      return ('');
+    }
+  };
+
   return (
   <table style={{"width" : "100%"}} id="additionalInfoTable">
     <tbody>
@@ -61,10 +77,7 @@ function CharacterTypeTable() {
           </select>
         </td>
         <td>
-          {(character.dwClass && character.race)
-            ? <textarea className="grey" readOnly="readOnly" value={classDetails.[dwc].raceAttributes.[race]}/>
-            : <textarea className="grey" readOnly="readOnly" defaultValue={""}/>
-          }
+          <textarea className="grey" readOnly="readOnly" value={raceAttributes()}/>
         </td>
       </tr>
       <tr>
@@ -87,10 +100,7 @@ function CharacterTypeTable() {
           </select>
         </td>
         <td>
-          {(character.dwClass && character.alignment)
-            ? <textarea className="grey" readOnly="readOnly" value={classDetails.[dwc].alignmentAttributes.[alig]}/>
-            : <textarea className="grey" readOnly="readOnly" defaultValue={""}/>
-          }
+          <textarea className="grey" readOnly="readOnly" value={alignmentAttributes()}/>
         </td>
       </tr>
     </tbody>
