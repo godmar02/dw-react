@@ -6,6 +6,15 @@ function XP() {
   // Accessing and adding to character using context and useEffect
   const [character, setCharacter] = useContext(CharacterState);
 
+  // Total Load
+  const calcXp = () => {
+    if (character.level) {
+      return ("/ " + (parseInt(character.level,10) + 7));
+    } else {
+      return ('');
+    }
+  };
+
   return (
     <table>
       <tbody>
@@ -17,7 +26,7 @@ function XP() {
             <input type="number" min={0} className="shortfield" id="xp" value={character.xp || ''} onChange={event => setCharacter(character => ({...character,xp: event.target.value}))}/>
           </td>
           <td>
-            <input type="text" className="shortfield grey" readOnly="readOnly" value={"/ " + (parseInt(character.level,10) + 7) || ''} />
+            <input type="text" className="shortfield grey" readOnly="readOnly" value={calcXp()} />
           </td>
         </tr>
       </tbody>

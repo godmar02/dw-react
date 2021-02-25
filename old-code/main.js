@@ -41,19 +41,7 @@
         stringModifier = modifier;
       }
 
-      if (debug == true) {
-        console.info("setModifier() - ability:", ability);
-        console.info("setModifier() - abilityScore:", abilityScore);
-        console.info("setModifier() - abilityAffliction:", abilityAffliction);
-        console.info("setModifier() - afflicted:", afflicted);
-        console.info("setModifier() - modifier:", modifier);
-        console.info("setModifier() - stringModifier:", stringModifier);
-      }
-
       $("#" + ability + "Modifier").val("[ " + stringModifier + " ]");
-    } else {
-      $("#" + ability + "Modifier").val("");
-    }
   }
 
   function singleRoll(sides) {
@@ -148,33 +136,6 @@
     }
   }
 
-  function setTotalLoad() {
-    //add weight together and display in load
-    var tableBody = $("#gearTable tbody");
-    var bodyRows = tableBody.children("tr");
-    var bodyRowsCount = bodyRows.length;
-    var totalload = 0;
-    var itemload = 0;
-    if (debug == true) {
-      console.info("setTotalLoad() - gearTable bodyRowsCount:" + bodyRowsCount);
-    }
-    for (var i = 0; i < bodyRowsCount; i++) {
-      if (debug == true) {
-        console.info("setTotalLoad() - itemID: itemWeight" + i);
-      }
-      itemload = parseInt($("#itemWeight" + i).val(), 10);
-      if (itemload) {
-        totalload = totalload + itemload;
-        if (debug == true) {
-          console.info("setTotalLoad() - itemload:", itemload);
-          console.info("setTotalLoad() - totalload:", totalload);
-        }
-      }
-    }
-
-    $("#load").val(totalload);
-  }
-
   function setMaxLoad() {
     var dwClass = $("#dwClass").val();
     var strModifier = parseInt($("#strModifier").val().replace(/\[|\]/g, ""), 10);
@@ -202,29 +163,6 @@
           validateLoad();
         } else {
           $("#maxLoad").val("");
-        }
-      }
-    });
-  }
-
-  function setDamage() {
-
-    var dwClass = $("#dwClass").val();
-    var damage = "";
-
-    $.ajax({
-      url: "/data/classDetails.json",
-      dataType: 'json',
-      async: false,
-      success: function(data) {
-        if (dwClass) {
-          damage = data[dwClass].damage;
-          if (debug == true) {
-            console.info("setDamage() - damage:", damage);
-          }
-          $("#damage").val(damage);
-        } else {
-          $("#damage").val("");
         }
       }
     });

@@ -7,17 +7,51 @@ function GearTable() {
   // Accessing and adding to character using context and useEffect
   const [character, setCharacter] = useContext(CharacterState);
   const dwc = character.dwClass;
+
+  // Total Load
   const totalLoad = () => {
     if (character.gear) {
-      return (character.gear.reduce((totalLoad,data) => totalLoad + parseInt(data.weight,10) ,0));
+      return (character.gear.reduce((totalLoad,data) => totalLoad + parseInt((data.weight || 0),10) ,0));
     } else {
       return ('');
     }
   };
 
+  // Max Load
   const maxLoad = () => {
-    if (character.dwClass && character.abilities) {
-      return ("/ " + (classDetails.[dwc].baseLoad + parseInt(character.abilities.find(x => x.category === 'STR').score ,10)));
+    let str = character.abilities.find(x => x.category === 'STR');
+    if (character.dwClass && str.score && str.affliction) {
+      let baseModifier;
+      let abilityAffliction = str.affliction;
+      let abilityScore = parseInt(str.score,10);
+      let afflicted;
+
+      if ([1, 2, 3].indexOf(abilityScore) > -1) {
+        baseModifier = -3;
+      } else if ([4, 5].indexOf(abilityScore) > -1) {
+        baseModifier = -2;
+      } else if ([6, 7, 8].indexOf(abilityScore) > -1) {
+        baseModifier = -1;
+      } else if ([9, 10, 11, 12].indexOf(abilityScore) > -1) {
+        baseModifier = 0;
+      } else if ([13, 14, 15].indexOf(abilityScore) > -1) {
+        baseModifier = 1;
+      } else if ([16, 17].indexOf(abilityScore) > -1) {
+        baseModifier = 2;
+      } else if (abilityScore === 18) {
+        baseModifier = 3;
+      }
+
+      /*-1 if afflicted*/
+      if (abilityAffliction === "Unafflicted") {
+        afflicted = 0;
+      } else {
+        afflicted = 1;
+      }
+
+      let modifier = (baseModifier - afflicted);
+
+      return ("/ " + (classDetails.[dwc].baseLoad + modifier));
     } else {
       return ('');
     }
