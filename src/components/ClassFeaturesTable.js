@@ -66,6 +66,7 @@ function ClassFeaturesTable() {
                  <input
                    type="checkbox"
                    className="checkbox"
+                   name={"classFeatureCheckbox" + index}
                    checked={!!classFeatures.checkbox}
                    onChange={updateFeatureCheckbox(index)}/>
                </td>
@@ -73,6 +74,7 @@ function ClassFeaturesTable() {
                    <textarea
                      placeholder="Add any Class Features here (e.g. Spell Lists, Poison Recipes, Druid Balance, Paladin Quests or anything else!)"
                      value={classFeatures.feature}
+                     name={"classFeature" + index}
                      onChange={updateFeature(index)}/>
                  </td>
                  <td>

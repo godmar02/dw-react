@@ -56,6 +56,7 @@ function BondsTable() {
                  <textarea
                    placeholder="Add 2-3 bonds here"
                    value={bonds.bond}
+                   name={"bond" + index}
                    onChange={updateBond(index)}
                    />
                </td>

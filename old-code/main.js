@@ -1,49 +1,6 @@
   var abilityErrors = false;
   var loadErrors = false;
 
-  // generic functions
-  function setModifier(ability) {
-    var abilityScore = parseInt($("#" + ability).val(), 10);
-    var abilityAffliction = $("#" + ability + "Affliction").val();
-    var afflicted = 0;
-
-    if (abilityScore && abilityAffliction) {
-      var baseModifier = 0;
-      if ([1, 2, 3].indexOf(abilityScore) > -1) {
-        baseModifier = -3;
-      } else if ([4, 5].indexOf(abilityScore) > -1) {
-        baseModifier = -2;
-      } else if ([6, 7, 8].indexOf(abilityScore) > -1) {
-        baseModifier = -1;
-      } else if ([9, 10, 11, 12].indexOf(abilityScore) > -1) {
-        baseModifier = 0;
-      } else if ([13, 14, 15].indexOf(abilityScore) > -1) {
-        baseModifier = 1;
-      } else if ([16, 17].indexOf(abilityScore) > -1) {
-        baseModifier = 2;
-      } else if (abilityScore == 18) {
-        baseModifier = 3;
-      }
-
-      /*-1 if afflicted*/
-      if (abilityAffliction == "Unafflicted") {
-        afflicted = 0;
-      } else {
-        afflicted = 1;
-      }
-
-      var modifier = baseModifier - afflicted;
-      var stringModifier = "";
-
-      if (modifier > 0) {
-        stringModifier = "+" + modifier;
-      } else {
-        stringModifier = modifier;
-      }
-
-      $("#" + ability + "Modifier").val("[ " + stringModifier + " ]");
-  }
-
   function singleRoll(sides) {
     var roll = Math.floor(Math.random() * sides) + 1;
     return roll;
@@ -134,38 +91,6 @@
       alert("validateHp() - " + hp + "hp exceeds maximum permitted value of " + maxHp);
       $("#hp").val(maxHp);
     }
-  }
-
-  function setMaxLoad() {
-    var dwClass = $("#dwClass").val();
-    var strModifier = parseInt($("#strModifier").val().replace(/\[|\]/g, ""), 10);
-    var baseLoad = 0;
-    var maxLoad = 0;
-
-    $.ajax({
-      url: "/data/classDetails.json",
-      dataType: 'json',
-      async: false,
-      success: function(data) {
-        //Set maxLoad
-        if (dwClass && strModifier) {
-          baseLoad = parseInt(data[dwClass].baseLoad, 10);
-          maxLoad = baseLoad + strModifier;
-
-          if (debug == true) {
-            console.info("setMaxLoad() - dwClass:", dwClass);
-            console.info("setMaxLoad() - strModifier:", strModifier);
-            console.info("setMaxLoad() - baseLoad:", baseLoad);
-            console.info("setMaxLoad() - maxLoad:", maxLoad);
-          }
-
-          $("#maxLoad").val("/ " + maxLoad);
-          validateLoad();
-        } else {
-          $("#maxLoad").val("");
-        }
-      }
-    });
   }
 
   function clearRows(tableID) {
@@ -569,35 +494,6 @@
       alert("saveCharacter() - Cannot save because Player, Adventure and Character are not populated");
     }
   }
-
-  // Set various drop down options and size cells
-  setHeight("bond0");
-  setHeight("item0");
-  setHeight("classFeature0");
-
-  //listener functions
-  $(document).on("change", "#xp", function() {
-    validateXp();
-  });
-
-  $(document).on("change", ".ability, .abilityAffliction", function() {
-    var ability = $(this).attr("id").replace("Affliction", "");
-    setModifier(ability);
-    validateAbilityScore();
-  });
-
-  $(document).on("change", "#str", function() {
-    setMaxLoad();
-  });
-
-  $(document).on("change", "#hp", function() {
-    validateHp();
-  });
-
-  $(document).on("change", "[id^=itemWeight]", function() {
-    setTotalLoad();
-    validateLoad();
-  });
 
   $(document).on("keypress", "textarea", function() {
     var textareaID = this.id;

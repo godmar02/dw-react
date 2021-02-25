@@ -28,10 +28,10 @@ function HP() {
       <tbody>
         <tr>
           <td>
-            <input type="number" min={0} className="shortfield" id="hp" value={character.hp || ''} onChange={event => setCharacter(character => ({...character,hp: event.target.value}))}/>
+            <input type="number" min={0} className="shortfield" name="hp" value={character.hp || ''} onChange={event => setCharacter(character => ({...character,hp: event.target.value}))}/>
           </td>
           <td>
-            <input type="text" className="shortfield grey" readOnly="readOnly" value={maxHp()} />
+            <input type="text" className="shortfield grey" name="maxHp" readOnly="readOnly" value={maxHp()} />
           </td>
         </tr>
       </tbody>

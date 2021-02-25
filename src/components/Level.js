@@ -14,7 +14,7 @@ function Level() {
             <label htmlFor="level">LEVEL</label>
           </th>
           <td>
-            <input type="number" min={1} className="shortfield" id="level" value={character.level || ''} onChange={event => setCharacter(character => ({...character,level: event.target.value}))}/>
+            <input type="number" min={1} className="shortfield" name="level" value={character.level || ''} onChange={event => setCharacter(character => ({...character,level: event.target.value}))}/>
           </td>
         </tr>
       </tbody>

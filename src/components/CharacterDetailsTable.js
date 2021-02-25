@@ -13,7 +13,7 @@ function CharacterDetailsTable() {
           <label htmlFor="backstory">BACKSTORY</label>
         </th>
         <td>
-          <textarea placeholder="Describe your character's backstory and anything else about your characters identity here" value={character.backstory} onChange={event => setCharacter(character => ({...character,backstory: event.target.value}))}/>
+          <textarea placeholder="Describe your character's backstory and anything else about your characters identity here" value={character.backstory} name="backstory" onChange={event => setCharacter(character => ({...character,backstory: event.target.value}))}/>
         </td>
       </tr>
       <tr>
@@ -21,7 +21,7 @@ function CharacterDetailsTable() {
           <label htmlFor="look">LOOK</label>
         </th>
         <td>
-          <textarea placeholder="Describe your character's appearance here" value={character.look} onChange={event => setCharacter(character => ({...character,look: event.target.value}))}/>
+          <textarea placeholder="Describe your character's appearance here" name="look" value={character.look} onChange={event => setCharacter(character => ({...character,look: event.target.value}))}/>
         </td>
       </tr>
     </tbody>

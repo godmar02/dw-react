@@ -72,8 +72,7 @@ function AbilitiesTable() {
               <th key={index}>
                 <label
                   htmlFor={abilities.category}
-                  value={abilities.category}
-                  key={index}>
+                  value={abilities.category}>
                   {abilities.category}
                 </label>
               </th>)

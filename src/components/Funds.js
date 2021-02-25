@@ -18,7 +18,8 @@ function Funds() {
       <tbody>
         <tr>
           <td>
-            <input type="number" className="shortfield" min={0} id="funds" value={character.funds || ''} onChange={event => setCharacter(character => ({...character,funds: event.target.value}))}/>
+            <input type="number" className="shortfield" name="funds"
+              min={0} id="funds" value={character.funds || ''} onChange={event => setCharacter(character => ({...character,funds: event.target.value}))}/>
           </td>
         </tr>
       </tbody>

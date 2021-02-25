@@ -7,7 +7,7 @@ function XP() {
   const [character, setCharacter] = useContext(CharacterState);
 
   // Total Load
-  const calcXp = () => {
+  const calcMaxXp = () => {
     if (character.level) {
       return ("/ " + (parseInt(character.level,10) + 7));
     } else {
@@ -23,10 +23,10 @@ function XP() {
             <label htmlFor="xp">XP</label>
           </th>
           <td>
-            <input type="number" min={0} className="shortfield" id="xp" value={character.xp || ''} onChange={event => setCharacter(character => ({...character,xp: event.target.value}))}/>
+            <input type="number" min={0} className="shortfield" name="xp" value={character.xp || ''} onChange={event => setCharacter(character => ({...character,xp: event.target.value}))}/>
           </td>
           <td>
-            <input type="text" className="shortfield grey" readOnly="readOnly" value={calcXp()} />
+            <input type="text" className="shortfield grey" name="maxXp" readOnly="readOnly" value={calcMaxXp()} />
           </td>
         </tr>
       </tbody>

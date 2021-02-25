@@ -18,7 +18,7 @@ function Armour() {
       <tbody>
         <tr>
           <td>
-            <input type="number" min={0} className="shortfield" id="armour" value={character.armour || ''} onChange={event => setCharacter(character => ({...character,armour: event.target.value}))}/>
+            <input type="number" min={0} className="shortfield" name="armour" value={character.armour || ''} onChange={event => setCharacter(character => ({...character,armour: event.target.value}))}/>
           </td>
         </tr>
       </tbody>
