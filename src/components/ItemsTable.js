@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import CharacterState from './contexts/CharacterState';
 import {classDetails} from '../data/classDetails';
 
-function GearTable() {
+function ItemsTable() {
 
   // Accessing and adding to character using context and useEffect
   const [character, setCharacter] = useContext(CharacterState);
@@ -10,8 +10,8 @@ function GearTable() {
 
   // Total Load
   const totalLoad = () => {
-    if (character.gear) {
-      return (character.gear.reduce((totalLoad,data) => totalLoad + parseInt((data.weight || 0),10) ,0));
+    if (character.items) {
+      return (character.items.reduce((totalLoad,data) => totalLoad + parseInt((data.weight || 0),10) ,0));
     } else {
       return ('');
     }
@@ -60,23 +60,23 @@ function GearTable() {
 
   // State manipulation
   const updateItem = index => e => {
-    let newItems = [...character.gear]; // copying the old array
-    newItems[index] = {...character.gear[index], item: e.target.value}; // replace value
-    setCharacter(character => ({...character, gear: newItems})); // set array back
+    let newItems = [...character.items]; // copying the old array
+    newItems[index] = {...character.items[index], item: e.target.value}; // replace value
+    setCharacter(character => ({...character, items: newItems})); // set array back
   }
 
   const updateItemWeight = index => e => {
-    let newItems = [...character.gear]; // copying the old array
-    newItems[index] = {...character.gear[index], weight: e.target.value}; // replace value
-    setCharacter(character => ({...character, gear: newItems})); // set array back
+    let newItems = [...character.items]; // copying the old array
+    newItems[index] = {...character.items[index], weight: e.target.value}; // replace value
+    setCharacter(character => ({...character, items: newItems})); // set array back
   }
 
   // Delete rows in the table
   const deleteItemRow = index => {
-    const newItems = [...character.gear]; // copying the old array
-    if (character.gear.length !== 1) { //don't delete last row
+    const newItems = [...character.items]; // copying the old array
+    if (character.items.length !== 1) { //don't delete last row
       newItems.splice(index, 1); // remove item from array
-      setCharacter(character => ({...character, gear: newItems})); // set array back
+      setCharacter(character => ({...character, items: newItems})); // set array back
     } else {
       alert('Cannot delete final row');
     }
@@ -84,13 +84,13 @@ function GearTable() {
 
   // Add rows in the table
   const addItemRow = () => {
-    const newItems = [...character.gear, {item: "", weight: ""}]; // copying the old array and adding blank item
-    setCharacter(character => ({...character, gear: newItems})); // set array back
+    const newItems = [...character.items, {item: "", weight: ""}]; // copying the old array and adding blank item
+    setCharacter(character => ({...character, items: newItems})); // set array back
   }
   //,
 
   return (
-    <table style={{"width":"100%"}} id="gearTable">
+    <table style={{"width":"100%"}} id="itemsTable">
       <thead>
         <tr>
           <th colSpan={4}><label>GEAR</label></th>
@@ -110,13 +110,13 @@ function GearTable() {
       </thead>
       <tbody>
         {
-         character.gear && character.gear.map((gear,index) => {
+         character.items && character.items.map((items,index) => {
          return (
            <tr key={index}>
                <td>
                  <textarea
                    placeholder="Add any items and descriptions here"
-                   value={gear.item}
+                   value={items.item}
                    name={"item" + index}
                    onChange={updateItem(index)}/>
                </td>
@@ -124,7 +124,7 @@ function GearTable() {
                  <input
                    type="number"
                    min={0}
-                   value={gear.weight}
+                   value={items.weight}
                    name={"itemWeight" + index}
                    onChange={updateItemWeight(index)}/>
                </td>
@@ -154,4 +154,4 @@ function GearTable() {
     );
 }
 
-export default GearTable;
+export default ItemsTable;

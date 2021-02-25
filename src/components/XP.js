@@ -17,11 +17,15 @@ function XP() {
 
   return (
     <table>
-      <tbody>
+      <thead>
         <tr>
-          <th>
+          <th colSpan={2}>
             <label htmlFor="xp">XP</label>
           </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
           <td>
             <input type="number" min={0} className="shortfield" name="xp" value={character.xp || ''} onChange={event => setCharacter(character => ({...character,xp: event.target.value}))}/>
           </td>

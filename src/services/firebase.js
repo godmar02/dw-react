@@ -35,18 +35,21 @@ export function createGroceryList(userName, userId) {
         });
 };
 
-export function getGroceryList(groceryListId) {
-    return db.collection('groceryLists')
-        .doc(groceryListId)
+export function getCharacter(campaign,character) {
+    return db.collection("campaigns")
+        .doc(campaign)
+        .collection("characters")
+        .doc(character)
         .get();
 };
 
-export function getGroceryListItems(groceryListId) {
-    return db.collection('groceryLists')
+/*
+export function getCharacters(campaign) {
+    return db.collection(campaign)
         .doc(groceryListId)
         .collection('items')
         .get();
-}
+}*/
 
 export function streamGroceryListItems(groceryListId, observer) {
     return db.collection('groceryLists')

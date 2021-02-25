@@ -53,9 +53,9 @@ function AbilitiesTable() {
     let modifier = (baseModifier - afflicted);
 
     if (modifier > 0) {
-      return("+" + modifier);
+      return("[+" + modifier+ "]");
     } else {
-      return (modifier);
+      return ("[" + modifier + "]");
     }
   } else {
     return ('')
