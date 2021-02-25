@@ -3,7 +3,9 @@
     - UserProfile - shows logged in user
       - ProfilePicture
       - ProfileDetails
-    - AppHeader - indicates to user where they are
+    - AppHeader
+    - Homepage
+      - CampaignList
     - NavSidebar - allows user navigation
       - CampaignDetails
         - CampaignHeader
@@ -12,6 +14,7 @@
         - CampaignOptions
       - CreateCampaign
     - CharacterSheet /{campaign}/{character} - holds sheet state
+      - CharacterSheetHeader
       - AbilitiesTable
       - BasicAttributesTable
         - Level
@@ -27,5 +30,7 @@
         - HP
         - Funds    
       - GearTable
-      - SheetHeader
-    - Campaign /{campaign} GM view?
+    - CampaignSheet /{campaign}
+      - CharacterList
+        - Character HP
+        - Character ??

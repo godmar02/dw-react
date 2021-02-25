@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import CharacterState from './contexts/CharacterState';
 import { useParams } from "react-router";
-import SheetHeader from './SheetHeader'
+import CharacterSheetHeader from './CharacterSheetHeader'
 import CharacterDetailsTable from './CharacterDetailsTable'
 import CharacterTypeTable from './CharacterTypeTable'
 import BasicAttributesTable from './BasicAttributesTable'
@@ -10,17 +10,15 @@ import AbilitiesTable from './AbilitiesTable'
 import BondsTable from './BondsTable'
 import GearTable from './GearTable'
 import ClassFeaturesTable from './ClassFeaturesTable'
-//import useQueryString from './hooks/useQueryString'
 
 function CharacterSheet() {
 
-  // retrieve URL parameters for usage
-  let { campaign } = useParams();
-
-  console.log("campaign:",campaign);
-
   // Definitions for state
   const [character, setCharacter] = useState({});
+
+  // retrieve URL parameters for usage
+  const { campaignURL } = useParams();
+  const { characterURL } = useParams();
 
   // Setting state for Character using useEffect hook
   useEffect(() => {
@@ -66,7 +64,7 @@ function CharacterSheet() {
 
   return (
   <CharacterState.Provider value={[character, setCharacter]}>
-    <SheetHeader/>
+    <CharacterSheetHeader/>
     <br/>
     <CharacterDetailsTable/>
     <br/>

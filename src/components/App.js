@@ -5,19 +5,21 @@ import NavSidebar from './NavSidebar';
 import UserProfile from './UserProfile';
 import AppHeader from './AppHeader';
 import CharacterSheet from './CharacterSheet';
+import CampaignSheet from './CampaignSheet';
+import Homepage from './Homepage';
 
 function App(props) {
   const currentUser = props.currentUser;
 
   return (<>
     <UserProfile currentUser={currentUser}/>
-    <AppHeader/>
     <Router>
+      <AppHeader/>
       <NavSidebar/>
       <Switch>
-        <Route path="/" children={<CharacterSheet/>} />
-        <Route path="/:campaign" children={<CharacterSheet/>} />
-        <Route path="/:campaign/:character" children={<CharacterSheet/>} />
+        <Route path="/dw-react/home/:campaignURL/:characterURL" component={CharacterSheet} />
+        <Route path="/dw-react/home/:campaignURL" component={CampaignSheet} />
+        <Route path="/dw-react/home" component={Homepage} />
         <Route component={ErrorPage} />
       </Switch>
     </Router>
