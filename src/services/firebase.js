@@ -23,16 +23,18 @@ provider.setCustomParameters({ prompt: 'select_account' });
 export function SignInWithGoogle() { auth.signInWithPopup(provider)};
 
 // Firestore operations
-export function createGroceryList(userName, userId) {
-    return db.collection('groceryLists')
-        .add({
-            created: firebase.firestore.FieldValue.serverTimestamp(),
-            createdBy: userId,
-            users: [{
-                userId: userId,
-                name: userName
-            }]
-        });
+export function createCharacter(campaign, character) {
+    return db.collection("campaigns")
+        .doc(campaign)
+        .collection("characters")
+        .add(character);
+};
+
+export function getCharacters(campaign) {
+    return db.collection("campaigns")
+        .doc(campaign)
+        .collection("characters")
+        .get();
 };
 
 export function getCharacter(campaign,character) {
@@ -42,14 +44,6 @@ export function getCharacter(campaign,character) {
         .doc(character)
         .get();
 };
-
-/*
-export function getCharacters(campaign) {
-    return db.collection(campaign)
-        .doc(groceryListId)
-        .collection('items')
-        .get();
-}*/
 
 export function streamGroceryListItems(groceryListId, observer) {
     return db.collection('groceryLists')

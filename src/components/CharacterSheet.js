@@ -15,6 +15,7 @@ function CharacterSheet() {
 
   // Definitions for state
   const [character, setCharacter] = useState({});
+  const [error, setError] = useState();
 
   // retrieve URL parameters for usage
   const { campaignURL } = useParams();
