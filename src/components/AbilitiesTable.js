@@ -72,7 +72,8 @@ function AbilitiesTable() {
               <th key={index}>
                 <label
                   htmlFor={abilities.category}
-                  value={abilities.category}>
+                  value={abilities.category}
+                  name={abilities.category}>
                   {abilities.category}
                 </label>
               </th>)
@@ -90,6 +91,7 @@ function AbilitiesTable() {
                   type="number"
                   min={1} max={18}
                   className="ability"
+                  name={abilities.category + "Score"}
                   value={abilities.score}
                   onChange={updateAbilityScore(index)} />
             </td>)
@@ -104,6 +106,7 @@ function AbilitiesTable() {
                 <input
                   type="text"
                   className="grey tallfield"
+                  name={abilities.category + "Modifier"}
                   value={abilityModifier(abilities.score, abilities.affliction)}
                   readOnly />
             </td>)
@@ -120,6 +123,7 @@ function AbilitiesTable() {
                   tabIndex={-1}
                   className="abilityAffliction"
                   value={abilities.affliction || "null"}
+                  name={abilities.category + "Affliction"}
                   onChange={updateAbilityAffliction(index)}>
                   <option disabled value="null" hidden />
                     {

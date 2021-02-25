@@ -19,8 +19,9 @@ function GearTable() {
 
   // Max Load
   const maxLoad = () => {
-    let str = character.abilities.find(x => x.category === 'STR');
-    if (character.dwClass && str.score && str.affliction) {
+
+    if (character.dwClass && character.abilities.find(x => x.category === 'STR').score && character.abilities.find(x => x.category === 'STR').affliction) {
+      let str = character.abilities.find(x => x.category === 'STR');
       let baseModifier;
       let abilityAffliction = str.affliction;
       let abilityScore = parseInt(str.score,10);
@@ -116,6 +117,7 @@ function GearTable() {
                  <textarea
                    placeholder="Add any items and descriptions here"
                    value={gear.item}
+                   name={"item" + index}
                    onChange={updateItem(index)}/>
                </td>
                <td colSpan={2}>
@@ -123,6 +125,7 @@ function GearTable() {
                    type="number"
                    min={0}
                    value={gear.weight}
+                   name={"itemWeight" + index}
                    onChange={updateItemWeight(index)}/>
                </td>
                <td>
@@ -139,10 +142,10 @@ function GearTable() {
         <tr>
           <th><label htmlFor="load">LOAD</label></th>
           <td>
-            <input type="number" className="shortfield grey" readOnly value={totalLoad()} />
+            <input type="number" className="shortfield grey" name="totalLoad" readOnly value={totalLoad()} />
           </td>
           <td>
-            <input type="text" className="shortfield grey" readOnly="readOnly" value={maxLoad()} />
+            <input type="text" className="shortfield grey" name="maxLoad" readOnly="readOnly" value={maxLoad()} />
           </td>
           <td />
         </tr>

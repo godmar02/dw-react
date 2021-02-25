@@ -40,6 +40,7 @@ function CharacterTypeTable() {
           <select
             tabIndex={-1}
             value={character.dwClass || "null"}
+            name="dwClass"
             onChange={event => {
               setCharacter(character => ({...character,dwClass: event.target.value}));
               setCharacter(character => ({...character,alignment: "null"}))}}>
@@ -64,6 +65,7 @@ function CharacterTypeTable() {
           <select
             tabIndex={-1}
             value={character.race || "null"}
+            name="race"
             onChange={event => setCharacter(character => ({...character,race: event.target.value}))}>
             <option disabled value="null" hidden />
             {
@@ -77,7 +79,7 @@ function CharacterTypeTable() {
           </select>
         </td>
         <td>
-          <textarea className="grey" readOnly="readOnly" value={raceAttributes()}/>
+          <textarea className="grey" name="raceAttributes" readOnly="readOnly" value={raceAttributes()}/>
         </td>
       </tr>
       <tr>
@@ -88,6 +90,7 @@ function CharacterTypeTable() {
           <select
             tabIndex={-1}
             value={character.alignment || "null"}
+            name="alignment"
             onChange={event => setCharacter(character => ({...character,alignment: event.target.value}))}>
             <option disabled value="null" hidden />
             {
@@ -100,7 +103,7 @@ function CharacterTypeTable() {
           </select>
         </td>
         <td>
-          <textarea className="grey" readOnly="readOnly" value={alignmentAttributes()}/>
+          <textarea className="grey" name="alignmentAttribute" readOnly="readOnly" value={alignmentAttributes()}/>
         </td>
       </tr>
     </tbody>

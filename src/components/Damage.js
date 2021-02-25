@@ -28,7 +28,7 @@ function Damage() {
       <tbody>
         <tr>
           <td>
-            <input type="text" className="shortfield grey" readOnly="readOnly" value={damage()}/>
+            <input type="text" className="shortfield grey" name="damage" readOnly="readOnly" value={damage()}/>
           </td>
         </tr>
       </tbody>
