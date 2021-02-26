@@ -19,38 +19,55 @@ export const db = firebase.firestore();
 
 // Authenticate with Firebase-auth using the Google provider object
 const provider = new firebase.auth.GoogleAuthProvider();
-provider.setCustomParameters({ prompt: 'select_account' });
-export function SignInWithGoogle() { auth.signInWithPopup(provider)};
+provider.setCustomParameters({
+  prompt: 'select_account'
+});
+export function SignInWithGoogle() {
+  auth.signInWithPopup(provider)
+};
 
 // Firestore operations
+export function createCampaign(campaign) {
+  return db.collection("campaigns")
+    .add(campaign)
+    .collection("characters");
+};
+
 export function createCharacter(campaign, character) {
-    return db.collection("campaigns")
-        .doc(campaign)
-        .collection("characters")
-        .add(character);
+  return db.collection("campaigns")
+    .doc(campaign)
+    .collection("characters")
+    .add(character);
 };
 
-export function getCharacters(campaign) {
-    return db.collection("campaigns")
-        .doc(campaign)
-        .collection("characters")
-        .get();
+export function getCharacterList(campaign) {
+  return db.collection("campaigns")
+    .doc(campaign)
+    .collection("characters")
+    .get();
 };
 
-export function getCharacter(campaign,character) {
-    return db.collection("campaigns")
-        .doc(campaign)
-        .collection("characters")
-        .doc(character)
-        .get();
+export function getCharacter(campaign, character) {
+  return db.collection("campaigns")
+    .doc(campaign)
+    .collection("characters")
+    .doc(character)
+    .get();
 };
 
-export function streamGroceryListItems(groceryListId, observer) {
-    return db.collection('groceryLists')
-        .doc(groceryListId)
-        .collection('items')
-        .orderBy('created')
-        .onSnapshot(observer);
+export function streamCharacterList(campaign, observer) {
+  return db.collection("campaigns")
+    .doc(campaign)
+    .collection("characters")
+    .onSnapshot(observer);
+};
+
+export function streamCharacter(campaign, character, observer) {
+  return db.collection("campaigns")
+    .doc(campaign)
+    .collection("characters")
+    .doc(character)
+    .onSnapshot(observer);
 };
 
 // Default Export

@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import CharacterState from './contexts/CharacterState';
 import {abilityAfflictions} from '../data/abilityAfflictions';
 
-function AbilitiesTable() {
+function CharacterAbilitiesTable() {
 
   // Accessing and adding to character using context and useEffect
   const [character, setCharacter] = useContext(CharacterState);
@@ -144,4 +144,4 @@ function AbilitiesTable() {
     );
 }
 
-export default AbilitiesTable;
+export default CharacterAbilitiesTable;

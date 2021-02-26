@@ -12,9 +12,9 @@ function AppHeader() {
     <p>
       <i>v1.0.0-alpha by Godmar02</i>
     </p>
-    <Link to="/dw-react/home">Home > </Link>
-    <Link to={"/dw-react/home"}>Campaign > </Link>
-    <Link to={"/dw-react/home"}>Character</Link>
+    <Link to="/dw-react">Home > </Link>
+    <Link to={"/dw-react"}>Campaign > </Link>
+    <Link to={"/dw-react"}>Character</Link>
   </div>
   );
 }

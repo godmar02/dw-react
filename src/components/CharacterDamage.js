@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import CharacterState from './contexts/CharacterState';
 import {classDetails} from '../data/classDetails';
 
-function Damage() {
+function CharacterDamage() {
 
   // Accessing and adding to character using context and useEffect
   const [character] = useContext(CharacterState);
@@ -35,4 +35,4 @@ function Damage() {
     </table>
   );
 }
-export default Damage;
+export default CharacterDamage;

@@ -3,34 +3,31 @@
     - UserProfile - shows logged in user
       - ProfilePicture
       - ProfileDetails
-    - AppHeader
-    - Homepage
-      - CampaignList
-    - NavSidebar - allows user navigation
-      - CampaignDetails
-        - CampaignHeader
-        - CharacterList
-        - CampaignViews
-        - CampaignOptions
-      - CreateCampaign
+    - *AppHeader
+    - *Homepage / 
+      - *CampaignList
+    - *NavSidebar - allows user navigation
+      - *CampaignDetails
+        - *CampaignHeader
+        - *CharacterList
+        - *CampaignViews
+        - *CampaignOptions
+      - *CreateCampaign
     - CharacterSheet /{campaign}/{character} - holds sheet state
       - CharacterSheetHeader
-      - AbilitiesTable
-      - BasicAttributesTable
-        - Level
-        - XP
-      - BasicInfoTable
-      - BondsTable
+      - CharacterAbilitiesTable
+      - CharacterBasicAttributesTable
+        - CharacterLevel
+        - CharacterXP
+        - CharacterDamage
+        - CharacterArmour
+        - CharacterHP
+        - CharacterFunds    
+      - CharacterBondsTable
       - CharacterDetailsTable
       - CharacterTypeTable
-      - ClassFeaturesTables
-      - ExtraAttributes
-        - Damage
-        - Armour
-        - HP
-        - Funds    
-      - GearTable
-    - CampaignSheet /{campaign}
-      - CharacterList
-        - Character HP
-        - Character ??
+      - CharacterClassFeaturesTables
+      - CharacterItemsTable
+    - CampaignSheet /{campaign} - holds campaign state
+      - CampaignSheetHeader
+      - CampaignDetails

@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import CharacterState from './contexts/CharacterState';
 
-function BondsTable() {
+function CharacterBondsTable() {
 
   // Accessing and adding to character using context and useEffect
   const [character, setCharacter] = useContext(CharacterState);
@@ -75,4 +75,4 @@ function BondsTable() {
     );
 }
 
-export default BondsTable;
+export default CharacterBondsTable;

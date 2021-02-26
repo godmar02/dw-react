@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import CharacterState from './contexts/CharacterState';
 
-function XP() {
+function CharacterXP() {
 
   // Accessing and adding to character using context and useEffect
   const [character, setCharacter] = useContext(CharacterState);
@@ -37,4 +37,4 @@ function XP() {
     </table>);
 }
 
-export default XP;
+export default CharacterXP;

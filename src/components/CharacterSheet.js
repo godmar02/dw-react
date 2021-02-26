@@ -5,11 +5,11 @@ import * as FirebaseService from '../services/firebase';
 import CharacterSheetHeader from './CharacterSheetHeader'
 import CharacterDetailsTable from './CharacterDetailsTable'
 import CharacterTypeTable from './CharacterTypeTable'
-import BasicAttributesTable from './BasicAttributesTable'
-import AbilitiesTable from './AbilitiesTable'
-import BondsTable from './BondsTable'
-import ItemsTable from './ItemsTable'
-import ClassFeaturesTable from './ClassFeaturesTable'
+import CharacterBasicAttributesTable from './CharacterBasicAttributesTable'
+import CharacterAbilitiesTable from './CharacterAbilitiesTable'
+import CharacterBondsTable from './CharacterBondsTable'
+import CharacterItemsTable from './CharacterItemsTable'
+import CharacterClassFeaturesTable from './CharacterClassFeaturesTable'
 
 function CharacterSheet() {
 
@@ -18,65 +18,23 @@ function CharacterSheet() {
   const [error, setError] = useState();
 
   // retrieve URL parameters for usage
-  const { campaignURL } = useParams();
-  const { characterURL } = useParams();
+  const { campaignURL, characterURL } = useParams();
 
-  /*
+  // Use an effect hook to subscribe to the character stream and
+  // automatically unsubscribe when the component unmounts.
   useEffect(() => {
     if (campaignURL && characterURL) {
-      FirebaseService.getCharacter(campaignURL, characterURL)
-        .then(character => {
-          if (character.exists) {
-            setError(null);
-            setCharacter(character.data());
-          } else {
-            setError('Character-not-found');
-            setCharacter();
-          }
-        })
-        .catch(() => setError('Character-get-fail'));
+      const unsubscribe = FirebaseService.streamCharacter(campaignURL, characterURL, {
+          next: documentSnapshot => {
+              setCharacter(documentSnapshot.data());
+          },
+          error: () => setError({database_error: 'Character-get-fail'})
+      });
+      return unsubscribe;
     }
-  }, [character, setCharacter]);
-  */
+  }, [campaignURL, characterURL, setCharacter]);
 
-  // Setting state for Character using useEffect hook
-  useEffect(() => {
-    setCharacter({
-      abilities: [
-        {category: "STR", score: 1, affliction: "Weak"},
-        {category: "DEX", score: 1, affliction: "Unafflicted"},
-        {category: "CON", score: 1, affliction: "Unafflicted"},
-        {category: "INT", score: 1, affliction: "Unafflicted"},
-        {category: "WIS", score: 1, affliction: "Unafflicted"},
-        {category: "CHA", score: 1, affliction: "Unafflicted"}
-      ],
-      alignment: "Good",
-      armour: 3,
-      backstory: "sad backstory",
-      bonds: [
-        {bond: "bond0"},
-        {bond: "bond1"}
-      ],
-      charaName: "Bob",
-      classFeatures: [
-        {feature: "classFeature0", checkbox: true},
-        {feature: "classFeature1", checkbox: false},
-      ],
-      dwClass: "Paladin",
-      funds: 10,
-      hp:2,
-      items: [
-        {item: "item0", weight: 1},
-        {item: "item1", weight: 2}
-      ],
-      level: 2,
-      look: "scraggly",
-      owner: "owner@email.com",
-      race: "Elf",
-      xp: 2
-    })
-  }, [setCharacter]);
-
+  console.log("error:", error);
   console.log("character state:",character);
 
   return (
@@ -87,15 +45,15 @@ function CharacterSheet() {
     <br/>
     <CharacterTypeTable/>
     <br/>
-    <BasicAttributesTable/>
+    <CharacterBasicAttributesTable/>
     <br/>
-    <AbilitiesTable/>
+    <CharacterAbilitiesTable/>
     <br/>
-    <BondsTable/>
+    <CharacterBondsTable/>
     <br/>
-    <ItemsTable/>
+    <CharacterItemsTable/>
     <br/>
-    <ClassFeaturesTable/>
+    <CharacterClassFeaturesTable/>
     <br/>
   </CharacterState.Provider>);
 }

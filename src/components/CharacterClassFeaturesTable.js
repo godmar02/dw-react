@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import CharacterState from './contexts/CharacterState';
 
-function ClassFeaturesTable() {
+function CharacterClassFeaturesTable() {
 
   // Accessing and adding to character using context and useEffect
   const [character, setCharacter] = useContext(CharacterState);
@@ -92,4 +92,4 @@ function ClassFeaturesTable() {
     );
 }
 
-export default ClassFeaturesTable;
+export default CharacterClassFeaturesTable;

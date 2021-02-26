@@ -1,25 +1,24 @@
 import React, {useContext} from 'react';
 import CharacterState from './contexts/CharacterState';
 
-function Funds() {
+function CharacterArmour() {
 
   // Accessing and adding to character using context and useEffect
   const [character, setCharacter] = useContext(CharacterState);
 
   return (
-    <table id="funds">
+    <table id="armour">
       <thead>
         <tr>
           <th>
-            <label htmlFor="funds">FUNDS</label>
+            <label htmlFor="armour">ARMOUR</label>
           </th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td>
-            <input type="number" className="shortfield" name="funds"
-              min={0} id="funds" value={character.funds || ''} onChange={event => setCharacter(character => ({...character,funds: event.target.value}))}/>
+            <input type="number" min={0} className="shortfield" name="armour" value={character.armour || ''} onChange={event => setCharacter(character => ({...character,armour: event.target.value}))}/>
           </td>
         </tr>
       </tbody>
@@ -27,4 +26,4 @@ function Funds() {
   );
 }
 
-export default Funds;
+export default CharacterArmour;

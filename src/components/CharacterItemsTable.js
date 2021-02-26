@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import CharacterState from './contexts/CharacterState';
 import {classDetails} from '../data/classDetails';
 
-function ItemsTable() {
+function CharacterItemsTable() {
 
   // Accessing and adding to character using context and useEffect
   const [character, setCharacter] = useContext(CharacterState);
@@ -154,4 +154,4 @@ function ItemsTable() {
     );
 }
 
-export default ItemsTable;
+export default CharacterItemsTable;

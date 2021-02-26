@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import CharacterState from './contexts/CharacterState';
 
-function Level() {
+function CharacterLevel() {
 
   // Accessing and adding to character using context and useEffect
   const [character, setCharacter] = useContext(CharacterState);
@@ -25,4 +25,4 @@ function Level() {
     </table>);
 }
 
-export default Level;
+export default CharacterLevel;
