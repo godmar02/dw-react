@@ -10,36 +10,39 @@ import CharacterAbilitiesTable from './CharacterAbilitiesTable'
 import CharacterBondsTable from './CharacterBondsTable'
 import CharacterItemsTable from './CharacterItemsTable'
 import CharacterClassFeaturesTable from './CharacterClassFeaturesTable'
+import Autosave from './Autosave'
 
 function CharacterSheet() {
 
   // Definitions for state
   const [character, setCharacter] = useState({});
-  const [error, setError] = useState();
 
   // retrieve URL parameters for usage
   const { campaignURL, characterURL } = useParams();
 
   // Use an effect hook to subscribe to the character stream and
   // automatically unsubscribe when the component unmounts.
-  useEffect(() => {
-    if (campaignURL && characterURL) {
-      const unsubscribe = FirebaseService.streamCharacter(campaignURL, characterURL, {
-          next: documentSnapshot => {
-              setCharacter(documentSnapshot.data());
-          },
-          error: () => setError({database_error: 'Character-get-fail'})
-      });
-      return unsubscribe;
-    }
-  }, [campaignURL, characterURL, setCharacter]);
+  //useEffect(() => {
+  //  if (campaignURL && characterURL) {
+  //    const unsubscribe = FirebaseService.streamCharacter(campaignURL, characterURL, {
+  //        next: documentSnapshot => {
+  //            setCharacter(documentSnapshot.data());
+  //        },
+  //        error: (error) => {
+  //  alert("Failed to load character data correctly, see console error");
+  //  console.error("Error loading data:", error);
+  //}
+  //    });
+  //    return unsubscribe;
+  //  }
+  //}, [campaignURL, characterURL, setCharacter]);
 
-  console.log("error:", error);
   console.log("character state:",character);
 
   return (
   <CharacterState.Provider value={[character, setCharacter]}>
     <CharacterSheetHeader/>
+    <Autosave character={character}/>
     <br/>
     <CharacterDetailsTable/>
     <br/>

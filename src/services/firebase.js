@@ -40,22 +40,20 @@ export function createCharacter(campaign, character) {
     .add(character);
 };
 
-export function getCharacterList(campaign) {
-  return db.collection("campaigns")
-    .doc(campaign)
-    .collection("characters")
-    .get();
-};
-
-export function getCharacter(campaign, character) {
+export function saveCharacter(campaign, character, data) {
   return db.collection("campaigns")
     .doc(campaign)
     .collection("characters")
     .doc(character)
-    .get();
+    .set(data);
 };
 
-export function streamCharacterList(campaign, observer) {
+export function streamCampaigns(observer) {
+  return db.collection("campaigns")
+    .onSnapshot(observer);
+};
+
+export function streamCharacters(campaign, observer) {
   return db.collection("campaigns")
     .doc(campaign)
     .collection("characters")

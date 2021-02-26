@@ -1,33 +1,28 @@
 import React, {useContext} from 'react';
 import CampaignState from './contexts/CampaignState';
+import {Link} from 'react-router-dom';
+import { useParams } from "react-router";
 
 function CampaignDetails() {
 
   // Accessing and adding to character using context and useEffect
   const [campaign] = useContext(CampaignState);
 
-  return (<table style={{
-      "width" : "100%"
-    }}>
-    <tbody>
-      <tr>
-        <th style={{
-            "width" : "25%"
-          }}>
-          <label htmlFor="backstory">CHARACTERS</label>
-        </th>
-      </tr>
-      {
-        campaign.campaign && campaign.campaign.map((character, index) => {
-          return (<tr key={index}>
-            <td>
-              <div>{character.charaName} ({character.player}) HP:{character.hp} XP:{character.xp}</div>
-            </td>
-          </tr>)
-        })
-      }
-    </tbody>
-  </table>);
+  // retrieve URL parameters for usage
+  const {campaignURL} = useParams();
+
+  return (<div>
+    <div>CHARACTERS</div>
+    {
+      campaign.campaign && campaign.campaign.map((character, index) => {
+        return (<div key={index}>
+          <Link to={"/dw-react/" + campaignURL + "/" + character.charaName}>{character.charaName}</Link>
+          <div>({character.player}) HP:{character.hp}
+            XP:{character.xp}</div>
+        </div>)
+      })
+    }
+  </div>);
 }
 
 export default CampaignDetails;

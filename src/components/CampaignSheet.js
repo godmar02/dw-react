@@ -9,7 +9,6 @@ function CampaignSheet() {
 
   // Definitions for state
   const [campaign, setCampaign] = useState({});
-  const [error, setError] = useState();
 
   // retrieve URL parameters for usage
   const {campaignURL} = useParams();
@@ -18,18 +17,20 @@ function CampaignSheet() {
   // automatically unsubscribe when the component unmounts.
   useEffect(() => {
     if (campaignURL) {
-      const unsubscribe = FirebaseService.streamCharacterList(campaignURL, {
+      const unsubscribe = FirebaseService.streamCharacters(campaignURL, {
         next: querySnapshot => {
           const updatedCharacterList = querySnapshot.docs.map((docSnapshot) => { return(docSnapshot.data())});
           setCampaign(campaign => ({campaign: updatedCharacterList}));
         },
-        error: () => setError('character-list-get-fail')
+        error: (error) => {
+          alert("Failed to load campaign data correctly, see console error");
+          console.error("Error loading data:", error);
+        }
       });
       return unsubscribe;
     }
   }, [campaignURL, setCampaign]);
 
-  console.log("error:", error);
   console.log("campaign state:", campaign);
 
   return (<CampaignState.Provider value={[campaign, setCampaign]}>

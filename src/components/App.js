@@ -19,7 +19,7 @@ function App(props) {
       <Switch>
         <Route path="/dw-react/:campaignURL/:characterURL" component={CharacterSheet} />
         <Route path="/dw-react/:campaignURL" component={CampaignSheet} />
-        <Route path="/dw-react" component={CharacterSheet} />
+        <Route path="/dw-react" component={Homepage} />
         <Route component={ErrorPage} />
       </Switch>
     </Router>
