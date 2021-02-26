@@ -19,7 +19,8 @@ function CampaignSheet() {
     if (campaignURL) {
       const unsubscribe = FirebaseService.streamCharacters(campaignURL, {
         next: querySnapshot => {
-          const updatedCharacterList = querySnapshot.docs.map((docSnapshot) => { return(docSnapshot.data())});
+          //const updatedCharacterList = querySnapshot.docs.map((docSnapshot) => { return(docSnapshot.data())});
+          const updatedCharacterList = querySnapshot.docs.map((docSnapshot) => { return({character: docSnapshot.id , characterData: docSnapshot.data()})});
           setCampaign(campaign => ({campaign: updatedCharacterList}));
         },
         error: (error) => {

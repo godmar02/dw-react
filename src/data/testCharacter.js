@@ -16,8 +16,7 @@ useEffect(() => {
       {bond: "bond0"},
       {bond: "bond1"}
     ],
-    charaFullName: "Bobesque",
-    charaName: "Bob",
+    charaFullName: "Laneth the Elder",
     classFeatures: [
       {feature: "classFeature0", checkbox: true},
       {feature: "classFeature1", checkbox: false},
@@ -31,8 +30,8 @@ useEffect(() => {
     ],
     level: 2,
     look: "scraggly",
-    owner: "owner@email.com",
+    owner: "markwgodden@gmail.com",
     race: "Elf",
     xp: 2
   })
-}, [setCharacter]); 
+}, [setCharacter]);

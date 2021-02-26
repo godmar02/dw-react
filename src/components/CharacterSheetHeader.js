@@ -9,14 +9,14 @@ function CharacterSheetHeader() {
   const [character] = useContext(CharacterState);
 
   // retrieve URL parameters for usage
-  const { campaignURL } = useParams();
+  const { campaignURL, characterURL } = useParams();
 
   return (
     <div>
       <Link to="/dw-react">Home</Link> >
       <Link to={"/dw-react/" + campaignURL}> {campaignURL}</Link> >
-      <p> {character.charaName}</p>
-      <h1>{character.charaName}</h1>
+      <p> {characterURL}</p>
+      <h1>{characterURL}</h1>
       <p>{character.charaFullName}</p>
     </div>);
 }

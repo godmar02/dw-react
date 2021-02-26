@@ -17,10 +17,6 @@ function Autosave(character) {
     characterURL
   } = useParams();
   const saveCharacter = character.character;
-  console.log("saveCharacter: ", saveCharacter);
-  console.log("campaignURL:", campaignURL);
-  console.log("characterURL:", characterURL);
-
 
   // State and setters
   // Saving status (whether there is pending save request)
@@ -31,25 +27,26 @@ function Autosave(character) {
       FirebaseService.saveCharacter(campaignURL, characterURL, saveCharacter)
         .then((results) => {
           setIsSaving(false);
-          console.log('isSaving:', isSaving);
-          console.log('results:', results);
+          console.log('Saving Character...');
         })
         .catch((error) => {
           alert("Failed to save character data correctly, see console error");
           console.error("Error saving document:", error);
         });
-    }, process.env.DEBOUNCE_SAVE_DELAY_MS)
+    }, 10000,)
   );
 
   useEffect(
     () => {
-      if (saveCharacter) {
+      if (saveCharacter && !isSaving) {
         setIsSaving(true);
+        console.log('Triggering Character Save...')
         console.log('isSaving:', isSaving);
+        console.log("saveCharacter: ", saveCharacter);
         debounceSave.current(saveCharacter);
       }
     },
-    [saveCharacter] // Only call effect if debounced save term changes
+    [isSaving, setIsSaving, saveCharacter] // Only call effect if debounced save term changes
   );
 
   return null;

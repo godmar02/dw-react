@@ -30,16 +30,21 @@ function Homepage() {
   return (<div>
     <br/>
     <h1>WELCOME!</h1>
-    <h4>Campaigns</h4>
-    {
-      campaigns.campaigns && campaigns.campaigns.map((campaign, index) => {
-        return (<div key={index}>
-          <Link to={"/dw-react/" + campaign.id}>{campaign.id}</Link>
-        </div>)
-      })
-    }
-    <br/>
-    <br/>
+    <table>
+      <thead>
+        <tr>
+          <th>CAMPAIGNS</th>
+        </tr>
+      </thead>
+      <tbody>
+        {
+          campaigns.campaigns && campaigns.campaigns.map((campaign, index) => {
+            return (<tr key={index}>
+              <Link to={"/dw-react/" + campaign.id}>{campaign.id}</Link>
+            </tr>)
+          })
+        }</tbody>
+    </table>
   </div>);
 }
 
