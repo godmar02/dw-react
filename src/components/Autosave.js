@@ -46,7 +46,6 @@ function Autosave(character) {
         debounceSave.current(saveCharacter);
       }
     },
-    [isSaving, setIsSaving, saveCharacter] // Only call effect if debounced save term changes
   );
 
   return null;
