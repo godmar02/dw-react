@@ -63,8 +63,10 @@ function CharacterSheet() {
 
   useEffect(
     () => {
+      if (character && Object.keys(character).length >= 1) {
         setIsSaving(true);
         debouncedSave(character);
+      }
     }, [character] //Only trigger effect on change of character
   );
 
