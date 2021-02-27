@@ -28,8 +28,6 @@ function CampaignDetails() {
     }
   }
 
-  console.log(show)
-
   return (
     <>
     <table>
@@ -48,7 +46,7 @@ function CampaignDetails() {
               <td>HP: {campaign.characterData.hp}</td>
               <td>XP: {campaign.characterData.xp}</td>
                 <td>
-                  <button onClick={() => deleteCharacter(campaign.id, campaign.character)}>Delete</button>
+                  <button onClick={() => deleteCharacter(campaignURL, campaign.character)}>Delete</button>
                 </td>
             </tr>)
           })
