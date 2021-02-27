@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import CampaignState from './contexts/CampaignState';
-import {useParams} from "react-router";
-import * as FirebaseService from '../services/firebase';
-import CampaignSheetHeader from './CampaignSheetHeader';
-import CampaignDetails from './CampaignDetails'
+import {useParams} from 'react-router';
+import * as FirebaseService from 'services/firebase';
+import CampaignState from 'components/contexts/CampaignState';
+import CampaignSheetHeader from 'components/campaignSheetHeader';
+import CampaignDetails from 'components/campaignDetails'
 
 function CampaignSheet() {
 

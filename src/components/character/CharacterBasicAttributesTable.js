@@ -1,10 +1,10 @@
 import React from 'react';
-import CharacterDamage from './CharacterDamage'
-import CharacterArmour from './CharacterArmour'
-import CharacterFunds from './CharacterFunds'
-import CharacterHP from './CharacterHP'
-import CharacterLevel from './CharacterLevel'
-import CharacterXP from './CharacterXP'
+import CharacterDamage from 'components/characterDamage'
+import CharacterArmour from 'components/characterArmour'
+import CharacterFunds from 'components/characterFunds'
+import CharacterHP from 'components/characterHP'
+import CharacterLevel from 'components/characterLevel'
+import CharacterXP from 'components/characterXP'
 
 function CharacterBasicAttributesTable() {
 

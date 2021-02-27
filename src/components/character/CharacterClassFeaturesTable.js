@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import CharacterState from './contexts/CharacterState';
+import CharacterState from 'components/contexts/CharacterState';
 
 function CharacterClassFeaturesTable() {
 

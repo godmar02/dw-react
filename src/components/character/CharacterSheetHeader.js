@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import {Link} from 'react-router-dom';
-import { useParams } from "react-router";
-import CharacterState from './contexts/CharacterState';
+import { useParams } from 'react-router';
+import CharacterState from 'components/contexts/CharacterState';
 
 function CharacterSheetHeader() {
 

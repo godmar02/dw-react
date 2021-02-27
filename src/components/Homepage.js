@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import * as FirebaseService from '../services/firebase';
 import {Link} from 'react-router-dom';
-import CreateCampaign from './CreateCampaign'
+import * as FirebaseService from 'services/firebase';
+import CreateCampaign from 'components/campaign/CreateCampaign'
+import CreateShow from 'components/contexts/CreateCampaign'
 
 function Homepage() {
 
@@ -29,11 +30,9 @@ function Homepage() {
 
   const deleteCampaign = (campaignName) => {
     if (campaignName) { //don't save unless details present
-      FirebaseService.deleteCampaign(campaignName)
-      .then(() => {
+      FirebaseService.deleteCampaign(campaignName).then(() => {
         console.info('Deleted Campaign:', campaignName);
-      })
-      .catch((error) => {
+      }).catch((error) => {
         alert("Failed to delete campaign, see console error");
         console.error("Error deleting document:", error);
       });
@@ -51,7 +50,9 @@ function Homepage() {
       <thead>
         <tr>
           <th>CAMPAIGNS</th>
-          <th><button onClick={() => setShow(true)}>+</button></th>
+          <th>
+            <button onClick={() => setShow(true)}>+</button>
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -59,7 +60,7 @@ function Homepage() {
           campaigns.campaigns && campaigns.campaigns.map((campaign, index) => {
             return (<tr key={index}>
               <td>
-              <Link to={"/dw-react/" + campaign.id}>{campaign.id}</Link>
+                <Link to={"/dw-react/" + campaign.id}>{campaign.id}</Link>
               </td>
               <td>
                 <button onClick={() => deleteCampaign(campaign.id)}>Delete</button>
@@ -68,10 +69,13 @@ function Homepage() {
           })
         }</tbody>
     </table>
-    {show
-      ? <CreateCampaign/>
-    : null
-    }
+    <CreateShow.Provider value={[show, setShow]}>
+      {
+        show
+          ? <CreateCampaign/>
+          : null
+      }
+    </CreateShow.Provider>
   </div>);
 }
 

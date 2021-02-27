@@ -5,7 +5,7 @@ function ProfilePicture(props) {
     className="profPicture"
     id="userPicture"
     src={props.currentUser.photoURL}
-    alt={props.currentUser.photoURL}/>);
+    alt="Google Profile"/>);
 }
 
 export default ProfilePicture;

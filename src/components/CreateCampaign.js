@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import * as FirebaseService from '../services/firebase';
+import * as FirebaseService from 'services/firebase';
 
 function CreateCampaign() {
 

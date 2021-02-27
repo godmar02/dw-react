@@ -1,15 +1,15 @@
 import React, {useState, useEffect, useCallback} from 'react';
-import CharacterState from './contexts/CharacterState';
+import CharacterState from 'components/contexts/CharacterState';
 import { useParams } from "react-router";
-import * as FirebaseService from '../services/firebase';
-import CharacterSheetHeader from './CharacterSheetHeader'
-import CharacterDetailsTable from './CharacterDetailsTable'
-import CharacterTypeTable from './CharacterTypeTable'
-import CharacterBasicAttributesTable from './CharacterBasicAttributesTable'
-import CharacterAbilitiesTable from './CharacterAbilitiesTable'
-import CharacterBondsTable from './CharacterBondsTable'
-import CharacterItemsTable from './CharacterItemsTable'
-import CharacterClassFeaturesTable from './CharacterClassFeaturesTable'
+import * as FirebaseService from 'services/firebase';
+import CharacterSheetHeader from 'components/characterSheetHeader'
+import CharacterDetailsTable from 'components/characterDetailsTable'
+import CharacterTypeTable from 'components/characterTypeTable'
+import CharacterBasicAttributesTable from 'components/characterBasicAttributesTable'
+import CharacterAbilitiesTable from 'components/characterAbilitiesTable'
+import CharacterBondsTable from 'components/characterBondsTable'
+import CharacterItemsTable from 'components/characterItemsTable'
+import CharacterClassFeaturesTable from 'components/characterClassFeaturesTable'
 
 // Debounce function
 const debounce = (callback,delay) => {

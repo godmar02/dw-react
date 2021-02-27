@@ -1,12 +1,12 @@
 import React from 'react';
-import {BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import ErrorPage from './ErrorPage'
-import NavSidebar from './NavSidebar';
-import UserProfile from './UserProfile';
-import AppHeader from './AppHeader';
-import CharacterSheet from './CharacterSheet';
-import CampaignSheet from './CampaignSheet';
-import Homepage from './Homepage';
+import {BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import ErrorPage from 'components/ErrorPage'
+import Homepage from 'components/Homepage';
+import NavSidebar from 'components/NavSidebar';
+import UserProfile from 'components/profile/UserProfile';
+import AppHeader from 'components/AppHeader';
+import CharacterSheet from 'components/character/CharacterSheet';
+import CampaignSheet from 'components/campaign/CampaignSheet';
 
 function App(props) {
   const currentUser = props.currentUser;

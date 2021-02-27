@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
-import CharacterState from './contexts/CharacterState';
-import {abilityAfflictions} from '../data/abilityAfflictions';
+import CharacterState from 'components/contexts/CharacterState';
+import {abilityAfflictions} from 'data/abilityAfflictions';
 
 function CharacterAbilitiesTable() {
 

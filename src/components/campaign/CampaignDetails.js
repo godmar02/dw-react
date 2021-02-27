@@ -1,9 +1,9 @@
 import React, {useContext,useState} from 'react';
-import CampaignState from './contexts/CampaignState';
-import * as FirebaseService from '../services/firebase';
 import {Link} from 'react-router-dom';
-import {useParams} from "react-router";
-import CreateCharacter from './CreateCharacter'
+import {useParams} from 'react-router';
+import * as FirebaseService from 'services/firebase';
+import CampaignState from 'components/contexts/CampaignState';
+import CreateCharacter from 'components/campain/CreateCharacter'
 
 function CampaignDetails() {
 

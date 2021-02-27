@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
-import CharacterState from './contexts/CharacterState';
-import {classDetails} from '../data/classDetails';
+import CharacterState from 'components/contexts/CharacterState';
+import {classDetails} from 'data/classDetails';
 
 function CharacterDamage() {
 

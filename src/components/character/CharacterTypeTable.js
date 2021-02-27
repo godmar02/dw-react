@@ -1,9 +1,9 @@
 import React, {useContext} from 'react';
-import CharacterState from './contexts/CharacterState';
-import {races} from '../data/raceList';
-import {dwClasses} from '../data/classList';
-import {alignments} from '../data/classAlignments';
-import {classDetails} from '../data/classDetails';
+import CharacterState from 'components/contexts/CharacterState';
+import {races} from 'data/raceList';
+import {dwClasses} from 'data/classList';
+import {alignments} from 'data/classAlignments';
+import {classDetails} from 'data/classDetails';
 
 function CharacterTypeTable() {
 
