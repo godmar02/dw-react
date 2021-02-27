@@ -15,7 +15,7 @@ function CampaignDetails() {
     <table>
       <thead>
         <tr>
-          <th>CHARACTERS</th>
+          <th colSpan="4">CHARACTERS</th>
         </tr>
       </thead>
       <tbody>

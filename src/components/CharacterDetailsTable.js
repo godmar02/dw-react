@@ -10,6 +10,14 @@ function CharacterDetailsTable() {
     <tbody>
       <tr>
         <th style={{"width" : "25%"}}>
+          <label htmlFor="fullName">FULL NAME</label>
+        </th>
+        <td>
+          <textarea placeholder="Add your characters full name here" value={character.fullName} name="fullName" onChange={event => setCharacter(character => ({...character,fullName: event.target.value}))}/>
+        </td>
+      </tr>
+      <tr>
+        <th style={{"width" : "25%"}}>
           <label htmlFor="backstory">BACKSTORY</label>
         </th>
         <td>

@@ -17,9 +17,9 @@ function App(props) {
       <AppHeader/>
       <NavSidebar/>
       <Switch>
-        <Route path="/dw-react/:campaignURL/:characterURL" component={CharacterSheet} />
-        <Route path="/dw-react/:campaignURL" component={CampaignSheet} />
-        <Route path="/dw-react" component={Homepage} />
+        <Route exact path="/dw-react/:campaignURL/:characterURL" component={CharacterSheet} />
+        <Route exact path="/dw-react/:campaignURL" component={CampaignSheet} />
+        <Route exact path="/dw-react" component={Homepage} />
         <Route component={ErrorPage} />
       </Switch>
     </Router>

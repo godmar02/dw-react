@@ -32,9 +32,10 @@ function CampaignSheet() {
     }
   }, [campaignURL, setCampaign]);
 
-  console.log("campaign state:", campaign);
+  console.log("Campaign State:", campaign);
 
-  return (<CampaignState.Provider value={[campaign, setCampaign]}>
+  return (
+  <CampaignState.Provider value={[campaign, setCampaign]}>
     <CampaignSheetHeader />
     <br/>
     <CampaignDetails/>

@@ -16,12 +16,12 @@ useEffect(() => {
       {bond: "bond0"},
       {bond: "bond1"}
     ],
-    charaFullName: "Laneth the Elder",
     classFeatures: [
       {feature: "classFeature0", checkbox: true},
       {feature: "classFeature1", checkbox: false},
     ],
     dwClass: "Paladin",
+    fullName: "Laneth the Elder",
     funds: 10,
     hp:2,
     items: [

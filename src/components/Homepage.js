@@ -25,7 +25,7 @@ function Homepage() {
     return unsubscribe;
   }, [setCampaigns]);
 
-  console.log("campaigns state:", campaigns)
+  console.log("Campaigns State:", campaigns)
 
   return (<div>
     <br/>
@@ -40,7 +40,9 @@ function Homepage() {
         {
           campaigns.campaigns && campaigns.campaigns.map((campaign, index) => {
             return (<tr key={index}>
+              <td>
               <Link to={"/dw-react/" + campaign.id}>{campaign.id}</Link>
+              </td>
             </tr>)
           })
         }</tbody>

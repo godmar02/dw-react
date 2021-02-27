@@ -17,7 +17,7 @@ function CharacterSheetHeader() {
       <Link to={"/dw-react/" + campaignURL}> {campaignURL}</Link> >
       <p> {characterURL}</p>
       <h1>{characterURL}</h1>
-      <p>{character.charaFullName}</p>
+      <p>{character.fullName}</p>
     </div>);
 }
 

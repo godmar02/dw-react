@@ -15,11 +15,11 @@ useEffect(() => {
     bonds: [
       {bond: ""},
     ],
-    charaFullName: "",
     classFeatures: [
       {feature: "", checkbox: false}
     ],
     dwClass: "null",
+    fullName: "",
     funds: "",
     hp: "",
     items: [
