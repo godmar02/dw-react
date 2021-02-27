@@ -29,11 +29,12 @@ function CampaignDetails() {
   }
 
   return (
-    <>
+    <div>
     <table>
       <thead>
         <tr>
-          <th colSpan="5">CHARACTERS</th>
+          <th colSpan="4">CHARACTERS</th>
+          <th><button onClick={() => setShow(true)}>+</button></th>
         </tr>
       </thead>
       <tbody>
@@ -55,9 +56,9 @@ function CampaignDetails() {
     </table>
       {show
         ? <CreateCharacter/>
-        : <button onClick={() => setShow(true)}>Create Character</button>
+        : null
       }
-    </>
+    </div>
   );
 }
 

@@ -50,7 +50,8 @@ function Homepage() {
     <table>
       <thead>
         <tr>
-          <th colSpan="2">CAMPAIGNS</th>
+          <th>CAMPAIGNS</th>
+          <th><button onClick={() => setShow(true)}>+</button></th>
         </tr>
       </thead>
       <tbody>
@@ -69,7 +70,7 @@ function Homepage() {
     </table>
     {show
       ? <CreateCampaign/>
-      : <button onClick={() => setShow(true)}>Create Campaign</button>
+    : null
     }
   </div>);
 }
