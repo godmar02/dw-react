@@ -38,9 +38,9 @@ function CharacterSheet() {
               setCharacter(documentSnapshot.data());
           },
           error: (error) => {
-    alert("Failed to load character data correctly, see console error");
-    console.error("Error loading data:", error);
-  }
+            alert("Failed to load character data correctly, see console error");
+            console.error("Error loading document:", error);
+          }
       });
       return unsubscribe;
     }
@@ -59,7 +59,7 @@ function CharacterSheet() {
           console.error("Error saving document:", error);
           //If saving fails then it will not retry until the error is rectified
         })
-    , 5000),[]);
+    , process.env.DEBOUNCE_SAVE_DELAY_MS),[]);
 
   useEffect(
     () => {

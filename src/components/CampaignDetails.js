@@ -1,21 +1,41 @@
-import React, {useContext} from 'react';
+import React, {useContext,useState} from 'react';
 import CampaignState from './contexts/CampaignState';
+import * as FirebaseService from '../services/firebase';
 import {Link} from 'react-router-dom';
 import {useParams} from "react-router";
+import CreateCharacter from './CreateCharacter'
 
 function CampaignDetails() {
 
   // Accessing and adding to character using context and useEffect
   const [campaign] = useContext(CampaignState);
-
+  const [show, setShow] = useState(false);
   // retrieve URL parameters for usage
   const {campaignURL} = useParams();
 
+  const deleteCharacter = (campaign,character) => {
+    if (campaign && character) { //don't save unless details present
+      FirebaseService.deleteCharacter(campaign,character)
+      .then(() => {
+        console.info('Deleted Character:', character);
+      })
+      .catch((error) => {
+        alert("Failed to delete character, see console error");
+        console.error("Error deleting document:", error);
+      });
+    } else {
+      alert('Cannot delete blank character');
+    }
+  }
+
+  console.log(show)
+
   return (
+    <>
     <table>
       <thead>
         <tr>
-          <th colSpan="4">CHARACTERS</th>
+          <th colSpan="5">CHARACTERS</th>
         </tr>
       </thead>
       <tbody>
@@ -27,11 +47,19 @@ function CampaignDetails() {
               <td>({campaign.characterData.owner})</td>
               <td>HP: {campaign.characterData.hp}</td>
               <td>XP: {campaign.characterData.xp}</td>
+                <td>
+                  <button onClick={() => deleteCharacter(campaign.id, campaign.character)}>Delete</button>
+                </td>
             </tr>)
           })
         }
       </tbody>
     </table>
+      {show
+        ? <CreateCharacter/>
+        : <button onClick={() => setShow(true)}>Create Character</button>
+      }
+    </>
   );
 }
 

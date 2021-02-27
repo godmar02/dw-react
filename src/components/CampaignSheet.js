@@ -25,14 +25,14 @@ function CampaignSheet() {
         },
         error: (error) => {
           alert("Failed to load campaign data correctly, see console error");
-          console.error("Error loading data:", error);
+          console.error("Error loading document:", error);
         }
       });
       return unsubscribe;
     }
   }, [campaignURL, setCampaign]);
 
-  console.log("Campaign State:", campaign);
+  console.info("Campaign State:", campaign);
 
   return (
   <CampaignState.Provider value={[campaign, setCampaign]}>

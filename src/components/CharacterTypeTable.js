@@ -94,7 +94,7 @@ function CharacterTypeTable() {
             onChange={event => setCharacter(character => ({...character,alignment: event.target.value}))}>
             <option disabled value="null" hidden />
             {
-              character.dwClass && alignments.[dwc].map((data, key) => {
+              character.dwClass && dwc && alignments.[dwc].map((data, key) => {
               return (
               <option value={data} key={key}>
                 {data}

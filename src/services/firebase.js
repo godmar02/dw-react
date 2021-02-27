@@ -27,19 +27,52 @@ export function SignInWithGoogle() {
 };
 
 // Firestore operations
+
+// Create new blank campaign
 export function createCampaign(campaign) {
   return db.collection("campaigns")
-    .add(campaign)
-    .collection("characters");
+    .doc(campaign).set({})
 };
 
-export function createCharacter(campaign, character) {
+// Create new blank character
+export function createCharacter(campaign,charaName) {
   return db.collection("campaigns")
     .doc(campaign)
     .collection("characters")
-    .add(character);
+    .doc(charaName)
+    .set({
+      abilities: [
+        {category: "STR", score: "", affliction: "Unafflicted"},
+        {category: "DEX", score: "", affliction: "Unafflicted"},
+        {category: "CON", score: "", affliction: "Unafflicted"},
+        {category: "INT", score: "", affliction: "Unafflicted"},
+        {category: "WIS", score: "", affliction: "Unafflicted"},
+        {category: "CHA", score: "", affliction: "Unafflicted"}
+      ],
+      alignment: "",
+      armour: "",
+      backstory: "",
+      bonds: [
+        {bond: ""},
+      ],
+      classFeatures: [
+        {feature: "", checkbox: false}
+      ],
+      dwClass: "",
+      fullName: "",
+      funds: "",
+      hp: "",
+      items: [
+        {item: "", weight: ""},
+      ],
+      level: "",
+      look: "",
+      owner: "",
+      race: "",
+      xp: ""
+    });
 };
-
+// Save Character
 export function saveCharacter(campaign, character, data) {
   return db.collection("campaigns")
     .doc(campaign)
@@ -48,24 +81,39 @@ export function saveCharacter(campaign, character, data) {
     .set(data);
 };
 
+// Stream Campaign Data (all Campaigns)
 export function streamCampaigns(observer) {
   return db.collection("campaigns")
     .onSnapshot(observer);
 };
-
+// Stream Character Data (all Characters)
 export function streamCharacters(campaign, observer) {
   return db.collection("campaigns")
     .doc(campaign)
     .collection("characters")
     .onSnapshot(observer);
 };
-
+// Stream Character Data (Selected Characters)
 export function streamCharacter(campaign, character, observer) {
   return db.collection("campaigns")
     .doc(campaign)
     .collection("characters")
     .doc(character)
     .onSnapshot(observer);
+};
+// Delete Campaign
+export function deleteCampaign(campaign) {
+  return db.collection("campaigns")
+    .doc(campaign)
+    .delete()
+};
+// Delete Characters
+export function deleteCharacter(campaign, character) {
+  return db.collection("campaigns")
+    .doc(campaign)
+    .collection("characters")
+    .doc(character)
+    .delete()
 };
 
 // Default Export
