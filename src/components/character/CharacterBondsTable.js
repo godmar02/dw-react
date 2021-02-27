@@ -3,7 +3,7 @@ import CharacterState from 'components/contexts/CharacterState';
 
 function CharacterBondsTable() {
 
-  // Accessing and adding to character using context and useEffect
+  // State Variables
   const [character, setCharacter] = useContext(CharacterState);
 
   // State manipulation

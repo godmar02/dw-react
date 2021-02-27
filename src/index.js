@@ -1,50 +1,33 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import './custom.css';
+import 'index.css';
+import 'custom.css';
 import App from 'components/App';
 import * as FirebaseService from 'services/firebase';
+import AuthState from 'components/contexts/AuthState';
 
-export const AuthContext = React.createContext(null);
+function Index() {
 
-class Index extends React.Component {
+  const [currentUser, setCurrentUser] = useState(null);
 
-  constructor() {
-    super();
-    this.state = {
-      currentUser: null
-    };
-  }
-
-  unsubscribeFromAuth = null;
-
-  componentDidMount() {
-    this.unsubscribeFromAuth = FirebaseService.auth.onAuthStateChanged(user => {
-      this.setState({ currentUser: user });
+  useEffect(() => {
+    const unsubscribe = FirebaseService.auth.onAuthStateChanged(user => {
+      setCurrentUser(user)
     });
-  }
+    return unsubscribe;
+  }, [])
 
-  componentWillUnmount() {
-    this.unsubscribeFromAuth();
-  }
-
-  render() {
-    return (
-      <>
-        {
-          this.state.currentUser ?
-            (<div>
-              <App currentUser={this.state.currentUser} />
-              <button onClick={() => FirebaseService.auth.signOut()}>LOG OUT</button>
-            </div>
-            ) :
-            <button onClick={FirebaseService.SignInWithGoogle}>SIGN IN WITH GOOGLE</button>
-        }
-      </>
-    );
-  }
+  return (<AuthState.Provider value={[currentUser]}>
+    {
+      currentUser
+        ? (<div>
+          <App currentUser={currentUser}/>
+          <button onClick={() => FirebaseService.auth.signOut()}>LOG OUT</button>
+        </div>)
+        : <button onClick={FirebaseService.SignInWithGoogle}>SIGN IN WITH GOOGLE</button>
+    }
+  </AuthState.Provider>);
 }
 
-
 const rootElement = document.getElementById("root");
-ReactDOM.render(<Index />, rootElement);
+ReactDOM.render(<Index/>, rootElement);

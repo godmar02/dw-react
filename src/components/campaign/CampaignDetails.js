@@ -7,7 +7,7 @@ import CreateCharacter from 'components/campaign/CreateCharacter';
 
 function CampaignDetails() {
 
-  // Accessing and adding to character using context and useEffect
+  // State Variables
   const [campaign] = useContext(CampaignState);
   const [show, setShow] = useState(false);
   // retrieve URL parameters for usage

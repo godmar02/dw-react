@@ -10,6 +10,9 @@ import CharacterAbilitiesTable from 'components/character/CharacterAbilitiesTabl
 import CharacterBondsTable from 'components/character/CharacterBondsTable'
 import CharacterItemsTable from 'components/character/CharacterItemsTable'
 import CharacterClassFeaturesTable from 'components/character/CharacterClassFeaturesTable'
+import CharacterStandardMoves from 'components/character/CharacterStandardMoves'
+import CharacterAdvancedMoves from 'components/character/CharacterAdvancedMoves'
+import CharacterClassMoves from 'components/character/CharacterClassMoves'
 
 // Debounce function
 const debounce = (callback,delay) => {
@@ -91,6 +94,11 @@ function CharacterSheet() {
     <br/>
     <CharacterClassFeaturesTable/>
     <br/>
+    <CharacterStandardMoves/>
+    <br/>
+    <CharacterAdvancedMoves/>
+    <br/>
+    <CharacterClassMoves/>
   </CharacterState.Provider>);
 }
 

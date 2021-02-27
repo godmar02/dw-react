@@ -10,14 +10,14 @@
 
 .profPicture {
   -webkit-background-size: 32px 32px;
-  background-size: 32px 32px;
+  background-size: 45px 45px;
   border: 0;
   -webkit-border-radius: 50%;
   border-radius: 50%;
   display: block;
   margin: 0;
-  height: 32px;
-  width: 32px;
+  height: 45px;
+  width: 45px;
   z-index: 0;
   position: absolute;
   top: 5px;

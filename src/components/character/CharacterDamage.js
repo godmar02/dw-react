@@ -4,7 +4,7 @@ import {classDetails} from 'data/classDetails';
 
 function CharacterDamage() {
 
-  // Accessing and adding to character using context and useEffect
+  // State Variables
   const [character] = useContext(CharacterState);
   const dwc = character.dwClass;
 

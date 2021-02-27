@@ -4,7 +4,7 @@ import {abilityAfflictions} from 'data/abilityAfflictions';
 
 function CharacterAbilitiesTable() {
 
-  // Accessing and adding to character using context and useEffect
+  // State Variables
   const [character, setCharacter] = useContext(CharacterState);
 
   const updateAbilityScore = index => e => {

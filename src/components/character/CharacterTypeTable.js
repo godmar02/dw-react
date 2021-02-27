@@ -7,7 +7,7 @@ import {classDetails} from 'data/classDetails';
 
 function CharacterTypeTable() {
 
-  // Accessing and adding to character using context and useEffect
+  // State Variables
   const [character, setCharacter] = useContext(CharacterState);
   const dwc = character.dwClass;
   const alig = character.alignment;

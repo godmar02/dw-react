@@ -3,7 +3,7 @@ import CharacterState from 'components/contexts/CharacterState';
 
 function CharacterXP() {
 
-  // Accessing and adding to character using context and useEffect
+  // State Variables
   const [character, setCharacter] = useContext(CharacterState);
 
   // Total Load
