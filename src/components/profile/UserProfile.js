@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import ProfilePicture from 'components/profilePicture';
-import ProfileDetails from 'components/profileDetails';
+import ProfilePicture from 'components/profile/ProfilePicture';
+import ProfileDetails from 'components/profile/ProfileDetails';
 
 function UserProfile(props) {
 
@@ -8,10 +8,11 @@ function UserProfile(props) {
 
   return (<div>
     <ProfilePicture currentUser={props.currentUser}/>
-      {show
+    {
+      show
         ? <ProfileDetails currentUser={props.currentUser}/>
         : null
-      }
+    }
   </div>);
 }
 

@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import * as FirebaseService from 'services/firebase';
 import {useParams} from 'react-router';
+import * as FirebaseService from 'services/firebase';
 
 function CreateCharacter() {
 

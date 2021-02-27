@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import {useParams} from 'react-router';
 import * as FirebaseService from 'services/firebase';
 import CampaignState from 'components/contexts/CampaignState';
-import CreateCharacter from 'components/campain/CreateCharacter'
+import CreateCharacter from 'components/campaign/CreateCharacter';
 
 function CampaignDetails() {
 

@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import * as FirebaseService from 'services/firebase';
-import CreateCampaign from 'components/campaign/CreateCampaign'
-import CreateShow from 'components/contexts/CreateCampaign'
+import CreateCampaign from 'components/CreateCampaign';
+import CreateCampaignState from 'components/contexts/CreateCampaignState';
 
 function Homepage() {
 
@@ -69,13 +69,13 @@ function Homepage() {
           })
         }</tbody>
     </table>
-    <CreateShow.Provider value={[show, setShow]}>
+    <CreateCampaignState.Provider value={[show, setShow]}>
       {
         show
           ? <CreateCampaign/>
           : null
       }
-    </CreateShow.Provider>
+    </CreateCampaignState.Provider>
   </div>);
 }
 
