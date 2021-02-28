@@ -17,7 +17,7 @@ function Homepage() {
     const unsubscribe = FirebaseService.streamCampaigns({
       next: querySnapshot => {
         const updatedCampaignList = querySnapshot.docs.map((docSnapshot) => {
-          return ({id: docSnapshot.id})
+          return ({id: docSnapshot.id, owner: docSnapshot.data.owner})
         });
         setCampaigns(campaign => ({campaigns: updatedCampaignList}));
       },
@@ -50,7 +50,7 @@ function Homepage() {
     <table>
       <thead>
         <tr>
-          <th>CAMPAIGNS</th>
+          <th colSpan="2">CAMPAIGNS</th>
           <th>
             <button onClick={() => toggleSetShow()}>+</button>
           </th>
@@ -62,6 +62,9 @@ function Homepage() {
             return (<tr key={index}>
               <td>
                 <Link to={"/dw-react/" + campaign.id}>{campaign.id}</Link>
+              </td>
+              <td>
+                ({campaign.owner})
               </td>
               <td>
                 <button onClick={() => deleteCampaign(campaign.id)}>Delete</button>
