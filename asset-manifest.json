@@ -1,20 +1,21 @@
 {
   "files": {
-    "main.css": "/dw-react/static/css/main.32681107.chunk.css",
-    "main.js": "/dw-react/static/js/main.228d4935.chunk.js",
-    "main.js.map": "/dw-react/static/js/main.228d4935.chunk.js.map",
+    "main.js": "/dw-react/static/js/main.e7c8b3bd.chunk.js",
+    "main.js.map": "/dw-react/static/js/main.e7c8b3bd.chunk.js.map",
     "runtime-main.js": "/dw-react/static/js/runtime-main.fa72870d.js",
     "runtime-main.js.map": "/dw-react/static/js/runtime-main.fa72870d.js.map",
-    "static/js/2.b8c339a3.chunk.js": "/dw-react/static/js/2.b8c339a3.chunk.js",
-    "static/js/2.b8c339a3.chunk.js.map": "/dw-react/static/js/2.b8c339a3.chunk.js.map",
+    "static/css/2.93b99520.chunk.css": "/dw-react/static/css/2.93b99520.chunk.css",
+    "static/js/2.52105ab2.chunk.js": "/dw-react/static/js/2.52105ab2.chunk.js",
+    "static/js/2.52105ab2.chunk.js.map": "/dw-react/static/js/2.52105ab2.chunk.js.map",
     "index.html": "/dw-react/index.html",
-    "static/css/main.32681107.chunk.css.map": "/dw-react/static/css/main.32681107.chunk.css.map",
-    "static/js/2.b8c339a3.chunk.js.LICENSE.txt": "/dw-react/static/js/2.b8c339a3.chunk.js.LICENSE.txt"
+    "static/css/2.93b99520.chunk.css.map": "/dw-react/static/css/2.93b99520.chunk.css.map",
+    "static/js/2.52105ab2.chunk.js.LICENSE.txt": "/dw-react/static/js/2.52105ab2.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/dw-react/static/media/roboto-vietnamese-400-normal.52cebac0.woff2"
   },
   "entrypoints": [
     "static/js/runtime-main.fa72870d.js",
-    "static/js/2.b8c339a3.chunk.js",
-    "static/css/main.32681107.chunk.css",
-    "static/js/main.228d4935.chunk.js"
+    "static/css/2.93b99520.chunk.css",
+    "static/js/2.52105ab2.chunk.js",
+    "static/js/main.e7c8b3bd.chunk.js"
   ]
 }
