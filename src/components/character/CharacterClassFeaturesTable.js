@@ -1,5 +1,8 @@
 import React, {useContext} from 'react';
 import CharacterState from 'components/contexts/CharacterState';
+import { Add, Delete } from '@material-ui/icons';
+import Checkbox from '@material-ui/core/Checkbox';
+import TextField from '@material-ui/core/TextField';
 
 function CharacterClassFeaturesTable() {
 
@@ -48,12 +51,9 @@ function CharacterClassFeaturesTable() {
             <label>CLASS FEATURES</label>
           </th>
           <td>
-            <button
-              type="button"
-              className="addRow"
-              onClick={() => addFeatureRow()}>
-              +
-            </button>
+            <Add
+              onClick={() => addFeatureRow()}
+            />
           </td>
         </tr>
       </thead>
@@ -63,24 +63,27 @@ function CharacterClassFeaturesTable() {
            return (
              <tr key={index}>
                <td>
-                 <input
-                   type="checkbox"
+                 <Checkbox
                    className="checkbox"
                    name={"classFeatureCheckbox" + index}
                    checked={!!classFeatures.checkbox}
-                   onChange={updateFeatureCheckbox(index)}/>
+                   onChange={updateFeatureCheckbox(index)}
+                   color="primary"
+                   />
                </td>
                  <td>
-                   <textarea
+                   <TextField
+                    multiline
+                    fullWidth
+                    variant="outlined"
+                     aria-label="empty textarea"
                      placeholder="Add any Class Features here (e.g. Spell Lists, Poison Recipes, Druid Balance, Paladin Quests or anything else!)"
                      value={classFeatures.feature}
                      name={"classFeature" + index}
                      onChange={updateFeature(index)}/>
                  </td>
                  <td>
-                   <button
-                     type="button"
-                     className="deleteRow"
+                   <Delete
                      onClick={() => deleteFeatureRow(index)}/>
                  </td>
              </tr>)

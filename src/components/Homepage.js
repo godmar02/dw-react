@@ -3,6 +3,8 @@ import {Link} from 'react-router-dom';
 import * as FirebaseService from 'services/firebase';
 import CreateCampaign from 'components/CreateCampaign';
 import CreateCampaignState from 'components/contexts/CreateCampaignState';
+import { Add, Delete } from '@material-ui/icons';
+import {Breadcrumbs} from '@material-ui/core';
 
 function Homepage() {
 
@@ -44,15 +46,17 @@ function Homepage() {
 
   console.log("Campaigns State:", campaigns)
 
-  return (<CreateCampaignState.Provider value={[show, setShow]}>
-    <br/>
-    <h1>WELCOME!</h1>
+  return (
+    <CreateCampaignState.Provider value={[show, setShow]}>
+    <div>
+    <Breadcrumbs><Link to="/dw-react">Home</Link></Breadcrumbs>
+    <h1>Campaign Homepage</h1>
     <table>
       <thead>
         <tr>
           <th colSpan="2">CAMPAIGNS</th>
           <th>
-            <button onClick={() => toggleSetShow()}>+</button>
+            <Add onClick={() => toggleSetShow()}/>
           </th>
         </tr>
       </thead>
@@ -67,7 +71,7 @@ function Homepage() {
                 ({campaign.owner})
               </td>
               <td>
-                <button onClick={() => deleteCampaign(campaign.id)}>Delete</button>
+                <Delete onClick={() => deleteCampaign(campaign.id)} />
               </td>
             </tr>)
           })
@@ -78,6 +82,7 @@ function Homepage() {
           ? <CreateCampaign/>
           : null
       }
+    </div>
     </CreateCampaignState.Provider>
 );
 }

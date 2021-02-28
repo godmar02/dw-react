@@ -1,6 +1,7 @@
 import React, {useContext} from 'react';
 import CharacterState from 'components/contexts/CharacterState';
 import {classDetails} from 'data/classDetails';
+import TextField from '@material-ui/core/TextField';
 
 function CharacterDamage() {
 
@@ -18,17 +19,18 @@ function CharacterDamage() {
 
   return (
     <table id="damage">
-      <thead>
-        <tr>
-          <th>
-            <label htmlFor="damage">DAMAGE</label>
-          </th>
-        </tr>
-      </thead>
       <tbody>
         <tr>
           <td>
-            <input type="text" className="shortfield grey" name="damage" readOnly="readOnly" value={damage()}/>
+            <TextField
+              variant="outlined"
+              className="shortfield grey"
+              name="damage"
+              label="Damage"
+              InputProps={{
+                readOnly: true,
+              }}
+              value={damage()}/>
           </td>
         </tr>
       </tbody>

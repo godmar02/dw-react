@@ -3,6 +3,8 @@ import {useParams} from 'react-router';
 import * as FirebaseService from 'services/firebase';
 import CreateCharacterState from 'components/contexts/CreateCharacterState';
 import AuthState from 'components/contexts/AuthState';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 
 function CreateCharacter() {
 
@@ -38,12 +40,18 @@ function CreateCharacter() {
           <label htmlFor="shortName">SHORT NAME</label>
         </th>
         <td>
-          <textarea placeholder="Add your characters short name here, you wont be able to change this one saved" name="shortName" onChange={event => setCharaName(event.target.value)}/>
+          <TextField
+            multiline
+            fullWidth
+            variant="outlined"
+            aria-label="empty textarea"
+            placeholder="Add your characters short name here, you wont be able to change this one saved" name="shortName"
+            onChange={event => setCharaName(event.target.value)}/>
         </td>
       </tr>
     </tbody>
   </table>
-  <button onClick={() => saveCharacter()}>Save Character</button>
+  <Button variant="contained" color="primary" onClick={() => saveCharacter()}>Save Character</Button>
   </>
 );
 }

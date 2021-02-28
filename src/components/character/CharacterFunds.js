@@ -1,5 +1,6 @@
 import React, {useContext} from 'react';
 import CharacterState from 'components/contexts/CharacterState';
+import TextField from '@material-ui/core/TextField';
 
 function CharacterFunds() {
 
@@ -8,18 +9,17 @@ function CharacterFunds() {
 
   return (
     <table id="funds">
-      <thead>
-        <tr>
-          <th>
-            <label htmlFor="funds">FUNDS</label>
-          </th>
-        </tr>
-      </thead>
       <tbody>
         <tr>
           <td>
-            <input type="number" className="shortfield" name="funds"
-              min={0} id="funds" value={character.funds || ''} onChange={event => setCharacter(character => ({...character,funds: event.target.value}))}/>
+            <TextField
+              type="number"
+              variant="outlined"
+              name="funds"
+              label="Funds"
+              min={0}
+              value={character.funds || ''}
+              onChange={event => setCharacter(character => ({...character,funds: event.target.value}))}/>
           </td>
         </tr>
       </tbody>

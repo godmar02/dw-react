@@ -3,15 +3,18 @@ import {BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import ErrorPage from 'components/ErrorPage'
 import Homepage from 'components/Homepage';
 import NavSidebar from 'components/NavSidebar';
-import UserProfile from 'components/profile/UserProfile';
 import AppHeader from 'components/AppHeader';
 import CharacterSheet from 'components/character/CharacterSheet';
 import CampaignSheet from 'components/campaign/CampaignSheet';
+import Container from "@material-ui/core/Container";
+import "@fontsource/roboto"
+import Typography from '@material-ui/core/Typography';
 
 function App() {
 
   return (<>
-    <UserProfile/>
+    <Typography>
+    <Container>
     <Router>
       <AppHeader/>
       <NavSidebar/>
@@ -22,6 +25,8 @@ function App() {
         <Route component={ErrorPage} />
       </Switch>
     </Router>
+    </Container>
+  </Typography>
   </>)
 }
 

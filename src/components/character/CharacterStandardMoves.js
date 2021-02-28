@@ -1,38 +1,40 @@
 import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Accordion from '@material-ui/core/Accordion';
+import AccordionSummary from '@material-ui/core/AccordionSummary';
+import AccordionDetails from '@material-ui/core/AccordionDetails';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import {standardMoves} from 'data/movesList';
 
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: '100%',
+  },
+  heading: {
+    fontSize: theme.typography.pxToRem(15),
+    fontWeight: theme.typography.fontWeightRegular,
+  },
+}));
+
 function CharacterStandardMoves() {
+  const classes = useStyles();
   return (
-  <table style={{"width" : "100%"}} name="standardMoves">
-    <thead>
-      <tr>
-        <th>
-          <label style={{
-              "width" : "25%"
-            }} htmlFor="standardMoves">STANDARD MOVES</label>
-        </th>
-      </tr>
-    </thead>
-    <tbody>
+  <>
         {
           standardMoves.map((data) => {
             return (
-              <React.Fragment key={data.name}>
-            <tr>
-              <td>
-                {data.name}
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div dangerouslySetInnerHTML={{__html: data.description }}></div>
-              </td>
-            </tr>
-          </React.Fragment>);
+              <Accordion>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}>{data.name}
+                </AccordionSummary>
+                <AccordionDetails>
+                      <p dangerouslySetInnerHTML={{__html: data.description }}></p>
+                </AccordionDetails>
+              </Accordion>
+              );
           })
         }
-    </tbody>
-  </table>);
+    </>);
 }
 
 export default CharacterStandardMoves;

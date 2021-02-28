@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
-import 'index.css';
-import 'custom.css';
+//import 'index.css';
+//import 'custom.css';
 import App from 'components/App';
 import * as FirebaseService from 'services/firebase';
 import AuthState from 'components/contexts/AuthState';
+import Button from '@material-ui/core/Button';
 
 function Index() {
 
@@ -24,7 +25,7 @@ function Index() {
         ? (<div>
           <App />
         </div>)
-        : <button onClick={FirebaseService.SignInWithGoogle}>SIGN IN WITH GOOGLE</button>
+        : <Button variant="contained" color="primary"  onClick={FirebaseService.SignInWithGoogle}>SIGN IN WITH GOOGLE</Button>
     }
   </AuthState.Provider>);
 }

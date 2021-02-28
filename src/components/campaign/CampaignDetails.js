@@ -5,6 +5,7 @@ import * as FirebaseService from 'services/firebase';
 import CreateCharacter from 'components/campaign/CreateCharacter';
 import CreateCharacterState from 'components/contexts/CreateCharacterState';
 import CampaignState from 'components/contexts/CampaignState';
+import { Add, Delete } from '@material-ui/icons';
 
 function CampaignDetails() {
 
@@ -36,7 +37,7 @@ function CampaignDetails() {
       <thead>
         <tr>
           <th colSpan="4">CHARACTERS</th>
-          <th><button onClick={() => toggleSetShow()}>+</button></th>
+          <th><Add onClick={() => toggleSetShow()}/></th>
         </tr>
       </thead>
       <tbody>
@@ -49,7 +50,7 @@ function CampaignDetails() {
               <td>HP: {campaign.characterData.hp}</td>
               <td>XP: {campaign.characterData.xp}</td>
                 <td>
-                  <button onClick={() => deleteCharacter(campaignURL, campaign.character)}>Delete</button>
+                  <Delete onClick={() => deleteCharacter(campaignURL, campaign.character)}/>
                 </td>
             </tr>)
           })

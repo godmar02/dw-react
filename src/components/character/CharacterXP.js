@@ -1,5 +1,6 @@
 import React, {useContext} from 'react';
 import CharacterState from 'components/contexts/CharacterState';
+import TextField from '@material-ui/core/TextField';
 
 function CharacterXP() {
 
@@ -17,20 +18,29 @@ function CharacterXP() {
 
   return (
     <table>
-      <thead>
-        <tr>
-          <th colSpan={2}>
-            <label htmlFor="xp">XP</label>
-          </th>
-        </tr>
-      </thead>
       <tbody>
         <tr>
           <td>
-            <input type="number" min={0} className="shortfield" name="xp" value={character.xp || ''} onChange={event => setCharacter(character => ({...character,xp: event.target.value}))}/>
+            <TextField
+              type="number"
+              variant="outlined"
+              label="XP"
+              min={0}
+              className="shortfield"
+              name="xp"
+              value={character.xp || ''}
+              onChange={event => setCharacter(character => ({...character,xp: event.target.value}))}/>
           </td>
           <td>
-            <input type="text" className="shortfield grey" name="maxXp" readOnly="readOnly" value={calcMaxXp()} />
+            <TextField
+              variant="outlined"
+              className="shortfield grey"
+              label="Max XP"
+              name="maxXp"
+              InputProps={{
+                readOnly: true,
+              }}
+              value={calcMaxXp()} />
           </td>
         </tr>
       </tbody>

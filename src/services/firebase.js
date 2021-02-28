@@ -42,12 +42,12 @@ export function createCharacter(campaign,charaName,owner) {
     .doc(charaName)
     .set({
       abilities: [
-        {category: "STR", score: "", affliction: "Unafflicted"},
-        {category: "DEX", score: "", affliction: "Unafflicted"},
-        {category: "CON", score: "", affliction: "Unafflicted"},
-        {category: "INT", score: "", affliction: "Unafflicted"},
-        {category: "WIS", score: "", affliction: "Unafflicted"},
-        {category: "CHA", score: "", affliction: "Unafflicted"}
+        {category: "STR", score: "1", affliction: "Unafflicted"},
+        {category: "DEX", score: "1", affliction: "Unafflicted"},
+        {category: "CON", score: "1", affliction: "Unafflicted"},
+        {category: "INT", score: "1", affliction: "Unafflicted"},
+        {category: "WIS", score: "1", affliction: "Unafflicted"},
+        {category: "CHA", score: "1", affliction: "Unafflicted"}
       ],
       alignment: "",
       armour: "",
@@ -93,7 +93,7 @@ export function streamCharacters(campaign, observer) {
     .collection("characters")
     .onSnapshot(observer);
 };
-// Stream Character Data (Selected Characters)
+// Stream Character Data (selected Characters)
 export function streamCharacter(campaign, character, observer) {
   return db.collection("campaigns")
     .doc(campaign)

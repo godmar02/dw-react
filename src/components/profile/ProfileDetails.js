@@ -2,6 +2,7 @@ import React, {useContext} from 'react';
 import AuthState from 'components/contexts/AuthState';
 import * as FirebaseService from 'services/firebase';
 import ProfileState from 'components/contexts/ProfileState';
+import Button from '@material-ui/core/Button';
 
 function ProfileDetails() {
 
@@ -14,7 +15,7 @@ function ProfileDetails() {
         <div>Google Account</div>
         <div id="userName">{currentUser.displayName}</div>
         <div id="userEmail">{currentUser.email}</div>
-        <button onClick={() => FirebaseService.auth.signOut()}>LOG OUT</button>
+        <Button variant="contained" color="primary" onClick={() => FirebaseService.auth.signOut()}>LOG OUT</Button>
       </div>
     );
 }

@@ -1,6 +1,7 @@
 import React, {useContext} from 'react';
 import AuthState from 'components/contexts/AuthState';
 import ProfileState from 'components/contexts/ProfileState';
+import Avatar from '@material-ui/core/Avatar';
 
 function ProfilePicture() {
 
@@ -8,7 +9,7 @@ function ProfilePicture() {
   const [show,setShow] = useContext(ProfileState);
   const toggleSetShow = () => setShow(!show);
 
-  return (<img
+  return (<Avatar
     className="profPicture"
     id="userPicture"
     src={currentUser.photoURL}

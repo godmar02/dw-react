@@ -1,5 +1,7 @@
 import React, {useContext} from 'react';
 import CharacterState from 'components/contexts/CharacterState';
+import { Add, Delete } from '@material-ui/icons';
+import TextField from '@material-ui/core/TextField';
 
 function CharacterBondsTable() {
 
@@ -38,12 +40,7 @@ function CharacterBondsTable() {
             <label>BONDS</label>
           </th>
           <td>
-            <button
-              type="button"
-              className="addRow"
-              onClick={() => addBondsRow()}>
-              +
-            </button>
+            <Add onClick={() => addBondsRow()}/>
           </td>
         </tr>
       </thead>
@@ -53,7 +50,11 @@ function CharacterBondsTable() {
          return (
            <tr key={index}>
                <td>
-                 <textarea
+                 <TextField
+                   multiline
+                   fullWidth
+                   variant="outlined"
+                   aria-label="empty textarea"
                    placeholder="Add 2-3 bonds here"
                    value={bonds.bond}
                    name={"bond" + index}
@@ -61,9 +62,7 @@ function CharacterBondsTable() {
                    />
                </td>
                <td>
-                 <button
-                   type="button"
-                   className="deleteRow"
+                 <Delete
                    onClick={() => deleteBondRow(index)}/>
                </td>
            </tr>)

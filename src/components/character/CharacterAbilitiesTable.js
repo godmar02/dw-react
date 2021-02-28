@@ -1,9 +1,25 @@
 import React, {useContext} from 'react';
 import CharacterState from 'components/contexts/CharacterState';
 import {abilityAfflictions} from 'data/abilityAfflictions';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
+import TextField from '@material-ui/core/TextField';
+import { makeStyles } from '@material-ui/core/styles';
+import FormControl from '@material-ui/core/FormControl';
+
+const useStyles = makeStyles((theme) => ({
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 120,
+  },
+  selectEmpty: {
+    marginTop: theme.spacing(2),
+  },
+}));
 
 function CharacterAbilitiesTable() {
 
+  const classes = useStyles();
   // State Variables
   const [character, setCharacter] = useContext(CharacterState);
 
@@ -87,8 +103,9 @@ function CharacterAbilitiesTable() {
             character.abilities && character.abilities.map((abilities, index) => {
             return (
               <td key={index}>
-                <input
+                <TextField
                   type="number"
+                  variant="outlined"
                   min={1} max={18}
                   className="ability"
                   name={abilities.category + "Score"}
@@ -103,12 +120,13 @@ function CharacterAbilitiesTable() {
             character.abilities && character.abilities.map((abilities, index) => {
             return (
               <td key={index}>
-                <input
-                  type="text"
+                <TextField variant="outlined"
                   className="grey tallfield"
                   name={abilities.category + "Modifier"}
                   value={abilityModifier(abilities.score, abilities.affliction)}
-                  readOnly />
+                  InputProps={{
+                    readOnly: true,
+                  }} />
             </td>)
            })
          }
@@ -119,22 +137,23 @@ function CharacterAbilitiesTable() {
             const ab = abilities.category;
             return (
               <td key={index}>
-                <select
+                <FormControl variant="outlined" className={classes.formControl}>
+                <Select
                   tabIndex={-1}
-                  className="abilityAffliction"
                   value={abilities.affliction || "null"}
                   name={abilities.category + "Affliction"}
                   onChange={updateAbilityAffliction(index)}>
-                  <option disabled value="null" hidden />
+                  <MenuItem disabled value="null" hidden />
                     {
                       abilityAfflictions.[ab].map((data, key) => {
                         return (
-                        <option value={data} key={key}>
+                        <MenuItem value={data} key={key}>
                           {data}
-                        </option>);
+                        </MenuItem>);
                       })
                     }
-                </select>
+                </Select>
+              </FormControl>
               </td>)
            })
          }
