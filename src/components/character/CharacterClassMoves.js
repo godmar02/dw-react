@@ -4,7 +4,10 @@ import {classMoves} from 'data/movesList';
 
 function CharacterClassMoves() {
 
+  // State Variables
   const [character] = useContext(CharacterState);
+  const dwc = character.dwClass;
+
   return (
   <table style={{"width" : "100%"}} name="advancedMoves">
     <thead>
@@ -17,8 +20,7 @@ function CharacterClassMoves() {
       </tr>
     </thead>
     <tbody>
-      {
-        advancedMoves.map((data) => {
+      { dwc && classMoves.[dwc].map((data) => {
           return (<>
           <tr>
             <td>
