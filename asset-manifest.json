@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/dw-react/static/css/main.32681107.chunk.css",
-    "main.js": "/dw-react/static/js/main.b6e4f58d.chunk.js",
-    "main.js.map": "/dw-react/static/js/main.b6e4f58d.chunk.js.map",
+    "main.js": "/dw-react/static/js/main.228d4935.chunk.js",
+    "main.js.map": "/dw-react/static/js/main.228d4935.chunk.js.map",
     "runtime-main.js": "/dw-react/static/js/runtime-main.fa72870d.js",
     "runtime-main.js.map": "/dw-react/static/js/runtime-main.fa72870d.js.map",
     "static/js/2.b8c339a3.chunk.js": "/dw-react/static/js/2.b8c339a3.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.fa72870d.js",
     "static/js/2.b8c339a3.chunk.js",
     "static/css/main.32681107.chunk.css",
-    "static/js/main.b6e4f58d.chunk.js"
+    "static/js/main.228d4935.chunk.js"
   ]
 }
