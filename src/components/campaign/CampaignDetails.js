@@ -2,14 +2,16 @@ import React, {useContext,useState} from 'react';
 import {Link} from 'react-router-dom';
 import {useParams} from 'react-router';
 import * as FirebaseService from 'services/firebase';
-import CampaignState from 'components/contexts/CampaignState';
 import CreateCharacter from 'components/campaign/CreateCharacter';
+import CreateCharacterState from 'components/contexts/CreateCharacterState';
+import CampaignState from 'components/contexts/CampaignState';
 
 function CampaignDetails() {
 
   // State Variables
   const [campaign] = useContext(CampaignState);
   const [show, setShow] = useState(false);
+  const toggleSetShow = () => setShow(!show);
   // retrieve URL parameters for usage
   const {campaignURL} = useParams();
 
@@ -29,12 +31,12 @@ function CampaignDetails() {
   }
 
   return (
-    <div>
+    <CreateCharacterState.Provider value={[show, setShow]}>
     <table>
       <thead>
         <tr>
           <th colSpan="4">CHARACTERS</th>
-          <th><button onClick={() => setShow(true)}>+</button></th>
+          <th><button onClick={() => toggleSetShow()}>+</button></th>
         </tr>
       </thead>
       <tbody>
@@ -58,7 +60,7 @@ function CampaignDetails() {
         ? <CreateCharacter/>
         : null
       }
-    </div>
+    </CreateCharacterState.Provider>
   );
 }
 

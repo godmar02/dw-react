@@ -9,32 +9,33 @@ function CharacterClassMoves() {
   const dwc = character.dwClass;
 
   return (
-  <table style={{"width" : "100%"}} name="advancedMoves">
+  <table style={{"width" : "100%"}} name="standardMoves">
     <thead>
       <tr>
         <th>
           <label style={{
               "width" : "25%"
-            }} htmlFor="advancedMoves">ADVANCED MOVES</label>
+            }} htmlFor="standardMoves">CLASS STARTING MOVES</label>
         </th>
       </tr>
     </thead>
     <tbody>
-      { dwc && classMoves.[dwc].map((data) => {
-          return (<>
-          <tr>
-            <td>
-              {data.name}
-            </td>
-          </tr>
-          <tr>
-            <td>
-              {data.description}
-            </td>
-          </tr>
-          </>);
-        })
-      }
+        { dwc && classMoves.[dwc].startingMoves.map((data) => {
+            return (
+              <React.Fragment key={data.name}>
+            <tr>
+              <td>
+                {data.name}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div dangerouslySetInnerHTML={{__html: data.description }}></div>
+              </td>
+            </tr>
+          </React.Fragment>);
+          })
+        }
     </tbody>
   </table>);
 }

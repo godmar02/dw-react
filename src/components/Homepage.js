@@ -9,6 +9,7 @@ function Homepage() {
   // Definitions for state
   const [campaigns, setCampaigns] = useState({});
   const [show, setShow] = useState(false);
+  const toggleSetShow = () => setShow(!show);
 
   // Use an effect hook to subscribe to the campaign stream and
   // automatically unsubscribe when the component unmounts.
@@ -43,7 +44,7 @@ function Homepage() {
 
   console.log("Campaigns State:", campaigns)
 
-  return (<div>
+  return (<CreateCampaignState.Provider value={[show, setShow]}>
     <br/>
     <h1>WELCOME!</h1>
     <table>
@@ -51,7 +52,7 @@ function Homepage() {
         <tr>
           <th>CAMPAIGNS</th>
           <th>
-            <button onClick={() => setShow(true)}>+</button>
+            <button onClick={() => toggleSetShow()}>+</button>
           </th>
         </tr>
       </thead>
@@ -69,14 +70,13 @@ function Homepage() {
           })
         }</tbody>
     </table>
-    <CreateCampaignState.Provider value={[show, setShow]}>
       {
         show
           ? <CreateCampaign/>
           : null
       }
     </CreateCampaignState.Provider>
-  </div>);
+);
 }
 
 export default Homepage;

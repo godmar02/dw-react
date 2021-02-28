@@ -1,16 +1,22 @@
-import React, {useState} from 'react';
+import React, {useState,useContext} from 'react';
 import * as FirebaseService from 'services/firebase';
+import CreateCampaignState from 'components/contexts/CreateCampaignState';
+import AuthState from 'components/contexts/AuthState';
 
 function CreateCampaign() {
 
   const [campaignName, setCampaignName] = useState("");
+  const [show,setShow] = useContext(CreateCampaignState);
+  const [currentUser] = useContext(AuthState);
+  const toggleSetShow = () => setShow(!show);
 
   // Create New Character
   const saveCampaign = () => {
     if (campaignName) { //don't save unless details present
-      FirebaseService.createCampaign(campaignName)
+      FirebaseService.createCampaign(campaignName,currentUser.email)
       .then(() => {
         console.info('Created Campaign:', campaignName);
+        toggleSetShow();
       })
       .catch((error) => {
         alert("Failed to create campaign, see console error");

@@ -17,12 +17,12 @@ function Index() {
     return unsubscribe;
   }, [])
 
-  return (<AuthState.Provider value={[currentUser]}>
+  return (
+  <AuthState.Provider value={[currentUser]}>
     {
       currentUser
         ? (<div>
-          <App currentUser={currentUser}/>
-          <button onClick={() => FirebaseService.auth.signOut()}>LOG OUT</button>
+          <App />
         </div>)
         : <button onClick={FirebaseService.SignInWithGoogle}>SIGN IN WITH GOOGLE</button>
     }

@@ -1,19 +1,23 @@
-import React, {useState} from 'react';
+import React, {useContext,useState} from 'react';
 import ProfilePicture from 'components/profile/ProfilePicture';
 import ProfileDetails from 'components/profile/ProfileDetails';
+import ProfileState from 'components/contexts/ProfileState';
 
-function UserProfile(props) {
+function UserProfile() {
 
   const [show, setShow] = useState(false);
 
-  return (<div>
-    <ProfilePicture currentUser={props.currentUser}/>
+  return (
+<ProfileState.Provider value={[show, setShow]}>
+    <div>
+    <ProfilePicture/>
     {
       show
-        ? <ProfileDetails currentUser={props.currentUser}/>
+        ? <ProfileDetails/>
         : null
     }
-  </div>);
+  </div>
+</ProfileState.Provider>);
 }
 
 export default UserProfile;

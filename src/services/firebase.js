@@ -29,13 +29,13 @@ export function SignInWithGoogle() {
 // Firestore operations
 
 // Create new blank campaign
-export function createCampaign(campaign) {
+export function createCampaign(campaign,owner) {
   return db.collection("campaigns")
-    .doc(campaign).set({})
+    .doc(campaign).set({owner: owner})
 };
 
 // Create new blank character
-export function createCharacter(campaign,charaName) {
+export function createCharacter(campaign,charaName,owner) {
   return db.collection("campaigns")
     .doc(campaign)
     .collection("characters")
@@ -67,7 +67,7 @@ export function createCharacter(campaign,charaName) {
       ],
       level: "",
       look: "",
-      owner: "",
+      owner: owner,
       race: "",
       xp: ""
     });

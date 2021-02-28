@@ -16,7 +16,8 @@ function CharacterStandardMoves() {
     <tbody>
         {
           standardMoves.map((data) => {
-            return (<>
+            return (
+              <React.Fragment key={data.name}>
             <tr>
               <td>
                 {data.name}
@@ -24,10 +25,10 @@ function CharacterStandardMoves() {
             </tr>
             <tr>
               <td>
-                {data.description}
+                <div dangerouslySetInnerHTML={{__html: data.description }}></div>
               </td>
             </tr>
-            </>);
+          </React.Fragment>);
           })
         }
     </tbody>

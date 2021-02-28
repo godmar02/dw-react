@@ -8,11 +8,10 @@ import AppHeader from 'components/AppHeader';
 import CharacterSheet from 'components/character/CharacterSheet';
 import CampaignSheet from 'components/campaign/CampaignSheet';
 
-function App(props) {
-  const currentUser = props.currentUser;
+function App() {
 
   return (<>
-    <UserProfile currentUser={currentUser}/>
+    <UserProfile/>
     <Router>
       <AppHeader/>
       <NavSidebar/>

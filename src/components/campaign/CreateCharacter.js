@@ -1,18 +1,24 @@
-import React, {useState} from 'react';
+import React, {useState,useContext} from 'react';
 import {useParams} from 'react-router';
 import * as FirebaseService from 'services/firebase';
+import CreateCharacterState from 'components/contexts/CreateCharacterState';
+import AuthState from 'components/contexts/AuthState';
 
 function CreateCharacter() {
 
   const [charaName, setCharaName] = useState("");
+  const [show,setShow] = useContext(CreateCharacterState);
+  const [currentUser] = useContext(AuthState);
   const {campaignURL} = useParams();
+  const toggleSetShow = () => setShow(!show);
 
   // Create New Character
   const saveCharacter = () => {
     if (campaignURL && charaName) { //don't save unless details present
-      FirebaseService.createCharacter(campaignURL,charaName)
+      FirebaseService.createCharacter(campaignURL,charaName, currentUser.email)
       .then(() => {
         console.info('Created Character:', charaName);
+        toggleSetShow();
       })
       .catch((error) => {
         alert("Failed to create character, see console error");
