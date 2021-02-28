@@ -17,7 +17,7 @@ function Homepage() {
     const unsubscribe = FirebaseService.streamCampaigns({
       next: querySnapshot => {
         const updatedCampaignList = querySnapshot.docs.map((docSnapshot) => {
-          return ({id: docSnapshot.id, owner: docSnapshot.data.owner})
+          return ({id: docSnapshot.id, owner: docSnapshot.data().owner})
         });
         setCampaigns(campaign => ({campaigns: updatedCampaignList}));
       },
