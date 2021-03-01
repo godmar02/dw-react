@@ -75,17 +75,3 @@
       $("#hp").val(maxHp);
     }
   }
-
-  function clearRows(tableID) {
-    // delete all rows but last in a table
-    var tableBody = $("#" + tableID + " tbody");
-    var bodyRows = tableBody.children("tr");
-    var bodyRowsCount = bodyRows.length;
-    var templateRow = bodyRows.get(0);
-    var newRowColCount = templateRow.cells.length;
-    var newRowID = bodyRowsCount;
-
-    for (var i = 0; i < bodyRowsCount - 1; i++) {
-      deleteRow(tableID, 0);
-    }
-  }
