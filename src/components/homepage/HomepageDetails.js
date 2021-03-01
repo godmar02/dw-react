@@ -1,28 +1,70 @@
-import React, {useContext,useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {Link} from 'react-router-dom';
 import * as FirebaseService from 'services/firebase';
-import CreateCampaign from 'components/homepage/CreateCampaign';
-import CreateCampaignState from 'components/contexts/CreateCampaignState';
 import HomepageState from 'components/contexts/HomepageState';
-import {Add,Delete} from '@material-ui/icons';
-import {IconButton,Paper,Table,TableBody,TableCell,TableContainer,TableHead,TableRow} from '@material-ui/core';
+import AuthState from 'components/contexts/AuthState';
+import {Add, Delete} from '@material-ui/icons';
+import {
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  IconButton,
+  Paper,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  TextField
+} from '@material-ui/core';
 import {makeStyles} from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
   table: {
-    minWidth: 650,
-  },
+    minWidth: 650
+  }
 });
 
 function HomepageDetails() {
 
+  const [currentUser] = useContext(AuthState);
+  const [open, setOpen] = useState(false);
+  const [campaignName, setCampaignName] = useState("");
   const classes = useStyles();
-
-  // Definitions for state
   const [campaigns] = useContext(HomepageState);
-  const [show, setShow] = useState(false);
-  const toggleSetShow = () => setShow(!show);
 
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleCancel = () => {
+    setOpen(false);
+  };
+
+  const handleSave = () => {
+    setOpen(false);
+    saveCampaign();
+  }
+
+  // Create New Campaign
+  const saveCampaign = () => {
+    if (campaignName) { //don't save unless details present
+      FirebaseService.createCampaign(campaignName, currentUser.email).then(() => {
+        console.info('Created Campaign:', campaignName);
+      }).catch((error) => {
+        alert("Failed to create campaign, see console error");
+        console.error("Error creating document:", error);
+      });
+    } else {
+      alert('Cannot save blank campaign');
+    }
+  }
+
+  // Delete Campaign
   const deleteCampaign = (campaignName) => {
     if (campaignName) { //don't save unless details present
       FirebaseService.deleteCampaign(campaignName).then(() => {
@@ -36,48 +78,55 @@ function HomepageDetails() {
     }
   }
 
-  return (
-    <CreateCampaignState.Provider value={[show, setShow]}>
-    <TableContainer component={Paper}>
-    <Table className={classes.table} aria-label="simple table">
-      <TableHead>
-        <TableRow>
-          <TableCell>Campaign</TableCell>
-          <TableCell>Owner</TableCell>
-          <TableCell>
-            <IconButton aria-label="add">
-            <Add onClick={() => toggleSetShow()}/>
-            </IconButton>
-          </TableCell>
-        </TableRow>
-      </TableHead>
-      <TableBody>
-        {
-          campaigns.campaigns && campaigns.campaigns.map((campaign, index) => {
-            return (<TableRow key={index}>
-              <TableCell>
-                <Link to={"/dw-react/" + campaign.id}>{campaign.id}</Link>
-              </TableCell>
-              <TableCell>
-                {campaign.owner}
-              </TableCell>
-              <TableCell>
-                <IconButton aria-label="delete"><Delete onClick={() => deleteCampaign(campaign.id)} />
-                </IconButton>
-              </TableCell>
-            </TableRow>)
-          })
-        }
-      </TableBody>
-    </Table>
-  </TableContainer>
+  return (<> < TableContainer component = {
+    Paper
+  } > <Table className={classes.table} aria-label="simple table">
+    <TableHead>
+      <TableRow>
+        <TableCell>Campaign</TableCell>
+        <TableCell>Owner</TableCell>
+        <TableCell>
+          <IconButton aria-label="add">
+            <Add onClick={handleClickOpen}/>
+          </IconButton>
+        </TableCell>
+      </TableRow>
+    </TableHead>
+    <TableBody>
       {
-        show
-          ? <CreateCampaign/>
-          : null
+        campaigns.campaigns && campaigns.campaigns.map((campaign, index) => {
+          return (<TableRow key={index}>
+            <TableCell>
+              <Link to={"/dw-react/" + campaign.id}>{campaign.id}</Link>
+            </TableCell>
+            <TableCell>
+              {campaign.owner}
+            </TableCell>
+            <TableCell>
+              <IconButton aria-label="delete"><Delete onClick={() => deleteCampaign(campaign.id)}/>
+              </IconButton>
+            </TableCell>
+          </TableRow>)
+        })
       }
-    </CreateCampaignState.Provider>
-);
+    </TableBody>
+  </Table> < /TableContainer>
+<Dialog open={open} onClose={handleCancel} aria-labelledby="form-dialog-title">
+  <DialogTitle id="form-dialog-title">Create new campaign</DialogTitle > <DialogContent>
+    <DialogContentText>
+      To create a campaign, please enter the new campaign name here. You will not be able to change this once saved.
+    </DialogContentText>
+    <TextField autoFocus="autoFocus" margin="dense" id="name" label="Campaign Name" fullWidth="fullWidth" onChange={event => setCampaignName(event.target.value)}/>
+  </DialogContent>
+  <DialogActions>
+    <Button onClick={handleCancel} color="primary">
+      Cancel
+    </Button>
+    <Button onClick={handleSave} color="primary">
+      Create Campaign
+    </Button>
+  </DialogActions> < /Dialog>
+</ >);
 }
 
 export default HomepageDetails;
