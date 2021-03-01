@@ -25,12 +25,12 @@ function CharacterBasicDetails() {
       <AccordionDetails>
         <TableContainer component={Paper}>
     <Table className={classes.table} aria-label="simple table">
-    <tbody>
+    <TableBody>
       <TableRow>
         <th style={{"width" : "25%"}}>
           <label htmlFor="fullName">FULL NAME</label>
         </th>
-        <td>
+        <TableCell>
           <TextField
             multiline
             fullWidth
@@ -40,13 +40,13 @@ function CharacterBasicDetails() {
             value={character.fullName}
             name="fullName"
             onChange={event => setCharacter(character => ({...character,fullName: event.target.value}))}/>
-        </td>
+        </TableCell>
       </TableRow>
       <TableRow>
         <th style={{"width" : "25%"}}>
           <label htmlFor="backstory">BACKSTORY</label>
         </th>
-        <td>
+        <TableCell>
           <TextField
             multiline
             fullWidth
@@ -56,13 +56,13 @@ function CharacterBasicDetails() {
             value={character.backstory}
             name="backstory"
             onChange={event => setCharacter(character => ({...character,backstory: event.target.value}))}/>
-        </td>
+        </TableCell>
       </TableRow>
       <TableRow>
         <th style={{"width" : "25%"}}>
           <label htmlFor="look">LOOK</label>
         </th>
-        <td>
+        <TableCell>
           <TextField
             multiline
             fullWidth
@@ -72,9 +72,9 @@ function CharacterBasicDetails() {
             name="look"
             value={character.look}
             onChange={event => setCharacter(character => ({...character,look: event.target.value}))}/>
-        </td>
+        </TableCell>
       </TableRow>
-    </tbody>
+    </TableBody>
   </Table></TableContainer></AccordionDetails>
 </Accordion>
           );

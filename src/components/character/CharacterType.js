@@ -54,11 +54,11 @@ function CharacterType() {
       <AccordionDetails>
         <TableContainer component={Paper}>
   <Table className={classes.table} aria-label="simple table">
-    <tbody>
+    <TableBody>
       <TableRow>
         <th>CLASS
         </th>
-        <td style={{"width" : "25%"}}>
+        <TableCell style={{"width" : "25%"}}>
           <FormControl variant="outlined" className={classes.formControl}>
           <Select
             tabIndex={-1}
@@ -77,14 +77,14 @@ function CharacterType() {
             }
           </Select>
           </FormControl>
-        </td>
-        <td style={{"width" : "50%"}}/>
+        </TableCell>
+        <TableCell style={{"width" : "50%"}}/>
       </TableRow>
       <TableRow>
         <th>
           <label htmlFor="race">RACE</label>
         </th>
-        <td>
+        <TableCell>
           <FormControl variant="outlined" className={classes.formControl}>
           <Select
             tabIndex={-1}
@@ -102,8 +102,8 @@ function CharacterType() {
             }
           </Select>
           </FormControl>
-        </td>
-        <td>
+        </TableCell>
+        <TableCell>
           <TextField
             multiline
             fullWidth
@@ -115,13 +115,13 @@ function CharacterType() {
               readOnly: true,
             }}
             value={raceAttributes()}/>
-        </td>
+        </TableCell>
       </TableRow>
       <TableRow>
         <th>
           <label htmlFor="alignment">ALIGNMENT</label>
         </th>
-        <td>
+        <TableCell>
           <FormControl variant="outlined" className={classes.formControl}>
           <Select
             tabIndex={-1}
@@ -138,8 +138,8 @@ function CharacterType() {
             }
           </Select>
         </FormControl>
-        </td>
-        <td>
+        </TableCell>
+        <TableCell>
           <TextField
             multiline
             fullWidth
@@ -151,9 +151,9 @@ function CharacterType() {
               readOnly: true,
             }}
             value={alignmentAttributes()}/>
-        </td>
+        </TableCell>
       </TableRow>
-    </tbody>
+    </TableBody>
   </Table></TableContainer>
 </AccordionDetails>
 </Accordion>
