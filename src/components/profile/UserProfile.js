@@ -1,4 +1,4 @@
-import React, {useContext,useState} from 'react';
+import React, {useState} from 'react';
 import ProfilePicture from 'components/profile/ProfilePicture';
 import ProfileDetails from 'components/profile/ProfileDetails';
 import ProfileState from 'components/contexts/ProfileState';

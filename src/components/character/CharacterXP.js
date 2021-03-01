@@ -22,13 +22,11 @@ function CharacterXP() {
               variant="outlined"
               label="XP"
               min={0}
-
               name="xp"
               value={character.xp || ''}
               onChange={event => setCharacter(character => ({...character,xp: event.target.value}))}/>
             <TextField
               variant="outlined"
-
               label="Max XP"
               name="maxXp"
               InputProps={{
