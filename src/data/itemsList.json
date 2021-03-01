@@ -1,60 +1,407 @@
 {
-  "weapons": [{
-    "name": "Ragged Bow",
-    "range": "near",
-    "cost": 15,
-    "weight": 2,
-    "tags": []
-    }]
+  "items": [{
+      "name": "Adventuring Gear",
+      "description": "Adventuring gear is a collection of useful mundane items such as chalk, poles, spikes, ropes, etc. When you rummage through your adventuring gear for some useful mundane item, you find what you need and mark off a use.",
+      "type": "item",
+      "range": "",
+      "cost": "20",
+      "weight": "1",
+      "uses": "5",
+      "tags": []
+    },
+    {
+      "name": "Bandages",
+      "description": "When you have a few minutes to bandage someone else’s wounds, heal them of 4 damage and expend a use.",
+      "type": "item",
+      "range": "",
+      "cost": "5",
+      "weight": "0",
+      "uses": "3",
+      "tags": ["Slow"]
+    },
+    {
+      "name": "Poultices and Herbs",
+      "description": "When you carefully treat someone’s wounds with poultices and herbs, heal them of 7 damage and expend a use.",
+      "type": "item",
+      "range": "",
+      "cost": "10",
+      "weight": "1",
+      "uses": "2",
+      "tags": ["Slow"]
+    },
+
+    {
+      "name": "Healing Potion",
+      "description": "When you drink an entire healing potion, heal yourself of 10 damage or remove one debility, your choice.",
+      "type": "item",
+      "range": "",
+      "cost": "50",
+      "weight": "0",
+      "uses": "",
+      "tags": []
+    },
+    {
+      "name": "Keg of Dwarven Stout",
+      "description": "When you open a keg of dwarven stout and let everyone drink freely, take +1 to your Carouse roll. If you drink a whole keg yourself, you are very, very drunk.",
+      "type": "item",
+      "range": "",
+      "cost": "10",
+      "weight": "4",
+      "uses": "",
+      "tags": []
+    },
+    {
+      "name": "Bag of Books",
+      "description": "When your bag of books contains just the right book for the subject you’re spouting lore on, consult the book, mark off a use, and take +1 to your roll.",
+      "type": "item",
+      "range": "",
+      "cost": "10",
+      "weight": "2",
+      "uses": "5",
+      "tags": []
+    },
+    {
+      "name": "Antitoxin",
+      "description": "When you drink antitoxin, you’re cured of one poison affecting you.",
+      "type": "item",
+      "range": "",
+      "cost": "10",
+      "weight": "0",
+      "uses": "",
+      "tags": []
+    },
+    {
+      "name": "Dungeon Rations",
+      "description": "Not tasty, but not bad either.",
+      "type": "item",
+      "range": "",
+      "cost": "3",
+      "weight": "1",
+      "uses": "5",
+      "tags": ["Ration"]
+    },
+    {
+      "name": "Personal Feast",
+      "description": "Ostentatious to say the least.",
+      "type": "item",
+      "range": "",
+      "cost": "10",
+      "weight": "1",
+      "uses": "1",
+      "tags": ["Ration"]
+    },
+    {
+      "name": "Dwarven Hardtack",
+      "description": "Dwarves say it tastes like home. Everyone else says it tastes like home, if home is a hog farm, and on fire.",
+      "type": "item",
+      "range": "",
+      "cost": "3",
+      "weight": "1",
+      "uses": "7",
+      "tags": ["Requires Dwarf", "Ration"]
+    },
+    {
+      "name": "Elven Bread",
+      "description": "Only the greatest of elf-friends are treated to this rare delicacy.",
+      "type": "item",
+      "range": "",
+      "cost": "10",
+      "weight": "1",
+      "uses": "7",
+      "tags": ["Ration"]
+    },
+    {
+      "name": "Halfling Pipeleaf",
+      "description": "When you share halfling pipeleaf with someone, expend two uses and take +1 forward to parley with them.",
+      "type": "item",
+      "range": "",
+      "cost": "5",
+      "weight": "0",
+      "uses": "6",
+      "tags": []
+    },
+    {
+      "name": "Oil of Tagit",
+      "description": "The target falls into a light sleep.",
+      "type": "poison",
+      "range": "",
+      "cost": "15",
+      "weight": "0",
+      "uses": "",
+      "tags": ["Dangerous", "Applied"]
+    },
+
+    {
+      "name": "Bloodweed",
+      "description": "Until cured, whenever the afflicted rolls damage, they roll an additional d4 and subtract that result from their normal damage.",
+      "type": "poison",
+      "range": "",
+      "cost": "12",
+      "weight": "0",
+      "uses": "",
+      "tags": ["Dangerous", "Touch"]
+    },
+
+    {
+      "name": "Goldenroot",
+      "description": "The target treats the next creature they see as a trusted ally, until proved otherwise.",
+      "type": "poison",
+      "range": "",
+      "cost": "20",
+      "weight": "0",
+      "uses": "",
+      "tags": ["Dangerous", "Applied"]
+    },
+
+    {
+      "name": "Serpent’s Tears",
+      "description": "Anyone dealing damage against the target rolls twice and takes the better result.",
+      "type": "poison",
+      "range": "",
+      "cost": "10",
+      "weight": "0",
+      "uses": "",
+      "tags": ["Dangerous", "Touch"]
+    },
+    {
+      "name": "Ragged Bow",
+      "description": "",
+      "type": "weapon",
+      "range": "near",
+      "cost": "15",
+      "weight": "2",
+      "uses": "",
+      "tags": []
+    },
+    {
+      "name": "Fine Bow",
+      "description": "",
+      "type": "weapon",
+      "range": "near & far",
+      "cost": "60",
+      "weight": "2",
+      "uses": "",
+      "tags": []
+    },
+    {
+      "name": "Hunter’s Bow",
+      "description": "",
+      "type": "weapon",
+      "range": "near & far",
+      "cost": "100",
+      "weight": "1",
+      "uses": "",
+      "tags": []
+    },
+    {
+      "name": "Crossbow",
+      "description": "",
+      "type": "weapon",
+      "range": "near",
+      "cost": "35",
+      "weight": "3",
+      "uses": "",
+      "tags": ["+1 damage", "Reload"]
+    },
+    {
+      "name": "Bundle of Arrows",
+      "description": "",
+      "type": "weapon",
+      "range": null,
+      "cost": "1",
+      "weight": "1",
+      "uses": "",
+      "tags": ["3 ammo"]
+    },
+    {
+      "name": "Elven Arrows",
+      "description": "",
+      "type": "weapon",
+      "range": null,
+      "cost": "20",
+      "weight": "1",
+      "uses": "",
+      "tags": ["4 ammo"]
+    },
+    {
+      "name": "Club",
+      "description": "",
+      "type": "weapon",
+      "range": "close",
+      "cost": "1",
+      "weight": "2",
+      "uses": "",
+      "tags": []
+    },
+    {
+      "name": "Shillelagh",
+      "description": "",
+      "type": "weapon",
+      "range": "close",
+      "cost": "1",
+      "weight": "2",
+      "uses": "",
+      "tags": []
+    },
+    {
+      "name": "Staff",
+      "description": "",
+      "type": "weapon",
+      "range": "close",
+      "cost": "1",
+      "weight": "1",
+      "uses": "",
+      "tags": ["Two-handed"]
+    },
+    {
+      "name": "Dagger",
+      "description": "",
+      "type": "weapon",
+      "range": "hand",
+      "cost": "2",
+      "weight": "1",
+      "uses": "",
+      "tags": []
+    },
+    {
+      "name": "Shiv",
+      "description": "",
+      "type": "weapon",
+      "range": "hand",
+      "cost": "2",
+      "weight": "1",
+      "uses": "",
+      "tags": []
+    },
+    {
+      "name": "Knife",
+      "description": "",
+      "type": "weapon",
+      "range": "hand",
+      "cost": "2",
+      "weight": "1",
+      "uses": "",
+      "tags": []
+    },
+    {
+      "name": "Throwing Dagger",
+      "description": "",
+      "type": "weapon",
+      "range": "near",
+      "cost": "1",
+      "weight": "0",
+      "uses": "",
+      "tags": ["Thrown"]
+    },
+    {
+      "name": "Short Sword",
+      "description": "",
+      "type": "weapon",
+      "range": "close",
+      "cost": "8",
+      "weight": "1",
+      "uses": "",
+      "tags": []
+    },
+    {
+      "name": "Axe",
+      "description": "",
+      "type": "weapon",
+      "range": "close",
+      "cost": "8",
+      "weight": "1",
+      "uses": "",
+      "tags": []
+    },
+    {
+      "name": "Warhammer",
+      "description": "",
+      "type": "weapon",
+      "range": "close",
+      "cost": "8",
+      "weight": "1",
+      "uses": "",
+      "tags": []
+    },
+    {
+      "name": "Mace",
+      "description": "",
+      "type": "weapon",
+      "range": "close",
+      "cost": "8",
+      "weight": "1",
+      "uses": "",
+      "tags": []
+    },
+    {
+      "name": "Spear",
+      "description": "",
+      "type": "weapon",
+      "range": "reach & near",
+      "cost": "5",
+      "weight": "1",
+      "uses": "",
+      "tags": ["Thrown"]
+    },
+    {
+      "name": "Long Sword",
+      "description": "",
+      "type": "weapon",
+      "range": "close",
+      "cost": "15",
+      "weight": "2",
+      "uses": "",
+      "tags": ["+1 damage"]
+    },
+    {
+      "name": "Battle Axe",
+      "description": "",
+      "type": "weapon",
+      "range": "close",
+      "cost": "15",
+      "weight": "2",
+      "uses": "",
+      "tags": ["+1 damage"]
+    },
+    {
+      "name": "Flail",
+      "description": "",
+      "type": "weapon",
+      "range": "close",
+      "cost": "15",
+      "weight": "2",
+      "uses": "",
+      "tags": ["+1 damage"]
+    },
+    {
+      "name": "Halberd",
+      "description": "",
+      "type": "weapon",
+      "range": "reach",
+      "cost": "9",
+      "weight": "2",
+      "uses": "",
+      "tags": ["+1 damage", "Two-handed"]
+    },
+    {
+      "name": "Rapier",
+      "description": "",
+      "type": "weapon",
+      "range": "close",
+      "cost": "25",
+      "weight": "1",
+      "uses": "",
+      "tags": ["Precise"]
+    },
+    {
+      "name": "Dueling Rapier",
+      "description": "",
+      "type": "weapon",
+      "range": "close",
+      "cost": "50",
+      "weight": "2",
+      "uses": "",
+      "tags": ["1 piercing", "Precise"]
+    }
+  ]
 }
-Dungeon Gear
-Adventuring Gear 5 uses, 20 coins, 1 weight
-Adventuring gear is a collection of useful mundane items such as
-chalk, poles, spikes, ropes, etc. When you rummage through your
-adventuring gear for some useful mundane item, you find what you
-need and mark off a use.
-Bandages 3 uses, slow, 5 coins, 0 weight
-When you have a few minutes to bandage someone else’s wounds,
-heal them of 4 damage and expend a use.
-Poultices and Herbs 2 uses, slow, 10 coins, 1 weight
-When you carefully treat someone’s wounds with poultices and
-herbs, heal them of 7 damage and expend a use.
-Healing Potion 50 coins, 0 weight
-When you drink an entire healing potion, heal yourself of 10 damage
-or remove one debility, your choice.
-Keg of Dwarven Stout 10 coins, 4 weight
-When you open a keg of dwarven stout and let everyone drink freely,
-take +1 to your Carouse roll. If you drink a whole keg yourself, you
-are very, very drunk.
-Bag of Books 5 uses, 10 coins, 2 weight
-When your bag of books contains just the right book for the subject
-you’re spouting lore on, consult the book, mark off a use, and take
-+1 to your roll.
-Antitoxin 10 coins, 0 weight
-When you drink antitoxin, you’re cured of one poison affecting you.
-Dungeon Rations Ration, 5 uses, 3 coins, 1 weight
-Not tasty, but not bad either.
-Personal Feast Ration, 1 use, 10 coins, 1 weight
-Ostentatious to say the least.
-
-Dwarven Hardtack Requires Dwarf, ration, 7 uses, 3 coins, 1 weight
-Dwarves say it tastes like home. Everyone else says it tastes like home,
-if home is a hog farm, and on fire.
-Elven Bread Ration, 7 uses, 10 coins, 1 weight
-Only the greatest of elf-friends are treated to this rare delicacy.
-Halfling Pipeleaf 6 uses, 5 coins, 0 weight
-When you share halfling pipeleaf with someone, expend two uses
-and take +1 forward to parley with them.
-
-Poisons
-Oil of Tagit Dangerous, applied, 15 coins, 0 weight
-The target falls into a light sleep.
-Bloodweed Dangerous, touch, 12 coins, 0 weight
-Until cured, whenever the afflicted rolls damage, they roll an
-additional d4 and subtract that result from their normal damage.
-Goldenroot Dangerous, applied, 20 coins, 0 weight
-The target treats the next creature they see as a trusted ally, until
-proved otherwise.
-Serpent’s Tears Dangerous, touch, 10 coins, 0 weight
-Anyone dealing damage against the target rolls twice and takes the
-better result.
