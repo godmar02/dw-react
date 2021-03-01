@@ -103,12 +103,12 @@ function CharacterSheet() {
   useEffect(() => {
     if (character && Object.keys(character).length >= 1 && currentUser.email === character.owner) {
       setIsSaving(true);
+      console.info("CharacterState:", character);
       debouncedSave(character);
     }
   }, [character]); //Only trigger effect on change of character
 
-  console.info("CharacterState:", character);
-  console.info("isSaving", isSaving);
+
 
   return (<CharacterState.Provider value={[character, setCharacter]}>
     <CharacterSheetHeader/>
