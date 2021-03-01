@@ -5,9 +5,20 @@ import * as FirebaseService from 'services/firebase';
 import CreateCharacter from 'components/campaign/CreateCharacter';
 import CreateCharacterState from 'components/contexts/CreateCharacterState';
 import CampaignState from 'components/contexts/CampaignState';
-import { Add, Delete } from '@material-ui/icons';
+import {Add,Delete} from '@material-ui/icons';
+import {IconButton,Paper,Table,TableBody,TableCell,TableContainer,TableHead,TableRow} from '@material-ui/core';
+import {makeStyles} from '@material-ui/core/styles';
+
+const useStyles = makeStyles({
+  table: {
+    minWidth: 650,
+  },
+});
+
 
 function CampaignDetails() {
+
+  const classes = useStyles();
 
   // State Variables
   const [campaign] = useContext(CampaignState);
@@ -33,30 +44,37 @@ function CampaignDetails() {
 
   return (
     <CreateCharacterState.Provider value={[show, setShow]}>
-    <table>
-      <thead>
-        <tr>
-          <th colSpan="4">CHARACTERS</th>
-          <th><Add onClick={() => toggleSetShow()}/></th>
-        </tr>
-      </thead>
-      <tbody>
+      <TableContainer component={Paper}>
+    <Table className={classes.table} aria-label="simple table">
+      <TableHead>
+        <TableRow>
+          <TableCell>Character</TableCell>
+          <TableCell>Owner</TableCell>
+          <TableCell>HP</TableCell>
+          <TableCell>XP</TableCell>
+          <TableCell><IconButton aria-label="add"><Add onClick={() => toggleSetShow()}/></IconButton></TableCell>
+        </TableRow>
+      </TableHead>
+      <TableBody>
         {
           campaign.campaign && campaign.campaign.map((campaign, index) => {
             return (
-            <tr key={index}>
-              <td><Link to={"/dw-react/" + campaignURL + "/" + campaign.character}>{campaign.character}</Link></td>
-              <td>({campaign.characterData.owner})</td>
-              <td>HP: {campaign.characterData.hp}</td>
-              <td>XP: {campaign.characterData.xp}</td>
-                <td>
-                  <Delete onClick={() => deleteCharacter(campaignURL, campaign.character)}/>
-                </td>
-            </tr>)
+            <TableRow key={index}>
+              <TableCell><Link to={"/dw-react/" + campaignURL + "/" + campaign.character}>{campaign.character}</Link></TableCell>
+              <TableCell>{campaign.characterData.owner}</TableCell>
+              <TableCell>{campaign.characterData.hp}</TableCell>
+              <TableCell>{campaign.characterData.xp}</TableCell>
+                <TableCell>
+                  <IconButton aria-label="delete">
+                    <Delete onClick={() => deleteCharacter(campaignURL, campaign.character)}/>
+                  </IconButton>
+                </TableCell>
+            </TableRow>)
           })
         }
-      </tbody>
-    </table>
+      </TableBody>
+    </Table>
+  </TableContainer>
       {show
         ? <CreateCharacter/>
         : null

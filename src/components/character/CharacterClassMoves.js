@@ -1,10 +1,8 @@
 import React, {useContext} from 'react';
 import CharacterState from 'components/contexts/CharacterState';
-import { makeStyles } from '@material-ui/core/styles';
-import Accordion from '@material-ui/core/Accordion';
-import AccordionSummary from '@material-ui/core/AccordionSummary';
-import AccordionDetails from '@material-ui/core/AccordionDetails';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import {makeStyles} from '@material-ui/core/styles';
+import {Accordion,AccordionSummary,AccordionDetails} from '@material-ui/core';
+import {ExpandMore} from '@material-ui/icons';
 import {classMoves} from 'data/movesList';
 
 const useStyles = makeStyles((theme) => ({
@@ -30,7 +28,7 @@ function CharacterClassMoves() {
           return (
             <Accordion>
               <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}>
+                expandIcon={<ExpandMore />}>
                 {data.name}
               </AccordionSummary>
               <AccordionDetails>

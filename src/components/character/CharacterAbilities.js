@@ -1,11 +1,8 @@
 import React, {useContext} from 'react';
 import CharacterState from 'components/contexts/CharacterState';
 import {abilityAfflictions} from 'data/abilityAfflictions';
-import Select from '@material-ui/core/Select';
-import MenuItem from '@material-ui/core/MenuItem';
-import TextField from '@material-ui/core/TextField';
-import { makeStyles } from '@material-ui/core/styles';
-import FormControl from '@material-ui/core/FormControl';
+import {FormControl,MenuItem,Select,TextField} from '@material-ui/core';
+import {makeStyles} from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -17,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function CharacterAbilitiesTable() {
+function CharacterAbilities() {
 
   const classes = useStyles();
   // State Variables
@@ -79,7 +76,7 @@ function CharacterAbilitiesTable() {
   }
 
   return (
-     <table style={{"width":"100%"}} id="abilitiesTable">
+     <table style={{"width":"100%"}}>
        <thead>
          <tr>
            {
@@ -107,7 +104,6 @@ function CharacterAbilitiesTable() {
                   type="number"
                   variant="outlined"
                   min={1} max={18}
-                  className="ability"
                   name={abilities.category + "Score"}
                   value={abilities.score}
                   onChange={updateAbilityScore(index)} />
@@ -120,8 +116,8 @@ function CharacterAbilitiesTable() {
             character.abilities && character.abilities.map((abilities, index) => {
             return (
               <td key={index}>
-                <TextField variant="outlined"
-                  className="grey tallfield"
+                <TextField
+                  variant="outlined"
                   name={abilities.category + "Modifier"}
                   value={abilityModifier(abilities.score, abilities.affliction)}
                   InputProps={{
@@ -137,7 +133,9 @@ function CharacterAbilitiesTable() {
             const ab = abilities.category;
             return (
               <td key={index}>
-                <FormControl variant="outlined" className={classes.formControl}>
+                <FormControl
+                  variant="outlined" 
+                  className={classes.formControl}>
                 <Select
                   tabIndex={-1}
                   value={abilities.affliction || "null"}
@@ -163,4 +161,4 @@ function CharacterAbilitiesTable() {
     );
 }
 
-export default CharacterAbilitiesTable;
+export default CharacterAbilities;

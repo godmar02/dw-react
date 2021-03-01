@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import CharacterState from 'components/contexts/CharacterState';
-import TextField from '@material-ui/core/TextField';
+import {TextField} from '@material-ui/core';
 
 function CharacterXP() {
 
@@ -26,7 +26,7 @@ function CharacterXP() {
               variant="outlined"
               label="XP"
               min={0}
-              className="shortfield"
+              
               name="xp"
               value={character.xp || ''}
               onChange={event => setCharacter(character => ({...character,xp: event.target.value}))}/>
@@ -34,7 +34,7 @@ function CharacterXP() {
           <td>
             <TextField
               variant="outlined"
-              className="shortfield grey"
+              
               label="Max XP"
               name="maxXp"
               InputProps={{

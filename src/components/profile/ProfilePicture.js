@@ -10,8 +10,6 @@ function ProfilePicture() {
   const toggleSetShow = () => setShow(!show);
 
   return (<Avatar
-    className="profPicture"
-    id="userPicture"
     src={currentUser.photoURL}
     alt="Google Profile"
     onClick={() => toggleSetShow()}

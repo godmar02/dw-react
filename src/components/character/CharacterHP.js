@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import CharacterState from 'components/contexts/CharacterState';
 import {classDetails} from 'data/classDetails';
-import TextField from '@material-ui/core/TextField';
+import {TextField} from '@material-ui/core';
 
 function CharacterHP() {
 
@@ -18,7 +18,7 @@ function CharacterHP() {
   };
 
   return (
-    <table id="hp">
+    <table>
       <tbody>
         <tr>
           <td>
@@ -27,7 +27,7 @@ function CharacterHP() {
               variant="outlined"
               label="HP"
               min={0}
-              className="shortfield"
+
               name="hp"
               value={character.hp || ''}
               onChange={event => setCharacter(character => ({...character,hp: event.target.value}))}/>
@@ -35,7 +35,7 @@ function CharacterHP() {
           <td>
             <TextField
               variant="outlined"
-              className="shortfield grey"
+
               label="Max HP"
               name="maxHp"
               InputProps={{

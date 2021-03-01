@@ -3,8 +3,7 @@ import {useParams} from 'react-router';
 import * as FirebaseService from 'services/firebase';
 import CreateCharacterState from 'components/contexts/CreateCharacterState';
 import AuthState from 'components/contexts/AuthState';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
+import {Button,TextField} from '@material-ui/core';
 
 function CreateCharacter() {
 
@@ -33,7 +32,7 @@ function CreateCharacter() {
 
   return (
   <>
-  <table style={{"width" : "100%"}} id="basicInfoTable">
+  <table style={{"width" : "100%"}}>
     <tbody>
       <tr>
         <th style={{"width" : "25%"}}>

@@ -1,12 +1,21 @@
 import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import * as FirebaseService from 'services/firebase';
-import CreateCampaign from 'components/CreateCampaign';
+import CreateCampaign from 'components/campaign/CreateCampaign';
 import CreateCampaignState from 'components/contexts/CreateCampaignState';
-import { Add, Delete } from '@material-ui/icons';
-import {Breadcrumbs} from '@material-ui/core';
+import {Add,Delete} from '@material-ui/icons';
+import {Breadcrumbs,IconButton,Paper,Table,TableBody,TableCell,TableContainer,TableHead,TableRow} from '@material-ui/core';
+import {makeStyles} from '@material-ui/core/styles';
 
-function Homepage() {
+const useStyles = makeStyles({
+  table: {
+    minWidth: 650,
+  },
+});
+
+function CampaignsHomepage() {
+
+  const classes = useStyles();
 
   // Definitions for state
   const [campaigns, setCampaigns] = useState({});
@@ -51,32 +60,39 @@ function Homepage() {
     <div>
     <Breadcrumbs><Link to="/dw-react">Home</Link></Breadcrumbs>
     <h1>Campaign Homepage</h1>
-    <table>
-      <thead>
-        <tr>
-          <th colSpan="2">CAMPAIGNS</th>
-          <th>
+    <TableContainer component={Paper}>
+    <Table className={classes.table} aria-label="simple table">
+      <TableHead>
+        <TableRow>
+          <TableCell>Campaign</TableCell>
+          <TableCell>Owner</TableCell>
+          <TableCell>
+            <IconButton aria-label="add">
             <Add onClick={() => toggleSetShow()}/>
-          </th>
-        </tr>
-      </thead>
-      <tbody>
+            </IconButton>
+          </TableCell>
+        </TableRow>
+      </TableHead>
+      <TableBody>
         {
           campaigns.campaigns && campaigns.campaigns.map((campaign, index) => {
-            return (<tr key={index}>
-              <td>
+            return (<TableRow key={index}>
+              <TableCell>
                 <Link to={"/dw-react/" + campaign.id}>{campaign.id}</Link>
-              </td>
-              <td>
-                ({campaign.owner})
-              </td>
-              <td>
-                <Delete onClick={() => deleteCampaign(campaign.id)} />
-              </td>
-            </tr>)
+              </TableCell>
+              <TableCell>
+                {campaign.owner}
+              </TableCell>
+              <TableCell>
+                <IconButton aria-label="delete"><Delete onClick={() => deleteCampaign(campaign.id)} />
+                </IconButton>
+              </TableCell>
+            </TableRow>)
           })
-        }</tbody>
-    </table>
+        }
+      </TableBody>
+    </Table>
+  </TableContainer>
       {
         show
           ? <CreateCampaign/>
@@ -87,4 +103,4 @@ function Homepage() {
 );
 }
 
-export default Homepage;
+export default CampaignsHomepage;

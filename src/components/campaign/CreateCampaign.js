@@ -2,8 +2,7 @@ import React, {useState,useContext} from 'react';
 import * as FirebaseService from 'services/firebase';
 import CreateCampaignState from 'components/contexts/CreateCampaignState';
 import AuthState from 'components/contexts/AuthState';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
+import {Button,TextField} from '@material-ui/core';
 
 function CreateCampaign() {
 
@@ -31,7 +30,7 @@ function CreateCampaign() {
 
   return (
   <>
-  <table style={{"width" : "100%"}} id="basicInfoTable">
+  <table style={{"width" : "100%"}}>
     <tbody>
       <tr>
         <th style={{"width" : "25%"}}>

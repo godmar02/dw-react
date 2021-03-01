@@ -6,17 +6,16 @@ import CharacterHP from 'components/character/CharacterHP'
 import CharacterLevel from 'components/character/CharacterLevel'
 import CharacterXP from 'components/character/CharacterXP'
 
-function CharacterBasicAttributesTable() {
+function CharacterBasicAttributes() {
 
-  return (
-  <div className='myForm'>
-    <div><CharacterLevel/></div>
-    <div><CharacterXP/></div>
-    <div><CharacterDamage/></div>
-    <div><CharacterArmour/></div>
-    <div><CharacterFunds/></div>
-    <div><CharacterHP/></div>
+  return (<div>
+    <CharacterLevel/>
+    <CharacterXP/>
+    <CharacterDamage/>
+    <CharacterArmour/>
+    <CharacterFunds/>
+    <CharacterHP/>
   </div>);
 }
 
-export default CharacterBasicAttributesTable;
+export default CharacterBasicAttributes;

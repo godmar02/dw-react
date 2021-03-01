@@ -1,9 +1,9 @@
 import React, {useContext} from 'react';
 import CharacterState from 'components/contexts/CharacterState';
-import { Add, Delete } from '@material-ui/icons';
-import TextField from '@material-ui/core/TextField';
+import {Add,Delete} from '@material-ui/icons';
+import {IconButton,TextField} from '@material-ui/core';
 
-function CharacterBondsTable() {
+function CharacterBonds() {
 
   // State Variables
   const [character, setCharacter] = useContext(CharacterState);
@@ -33,14 +33,16 @@ function CharacterBondsTable() {
   }
 
   return (
-    <table style={{"width" : "100%"}} id="bondsTable">
+    <table style={{"width" : "100%"}}>
       <thead>
         <tr>
           <th style={{"width" : "100%"}}>
             <label>BONDS</label>
           </th>
           <td>
+            <IconButton aria-label="add">
             <Add onClick={() => addBondsRow()}/>
+            </IconButton>
           </td>
         </tr>
       </thead>
@@ -62,8 +64,10 @@ function CharacterBondsTable() {
                    />
                </td>
                <td>
-                 <Delete
+                 <IconButton aria-label="delete">
+                   <Delete
                    onClick={() => deleteBondRow(index)}/>
+                 </IconButton>
                </td>
            </tr>)
         })
@@ -74,4 +78,4 @@ function CharacterBondsTable() {
     );
 }
 
-export default CharacterBondsTable;
+export default CharacterBonds;

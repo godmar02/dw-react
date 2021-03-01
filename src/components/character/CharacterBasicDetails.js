@@ -1,13 +1,13 @@
 import React, {useContext} from 'react';
 import CharacterState from 'components/contexts/CharacterState';
-import TextField from '@material-ui/core/TextField';
+import {TextField} from '@material-ui/core';
 
-function CharacterDetailsTable() {
+function CharacterBasicDetails() {
 
   // State Variables
   const [character, setCharacter] = useContext(CharacterState);
 
-  return (<table style={{"width" : "100%"}} id="basicInfoTable">
+  return (<table style={{"width" : "100%"}}>
     <tbody>
       <tr>
         <th style={{"width" : "25%"}}>
@@ -61,4 +61,4 @@ function CharacterDetailsTable() {
   </table>);
 }
 
-export default CharacterDetailsTable;
+export default CharacterBasicDetails;

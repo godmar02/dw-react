@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import CharacterState from 'components/contexts/CharacterState';
-import TextField from '@material-ui/core/TextField';
+import {TextField} from '@material-ui/core';
 
 function CharacterArmour() {
 
@@ -8,7 +8,7 @@ function CharacterArmour() {
   const [character, setCharacter] = useContext(CharacterState);
 
   return (
-    <table id="armour">
+    <table>
       <tbody>
         <tr>
           <td>
@@ -17,7 +17,6 @@ function CharacterArmour() {
               variant="outlined"
               label="Armour"
               min={0}
-              className="shortfield"
               name="armour" value={character.armour || ''} onChange={event => setCharacter(character => ({...character,armour: event.target.value}))}/>
           </td>
         </tr>

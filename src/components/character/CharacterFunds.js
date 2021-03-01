@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import CharacterState from 'components/contexts/CharacterState';
-import TextField from '@material-ui/core/TextField';
+import {TextField} from '@material-ui/core';
 
 function CharacterFunds() {
 
@@ -8,7 +8,7 @@ function CharacterFunds() {
   const [character, setCharacter] = useContext(CharacterState);
 
   return (
-    <table id="funds">
+    <table>
       <tbody>
         <tr>
           <td>

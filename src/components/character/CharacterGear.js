@@ -1,10 +1,19 @@
 import React, {useContext} from 'react';
 import CharacterState from 'components/contexts/CharacterState';
 import {classDetails} from 'data/classDetails';
-import { Add, Delete } from '@material-ui/icons';
-import TextField from '@material-ui/core/TextField';
+import {Add,Delete} from '@material-ui/icons';
+import {IconButton,Paper,Table,TableBody,TableCell,TableContainer,TableHead,TableRow,TextField} from '@material-ui/core';
+import {makeStyles} from '@material-ui/core/styles';
 
-function CharacterItemsTable() {
+const useStyles = makeStyles({
+  table: {
+    minWidth: 650,
+  },
+});
+
+function CharacterGear() {
+
+  const classes = useStyles();
 
   // State Variables
   const [character, setCharacter] = useContext(CharacterState);
@@ -92,27 +101,27 @@ function CharacterItemsTable() {
   //,
 
   return (
-    <table style={{"width":"100%"}} id="itemsTable">
-      <thead>
-        <tr>
-          <th colSpan={4}><label>GEAR</label></th>
-        </tr>
-        <tr>
-          <th style={{"width":"100%"}}><label>ITEM</label></th>
-          <th colSpan={2}><label>WEIGHT</label></th>
-          <td>
+    <TableContainer component={Paper}>
+      <Table className={classes.table} aria-label="simple table">
+        <TableHead>
+        <TableRow>
+          <TableCell align="center" colSpan="4">ITEM</TableCell>
+          <TableCell align="center" colSpan="2">WEIGHT</TableCell>
+          <TableCell>
+            <IconButton aria-label="add">
             <Add
               onClick={() => addItemRow()}
             />
-          </td>
-        </tr>
-      </thead>
-      <tbody>
+        </IconButton>
+        </TableCell>
+        </TableRow>
+      </TableHead>
+      <TableBody>
         {
          character.items && character.items.map((items,index) => {
          return (
-           <tr key={index}>
-               <td>
+           <TableRow key={index}>
+               <TableCell colSpan="4">
                  <TextField
                    multiline
                    fullWidth
@@ -122,53 +131,55 @@ function CharacterItemsTable() {
                    value={items.item}
                    name={"item" + index}
                    onChange={updateItem(index)}/>
-               </td>
-               <td colSpan={2}>
+               </TableCell>
+               <TableCell colSpan="2">
                  <TextField
                    type="number"
+                   fullWidth
                    variant="outlined"
                    min={0}
                    value={items.weight}
                    name={"itemWeight" + index}
                    onChange={updateItemWeight(index)}/>
-               </td>
-               <td>
-                 <Delete
+               </TableCell>
+               <TableCell>
+                 <IconButton aria-label="delete">
+                     <Delete
                    onClick={() => deleteItemRow(index)}/>
-               </td>
-           </tr>)
+                  </IconButton>
+               </TableCell>
+           </TableRow>)
         })
       }
-      </tbody>
-      <tfoot>
-        <tr>
-          <th><label htmlFor="load">LOAD</label></th>
-          <td>
-            <TextField
-              type="number"
-              variant="outlined"
-              className="shortfield grey"
-              name="totalLoad"
-              InputProps={{
-                readOnly: true,
-              }}
-              value={totalLoad()} />
-          </td>
-          <td>
-            <TextField
-              variant="outlined"
-              className="shortfield grey"
-              name="maxLoad"
-              InputProps={{
-                readOnly: true,
-              }}
-              value={maxLoad()} />
-          </td>
-          <td />
-        </tr>
-      </tfoot>
-    </table>
+      <TableRow>
+        <TableCell align="right" colSpan="4">LOAD</TableCell>
+        <TableCell>
+          <TextField
+            type="number"
+            fullWidth
+            variant="outlined"
+            name="totalLoad"
+            InputProps={{
+              readOnly: true,
+            }}
+            value={totalLoad()} />
+        </TableCell>
+        <TableCell>
+          <TextField
+            fullWidth
+            variant="outlined"
+            name="maxLoad"
+            InputProps={{
+              readOnly: true,
+            }}
+            value={maxLoad()} />
+        </TableCell>
+        <td />
+      </TableRow>
+    </TableBody>
+    </Table>
+  </TableContainer>
     );
 }
 
-export default CharacterItemsTable;
+export default CharacterGear;

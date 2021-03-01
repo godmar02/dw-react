@@ -1,9 +1,7 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Accordion from '@material-ui/core/Accordion';
-import AccordionSummary from '@material-ui/core/AccordionSummary';
-import AccordionDetails from '@material-ui/core/AccordionDetails';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import {makeStyles} from '@material-ui/core/styles';
+import {Accordion,AccordionSummary,AccordionDetails} from '@material-ui/core';
+import {ExpandMore} from '@material-ui/icons';
 import {standardMoves} from 'data/movesList';
 
 const useStyles = makeStyles((theme) => ({
@@ -25,7 +23,7 @@ function CharacterStandardMoves() {
             return (
               <Accordion>
                 <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}>{data.name}
+                  expandIcon={<ExpandMore />}>{data.name}
                 </AccordionSummary>
                 <AccordionDetails>
                       <p dangerouslySetInnerHTML={{__html: data.description }}></p>

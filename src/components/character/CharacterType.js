@@ -4,11 +4,8 @@ import {races} from 'data/raceList';
 import {dwClasses} from 'data/classList';
 import {alignments} from 'data/classAlignments';
 import {classDetails} from 'data/classDetails';
-import Select from '@material-ui/core/Select';
-import MenuItem from '@material-ui/core/MenuItem';
-import TextField from '@material-ui/core/TextField';
-import { makeStyles } from '@material-ui/core/styles';
-import FormControl from '@material-ui/core/FormControl';
+import {FormControl,MenuItem,Select,TextField} from '@material-ui/core';
+import {makeStyles} from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -20,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function CharacterTypeTable() {
+function CharacterType() {
 
   const classes = useStyles();
   // State Variables
@@ -46,7 +43,7 @@ function CharacterTypeTable() {
   };
 
   return (
-  <table style={{"width" : "100%"}} id="additionalInfoTable">
+  <table style={{"width" : "100%"}}>
     <tbody>
       <tr>
         <th>
@@ -103,7 +100,7 @@ function CharacterTypeTable() {
             fullWidth
             variant="outlined"
             aria-label="empty textarea"
-            className="grey"
+
             name="raceAttributes"
             InputProps={{
               readOnly: true,
@@ -139,7 +136,7 @@ function CharacterTypeTable() {
             fullWidth
             variant="outlined"
             aria-label="empty textarea"
-            className="grey"
+
             name="alignmentAttribute"
             InputProps={{
               readOnly: true,
@@ -151,4 +148,4 @@ function CharacterTypeTable() {
   </table>);
 }
 
-export default CharacterTypeTable;
+export default CharacterType;

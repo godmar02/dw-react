@@ -1,6 +1,3 @@
-  var abilityErrors = false;
-  var loadErrors = false;
-
   function singleRoll(sides) {
     var roll = Math.floor(Math.random() * sides) + 1;
     return roll;
@@ -12,20 +9,6 @@
       total = total + singleRoll(sides);
     }
     return total;
-  }
-
-  function setHeight(textareaID) {
-    var textarea = $("#" + textareaID);
-    if (debug == true) {
-      console.info("setHeight() - textareaID:", textareaID);
-    }
-    textarea.outerHeight(40);
-    var newHeight = textarea.prop("scrollHeight") + 2;
-    if (debug == true) {
-      console.info("setHeight() - textarea.prop(scrollHeight):", textarea.prop("scrollHeight"));
-      console.info("setHeight() - newHeight:", newHeight);
-    }
-    textarea.outerHeight(newHeight);
   }
 
   function validateLoad() {
@@ -106,17 +89,3 @@
       deleteRow(tableID, 0);
     }
   }
-
-  $(document).on("keypress", "textarea", function() {
-    var textareaID = this.id;
-    if (debug == true) {
-      console.info("textarea.keypress() - textareaID:", textareaID);
-    }
-    setHeight(textareaID);
-  });
-
-  $(".profPicture").hover(function() {
-    $(".profDetails").show();
-  }, function() {
-    $(".profDetails").hide();
-  });

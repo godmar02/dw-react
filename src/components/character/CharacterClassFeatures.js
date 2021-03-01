@@ -1,10 +1,9 @@
 import React, {useContext} from 'react';
 import CharacterState from 'components/contexts/CharacterState';
-import { Add, Delete } from '@material-ui/icons';
-import Checkbox from '@material-ui/core/Checkbox';
-import TextField from '@material-ui/core/TextField';
+import {Add,Delete} from '@material-ui/icons';
+import {Checkbox,IconButton,TextField} from '@material-ui/core';
 
-function CharacterClassFeaturesTable() {
+function CharacterClassFeatures() {
 
   // State Variables
   const [character, setCharacter] = useContext(CharacterState);
@@ -42,7 +41,7 @@ function CharacterClassFeaturesTable() {
   return (
     <table style={{
         "width" : "100%"
-      }} id="classFeaturesTable">
+      }}>
       <thead>
         <tr>
           <th colSpan={2} style={{
@@ -51,9 +50,11 @@ function CharacterClassFeaturesTable() {
             <label>CLASS FEATURES</label>
           </th>
           <td>
+            <IconButton aria-label="add">
             <Add
               onClick={() => addFeatureRow()}
             />
+          </IconButton>
           </td>
         </tr>
       </thead>
@@ -64,7 +65,6 @@ function CharacterClassFeaturesTable() {
              <tr key={index}>
                <td>
                  <Checkbox
-                   className="checkbox"
                    name={"classFeatureCheckbox" + index}
                    checked={!!classFeatures.checkbox}
                    onChange={updateFeatureCheckbox(index)}
@@ -83,8 +83,10 @@ function CharacterClassFeaturesTable() {
                      onChange={updateFeature(index)}/>
                  </td>
                  <td>
-                   <Delete
+                   <IconButton aria-label="delete">
+                     <Delete
                      onClick={() => deleteFeatureRow(index)}/>
+                   </IconButton>
                  </td>
              </tr>)
           })
@@ -95,4 +97,4 @@ function CharacterClassFeaturesTable() {
     );
 }
 
-export default CharacterClassFeaturesTable;
+export default CharacterClassFeatures;

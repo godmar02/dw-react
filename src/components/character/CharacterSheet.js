@@ -1,24 +1,19 @@
 import React, {useState, useEffect, useCallback} from 'react';
 import CharacterState from 'components/contexts/CharacterState';
-import { useParams } from "react-router";
+import {useParams} from "react-router";
 import * as FirebaseService from 'services/firebase';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import Box from '@material-ui/core/Box';
+import {makeStyles} from '@material-ui/core/styles';
+import {AppBar,Box,Tab,Tabs} from '@material-ui/core';
 import CharacterSheetHeader from 'components/character/CharacterSheetHeader'
-import CharacterDetailsTable from 'components/character/CharacterDetailsTable'
-import CharacterTypeTable from 'components/character/CharacterTypeTable'
-import CharacterBasicAttributesTable from 'components/character/CharacterBasicAttributesTable'
-import CharacterAbilitiesTable from 'components/character/CharacterAbilitiesTable'
-import CharacterBondsTable from 'components/character/CharacterBondsTable'
-import CharacterItemsTable from 'components/character/CharacterItemsTable'
-import CharacterClassFeaturesTable from 'components/character/CharacterClassFeaturesTable'
-import CharacterStandardMoves from 'components/character/CharacterStandardMoves'
-import CharacterAdvancedMoves from 'components/character/CharacterAdvancedMoves'
-import CharacterClassMoves from 'components/character/CharacterClassMoves'
+import CharacterBasicDetails from 'components/character/CharacterBasicDetails'
+import CharacterType from 'components/character/CharacterType'
+import CharacterBasicAttributes from 'components/character/CharacterBasicAttributes'
+import CharacterAbilities from 'components/character/CharacterAbilities'
+import CharacterBonds from 'components/character/CharacterBonds'
+import CharacterGear from 'components/character/CharacterGear'
+import CharacterClassFeatures from 'components/character/CharacterClassFeatures'
+import CharacterMoves from 'components/character/CharacterMoves'
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -138,34 +133,31 @@ function CharacterSheet() {
         <AppBar position="static">
           <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
         <Tab label="Character" {...a11yProps(0)} />
-        <Tab label="Standard Moves" {...a11yProps(1)} />
-        <Tab label="Advanced Moves" {...a11yProps(2)} />
-        <Tab label="Class Moves" {...a11yProps(3)} />
+        <Tab label="Gear" {...a11yProps(1)} />
+        <Tab label="Moves" {...a11yProps(2)} />
+        <Tab label="Dice Roller" {...a11yProps(3)} />
       </Tabs>
       </AppBar>
     <TabPanel value={value} index={0}>
-      <CharacterDetailsTable/>
+      <CharacterBasicDetails/>
       <br/>
-      <CharacterTypeTable/>
+      <CharacterType/>
       <br/>
-      <CharacterBasicAttributesTable/>
+      <CharacterBasicAttributes/>
       <br/>
-      <CharacterAbilitiesTable/>
+      <CharacterAbilities/>
       <br/>
-      <CharacterBondsTable/>
+      <CharacterBonds/>
       <br/>
-      <CharacterItemsTable/>
-      <br/>
-      <CharacterClassFeaturesTable/>
+      <CharacterClassFeatures/>
     </TabPanel>
     <TabPanel value={value} index={1}>
-      <CharacterStandardMoves/>
+      <CharacterGear/>
     </TabPanel>
     <TabPanel value={value} index={2}>
-      <CharacterAdvancedMoves/>
+      <CharacterMoves/>
     </TabPanel>
     <TabPanel value={value} index={3}>
-      <CharacterClassMoves/>
     </TabPanel>
   </div>
   </CharacterState.Provider>);
