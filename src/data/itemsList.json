@@ -1,3 +1,12 @@
+{
+  "weapons": [{
+    "name": "Ragged Bow",
+    "range": "near",
+    "cost": 15,
+    "weight": 2,
+    "tags": []
+    }]
+}
 Dungeon Gear
 Adventuring Gear 5 uses, 20 coins, 1 weight
 Adventuring gear is a collection of useful mundane items such as
