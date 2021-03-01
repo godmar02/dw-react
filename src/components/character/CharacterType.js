@@ -24,7 +24,6 @@ const useStyles = makeStyles((theme) => ({
 function CharacterType() {
 
   const classes = useStyles();
-  // State Variables
   const [character, setCharacter] = useContext(CharacterState);
   const dwc = character.dwClass;
   const alig = character.alignment;

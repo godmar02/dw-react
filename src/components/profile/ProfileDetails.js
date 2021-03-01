@@ -4,7 +4,6 @@ import * as FirebaseService from 'services/firebase';
 import ProfileState from 'components/contexts/ProfileState';
 import {Button} from '@material-ui/core';
 
-
 function ProfileDetails() {
 
   const [currentUser] = useContext(AuthState);

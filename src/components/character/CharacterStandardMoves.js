@@ -8,9 +8,9 @@ function CharacterStandardMoves() {
   return (
   <>
         {
-          standardMoves.map((data) => {
+          standardMoves.map((data,index) => {
             return (
-              <Accordion>
+              <Accordion key={index}>
                 <AccordionSummary
                   expandIcon={<ExpandMore />}>{data.name}
                 </AccordionSummary>

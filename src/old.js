@@ -1,15 +1,3 @@
-  function singleRoll(sides) {
-    const roll = Math.floor(Math.random() * sides) + 1;
-    return roll;
-  }
-
-  function rollDice(sides, number) {
-    const total = 0;
-    for (const i = 1; i == number; i++) {
-      total = total + singleRoll(sides);
-    }
-    return total;
-  }
 
   function validateLoad() {
     var load = parseInt($("#load").val(), 10);

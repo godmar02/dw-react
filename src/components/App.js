@@ -1,12 +1,12 @@
 import React from 'react';
 import {BrowserRouter as Router,Switch,Route} from 'react-router-dom';
+import {Container,Typography} from '@material-ui/core';
 import ErrorPage from 'components/ErrorPage'
 import Homepage from 'components/homepage/Homepage';
 import NavSidebar from 'components/NavSidebar';
 import AppHeader from 'components/AppHeader';
 import CharacterSheet from 'components/character/CharacterSheet';
 import Campaign from 'components/campaign/Campaign';
-import {Container,Typography} from '@material-ui/core';
 import "@fontsource/roboto"
 
 function App() {
