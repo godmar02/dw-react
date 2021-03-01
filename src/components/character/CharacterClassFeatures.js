@@ -1,9 +1,26 @@
 import React, {useContext} from 'react';
 import CharacterState from 'components/contexts/CharacterState';
 import {Add,Delete} from '@material-ui/icons';
-import {Checkbox,IconButton,TextField} from '@material-ui/core';
+import {makeStyles} from '@material-ui/core/styles';
+import {ExpandMore} from '@material-ui/icons';
+import {Accordion,AccordionSummary,AccordionDetails,Checkbox,IconButton,Paper,Table,TableBody,TableCell,TableContainer,TableHead,TableRow,TextField} from '@material-ui/core';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: '100%',
+  },
+  heading: {
+    fontSize: theme.typography.pxToRem(15),
+    fontWeight: theme.typography.fontWeightRegular,
+  },
+  table: {
+    minWidth: 650,
+  },
+}));
 
 function CharacterClassFeatures() {
+
+  const classes = useStyles();
 
   // State Variables
   const [character, setCharacter] = useContext(CharacterState);
@@ -39,39 +56,39 @@ function CharacterClassFeatures() {
   }
 
   return (
-    <table style={{
-        "width" : "100%"
-      }}>
-      <thead>
-        <tr>
-          <th colSpan={2} style={{
-              "width" : "100%"
-            }}>
-            <label>CLASS FEATURES</label>
-          </th>
-          <td>
+    <Accordion>
+      <AccordionSummary
+        expandIcon={<ExpandMore />}>Class Features
+      </AccordionSummary>
+      <AccordionDetails>
+        <TableContainer component={Paper}>
+    <Table className={classes.table} aria-label="simple table">
+      <TableHead>
+        <TableRow>
+          <TableCell colSpan="2" align="center">Feature</TableCell>
+          <TableCell>
             <IconButton aria-label="add">
             <Add
               onClick={() => addFeatureRow()}
             />
           </IconButton>
-          </td>
-        </tr>
-      </thead>
-      <tbody>
+          </TableCell>
+        </TableRow>
+      </TableHead>
+      <TableBody>
           {
            character.classFeatures && character.classFeatures.map((classFeatures,index) => {
            return (
-             <tr key={index}>
-               <td>
+             <TableRow key={index}>
+               <TableCell>
                  <Checkbox
                    name={"classFeatureCheckbox" + index}
                    checked={!!classFeatures.checkbox}
                    onChange={updateFeatureCheckbox(index)}
                    color="primary"
                    />
-               </td>
-                 <td>
+               </TableCell>
+                 <TableCell>
                    <TextField
                     multiline
                     fullWidth
@@ -81,19 +98,22 @@ function CharacterClassFeatures() {
                      value={classFeatures.feature}
                      name={"classFeature" + index}
                      onChange={updateFeature(index)}/>
-                 </td>
-                 <td>
+                 </TableCell>
+                 <TableCell>
                    <IconButton aria-label="delete">
                      <Delete
                      onClick={() => deleteFeatureRow(index)}/>
                    </IconButton>
-                 </td>
-             </tr>)
+                 </TableCell>
+             </TableRow>)
           })
         }
-      </tbody>
+      </TableBody>
       <tfoot/>
-    </table>
+    </Table>
+    </TableContainer>
+  </AccordionDetails>
+  </Accordion>
     );
 }
 

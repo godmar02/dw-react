@@ -1,15 +1,32 @@
 import React, {useContext} from 'react';
+import {Accordion,AccordionSummary,AccordionDetails,Paper,Table,TableBody,TableCell,TableContainer,TableHead,TableRow,TextField} from '@material-ui/core';
+import {ExpandMore} from '@material-ui/icons';
+import {makeStyles} from '@material-ui/core/styles';
 import CharacterState from 'components/contexts/CharacterState';
-import {TextField} from '@material-ui/core';
+
+const useStyles = makeStyles({
+  table: {
+    minWidth: 650,
+  },
+});
 
 function CharacterBasicDetails() {
 
   // State Variables
   const [character, setCharacter] = useContext(CharacterState);
 
-  return (<table style={{"width" : "100%"}}>
+  const classes = useStyles();
+
+  return (
+    <Accordion>
+      <AccordionSummary
+        expandIcon={<ExpandMore />}>Basic Details
+      </AccordionSummary>
+      <AccordionDetails>
+        <TableContainer component={Paper}>
+    <Table className={classes.table} aria-label="simple table">
     <tbody>
-      <tr>
+      <TableRow>
         <th style={{"width" : "25%"}}>
           <label htmlFor="fullName">FULL NAME</label>
         </th>
@@ -24,8 +41,8 @@ function CharacterBasicDetails() {
             name="fullName"
             onChange={event => setCharacter(character => ({...character,fullName: event.target.value}))}/>
         </td>
-      </tr>
-      <tr>
+      </TableRow>
+      <TableRow>
         <th style={{"width" : "25%"}}>
           <label htmlFor="backstory">BACKSTORY</label>
         </th>
@@ -40,8 +57,8 @@ function CharacterBasicDetails() {
             name="backstory"
             onChange={event => setCharacter(character => ({...character,backstory: event.target.value}))}/>
         </td>
-      </tr>
-      <tr>
+      </TableRow>
+      <TableRow>
         <th style={{"width" : "25%"}}>
           <label htmlFor="look">LOOK</label>
         </th>
@@ -56,9 +73,11 @@ function CharacterBasicDetails() {
             value={character.look}
             onChange={event => setCharacter(character => ({...character,look: event.target.value}))}/>
         </td>
-      </tr>
+      </TableRow>
     </tbody>
-  </table>);
+  </Table></TableContainer></AccordionDetails>
+</Accordion>
+          );
 }
 
 export default CharacterBasicDetails;

@@ -1,11 +1,11 @@
 import React from 'react';
 import {BrowserRouter as Router,Switch,Route} from 'react-router-dom';
 import ErrorPage from 'components/ErrorPage'
-import CampaignsHomepage from 'components/campaign/CampaignsHomepage';
+import Homepage from 'components/homepage/Homepage';
 import NavSidebar from 'components/NavSidebar';
 import AppHeader from 'components/AppHeader';
 import CharacterSheet from 'components/character/CharacterSheet';
-import CampaignSheet from 'components/campaign/CampaignSheet';
+import Campaign from 'components/campaign/Campaign';
 import {Container,Typography} from '@material-ui/core';
 import "@fontsource/roboto"
 
@@ -19,8 +19,8 @@ function App() {
       <NavSidebar/>
       <Switch>
         <Route exact path="/dw-react/:campaignURL/:characterURL" component={CharacterSheet} />
-        <Route exact path="/dw-react/:campaignURL" component={CampaignSheet} />
-        <Route exact path="/dw-react" component={CampaignsHomepage} />
+        <Route exact path="/dw-react/:campaignURL" component={Campaign} />
+        <Route exact path="/dw-react" component={Homepage} />
         <Route component={ErrorPage} />
       </Switch>
     </Router>

@@ -1,10 +1,18 @@
 import React, {useContext} from 'react';
 import CharacterState from 'components/contexts/CharacterState';
 import {abilityAfflictions} from 'data/abilityAfflictions';
-import {FormControl,MenuItem,Select,TextField} from '@material-ui/core';
+import {Accordion,AccordionSummary,AccordionDetails,FormControl,MenuItem,Select,TextField} from '@material-ui/core';
+import {ExpandMore} from '@material-ui/icons';
 import {makeStyles} from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    width: '100%',
+  },
+  heading: {
+    fontSize: theme.typography.pxToRem(15),
+    fontWeight: theme.typography.fontWeightRegular,
+  },
   formControl: {
     margin: theme.spacing(1),
     minWidth: 120,
@@ -76,6 +84,11 @@ function CharacterAbilities() {
   }
 
   return (
+    <Accordion>
+      <AccordionSummary
+        expandIcon={<ExpandMore />}>Abilities
+      </AccordionSummary>
+      <AccordionDetails>
      <table style={{"width":"100%"}}>
        <thead>
          <tr>
@@ -134,7 +147,7 @@ function CharacterAbilities() {
             return (
               <td key={index}>
                 <FormControl
-                  variant="outlined" 
+                  variant="outlined"
                   className={classes.formControl}>
                 <Select
                   tabIndex={-1}
@@ -158,6 +171,8 @@ function CharacterAbilities() {
          </tr>
        </tbody>
      </table>
+   </AccordionDetails>
+   </Accordion>
     );
 }
 

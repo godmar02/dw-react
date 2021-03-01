@@ -8,7 +8,7 @@ import {AppBar,Box,Tab,Tabs} from '@material-ui/core';
 import CharacterSheetHeader from 'components/character/CharacterSheetHeader'
 import CharacterBasicDetails from 'components/character/CharacterBasicDetails'
 import CharacterType from 'components/character/CharacterType'
-import CharacterBasicAttributes from 'components/character/CharacterBasicAttributes'
+import CharacterBasicStats from 'components/character/CharacterBasicStats'
 import CharacterAbilities from 'components/character/CharacterAbilities'
 import CharacterBonds from 'components/character/CharacterBonds'
 import CharacterGear from 'components/character/CharacterGear'
@@ -143,7 +143,7 @@ function CharacterSheet() {
       <br/>
       <CharacterType/>
       <br/>
-      <CharacterBasicAttributes/>
+      <CharacterBasicStats/>
       <br/>
       <CharacterAbilities/>
       <br/>

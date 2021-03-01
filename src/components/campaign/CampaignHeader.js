@@ -3,19 +3,19 @@ import {Link} from 'react-router-dom';
 import {useParams} from 'react-router';
 import {Breadcrumbs} from '@material-ui/core';
 
-function CampaignSheetHeader() {
+function CampaignHeader() {
 
   // retrieve URL parameters for usage
   const {campaignURL} = useParams();
 
   return (
-    <div>
+  <div>
     <Breadcrumbs aria-label="breadcrumb">
       <Link to="/dw-react">Home</Link>
       <p>{campaignURL}</p>
     </Breadcrumbs>
-    <h1>{campaignURL}</h1>
+    <h1>Campaign: {campaignURL}</h1>
   </div>);
 }
 
-export default CampaignSheetHeader;
+export default CampaignHeader;

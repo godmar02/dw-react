@@ -20,7 +20,7 @@ function CharacterSheetHeader() {
       <p>
         {characterURL}</p>
     </Breadcrumbs>
-      <h1>{characterURL}</h1>
+      <h1>Character: {characterURL}</h1>
     </>);
 }
 

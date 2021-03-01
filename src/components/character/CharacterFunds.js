@@ -8,10 +8,6 @@ function CharacterFunds() {
   const [character, setCharacter] = useContext(CharacterState);
 
   return (
-    <table>
-      <tbody>
-        <tr>
-          <td>
             <TextField
               type="number"
               variant="outlined"
@@ -20,10 +16,6 @@ function CharacterFunds() {
               min={0}
               value={character.funds || ''}
               onChange={event => setCharacter(character => ({...character,funds: event.target.value}))}/>
-          </td>
-        </tr>
-      </tbody>
-    </table>
   );
 }
 

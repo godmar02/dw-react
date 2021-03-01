@@ -1,9 +1,26 @@
 import React, {useContext} from 'react';
 import CharacterState from 'components/contexts/CharacterState';
 import {Add,Delete} from '@material-ui/icons';
-import {IconButton,TextField} from '@material-ui/core';
+import {makeStyles} from '@material-ui/core/styles';
+import {ExpandMore} from '@material-ui/icons';
+import {Accordion,AccordionSummary,AccordionDetails,IconButton,Paper,Table,TableBody,TableCell,TableContainer,TableHead,TableRow,TextField} from '@material-ui/core';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: '100%',
+  },
+  heading: {
+    fontSize: theme.typography.pxToRem(15),
+    fontWeight: theme.typography.fontWeightRegular,
+  },
+  table: {
+    minWidth: 650,
+  },
+}));
 
 function CharacterBonds() {
+
+  const classes = useStyles();
 
   // State Variables
   const [character, setCharacter] = useContext(CharacterState);
@@ -32,26 +49,29 @@ function CharacterBonds() {
     setCharacter(character => ({...character, bonds: newBonds})); // set array back
   }
 
-  return (
-    <table style={{"width" : "100%"}}>
-      <thead>
-        <tr>
-          <th style={{"width" : "100%"}}>
-            <label>BONDS</label>
-          </th>
-          <td>
+  return (<Accordion>
+    <AccordionSummary
+      expandIcon={<ExpandMore />}>Bonds
+    </AccordionSummary>
+    <AccordionDetails>
+      <TableContainer component={Paper}>
+    <Table className={classes.table} aria-label="simple table">
+      <TableHead>
+        <TableRow>
+          <TableCell align="center">Bond</TableCell>
+          <TableCell>
             <IconButton aria-label="add">
             <Add onClick={() => addBondsRow()}/>
             </IconButton>
-          </td>
-        </tr>
-      </thead>
-      <tbody>
+          </TableCell>
+        </TableRow>
+      </TableHead>
+      <TableBody>
         {
          character.bonds && character.bonds.map((bonds,index) => {
          return (
-           <tr key={index}>
-               <td>
+           <TableRow key={index}>
+               <TableCell>
                  <TextField
                    multiline
                    fullWidth
@@ -62,19 +82,22 @@ function CharacterBonds() {
                    name={"bond" + index}
                    onChange={updateBond(index)}
                    />
-               </td>
-               <td>
+               </TableCell>
+               <TableCell>
                  <IconButton aria-label="delete">
                    <Delete
                    onClick={() => deleteBondRow(index)}/>
                  </IconButton>
-               </td>
-           </tr>)
+               </TableCell>
+           </TableRow>)
         })
       }
-      </tbody>
+      </TableBody>
       <tfoot/>
-    </table>
+    </Table>
+    </TableContainer>
+  </AccordionDetails>
+  </Accordion>
     );
 }
 

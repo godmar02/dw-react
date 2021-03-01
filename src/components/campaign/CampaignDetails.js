@@ -15,7 +15,6 @@ const useStyles = makeStyles({
   },
 });
 
-
 function CampaignDetails() {
 
   const classes = useStyles();
@@ -24,6 +23,7 @@ function CampaignDetails() {
   const [campaign] = useContext(CampaignState);
   const [show, setShow] = useState(false);
   const toggleSetShow = () => setShow(!show);
+
   // retrieve URL parameters for usage
   const {campaignURL} = useParams();
 

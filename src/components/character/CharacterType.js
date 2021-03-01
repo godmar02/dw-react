@@ -4,7 +4,8 @@ import {races} from 'data/raceList';
 import {dwClasses} from 'data/classList';
 import {alignments} from 'data/classAlignments';
 import {classDetails} from 'data/classDetails';
-import {FormControl,MenuItem,Select,TextField} from '@material-ui/core';
+import {Accordion,AccordionSummary,AccordionDetails,FormControl,MenuItem,Paper,Select,Table,TableBody,TableCell,TableContainer,TableHead,TableRow,TextField} from '@material-ui/core';
+import {ExpandMore} from '@material-ui/icons';
 import {makeStyles} from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -14,6 +15,9 @@ const useStyles = makeStyles((theme) => ({
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
+  },
+  table: {
+    minWidth: 650,
   },
 }));
 
@@ -43,11 +47,16 @@ function CharacterType() {
   };
 
   return (
-  <table style={{"width" : "100%"}}>
+    <Accordion>
+      <AccordionSummary
+        expandIcon={<ExpandMore />}>Character Type
+      </AccordionSummary>
+      <AccordionDetails>
+        <TableContainer component={Paper}>
+  <Table className={classes.table} aria-label="simple table">
     <tbody>
-      <tr>
-        <th>
-          <label style={{"width" : "25%"}} htmlFor="dwClass">CLASS</label>
+      <TableRow>
+        <th>CLASS
         </th>
         <td style={{"width" : "25%"}}>
           <FormControl variant="outlined" className={classes.formControl}>
@@ -70,8 +79,8 @@ function CharacterType() {
           </FormControl>
         </td>
         <td style={{"width" : "50%"}}/>
-      </tr>
-      <tr>
+      </TableRow>
+      <TableRow>
         <th>
           <label htmlFor="race">RACE</label>
         </th>
@@ -107,8 +116,8 @@ function CharacterType() {
             }}
             value={raceAttributes()}/>
         </td>
-      </tr>
-      <tr>
+      </TableRow>
+      <TableRow>
         <th>
           <label htmlFor="alignment">ALIGNMENT</label>
         </th>
@@ -143,9 +152,12 @@ function CharacterType() {
             }}
             value={alignmentAttributes()}/>
         </td>
-      </tr>
+      </TableRow>
     </tbody>
-  </table>);
+  </Table></TableContainer>
+</AccordionDetails>
+</Accordion>
+          );
 }
 
 export default CharacterType;

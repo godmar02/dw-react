@@ -17,11 +17,7 @@ function CharacterHP() {
     }
   };
 
-  return (
-    <table>
-      <tbody>
-        <tr>
-          <td>
+  return (<>
             <TextField
               type="number"
               variant="outlined"
@@ -31,8 +27,6 @@ function CharacterHP() {
               name="hp"
               value={character.hp || ''}
               onChange={event => setCharacter(character => ({...character,hp: event.target.value}))}/>
-          </td>
-          <td>
             <TextField
               variant="outlined"
 
@@ -42,10 +36,7 @@ function CharacterHP() {
                 readOnly: true,
               }}
               value={maxHp()} />
-          </td>
-        </tr>
-      </tbody>
-    </table>
+            </>
   );
 }
 

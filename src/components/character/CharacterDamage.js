@@ -18,10 +18,6 @@ function CharacterDamage() {
   };
 
   return (
-    <table>
-      <tbody>
-        <tr>
-          <td>
             <TextField
               variant="outlined"
               name="damage"
@@ -30,10 +26,6 @@ function CharacterDamage() {
                 readOnly: true,
               }}
               value={damage()}/>
-          </td>
-        </tr>
-      </tbody>
-    </table>
   );
 }
 export default CharacterDamage;

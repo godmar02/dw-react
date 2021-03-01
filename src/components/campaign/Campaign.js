@@ -2,7 +2,7 @@ import React, {useState,useEffect} from 'react';
 import {useParams} from 'react-router';
 import * as FirebaseService from 'services/firebase';
 import CampaignState from 'components/contexts/CampaignState';
-import CampaignSheetHeader from 'components/campaign/CampaignSheetHeader';
+import CampaignHeader from 'components/campaign/CampaignHeader';
 import CampaignDetails from 'components/campaign/CampaignDetails';
 
 function CampaignSheet() {
@@ -36,7 +36,7 @@ function CampaignSheet() {
 
   return (
   <CampaignState.Provider value={[campaign, setCampaign]}>
-    <CampaignSheetHeader />
+    <CampaignHeader/>
     <br/>
     <CampaignDetails/>
   </CampaignState.Provider>);

@@ -1,10 +1,11 @@
-import React, {useState, useEffect} from 'react';
+import React, {useContext,useState} from 'react';
 import {Link} from 'react-router-dom';
 import * as FirebaseService from 'services/firebase';
-import CreateCampaign from 'components/campaign/CreateCampaign';
+import CreateCampaign from 'components/homepage/CreateCampaign';
 import CreateCampaignState from 'components/contexts/CreateCampaignState';
+import HomepageState from 'components/contexts/HomepageState';
 import {Add,Delete} from '@material-ui/icons';
-import {Breadcrumbs,IconButton,Paper,Table,TableBody,TableCell,TableContainer,TableHead,TableRow} from '@material-ui/core';
+import {IconButton,Paper,Table,TableBody,TableCell,TableContainer,TableHead,TableRow} from '@material-ui/core';
 import {makeStyles} from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
@@ -13,32 +14,14 @@ const useStyles = makeStyles({
   },
 });
 
-function CampaignsHomepage() {
+function HomepageDetails() {
 
   const classes = useStyles();
 
   // Definitions for state
-  const [campaigns, setCampaigns] = useState({});
+  const [campaigns] = useContext(HomepageState);
   const [show, setShow] = useState(false);
   const toggleSetShow = () => setShow(!show);
-
-  // Use an effect hook to subscribe to the campaign stream and
-  // automatically unsubscribe when the component unmounts.
-  useEffect(() => {
-    const unsubscribe = FirebaseService.streamCampaigns({
-      next: querySnapshot => {
-        const updatedCampaignList = querySnapshot.docs.map((docSnapshot) => {
-          return ({id: docSnapshot.id, owner: docSnapshot.data().owner})
-        });
-        setCampaigns(campaign => ({campaigns: updatedCampaignList}));
-      },
-      error: (error) => {
-        alert("Failed to load data correctly, see console error");
-        console.error("Error loading data:", error);
-      }
-    });
-    return unsubscribe;
-  }, [setCampaigns]);
 
   const deleteCampaign = (campaignName) => {
     if (campaignName) { //don't save unless details present
@@ -53,13 +36,8 @@ function CampaignsHomepage() {
     }
   }
 
-  console.log("Campaigns State:", campaigns)
-
   return (
     <CreateCampaignState.Provider value={[show, setShow]}>
-    <div>
-    <Breadcrumbs><Link to="/dw-react">Home</Link></Breadcrumbs>
-    <h1>Campaign Homepage</h1>
     <TableContainer component={Paper}>
     <Table className={classes.table} aria-label="simple table">
       <TableHead>
@@ -98,9 +76,8 @@ function CampaignsHomepage() {
           ? <CreateCampaign/>
           : null
       }
-    </div>
     </CreateCampaignState.Provider>
 );
 }
 
-export default CampaignsHomepage;
+export default HomepageDetails;

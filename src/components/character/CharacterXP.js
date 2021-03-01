@@ -16,35 +16,26 @@ function CharacterXP() {
     }
   };
 
-  return (
-    <table>
-      <tbody>
-        <tr>
-          <td>
+  return (<>
             <TextField
               type="number"
               variant="outlined"
               label="XP"
               min={0}
-              
+
               name="xp"
               value={character.xp || ''}
               onChange={event => setCharacter(character => ({...character,xp: event.target.value}))}/>
-          </td>
-          <td>
             <TextField
               variant="outlined"
-              
+
               label="Max XP"
               name="maxXp"
               InputProps={{
                 readOnly: true,
               }}
               value={calcMaxXp()} />
-          </td>
-        </tr>
-      </tbody>
-    </table>);
+            </>);
 }
 
 export default CharacterXP;
