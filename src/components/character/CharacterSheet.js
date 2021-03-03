@@ -68,7 +68,7 @@ function CharacterSheet() {
   const [character, setCharacter] = useState({});
   const [isSaving, setIsSaving] = useState(false);
   const {campaignURL, characterURL} = useParams();
-  const [currentUser] = useContext(AuthState);
+  const {currentUser} = useContext(AuthState);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };

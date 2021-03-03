@@ -34,9 +34,9 @@ function CampaignDetails() {
 
   const classes = useStyles();
   const [open, setOpen] = useState(false);
-  const [campaign] = useContext(CampaignState);
+  const {campaign} = useContext(CampaignState);
   const [charaName, setCharaName] = useState("");
-  const [currentUser] = useContext(AuthState);
+  const {currentUser} = useContext(AuthState);
   const {campaignURL} = useParams();
 
   const handleClickOpen = () => {

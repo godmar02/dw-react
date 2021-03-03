@@ -6,7 +6,7 @@ import {TextField} from '@material-ui/core';
 function CharacterDamage() {
 
   // State Variables
-  const [character] = useContext(CharacterState);
+  const {character} = useContext(CharacterState);
   const dwc = character.dwClass;
 
   const damage = () => {

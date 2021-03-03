@@ -6,7 +6,7 @@ import {TextField} from '@material-ui/core';
 function CharacterHP() {
 
   // State Variables
-  const [character, setCharacter] = useContext(CharacterState);
+  const {character, setCharacter}= useContext(CharacterState);
 
   const dwc = character.dwClass;
   const maxHp = () => {

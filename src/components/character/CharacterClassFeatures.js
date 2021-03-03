@@ -23,7 +23,7 @@ function CharacterClassFeatures() {
   const classes = useStyles();
 
   // State Variables
-  const [character, setCharacter] = useContext(CharacterState);
+  const {character, setCharacter}= useContext(CharacterState);
 
   // State manipulation
   const updateFeatureCheckbox = index => e => {

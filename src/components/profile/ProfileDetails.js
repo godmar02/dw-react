@@ -5,7 +5,7 @@ import {Button} from '@material-ui/core';
 
 function ProfileDetails() {
 
-  const [currentUser] = useContext(AuthState);
+  const {currentUser} = useContext(AuthState);
 
     return (
       <div style={{"border": "0",

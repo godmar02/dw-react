@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
 function CharacterType() {
 
   const classes = useStyles();
-  const [character, setCharacter] = useContext(CharacterState);
+  const {character, setCharacter}= useContext(CharacterState);
   const dwc = character.dwClass;
   const alig = character.alignment;
   const race = character.race;

@@ -9,9 +9,7 @@ function Index() {
 
   const [currentUser, setCurrentUser] = useState(null);
 
-  const ctx = useMemo(() => ({
-    currentUser,
-}), [currentUser]);
+  const ctx = useMemo(() => ({currentUser}), [currentUser]);
 
   useEffect(() => {
     const unsubscribe = FirebaseService.auth.onAuthStateChanged(user => {
@@ -20,14 +18,13 @@ function Index() {
     return unsubscribe;
   }, [])
 
-  return (
-  <AuthState.Provider value={ctx}>
+  return (<AuthState.Provider value={ctx}>
     {
       currentUser
         ? (<div>
-          <App />
+          <App/>
         </div>)
-        : <Button variant="contained" color="primary"  onClick={FirebaseService.SignInWithGoogle}>SIGN IN WITH GOOGLE</Button>
+        : <Button variant="contained" color="primary" onClick={FirebaseService.SignInWithGoogle}>SIGN IN WITH GOOGLE</Button>
     }
   </AuthState.Provider>);
 }

@@ -31,7 +31,7 @@ const useStyles = makeStyles({
 
 function HomepageDetails() {
 
-  const [currentUser] = useContext(AuthState);
+  const {currentUser} = useContext(AuthState);
   const [open, setOpen] = useState(false);
   const [campaignName, setCampaignName] = useState("");
   const classes = useStyles();

@@ -5,7 +5,7 @@ import {ExpandMore} from '@material-ui/icons';
 import {classMoves} from 'data/movesList';
 
 function CharacterClassStartingMoves() {
-  const [character] = useContext(CharacterState);
+  const {character} = useContext(CharacterState);
   const dwc = character.dwClass;
   return (<> {
     dwc && classMoves.[dwc].startingMoves.map((data,index) => {

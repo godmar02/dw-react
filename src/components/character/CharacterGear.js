@@ -16,7 +16,7 @@ function CharacterGear() {
   const classes = useStyles();
 
   // State Variables
-  const [character, setCharacter] = useContext(CharacterState);
+  const {character, setCharacter}= useContext(CharacterState);
   const dwc = character.dwClass;
 
   // Total Load

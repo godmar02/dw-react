@@ -16,7 +16,7 @@ function CharacterAbilities() {
 
   const classes = useStyles();
   // State Variables
-  const [character, setCharacter] = useContext(CharacterState);
+  const {character, setCharacter} = useContext(CharacterState);
 
   const updateAbilityScore = index => e => {
     let newAbilities = [...character.abilities]; // copying the old array

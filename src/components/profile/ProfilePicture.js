@@ -5,9 +5,9 @@ import Avatar from '@material-ui/core/Avatar';
 
 function ProfilePicture() {
 
-  const [show,setShow] = useContext(ProfileState);
+  const {currentUser} = useContext(AuthState);
+  const {show, setShow} = useContext(ProfileState);
   const toggleSetShow = () => setShow(!show);
-  const [currentUser] = useContext(AuthState);
 
   return (<Avatar
     src={currentUser.photoURL}

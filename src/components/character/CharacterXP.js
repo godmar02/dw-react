@@ -5,7 +5,7 @@ import {TextField} from '@material-ui/core';
 function CharacterXP() {
 
   // State Variables
-  const [character, setCharacter] = useContext(CharacterState);
+  const {character, setCharacter}= useContext(CharacterState);
 
   // Total Load
   const calcMaxXp = () => {

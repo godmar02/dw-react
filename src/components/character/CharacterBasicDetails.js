@@ -13,7 +13,7 @@ const useStyles = makeStyles({
 function CharacterBasicDetails() {
 
   // State Variables
-  const [character, setCharacter] = useContext(CharacterState);
+  const {character, setCharacter} = useContext(CharacterState);
 
   const classes = useStyles();
 
