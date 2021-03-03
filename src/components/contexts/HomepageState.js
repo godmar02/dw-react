@@ -1,5 +1,5 @@
-import React from 'react';
+import {createContext} from 'react';
 
-const HomepageState = React.createContext([{}, () => {}]);
+const HomepageState = createContext();
 
 export default HomepageState;

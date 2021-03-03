@@ -1,5 +1,5 @@
-import React from 'react';
+import {createContext} from 'react';
 
-const ProfileState = React.createContext();
+const ProfileState = createContext();
 
 export default ProfileState;

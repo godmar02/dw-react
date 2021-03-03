@@ -1,5 +1,5 @@
-import React from 'react';
+import {createContext} from 'react';
 
-const CampaignState = React.createContext([{}, () => {}]);
+const CampaignState = createContext();
 
 export default CampaignState;
