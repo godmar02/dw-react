@@ -1,7 +1,5 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useMemo} from 'react';
 import ReactDOM from 'react-dom';
-//import 'index.css';
-//import 'custom.css';
 import App from 'components/App';
 import * as FirebaseService from 'services/firebase';
 import AuthState from 'components/contexts/AuthState';
@@ -11,6 +9,10 @@ function Index() {
 
   const [currentUser, setCurrentUser] = useState(null);
 
+  const ctx = useMemo(() => ({
+    currentUser,
+}), [currentUser]);
+
   useEffect(() => {
     const unsubscribe = FirebaseService.auth.onAuthStateChanged(user => {
       setCurrentUser(user)
@@ -19,7 +21,7 @@ function Index() {
   }, [])
 
   return (
-  <AuthState.Provider value={[currentUser]}>
+  <AuthState.Provider value={ctx}>
     {
       currentUser
         ? (<div>

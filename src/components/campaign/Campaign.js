@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from 'react';
+import React, {useState, useEffect, useMemo} from 'react';
 import {useParams} from 'react-router';
 import * as FirebaseService from 'services/firebase';
 import CampaignState from 'components/contexts/CampaignState';
@@ -20,7 +20,9 @@ function CampaignSheet() {
       const unsubscribe = FirebaseService.streamCharacters(campaignURL, {
         next: querySnapshot => {
           //const updatedCharacterList = querySnapshot.docs.map((docSnapshot) => { return(docSnapshot.data())});
-          const updatedCharacterList = querySnapshot.docs.map((docSnapshot) => { return({character: docSnapshot.id , characterData: docSnapshot.data()})});
+          const updatedCharacterList = querySnapshot.docs.map((docSnapshot) => {
+            return ({character: docSnapshot.id, characterData: docSnapshot.data()})
+          });
           setCampaign(campaign => ({campaign: updatedCharacterList}));
         },
         error: (error) => {
@@ -32,10 +34,13 @@ function CampaignSheet() {
     }
   }, [campaignURL, setCampaign]);
 
-  console.info("Campaign State:", campaign);
+  useEffect(() => {
+    console.info("Campaign State:", campaign);
+  }, [campaign]); //Only log to console if state actually changes
 
-  return (
-  <CampaignState.Provider value={[campaign, setCampaign]}>
+  const ctx = useMemo(() => ({campaign, setCampaign}), [campaign]); //Memo-ised state for performance
+
+  return (<CampaignState.Provider value={ctx}>
     <CampaignHeader/>
     <br/>
     <CampaignDetails/>

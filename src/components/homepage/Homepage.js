@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useMemo} from 'react';
 import * as FirebaseService from 'services/firebase';
 import HomepageHeader from 'components/homepage/HomepageHeader';
 import HomepageDetails from 'components/homepage/HomepageDetails';
@@ -27,10 +27,13 @@ function Homepage() {
     return unsubscribe;
   }, [setCampaigns]);
 
-  console.log("Campaigns State:", campaigns)
+  useEffect(() => {
+    console.log("Campaigns State:", campaigns)
+  }, [campaigns]); //Only log to console if state actually changes
 
-  return (
-  <HomepageState.Provider value={[campaigns, setCampaigns]}>
+  const ctx = useMemo(() => ({campaigns}), [campaigns]); //Memo-ised state for performance
+
+  return (<HomepageState.Provider value={ctx}>
     <HomepageHeader/>
     <br/>
     <HomepageDetails/>

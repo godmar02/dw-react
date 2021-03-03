@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useCallback, useContext} from 'react';
+import React, {useState, useEffect, useCallback, useContext, useMemo} from 'react';
 import {useParams} from 'react-router';
 import * as FirebaseService from 'services/firebase';
 import PropTypes from 'prop-types';
@@ -108,9 +108,9 @@ function CharacterSheet() {
     }
   }, [character]); //Only trigger effect on change of character
 
+  const ctx = useMemo(() => ({character, setCharacter}), [character]); //Memo-ised state for performance
 
-
-  return (<CharacterState.Provider value={[character, setCharacter]}>
+  return (<CharacterState.Provider value={ctx}>
     <CharacterSheetHeader/>
     <br/>
     <div className={classes.root}>
@@ -143,7 +143,7 @@ function CharacterSheet() {
       </TabPanel>
       <TabPanel value={value} index={3}>
         <DiceRoller/>
-    </TabPanel>
+      </TabPanel>
     </div>
   </CharacterState.Provider>);
 }
