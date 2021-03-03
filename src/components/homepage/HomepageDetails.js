@@ -86,8 +86,8 @@ function HomepageDetails() {
         <TableCell>Campaign</TableCell>
         <TableCell>Owner</TableCell>
         <TableCell>
-          <IconButton aria-label="add">
-            <Add onClick={handleClickOpen}/>
+          <IconButton aria-label="add" onClick={handleClickOpen}>
+            <Add/>
           </IconButton>
         </TableCell>
       </TableRow>

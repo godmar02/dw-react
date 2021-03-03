@@ -90,8 +90,8 @@ function CampaignDetails() {
         <TableCell>HP</TableCell>
         <TableCell>XP</TableCell>
         <TableCell>
-          <IconButton aria-label="add">
-            <Add onClick={handleClickOpen}/>
+          <IconButton aria-label="add" onClick={handleClickOpen}>
+            <Add />
           </IconButton>
         </TableCell>
       </TableRow>
@@ -107,8 +107,8 @@ function CampaignDetails() {
             <TableCell>{campaign.characterData.hp}</TableCell>
             <TableCell>{campaign.characterData.xp}</TableCell>
             <TableCell>
-              <IconButton aria-label="delete">
-                <Delete onClick={() => deleteCharacter(campaignURL, campaign.character)}/>
+              <IconButton aria-label="delete" onClick={() => deleteCharacter(campaignURL, campaign.character)}>
+                <Delete />
               </IconButton>
             </TableCell>
           </TableRow>)

@@ -67,11 +67,9 @@ function CharacterClassFeatures() {
         <TableRow>
           <TableCell colSpan="2" align="center">Feature</TableCell>
           <TableCell>
-            <IconButton aria-label="add">
-            <Add
-              onClick={() => addFeatureRow()}
-            />
-          </IconButton>
+            <IconButton aria-label="add" onClick={() => addFeatureRow()}>
+              <Add/>
+            </IconButton>
           </TableCell>
         </TableRow>
       </TableHead>
@@ -100,9 +98,8 @@ function CharacterClassFeatures() {
                      onChange={updateFeature(index)}/>
                  </TableCell>
                  <TableCell>
-                   <IconButton aria-label="delete">
-                     <Delete
-                     onClick={() => deleteFeatureRow(index)}/>
+                   <IconButton aria-label="delete" onClick={() => deleteFeatureRow(index)}>
+                     <Delete/>
                    </IconButton>
                  </TableCell>
              </TableRow>)

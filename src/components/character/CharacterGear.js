@@ -108,12 +108,10 @@ function CharacterGear() {
           <TableCell align="center" colSpan="4">ITEM</TableCell>
           <TableCell align="center" colSpan="2">WEIGHT</TableCell>
           <TableCell>
-            <IconButton aria-label="add">
-            <Add
-              onClick={() => addItemRow()}
-            />
-        </IconButton>
-        </TableCell>
+            <IconButton aria-label="add" onClick={() => addItemRow()}>
+              <Add/>
+            </IconButton>
+          </TableCell>
         </TableRow>
       </TableHead>
       <TableBody>
@@ -143,9 +141,8 @@ function CharacterGear() {
                    onChange={updateItemWeight(index)}/>
                </TableCell>
                <TableCell>
-                 <IconButton aria-label="delete">
-                     <Delete
-                   onClick={() => deleteItemRow(index)}/>
+                 <IconButton aria-label="delete" onClick={() => deleteItemRow(index)}>
+                     <Delete/>
                   </IconButton>
                </TableCell>
            </TableRow>)

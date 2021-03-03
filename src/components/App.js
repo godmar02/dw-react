@@ -15,9 +15,9 @@ function App() {
       <Router>
         <AppHeader/>
         <Switch>
-          <Route exact="exact" path="/dw-react/:campaignURL/:characterURL" component={CharacterSheet}/>
-          <Route exact="exact" path="/dw-react/:campaignURL" component={Campaign}/>
-          <Route exact="exact" path="/dw-react" component={Homepage}/>
+          <Route exact={true} path="/dw-react/:campaignURL/:characterURL" component={CharacterSheet}/>
+          <Route exact={true} path="/dw-react/:campaignURL" component={Campaign}/>
+          <Route exact={true} path="/dw-react" component={Homepage}/>
           <Route component={ErrorPage}/>
         </Switch>
       </Router>

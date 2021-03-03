@@ -60,8 +60,8 @@ function CharacterBonds() {
         <TableRow>
           <TableCell align="center">Bond</TableCell>
           <TableCell>
-            <IconButton aria-label="add">
-            <Add onClick={() => addBondsRow()}/>
+            <IconButton aria-label="add" onClick={() => addBondsRow()}>
+              <Add />
             </IconButton>
           </TableCell>
         </TableRow>
@@ -84,9 +84,8 @@ function CharacterBonds() {
                    />
                </TableCell>
                <TableCell>
-                 <IconButton aria-label="delete">
-                   <Delete
-                   onClick={() => deleteBondRow(index)}/>
+                 <IconButton aria-label="delete" onClick={() => deleteBondRow(index)}>
+                   <Delete/>
                  </IconButton>
                </TableCell>
            </TableRow>)
