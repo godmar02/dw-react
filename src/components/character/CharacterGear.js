@@ -11,11 +11,9 @@ const useStyles = makeStyles({
   },
 });
 
-function CharacterGear() {
+export default function CharacterGear() {
 
   const classes = useStyles();
-
-  // State Variables
   const {character, setCharacter}= useContext(CharacterState);
   const dwc = character.dwClass;
 
@@ -104,79 +102,74 @@ function CharacterGear() {
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
-        <TableRow>
-          <TableCell align="center" colSpan="4">ITEM</TableCell>
-          <TableCell align="center" colSpan="2">WEIGHT</TableCell>
-          <TableCell>
-            <IconButton aria-label="add" onClick={() => addItemRow()}>
-              <Add/>
-            </IconButton>
-          </TableCell>
-        </TableRow>
-      </TableHead>
-      <TableBody>
-        {
-         character.items && character.items.map((items,index) => {
-         return (
-           <TableRow key={index}>
-               <TableCell colSpan="4">
-                 <TextField
-                   multiline
-                   fullWidth
-                   variant="outlined"
-                   aria-label="empty textarea"
-                   placeholder="Add any items and descriptions here"
-                   value={items.item}
-                   name={"item" + index}
-                   onChange={updateItem(index)}/>
-               </TableCell>
-               <TableCell colSpan="2">
-                 <TextField
-                   type="number"
-                   fullWidth
-                   variant="outlined"
-                   min={0}
-                   value={items.weight}
-                   name={"itemWeight" + index}
-                   onChange={updateItemWeight(index)}/>
-               </TableCell>
-               <TableCell>
-                 <IconButton aria-label="delete" onClick={() => deleteItemRow(index)}>
-                     <Delete/>
-                  </IconButton>
-               </TableCell>
-           </TableRow>)
-        })
-      }
-      <TableRow>
-        <TableCell align="right" colSpan="4">LOAD</TableCell>
-        <TableCell>
-          <TextField
-            type="number"
-            fullWidth
-            variant="outlined"
-            name="totalLoad"
-            InputProps={{
-              readOnly: true,
-            }}
-            value={totalLoad()} />
-        </TableCell>
-        <TableCell>
-          <TextField
-            fullWidth
-            variant="outlined"
-            name="maxLoad"
-            InputProps={{
-              readOnly: true,
-            }}
-            value={maxLoad()} />
-        </TableCell>
-        <td />
-      </TableRow>
-    </TableBody>
-    </Table>
-  </TableContainer>
-    );
+          <TableRow>
+            <TableCell align="center" colSpan="4">ITEM</TableCell>
+            <TableCell align="center" colSpan="2">WEIGHT</TableCell>
+            <TableCell>
+              <IconButton aria-label="add" onClick={() => addItemRow()}>
+                <Add/>
+              </IconButton>
+            </TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {
+           character.items && character.items.map((items,index) => {
+           return (
+             <TableRow key={index}>
+                 <TableCell colSpan="4">
+                   <TextField
+                     multiline
+                     fullWidth
+                     variant="outlined"
+                     aria-label="empty textarea"
+                     placeholder="Add any items and descriptions here"
+                     value={items.item}
+                     name={"item" + index}
+                     onChange={updateItem(index)}/>
+                 </TableCell>
+                 <TableCell colSpan="2">
+                   <TextField
+                     type="number"
+                     fullWidth
+                     variant="outlined"
+                     min={0}
+                     value={items.weight}
+                     name={"itemWeight" + index}
+                     onChange={updateItemWeight(index)}/>
+                 </TableCell>
+                 <TableCell>
+                   <IconButton aria-label="delete" onClick={() => deleteItemRow(index)}>
+                       <Delete/>
+                    </IconButton>
+                 </TableCell>
+             </TableRow>)
+          })}
+          <TableRow>
+            <TableCell align="right" colSpan="4">LOAD</TableCell>
+            <TableCell>
+              <TextField
+                type="number"
+                fullWidth
+                variant="outlined"
+                name="totalLoad"
+                InputProps={{
+                  readOnly: true,
+                }}
+                value={totalLoad()} />
+            </TableCell>
+            <TableCell>
+              <TextField
+                fullWidth
+                variant="outlined"
+                name="maxLoad"
+                InputProps={{
+                  readOnly: true,
+                }}
+                value={maxLoad()} />
+            </TableCell>
+          </TableRow>
+        </TableBody>
+      </Table>
+    </TableContainer>);
 }
-
-export default CharacterGear;

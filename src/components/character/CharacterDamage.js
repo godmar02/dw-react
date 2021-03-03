@@ -3,9 +3,8 @@ import CharacterState from 'components/contexts/CharacterState';
 import {classDetails} from 'data/classDetails';
 import {TextField} from '@material-ui/core';
 
-function CharacterDamage() {
+export default function CharacterDamage() {
 
-  // State Variables
   const {character} = useContext(CharacterState);
   const dwc = character.dwClass;
 
@@ -28,4 +27,3 @@ function CharacterDamage() {
               value={damage()}/>
   );
 }
-export default CharacterDamage;

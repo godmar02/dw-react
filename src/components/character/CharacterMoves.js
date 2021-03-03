@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function CharacterMoves() {
+export default function CharacterMoves() {
 
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
@@ -75,5 +75,3 @@ function CharacterMoves() {
       </TabPanel>
     </div>);
 }
-
-export default CharacterMoves;

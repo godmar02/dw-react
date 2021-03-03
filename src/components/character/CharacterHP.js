@@ -3,9 +3,8 @@ import CharacterState from 'components/contexts/CharacterState';
 import {classDetails} from 'data/classDetails';
 import {TextField} from '@material-ui/core';
 
-function CharacterHP() {
+export default function CharacterHP() {
 
-  // State Variables
   const {character, setCharacter}= useContext(CharacterState);
 
   const dwc = character.dwClass;
@@ -39,5 +38,3 @@ function CharacterHP() {
             </>
   );
 }
-
-export default CharacterHP;

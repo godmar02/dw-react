@@ -2,9 +2,8 @@ import React, {useContext} from 'react';
 import CharacterState from 'components/contexts/CharacterState';
 import {TextField} from '@material-ui/core';
 
-function CharacterFunds() {
+export default function CharacterFunds() {
 
-  // State Variables
   const {character, setCharacter}= useContext(CharacterState);
 
   return (
@@ -18,5 +17,3 @@ function CharacterFunds() {
               onChange={event => setCharacter(character => ({...character,funds: event.target.value}))}/>
   );
 }
-
-export default CharacterFunds;

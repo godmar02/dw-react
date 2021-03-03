@@ -61,7 +61,7 @@ const debounce = (callback, delay) => {
   }
 }
 
-function CharacterSheet() {
+export default function CharacterSheet() {
 
   const classes = useStyles();
   const [value, setValue] = useState(0);
@@ -151,5 +151,3 @@ function CharacterSheet() {
     </div>
   </CharacterState.Provider>);
 }
-
-export default CharacterSheet;

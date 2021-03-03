@@ -2,9 +2,8 @@ import React, {useContext} from 'react';
 import CharacterState from 'components/contexts/CharacterState';
 import {TextField} from '@material-ui/core';
 
-function CharacterLevel() {
+export default function CharacterLevel() {
 
-  // State Variables
   const {character, setCharacter}= useContext(CharacterState);
 
   return (
@@ -20,5 +19,3 @@ function CharacterLevel() {
               onChange={event => setCharacter(character => ({...character,level: event.target.value}))}/>
           );
 }
-
-export default CharacterLevel;

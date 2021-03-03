@@ -4,9 +4,11 @@ import {Accordion, AccordionSummary, AccordionDetails} from '@material-ui/core';
 import {ExpandMore} from '@material-ui/icons';
 import {classMoves} from 'data/movesList';
 
-function CharacterClassStartingMoves() {
+export default function CharacterClassStartingMoves() {
+
   const {character} = useContext(CharacterState);
   const dwc = character.dwClass;
+
   return (<> {
     dwc && classMoves.[dwc].startingMoves.map((data,index) => {
       return (<Accordion key={index}>
@@ -22,5 +24,3 @@ function CharacterClassStartingMoves() {
     })
   } < />)
 }
-
-export default CharacterClassStartingMoves;
