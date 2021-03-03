@@ -10,11 +10,9 @@ const useStyles = makeStyles({
   },
 });
 
-function CharacterBasicDetails() {
+export default function CharacterBasicDetails() {
 
-  // State Variables
   const {character, setCharacter} = useContext(CharacterState);
-
   const classes = useStyles();
 
   return (
@@ -79,5 +77,3 @@ function CharacterBasicDetails() {
 </Accordion>
           );
 }
-
-export default CharacterBasicDetails;

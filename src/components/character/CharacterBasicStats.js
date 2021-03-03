@@ -8,24 +8,20 @@ import CharacterHP from 'components/character/CharacterHP'
 import CharacterLevel from 'components/character/CharacterLevel'
 import CharacterXP from 'components/character/CharacterXP'
 
-function CharacterBasicStats() {
+export default function CharacterBasicStats() {
 
   return (
   <div>
     <Accordion>
-      <AccordionSummary
-        expandIcon={<ExpandMore />}>Basic Stats
-      </AccordionSummary>
+      <AccordionSummary expandIcon={<ExpandMore />}>Basic Stats</AccordionSummary>
       <AccordionDetails>
-    <CharacterLevel/>
-    <CharacterXP/>
-    <CharacterDamage/>
-    <CharacterArmour/>
-    <CharacterFunds/>
-    <CharacterHP/>
-    </AccordionDetails>
-  </Accordion>
+        <CharacterLevel/>
+        <CharacterXP/>
+        <CharacterDamage/>
+        <CharacterArmour/>
+        <CharacterFunds/>
+        <CharacterHP/>
+      </AccordionDetails>
+    </Accordion>
   </div>);
 }
-
-export default CharacterBasicStats;

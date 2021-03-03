@@ -2,9 +2,8 @@ import React, {useContext} from 'react';
 import CharacterState from 'components/contexts/CharacterState';
 import {TextField} from '@material-ui/core';
 
-function CharacterXP() {
+export default function CharacterXP() {
 
-  // State Variables
   const {character, setCharacter}= useContext(CharacterState);
 
   // Total Load
@@ -35,5 +34,3 @@ function CharacterXP() {
               value={calcMaxXp()} />
             </>);
 }
-
-export default CharacterXP;

@@ -8,8 +8,7 @@ import CharacterSheet from 'components/character/CharacterSheet';
 import Campaign from 'components/campaign/Campaign';
 import "@fontsource/roboto"
 
-function App() {
-
+export default function App() {
   return (<Typography component={'span'}>
     <Container>
       <Router>
@@ -24,5 +23,3 @@ function App() {
     </Container>
   </Typography>)
 }
-
-export default App;

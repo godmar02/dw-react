@@ -12,10 +12,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function CharacterAbilities() {
+export default function CharacterAbilities() {
 
   const classes = useStyles();
-  // State Variables
   const {character, setCharacter} = useContext(CharacterState);
 
   const updateAbilityScore = index => e => {
@@ -165,5 +164,3 @@ function CharacterAbilities() {
    </Accordion>
     );
 }
-
-export default CharacterAbilities;

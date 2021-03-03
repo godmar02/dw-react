@@ -4,9 +4,8 @@ import HomepageHeader from 'components/homepage/HomepageHeader';
 import HomepageDetails from 'components/homepage/HomepageDetails';
 import HomepageState from 'components/contexts/HomepageState';
 
-function Homepage() {
+export default function Homepage() {
 
-  // Definitions for state
   const [campaigns, setCampaigns] = useState({});
 
   // Use an effect hook to subscribe to the campaign stream and
@@ -39,5 +38,3 @@ function Homepage() {
     <HomepageDetails/>
   </HomepageState.Provider>);
 }
-
-export default Homepage;

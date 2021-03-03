@@ -30,7 +30,7 @@ const useStyles = makeStyles({
   }
 });
 
-function CampaignDetails() {
+export default function CampaignDetails() {
 
   const classes = useStyles();
   const [open, setOpen] = useState(false);
@@ -80,58 +80,58 @@ function CampaignDetails() {
     }
   }
 
-  return (<> < TableContainer component = {
-    Paper
-  } > <Table className={classes.table} aria-label="simple table">
-    <TableHead>
-      <TableRow>
-        <TableCell>Character</TableCell>
-        <TableCell>Owner</TableCell>
-        <TableCell>HP</TableCell>
-        <TableCell>XP</TableCell>
-        <TableCell>
-          <IconButton aria-label="add" onClick={handleClickOpen}>
-            <Add />
-          </IconButton>
-        </TableCell>
-      </TableRow>
-    </TableHead>
-    <TableBody>
-      {
-        campaign.campaign && campaign.campaign.map((campaign, index) => {
-          return (<TableRow key={index}>
+  return (<>
+    <TableContainer component = {Paper}>
+      <Table className={classes.table} aria-label="simple table">
+        <TableHead>
+          <TableRow>
+            <TableCell>Character</TableCell>
+            <TableCell>Owner</TableCell>
+            <TableCell>HP</TableCell>
+            <TableCell>XP</TableCell>
             <TableCell>
-              <Link to={"/dw-react/" + campaignURL + "/" + campaign.character}>{campaign.character}</Link>
-            </TableCell>
-            <TableCell>{campaign.characterData.owner}</TableCell>
-            <TableCell>{campaign.characterData.hp}</TableCell>
-            <TableCell>{campaign.characterData.xp}</TableCell>
-            <TableCell>
-              <IconButton aria-label="delete" onClick={() => deleteCharacter(campaignURL, campaign.character)}>
-                <Delete />
+              <IconButton aria-label="add" onClick={handleClickOpen}>
+                <Add />
               </IconButton>
             </TableCell>
-          </TableRow>)
-        })
-      }
-    </TableBody>
-  </Table> < /TableContainer>
-<Dialog open={open} onClose={handleCancel} aria-labelledby="form-dialog-title">
-  <DialogTitle id="form-dialog-title">Create new character</DialogTitle > <DialogContent>
-    <DialogContentText>
-      To create a character, please enter the new character name here. You will not be able to change this once saved.
-    </DialogContentText>
-    <TextField autoFocus={true} margin="dense" id="name" label="Short Character Name" fullWidth={true} onChange={event => setCharaName(event.target.value)}/>
-  </DialogContent>
-  <DialogActions>
-    <Button onClick={handleCancel} color="primary">
-      Cancel
-    </Button>
-    <Button onClick={handleSave} color="primary">
-      Create Character
-    </Button>
-  </DialogActions> < /Dialog>
-</ >);
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {
+            campaign.campaign && campaign.campaign.map((campaign, index) => {
+              return (<TableRow key={index}>
+                <TableCell>
+                  <Link to={"/dw-react/" + campaignURL + "/" + campaign.character}>{campaign.character}</Link>
+                </TableCell>
+                <TableCell>{campaign.characterData.owner}</TableCell>
+                <TableCell>{campaign.characterData.hp}</TableCell>
+                <TableCell>{campaign.characterData.xp}</TableCell>
+                <TableCell>
+                  <IconButton aria-label="delete" onClick={() => deleteCharacter(campaignURL, campaign.character)}>
+                    <Delete />
+                  </IconButton>
+                </TableCell>
+              </TableRow>)
+            })
+          }
+        </TableBody>
+      </Table>
+    </TableContainer>
+    <Dialog open={open} onClose={handleCancel} aria-labelledby="form-dialog-title">
+      <DialogTitle id="form-dialog-title">Create new character</DialogTitle > <DialogContent>
+        <DialogContentText>
+          To create a character, please enter the new character name here. You will not be able to change this once saved.
+        </DialogContentText>
+        <TextField autoFocus={true} margin="dense" id="name" label="Short Character Name" fullWidth={true} onChange={event => setCharaName(event.target.value)}/>
+      </DialogContent>
+      <DialogActions>
+        <Button onClick={handleCancel} color="primary">
+          Cancel
+        </Button>
+        <Button onClick={handleSave} color="primary">
+          Create Character
+        </Button>
+      </DialogActions>
+    </Dialog>
+  </>);
 }
-
-export default CampaignDetails;

@@ -5,12 +5,9 @@ import CampaignState from 'components/contexts/CampaignState';
 import CampaignHeader from 'components/campaign/CampaignHeader';
 import CampaignDetails from 'components/campaign/CampaignDetails';
 
-function CampaignSheet() {
+export default function CampaignSheet() {
 
-  // Definitions for state
   const [campaign, setCampaign] = useState({});
-
-  // retrieve URL parameters for usage
   const {campaignURL} = useParams();
 
   // Use an effect hook to subscribe to the campaign stream and
@@ -46,5 +43,3 @@ function CampaignSheet() {
     <CampaignDetails/>
   </CampaignState.Provider>);
 }
-
-export default CampaignSheet;

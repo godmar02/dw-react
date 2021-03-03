@@ -29,12 +29,12 @@ const useStyles = makeStyles({
   }
 });
 
-function HomepageDetails() {
+export default function HomepageDetails() {
 
+  const classes = useStyles();
   const {currentUser} = useContext(AuthState);
   const [open, setOpen] = useState(false);
   const [campaignName, setCampaignName] = useState("");
-  const classes = useStyles();
   const {campaigns} = useContext(HomepageState);
 
   const handleClickOpen = () => {
@@ -78,56 +78,57 @@ function HomepageDetails() {
     }
   }
 
-  return (<> < TableContainer component = {
-    Paper
-  } > <Table className={classes.table} aria-label="simple table">
-    <TableHead>
-      <TableRow>
-        <TableCell>Campaign</TableCell>
-        <TableCell>Owner</TableCell>
-        <TableCell>
-          <IconButton aria-label="add" onClick={handleClickOpen}>
-            <Add/>
-          </IconButton>
-        </TableCell>
-      </TableRow>
-    </TableHead>
-    <TableBody>
-      {
-        campaigns.campaigns && campaigns.campaigns.map((campaign, index) => {
-          return (<TableRow key={index}>
+  return (<>
+    <TableContainer component = {Paper}>
+      <Table className={classes.table} aria-label="simple table">
+        <TableHead>
+          <TableRow>
+            <TableCell>Campaign</TableCell>
+            <TableCell>Owner</TableCell>
             <TableCell>
-              <Link to={"/dw-react/" + campaign.id}>{campaign.id}</Link>
-            </TableCell>
-            <TableCell>
-              {campaign.owner}
-            </TableCell>
-            <TableCell>
-              <IconButton aria-label="delete" onClick={() => deleteCampaign(campaign.id)}>
-                <Delete/>
+              <IconButton aria-label="add" onClick={handleClickOpen}>
+                <Add/>
               </IconButton>
             </TableCell>
-          </TableRow>)
-        })
-      }
-    </TableBody>
-  </Table> < /TableContainer>
-<Dialog open={open} onClose={handleCancel} aria-labelledby="form-dialog-title">
-  <DialogTitle id="form-dialog-title">Create new campaign</DialogTitle > <DialogContent>
-    <DialogContentText>
-      To create a campaign, please enter the new campaign name here. You will not be able to change this once saved.
-    </DialogContentText>
-    <TextField autoFocus={true} margin="dense" id="name" label="Campaign Name" fullWidth={true} onChange={event => setCampaignName(event.target.value)}/>
-  </DialogContent>
-  <DialogActions>
-    <Button onClick={handleCancel} color="primary">
-      Cancel
-    </Button>
-    <Button onClick={handleSave} color="primary">
-      Create Campaign
-    </Button>
-  </DialogActions> < /Dialog>
-</ >);
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {
+            campaigns.campaigns && campaigns.campaigns.map((campaign, index) => {
+              return (<TableRow key={index}>
+                <TableCell>
+                  <Link to={"/dw-react/" + campaign.id}>{campaign.id}</Link>
+                </TableCell>
+                <TableCell>
+                  {campaign.owner}
+                </TableCell>
+                <TableCell>
+                  <IconButton aria-label="delete" onClick={() => deleteCampaign(campaign.id)}>
+                    <Delete/>
+                  </IconButton>
+                </TableCell>
+              </TableRow>)
+            })
+          }
+        </TableBody>
+      </Table>
+    </TableContainer>
+    <Dialog open={open} onClose={handleCancel} aria-labelledby="form-dialog-title">
+      <DialogTitle id="form-dialog-title">Create new campaign</DialogTitle>
+      <DialogContent>
+        <DialogContentText>
+          To create a campaign, please enter the new campaign name here. You will not be able to change this once saved.
+        </DialogContentText>
+        <TextField autoFocus={true} margin="dense" id="name" label="Campaign Name" fullWidth={true} onChange={event => setCampaignName(event.target.value)}/>
+      </DialogContent>
+      <DialogActions>
+        <Button onClick={handleCancel} color="primary">
+          Cancel
+        </Button>
+        <Button onClick={handleSave} color="primary">
+          Create Campaign
+        </Button>
+      </DialogActions>
+    </Dialog>
+  </>);
 }
-
-export default HomepageDetails;

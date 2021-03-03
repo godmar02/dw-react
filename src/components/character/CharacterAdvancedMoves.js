@@ -3,16 +3,13 @@ import {Accordion,AccordionSummary,AccordionDetails} from '@material-ui/core';
 import {ExpandMore} from '@material-ui/icons';
 import {advancedMoves} from 'data/movesList';
 
-function CharacterAdvancedMoves() {
-  return (
-  <>
+export default function CharacterAdvancedMoves() {
+  return (<>
         {
           advancedMoves.map((data,index) => {
             return (
               <Accordion key={index}>
-                <AccordionSummary
-                  expandIcon={<ExpandMore />}>{data.name}
-                </AccordionSummary>
+                <AccordionSummary expandIcon={<ExpandMore/>}>{data.name}</AccordionSummary>
                 <AccordionDetails>
                       <p dangerouslySetInnerHTML={{__html: data.description }}></p>
                 </AccordionDetails>
@@ -22,5 +19,3 @@ function CharacterAdvancedMoves() {
       }
     </>);
 }
-
-export default CharacterAdvancedMoves;

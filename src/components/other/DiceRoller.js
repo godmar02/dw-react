@@ -6,7 +6,7 @@ import {
   TextField
 } from '@material-ui/core';
 
-function DiceRoller() {
+export default function DiceRoller() {
 
   const [dice, setDice] = useState();
   const [diceNum, setDiceNum] = useState();
@@ -27,8 +27,7 @@ function DiceRoller() {
     return setRollResult(total);
   }
 
-  return (
-  <>
+  return (<>
     <Select tabIndex={-1} defaultValue="null" onChange={event => {
         setDice(event.target.value)
       }}>
@@ -37,7 +36,7 @@ function DiceRoller() {
       <MenuItem value="8">d8</MenuItem>
       <MenuItem value="10">d10</MenuItem>
     </Select>
-    <br></br>
+    <br/>
     <Select tabIndex={-1} defaultValue="null" onChange={event => {
         setDiceNum(event.target.value)
       }}>
@@ -50,5 +49,3 @@ function DiceRoller() {
     <TextField value={rollResult} />
   </>);
 }
-
-export default DiceRoller;

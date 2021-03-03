@@ -18,11 +18,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function CharacterClassFeatures() {
+export default function CharacterClassFeatures() {
 
   const classes = useStyles();
-
-  // State Variables
   const {character, setCharacter}= useContext(CharacterState);
 
   // State manipulation
@@ -57,61 +55,55 @@ function CharacterClassFeatures() {
 
   return (
     <Accordion>
-      <AccordionSummary
-        expandIcon={<ExpandMore />}>Class Features
-      </AccordionSummary>
+      <AccordionSummary expandIcon={<ExpandMore/>}>Class Features</AccordionSummary>
       <AccordionDetails>
         <TableContainer component={Paper}>
-    <Table className={classes.table} aria-label="simple table">
-      <TableHead>
-        <TableRow>
-          <TableCell colSpan="2" align="center">Feature</TableCell>
-          <TableCell>
-            <IconButton aria-label="add" onClick={() => addFeatureRow()}>
-              <Add/>
-            </IconButton>
-          </TableCell>
-        </TableRow>
-      </TableHead>
-      <TableBody>
-          {
-           character.classFeatures && character.classFeatures.map((classFeatures,index) => {
-           return (
-             <TableRow key={index}>
-               <TableCell>
-                 <Checkbox
-                   name={"classFeatureCheckbox" + index}
-                   checked={!!classFeatures.checkbox}
-                   onChange={updateFeatureCheckbox(index)}
-                   color="primary"
-                   />
-               </TableCell>
-                 <TableCell>
-                   <TextField
-                    multiline
-                    fullWidth
-                    variant="outlined"
-                     aria-label="empty textarea"
-                     placeholder="Add any Class Features here (e.g. Spell Lists, Poison Recipes, Druid Balance, Paladin Quests or anything else!)"
-                     value={classFeatures.feature}
-                     name={"classFeature" + index}
-                     onChange={updateFeature(index)}/>
-                 </TableCell>
-                 <TableCell>
-                   <IconButton aria-label="delete" onClick={() => deleteFeatureRow(index)}>
-                     <Delete/>
-                   </IconButton>
-                 </TableCell>
-             </TableRow>)
-          })
-        }
-      </TableBody>
-      <tfoot/>
-    </Table>
-    </TableContainer>
-  </AccordionDetails>
-  </Accordion>
-    );
+          <Table className={classes.table} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell colSpan="2" align="center">Feature</TableCell>
+                <TableCell>
+                  <IconButton aria-label="add" onClick={() => addFeatureRow()}>
+                    <Add/>
+                  </IconButton>
+                </TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+                {
+                 character.classFeatures && character.classFeatures.map((classFeatures,index) => {
+                 return (
+                   <TableRow key={index}>
+                     <TableCell>
+                       <Checkbox
+                         name={"classFeatureCheckbox" + index}
+                         checked={!!classFeatures.checkbox}
+                         onChange={updateFeatureCheckbox(index)}
+                         color="primary"
+                         />
+                     </TableCell>
+                       <TableCell>
+                         <TextField
+                          multiline
+                          fullWidth
+                          variant="outlined"
+                           aria-label="empty textarea"
+                           placeholder="Add any Class Features here (e.g. Spell Lists, Poison Recipes, Druid Balance, Paladin Quests or anything else!)"
+                           value={classFeatures.feature}
+                           name={"classFeature" + index}
+                           onChange={updateFeature(index)}/>
+                       </TableCell>
+                       <TableCell>
+                         <IconButton aria-label="delete" onClick={() => deleteFeatureRow(index)}>
+                           <Delete/>
+                         </IconButton>
+                       </TableCell>
+                   </TableRow>)
+                })
+              }
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </AccordionDetails>
+  </Accordion>);
 }
-
-export default CharacterClassFeatures;

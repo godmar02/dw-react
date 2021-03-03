@@ -18,11 +18,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function CharacterBonds() {
+export default function CharacterBonds() {
 
   const classes = useStyles();
-
-  // State Variables
   const {character, setCharacter} = useContext(CharacterState);
 
   // State manipulation
@@ -99,5 +97,3 @@ function CharacterBonds() {
   </Accordion>
     );
 }
-
-export default CharacterBonds;
