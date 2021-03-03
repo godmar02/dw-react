@@ -4,7 +4,7 @@ import {races} from 'data/raceList';
 import {dwClasses} from 'data/classList';
 import {alignments} from 'data/classAlignments';
 import {classDetails} from 'data/classDetails';
-import {Accordion,AccordionSummary,AccordionDetails,FormControl,MenuItem,Paper,Select,Table,TableBody,TableCell,TableContainer,TableHead,TableRow,TextField} from '@material-ui/core';
+import {Accordion,AccordionSummary,AccordionDetails,FormControl,MenuItem,Paper,Select,Table,TableBody,TableCell,TableContainer,TableRow,TextField} from '@material-ui/core';
 import {ExpandMore} from '@material-ui/icons';
 import {makeStyles} from '@material-ui/core/styles';
 

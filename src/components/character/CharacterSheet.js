@@ -108,6 +108,10 @@ function CharacterSheet() {
     }
   }, [character]); //Only trigger effect on change of character
 
+  useEffect(() => {
+    console.info("isSaving:", isSaving)
+  }, [isSaving]); //Only trigger effect on change of saving state
+
   const ctx = useMemo(() => ({character, setCharacter}), [character]); //Memo-ised state for performance
 
   return (<CharacterState.Provider value={ctx}>

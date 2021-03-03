@@ -3,8 +3,8 @@ import {makeStyles} from '@material-ui/core/styles';
 import {AppBar, Box, Tab, Tabs} from '@material-ui/core';
 import PropTypes from 'prop-types';
 import CharacterClassStartingMoves from 'components/character/CharacterClassStartingMoves'
-import CharacterClassAdvancedMoves2_5 from 'components/character/CharacterClassAdvancedMoves2_5'
-import CharacterClassAdvancedMoves6_10 from 'components/character/CharacterClassAdvancedMoves6_10'
+import CharacterClassAdvancedMoves2to5 from 'components/character/CharacterClassAdvancedMoves2to5'
+import CharacterClassAdvancedMoves6to10 from 'components/character/CharacterClassAdvancedMoves6to10'
 
 // Tab functions
 function TabPanel(props) {
@@ -62,10 +62,10 @@ function CharacterClassMoves() {
       <CharacterClassStartingMoves/>
     </TabPanel>
     <TabPanel value={value} index={1}>
-      <CharacterClassAdvancedMoves2_5/>
+      <CharacterClassAdvancedMoves2to5/>
     </TabPanel>
     <TabPanel value={value} index={2}>
-      <CharacterClassAdvancedMoves6_10/>
+      <CharacterClassAdvancedMoves6to10/>
     </TabPanel>
   </div>);
 }

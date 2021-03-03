@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {Accordion,AccordionSummary,AccordionDetails,Paper,Table,TableBody,TableCell,TableContainer,TableHead,TableRow,TextField} from '@material-ui/core';
+import {Accordion,AccordionSummary,AccordionDetails,Paper,Table,TableBody,TableCell,TableContainer,TableRow,TextField} from '@material-ui/core';
 import {ExpandMore} from '@material-ui/icons';
 import {makeStyles} from '@material-ui/core/styles';
 import CharacterState from 'components/contexts/CharacterState';
