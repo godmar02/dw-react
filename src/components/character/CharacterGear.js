@@ -2,14 +2,21 @@ import React, {useContext} from 'react';
 import CharacterState from 'components/contexts/CharacterState';
 import {classDetails} from 'data/classDetails';
 import {Add,Delete} from '@material-ui/icons';
-import {IconButton,Paper,Table,TableBody,TableCell,TableContainer,TableHead,TableRow,TextField} from '@material-ui/core';
+import {IconButton,FormControl,Paper,Select, MenuItem,Table,TableBody,TableCell,TableContainer,TableHead,TableRow,TextField} from '@material-ui/core';
 import {makeStyles} from '@material-ui/core/styles';
 
-const useStyles = makeStyles({
-  table: {
-    minWidth: 650,
+const useStyles = makeStyles((theme) => ({
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 120
   },
-});
+  selectEmpty: {
+    marginTop: theme.spacing(2)
+  },
+  table: {
+    minWidth: 650
+  }
+}));
 
 export default function CharacterGear() {
 
@@ -68,9 +75,39 @@ export default function CharacterGear() {
   };
 
   // State manipulation
-  const updateItem = index => e => {
+  const updateItemName = index => e => {
     let newItems = [...character.items]; // copying the old array
-    newItems[index] = {...character.items[index], item: e.target.value}; // replace value
+    newItems[index] = {...character.items[index], name: e.target.value}; // replace value
+    setCharacter(character => ({...character, items: newItems})); // set array back
+  }
+
+  const updateItemDescription = index => e => {
+    let newItems = [...character.items]; // copying the old array
+    newItems[index] = {...character.items[index], description: e.target.value}; // replace value
+    setCharacter(character => ({...character, items: newItems})); // set array back
+  }
+
+  const updateItemType = index => e => {
+    let newItems = [...character.items]; // copying the old array
+    newItems[index] = {...character.items[index], type: e.target.value}; // replace value
+    setCharacter(character => ({...character, items: newItems})); // set array back
+  }
+
+  const updateItemCost = index => e => {
+    let newItems = [...character.items]; // copying the old array
+    newItems[index] = {...character.items[index], cost: e.target.value}; // replace value
+    setCharacter(character => ({...character, items: newItems})); // set array back
+  }
+
+  const updateItemRange = index => e => {
+    let newItems = [...character.items]; // copying the old array
+    newItems[index] = {...character.items[index], range: e.target.value}; // replace value
+    setCharacter(character => ({...character, items: newItems})); // set array back
+  }
+
+  const updateItemUses = index => e => {
+    let newItems = [...character.items]; // copying the old array
+    newItems[index] = {...character.items[index], uses: e.target.value}; // replace value
     setCharacter(character => ({...character, items: newItems})); // set array back
   }
 
@@ -103,7 +140,13 @@ export default function CharacterGear() {
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell align="center" colSpan="4">ITEM</TableCell>
+            <TableCell align="center">NAME</TableCell>
+            <TableCell align="center">TYPE</TableCell>
+            <TableCell align="center" colSpan="4">DESCRIPTION</TableCell>
+            <TableCell align="center">RANGE</TableCell>
+            <TableCell align="center">COST</TableCell>
+            <TableCell align="center">USES</TableCell>
+            <TableCell align="center">TAGS</TableCell>
             <TableCell align="center" colSpan="2">WEIGHT</TableCell>
             <TableCell>
               <IconButton aria-label="add" onClick={() => addItemRow()}>
@@ -117,17 +160,72 @@ export default function CharacterGear() {
            character.items && character.items.map((items,index) => {
            return (
              <TableRow key={index}>
+                 <TableCell>
+                   <TextField
+                     fullWidth
+                     variant="outlined"
+                     aria-label="empty textarea"
+                     placeholder="Item name"
+                     value={items.name}
+                     name={"itemName" + index}
+                     onChange={updateItemName(index)}/>
+                 </TableCell>
+                 <TableCell align="center">
+                   <FormControl variant="outlined" className={classes.formControl}>
+                   <Select tabIndex={-1} value={items.type} onChange={updateItemType(index)}>
+                     <MenuItem disabled="disabled" value="null" hidden="hidden"/>
+                     <MenuItem value="Item">Item</MenuItem>
+                     <MenuItem value="Poison">Poison</MenuItem>
+                     <MenuItem value="Weapon">Weapon</MenuItem>
+                   </Select>
+                   </FormControl>
+                 </TableCell>
                  <TableCell colSpan="4">
                    <TextField
                      multiline
                      fullWidth
                      variant="outlined"
                      aria-label="empty textarea"
-                     placeholder="Add any items and descriptions here"
-                     value={items.item}
-                     name={"item" + index}
-                     onChange={updateItem(index)}/>
+                     placeholder="Item description"
+                     value={items.description}
+                     name={"itemDescription" + index}
+                     onChange={updateItemDescription(index)}/>
                  </TableCell>
+                 <TableCell align="center">
+                   <FormControl variant="outlined" className={classes.formControl}>
+                   <Select tabIndex={-1} value={items.range} onChange={updateItemRange(index)}>
+                     <MenuItem value="null" hidden="hidden"/>
+                     <MenuItem value="Close">Close</MenuItem>
+                     <MenuItem value="Hand">Hand</MenuItem>
+                     <MenuItem value="Far">Far</MenuItem>
+                     <MenuItem value="Near">Near</MenuItem>
+                     <MenuItem value="Near & Far">Near & Far</MenuItem>
+                     <MenuItem value="Reach">Reach</MenuItem>
+                     <MenuItem value="Reach & Near">Reach & Near</MenuItem>
+                   </Select>
+                   </FormControl>
+               </TableCell>
+                <TableCell align="center">
+                  <TextField
+                   type="number"
+                   fullWidth
+                   variant="outlined"
+                   min={0}
+                   name={"itemCost" + index}
+                   value={items.cost}
+                   onChange={updateItemCost(index)}/>
+               </TableCell>
+                 <TableCell align="center">
+                   <TextField
+                   type="number"
+                   fullWidth
+                   variant="outlined"
+                   min={0}
+                   name={"itemUses" + index}
+                   value={items.uses}
+                   onChange={updateItemUses(index)}/>
+               </TableCell>
+                 <TableCell align="center">TAGS</TableCell>
                  <TableCell colSpan="2">
                    <TextField
                      type="number"
@@ -146,7 +244,7 @@ export default function CharacterGear() {
              </TableRow>)
           })}
           <TableRow>
-            <TableCell align="right" colSpan="4">LOAD</TableCell>
+            <TableCell align="right" colSpan="10">LOAD</TableCell>
             <TableCell>
               <TextField
                 type="number"

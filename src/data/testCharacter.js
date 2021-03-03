@@ -25,8 +25,14 @@ useEffect(() => {
     funds: 10,
     hp:2,
     items: [
-      {item: "item0", weight: 1},
-      {item: "item1", weight: 2}
+      {name: "Adventuring Gear",
+      description: "Adventuring gear is a collection of useful mundane items such as chalk, poles, spikes, ropes, etc. When you rummage through your adventuring gear for some useful mundane item, you find what you need and mark off a use.",
+      type: "Item",
+      range: "Near",
+      cost: "20",
+      weight: "1",
+      uses: "5",
+      tags: []}
     ],
     level: 2,
     look: "scraggly",
