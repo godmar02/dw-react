@@ -1,6 +1,6 @@
 import React from 'react';
-import {BrowserRouter as Router,Switch,Route} from 'react-router-dom';
-import {Container,Typography} from '@material-ui/core';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {Container, Typography} from '@material-ui/core';
 import ErrorPage from 'components/ErrorPage'
 import Homepage from 'components/homepage/Homepage';
 import AppHeader from 'components/AppHeader';
@@ -10,21 +10,19 @@ import "@fontsource/roboto"
 
 function App() {
 
-  return (<>
-    <Typography>
+  return (<Typography component={'span'}>
     <Container>
-    <Router>
-      <AppHeader/>
-      <Switch>
-        <Route exact path="/dw-react/:campaignURL/:characterURL" component={CharacterSheet} />
-        <Route exact path="/dw-react/:campaignURL" component={Campaign} />
-        <Route exact path="/dw-react" component={Homepage} />
-        <Route component={ErrorPage} />
-      </Switch>
-    </Router>
+      <Router>
+        <AppHeader/>
+        <Switch>
+          <Route exact="exact" path="/dw-react/:campaignURL/:characterURL" component={CharacterSheet}/>
+          <Route exact="exact" path="/dw-react/:campaignURL" component={Campaign}/>
+          <Route exact="exact" path="/dw-react" component={Homepage}/>
+          <Route component={ErrorPage}/>
+        </Switch>
+      </Router>
     </Container>
-  </Typography>
-  </>)
+  </Typography>)
 }
 
 export default App;

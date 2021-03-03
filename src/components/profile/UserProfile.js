@@ -10,13 +10,11 @@ function UserProfile() {
   const ctx = useMemo(() => ({show, setShow}), [show]); //Memo-ised state for performance
 
   return (<ProfileState.Provider value={ctx}>
-    <div>
       <ProfilePicture/> {
         show
           ? <ProfileDetails/>
           : null
       }
-    </div>
   </ProfileState.Provider>);
 }
 

@@ -21,9 +21,7 @@ function Index() {
   return (<AuthState.Provider value={ctx}>
     {
       currentUser
-        ? (<div>
-          <App/>
-        </div>)
+        ? <App/>
         : <Button variant="contained" color="primary" onClick={FirebaseService.SignInWithGoogle}>SIGN IN WITH GOOGLE</Button>
     }
   </AuthState.Provider>);
