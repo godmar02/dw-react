@@ -63,7 +63,14 @@ export function createCharacter(campaign,charaName,owner) {
       funds: "",
       hp: "",
       items: [
-        {item: "", weight: ""},
+        {name: "",
+        description: "",
+        type: "",
+        range: "",
+        cost: "",
+        weight: "",
+        uses: "",
+        tags: []}
       ],
       level: "",
       look: "",
