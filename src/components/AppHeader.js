@@ -26,7 +26,7 @@ function AppHeader() {
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             <Menu />
           </IconButton>
-          <Typography variant="h6" className={classes.title}>
+          <Typography component={'span'} variant="h6" className={classes.title}>
             Dungeon World Character Sheet (v0.10.0 by Godmar02)
           </Typography>
           <UserProfile/>
