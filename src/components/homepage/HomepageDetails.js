@@ -119,7 +119,7 @@ export default function HomepageDetails() {
         <DialogContentText>
           To create a campaign, please enter the new campaign name here. You will not be able to change this once saved.
         </DialogContentText>
-        <TextField autoFocus={true} margin="dense" id="name" label="Campaign Name" fullWidth={true} onChange={event => setCampaignName(event.target.value)}/>
+        <TextField autoFocus={true} margin="dense" id="name" label="Campaign Name" fullwidth="true" onChange={event => setCampaignName(event.target.value)}/>
       </DialogContent>
       <DialogActions>
         <Button onClick={handleCancel} color="primary">

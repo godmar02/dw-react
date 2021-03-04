@@ -32,7 +32,8 @@ useEffect(() => {
       cost: "20",
       weight: "1",
       uses: "5",
-      tags: []}
+      tags: [{key: "1", tag: "tag1"}]
+    }
     ],
     level: 2,
     look: "scraggly",

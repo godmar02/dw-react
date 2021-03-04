@@ -118,7 +118,7 @@ export default function CharacterType() {
                 </FormControl>
               </TableCell>
               <TableCell>
-                <TextField multiline="multiline" fullWidth="fullWidth" variant="outlined" aria-label="empty textarea" name="raceAttributes" InputProps={{
+                <TextField multiline fullwidth="true" variant="outlined" aria-label="empty textarea" name="raceAttributes" InputProps={{
                     readOnly: true
                   }} value={raceAttributes()}/>
               </TableCell>
@@ -144,7 +144,7 @@ export default function CharacterType() {
                 </FormControl>
               </TableCell>
               <TableCell>
-                <TextField multiline="multiline" fullWidth="fullWidth" variant="outlined" aria-label="empty textarea" name="alignmentAttribute" InputProps={{
+                <TextField multiline fullwidth="true" variant="outlined" aria-label="empty textarea" name="alignmentAttribute" InputProps={{
                     readOnly: true
                   }} value={alignmentAttributes()}/>
               </TableCell>

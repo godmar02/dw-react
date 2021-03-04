@@ -2,10 +2,21 @@ import React, {useContext} from 'react';
 import CharacterState from 'components/contexts/CharacterState';
 import {classDetails} from 'data/classDetails';
 import {Add,Delete} from '@material-ui/icons';
-import {IconButton,FormControl,Paper,Select, MenuItem,Table,TableBody,TableCell,TableContainer,TableHead,TableRow,TextField} from '@material-ui/core';
+import {Chip,IconButton,FormControl,Paper,Select, MenuItem,Table,TableBody,TableCell,TableContainer,TableHead,TableRow,TextField} from '@material-ui/core';
 import {makeStyles} from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+    justifyContent: 'center',
+    flexWrap: 'wrap',
+    listStyle: 'none',
+    padding: theme.spacing(0.5),
+    margin: 0,
+  },
+  chip: {
+    margin: theme.spacing(0.5),
+  },
   formControl: {
     margin: theme.spacing(1),
     minWidth: 120
@@ -117,6 +128,12 @@ export default function CharacterGear() {
     setCharacter(character => ({...character, items: newItems})); // set array back
   }
 
+  const deleteTag = (itemIndex, tagIndex) => () => {
+    let newItemTags = [...character.items.[itemIndex].tags]; // copying the old array
+    newItemTags.splice(tagIndex, 1); // remove item from array
+    setCharacter(character => ({...character.items.[itemIndex].tags, tags: newItemTags})); // set array back
+  };
+
   // Delete rows in the table
   const deleteItemRow = index => {
     const newItems = [...character.items]; // copying the old array
@@ -225,7 +242,23 @@ export default function CharacterGear() {
                    value={items.uses}
                    onChange={updateItemUses(index)}/>
                </TableCell>
-                 <TableCell align="center">TAGS</TableCell>
+                 <TableCell align="center">
+                   <div className={classes.root}>
+                       {items.tags.map((data) => {
+                         return (
+                           <li key={data.key}>
+                             <Chip
+                               size="small"
+                               color="primary"
+                               label={data.tag}
+                               onDelete={deleteTag(data.key,{index})}
+                               className={classes.chip}
+                             />
+                           </li>
+                         );
+                       })}
+                     </div>
+                   </TableCell>
                  <TableCell colSpan="2">
                    <TextField
                      type="number"

@@ -122,7 +122,7 @@ export default function CampaignDetails() {
         <DialogContentText>
           To create a character, please enter the new character name here. You will not be able to change this once saved.
         </DialogContentText>
-        <TextField autoFocus={true} margin="dense" id="name" label="Short Character Name" fullWidth={true} onChange={event => setCharaName(event.target.value)}/>
+        <TextField autoFocus={true} margin="dense" id="name" label="Short Character Name" fullwidth="true" onChange={event => setCharaName(event.target.value)}/>
       </DialogContent>
       <DialogActions>
         <Button onClick={handleCancel} color="primary">
