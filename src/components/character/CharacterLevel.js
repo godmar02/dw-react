@@ -6,6 +6,13 @@ export default function CharacterLevel() {
 
   const {character, setCharacter}= useContext(CharacterState);
 
+  const handleCharacterChange = (event) => {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+    setCharacter(character => ({...character,[name]: value}))
+  };
+
   return (
 
             <TextField
@@ -13,9 +20,8 @@ export default function CharacterLevel() {
               variant="outlined"
               label="Level"
               min={1}
-
               name="level"
               value={character.level || ''}
-              onChange={event => setCharacter(character => ({...character,level: event.target.value}))}/>
+              onChange={handleCharacterChange}/>
           );
 }

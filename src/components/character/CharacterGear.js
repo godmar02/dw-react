@@ -190,7 +190,7 @@ export default function CharacterGear() {
                  <TableCell align="center">
                    <FormControl variant="outlined" className={classes.formControl}>
                    <Select tabIndex={-1} value={items.type} onChange={updateItemType(index)}>
-                     <MenuItem disabled="disabled" value="null" hidden="hidden"/>
+                     <MenuItem disabled="true" value="null" hidden="hidden"/>
                      <MenuItem value="Item">Item</MenuItem>
                      <MenuItem value="Poison">Poison</MenuItem>
                      <MenuItem value="Weapon">Weapon</MenuItem>

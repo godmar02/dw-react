@@ -69,7 +69,8 @@ export default function CharacterSheet() {
   const [isSaving, setIsSaving] = useState(false);
   const {campaignURL, characterURL} = useParams();
   const {currentUser} = useContext(AuthState);
-  const handleChange = (event, newValue) => {
+
+  const handleTabChange = (event, newValue) => {
     setValue(newValue);
   };
 
@@ -119,7 +120,7 @@ export default function CharacterSheet() {
     <br/>
     <div className={classes.root}>
       <AppBar position="static">
-        <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
+        <Tabs value={value} onChange={handleTabChange} aria-label="simple tabs example">
           <Tab label="Character" {...a11yProps(0)}/>
           <Tab label="Gear" {...a11yProps(1)}/>
           <Tab label="Moves" {...a11yProps(2)}/>

@@ -46,13 +46,13 @@ export default function CharacterClassMoves() {
 
   const classes = useStyles();
   const [value, setValue] = useState(0);
-  const handleChange = (event, newValue) => {
+  const handleTabChange = (event, newValue) => {
     setValue(newValue);
   };
 
   return (<div className={classes.root}>
     <AppBar position="static">
-      <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
+      <Tabs value={value} onChange={handleTabChange} aria-label="simple tabs example">
         <Tab label="Starting" {...a11yProps(0)}/>
         <Tab label="Levels 2-5" {...a11yProps(1)}/>
         <Tab label="Levels 6-10" {...a11yProps(2)}/>

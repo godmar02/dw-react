@@ -31,7 +31,7 @@ export default function DiceRoller() {
     <Select tabIndex={-1} defaultValue="null" onChange={event => {
         setDice(event.target.value)
       }}>
-      <MenuItem disabled="disabled" value="null" hidden="hidden"/>
+      <MenuItem disabled="true" value="null" hidden="hidden"/>
       <MenuItem value="6">d6</MenuItem>
       <MenuItem value="8">d8</MenuItem>
       <MenuItem value="10">d10</MenuItem>
@@ -40,7 +40,7 @@ export default function DiceRoller() {
     <Select tabIndex={-1} defaultValue="null" onChange={event => {
         setDiceNum(event.target.value)
       }}>
-      <MenuItem disabled="disabled" value="null" hidden="hidden"/>
+      <MenuItem disabled="true" value="null" hidden="hidden"/>
       <MenuItem value="1">1</MenuItem>
       <MenuItem value="2">2</MenuItem>
       <MenuItem value="3">3</MenuItem>

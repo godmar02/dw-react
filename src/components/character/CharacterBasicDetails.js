@@ -15,6 +15,13 @@ export default function CharacterBasicDetails() {
   const {character, setCharacter} = useContext(CharacterState);
   const classes = useStyles();
 
+  const handleCharacterChange = (event) => {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+    setCharacter(character => ({...character,[name]: value}))
+  };
+
   return (
     <Accordion>
       <AccordionSummary
@@ -37,7 +44,7 @@ export default function CharacterBasicDetails() {
             placeholder="Add your characters full name here"
             value={character.fullName}
             name="fullName"
-            onChange={event => setCharacter(character => ({...character,fullName: event.target.value}))}/>
+            onChange={handleCharacterChange}/>
         </TableCell>
       </TableRow>
       <TableRow>
@@ -53,7 +60,7 @@ export default function CharacterBasicDetails() {
             placeholder="Describe your character's backstory and anything else about your characters identity here"
             value={character.backstory}
             name="backstory"
-            onChange={event => setCharacter(character => ({...character,backstory: event.target.value}))}/>
+            onChange={handleCharacterChange}/>
         </TableCell>
       </TableRow>
       <TableRow>
@@ -69,7 +76,7 @@ export default function CharacterBasicDetails() {
             placeholder="Describe your character's appearance here"
             name="look"
             value={character.look}
-            onChange={event => setCharacter(character => ({...character,look: event.target.value}))}/>
+            onChange={handleCharacterChange}/>
         </TableCell>
       </TableRow>
     </TableBody>

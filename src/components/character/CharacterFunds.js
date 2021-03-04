@@ -6,6 +6,13 @@ export default function CharacterFunds() {
 
   const {character, setCharacter}= useContext(CharacterState);
 
+  const handleCharacterChange = (event) => {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+    setCharacter(character => ({...character,[name]: value}))
+  };
+
   return (
             <TextField
               type="number"
@@ -14,6 +21,6 @@ export default function CharacterFunds() {
               label="Funds"
               min={0}
               value={character.funds || ''}
-              onChange={event => setCharacter(character => ({...character,funds: event.target.value}))}/>
+              onChange={handleCharacterChange}/>
   );
 }

@@ -51,14 +51,14 @@ export default function CharacterMoves() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
-  const handleChange = (event, newValue) => {
+  const handleTabChange = (event, newValue) => {
     setValue(newValue);
   };
 
   return (
     <div className={classes.root}>
       <AppBar position="static">
-          <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
+          <Tabs value={value} onChange={handleTabChange} aria-label="simple tabs example">
             <Tab label="Standard" {...a11yProps(0)} />
             <Tab label="Advanced" {...a11yProps(1)} />
             <Tab label="Class" {...a11yProps(2)} />

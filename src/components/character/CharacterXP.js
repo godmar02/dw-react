@@ -15,6 +15,13 @@ export default function CharacterXP() {
     }
   };
 
+  const handleCharacterChange = (event) => {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+    setCharacter(character => ({...character,[name]: value}))
+  };
+
   return (<>
             <TextField
               type="number"
@@ -23,7 +30,7 @@ export default function CharacterXP() {
               min={0}
               name="xp"
               value={character.xp || ''}
-              onChange={event => setCharacter(character => ({...character,xp: event.target.value}))}/>
+              onChange={handleCharacterChange}/>
             <TextField
               variant="outlined"
               label="Max XP"

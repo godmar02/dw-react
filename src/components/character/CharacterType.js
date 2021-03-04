@@ -59,6 +59,13 @@ export default function CharacterType() {
     }
   };
 
+  const handleCharacterChange = (event) => {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+    setCharacter(character => ({...character,[name]: value}))
+  };
+
   return (<Accordion>
     <AccordionSummary expandIcon={<ExpandMore />}>Character Type
     </AccordionSummary>
@@ -73,17 +80,11 @@ export default function CharacterType() {
                   "width" : "25%"
                 }}>
                 <FormControl variant="outlined" className={classes.formControl}>
-                  <Select tabIndex={-1} value={character.dwClass || "null"} onChange={event => {
-                      setCharacter(character => ({
-                        ...character,
-                        dwClass: event.target.value
-                      }));
-                      setCharacter(character => ({
-                        ...character,
-                        alignment: "null"
-                      }))
+                  <Select tabIndex={-1} value={character.dwClass || "null"} name="class" onChange={event => {
+                      handleCharacterChange(event);
+                      setCharacter(character => ({...character, alignment: "null"}))
                     }}>
-                    <MenuItem disabled="disabled" value="null" hidden="hidden"/> {
+                    <MenuItem disabled="true" value="null" hidden="hidden"/> {
                       dwClasses.map((data, key) => {
                         return (<MenuItem value={data} key={key}>
                           {data}
@@ -103,11 +104,8 @@ export default function CharacterType() {
               </th>
               <TableCell>
                 <FormControl variant="outlined" className={classes.formControl}>
-                  <Select tabIndex={-1} value={character.race || "null"} name="race" onChange={event => setCharacter(character => ({
-                      ...character,
-                      race: event.target.value
-                    }))}>
-                    <MenuItem disabled="disabled" value="null" hidden="hidden"/> {
+                  <Select tabIndex={-1} value={character.race || "null"} name="race" onChange={handleCharacterChange}>
+                    <MenuItem disabled="true" value="null" hidden="hidden"/> {
                       races.map((data, key) => {
                         return (<MenuItem value={data} key={key}>
                           {data}
@@ -129,11 +127,8 @@ export default function CharacterType() {
               </th>
               <TableCell>
                 <FormControl variant="outlined" className={classes.formControl}>
-                  <Select tabIndex={-1} value={character.alignment || "null"} name="alignment" onChange={event => setCharacter(character => ({
-                      ...character,
-                      alignment: event.target.value
-                    }))}>
-                    <MenuItem disabled="disabled" value="null" hidden="hidden"/> {
+                  <Select tabIndex={-1} value={character.alignment || "null"} name="alignment" onChange={handleCharacterChange}>
+                    <MenuItem disabled="true" value="null" hidden="hidden"/> {
                       character.dwClass && dwc && alignments.[dwc].map((data, key) => {
                         return (<MenuItem value={data} key={key}>
                           {data}
