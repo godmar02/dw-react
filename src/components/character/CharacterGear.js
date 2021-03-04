@@ -86,52 +86,32 @@ export default function CharacterGear() {
   };
 
   // State manipulation
-  const updateItemName = index => e => {
+  const handleCharacterChange = (event, index) => {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
     let newItems = [...character.items]; // copying the old array
-    newItems[index] = {...character.items[index], name: e.target.value}; // replace value
+    newItems[index] = {...character.items[index], [name]: value}; // replace value
     setCharacter(character => ({...character, items: newItems})); // set array back
-  }
+  };
 
-  const updateItemDescription = index => e => {
-    let newItems = [...character.items]; // copying the old array
-    newItems[index] = {...character.items[index], description: e.target.value}; // replace value
-    setCharacter(character => ({...character, items: newItems})); // set array back
-  }
-
-  const updateItemType = index => e => {
-    let newItems = [...character.items]; // copying the old array
-    newItems[index] = {...character.items[index], type: e.target.value}; // replace value
-    setCharacter(character => ({...character, items: newItems})); // set array back
-  }
-
-  const updateItemCost = index => e => {
-    let newItems = [...character.items]; // copying the old array
-    newItems[index] = {...character.items[index], cost: e.target.value}; // replace value
-    setCharacter(character => ({...character, items: newItems})); // set array back
-  }
-
-  const updateItemRange = index => e => {
-    let newItems = [...character.items]; // copying the old array
-    newItems[index] = {...character.items[index], range: e.target.value}; // replace value
-    setCharacter(character => ({...character, items: newItems})); // set array back
-  }
-
-  const updateItemUses = index => e => {
-    let newItems = [...character.items]; // copying the old array
-    newItems[index] = {...character.items[index], uses: e.target.value}; // replace value
-    setCharacter(character => ({...character, items: newItems})); // set array back
-  }
-
-  const updateItemWeight = index => e => {
-    let newItems = [...character.items]; // copying the old array
-    newItems[index] = {...character.items[index], weight: e.target.value}; // replace value
-    setCharacter(character => ({...character, items: newItems})); // set array back
-  }
-
-  const deleteTag = (itemIndex, tagIndex) => () => {
-    let newItemTags = [...character.items.[itemIndex].tags]; // copying the old array
-    newItemTags.splice(tagIndex, 1); // remove item from array
-    setCharacter(character => ({...character.items.[itemIndex].tags, tags: newItemTags})); // set array back
+  //Delete Item Tags
+  const deleteTag = (index, key) => () => {
+    console.log("index:", index)
+    console.log("key:", key)
+    let newItems = [...character.items]; // copying the old items array
+    console.log("newItems",newItems)
+    let newItem = newItems[index]; // copying the specific item
+    console.log("newItem",newItem)
+    let newItemTags = [...newItem.tags]; // copying the old item tags
+    console.log("newItemTags",newItemTags)
+    newItemTags.filter((tags) => tags.key !== key); // filtering the old item tags to remove tag
+    console.log("newItemTags", newItemTags)
+    newItem = {...newItem, tags: newItemTags}; // re-setting Item Tags for Item
+    console.log("newItem",newItem)
+    newItems[index] = newItem; // re-setting Item
+    console.log("newItems",newItems)
+    //setCharacter(character => ({...character, items: newItems})); // set array back
   };
 
   // Delete rows in the table
@@ -184,12 +164,12 @@ export default function CharacterGear() {
                      aria-label="empty textarea"
                      placeholder="Item name"
                      value={items.name}
-                     name={"itemName" + index}
-                     onChange={updateItemName(index)}/>
+                     name="name"
+                     onChange={ (event) => handleCharacterChange(event,index)}/>
                  </TableCell>
                  <TableCell align="center">
                    <FormControl variant="outlined" className={classes.formControl}>
-                   <Select tabIndex={-1} value={items.type} onChange={updateItemType(index)}>
+                   <Select tabIndex={-1} value={items.type} name="type" onChange={ (event) => handleCharacterChange(event,index)}>
                      <MenuItem disabled="true" value="null" hidden="hidden"/>
                      <MenuItem value="Item">Item</MenuItem>
                      <MenuItem value="Poison">Poison</MenuItem>
@@ -205,12 +185,12 @@ export default function CharacterGear() {
                      aria-label="empty textarea"
                      placeholder="Item description"
                      value={items.description}
-                     name={"itemDescription" + index}
-                     onChange={updateItemDescription(index)}/>
+                     name="description"
+                     onChange={(event) => handleCharacterChange(event,index)}/>
                  </TableCell>
                  <TableCell align="center">
                    <FormControl variant="outlined" className={classes.formControl}>
-                   <Select tabIndex={-1} value={items.range} onChange={updateItemRange(index)}>
+                   <Select tabIndex={-1} value={items.range} name="range" onChange={(event) => handleCharacterChange(event,index)}>
                      <MenuItem value="null" hidden="hidden"/>
                      <MenuItem value="Close">Close</MenuItem>
                      <MenuItem value="Hand">Hand</MenuItem>
@@ -228,9 +208,9 @@ export default function CharacterGear() {
                    fullWidth
                    variant="outlined"
                    min={0}
-                   name={"itemCost" + index}
+                   name="cost"
                    value={items.cost}
-                   onChange={updateItemCost(index)}/>
+                   onChange={(event) => handleCharacterChange(event,index)}/>
                </TableCell>
                  <TableCell align="center">
                    <TextField
@@ -238,9 +218,9 @@ export default function CharacterGear() {
                    fullWidth
                    variant="outlined"
                    min={0}
-                   name={"itemUses" + index}
+                   name="uses"
                    value={items.uses}
-                   onChange={updateItemUses(index)}/>
+                   onChange={(event) => handleCharacterChange(event,index)}/>
                </TableCell>
                  <TableCell align="center">
                    <div className={classes.root}>
@@ -251,7 +231,7 @@ export default function CharacterGear() {
                                size="small"
                                color="primary"
                                label={data.tag}
-                               onDelete={deleteTag(data.key,{index})}
+                               onDelete={deleteTag(index,data.key)}
                                className={classes.chip}
                              />
                            </li>
@@ -266,8 +246,8 @@ export default function CharacterGear() {
                      variant="outlined"
                      min={0}
                      value={items.weight}
-                     name={"itemWeight" + index}
-                     onChange={updateItemWeight(index)}/>
+                     name="weight"
+                     onChange={(event) => handleCharacterChange(event,index)}/>
                  </TableCell>
                  <TableCell>
                    <IconButton aria-label="delete" onClick={() => deleteItemRow(index)}>
