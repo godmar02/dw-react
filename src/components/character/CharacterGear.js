@@ -97,21 +97,15 @@ export default function CharacterGear() {
 
   //Delete Item Tags
   const deleteTag = (index, key) => () => {
-    console.log("index:", index)
-    console.log("key:", key)
+    //console.log("index:", index)
+    //console.log("key:", key)
     let newItems = [...character.items]; // copying the old items array
-    console.log("newItems",newItems)
     let newItem = newItems[index]; // copying the specific item
-    console.log("newItem",newItem)
     let newItemTags = [...newItem.tags]; // copying the old item tags
-    console.log("newItemTags",newItemTags)
-    newItemTags.filter((tags) => tags.key !== key); // filtering the old item tags to remove tag
-    console.log("newItemTags", newItemTags)
+    newItemTags = newItemTags.filter(tags => tags.key !== key); // filtering the old item tags to remove tag
     newItem = {...newItem, tags: newItemTags}; // re-setting Item Tags for Item
-    console.log("newItem",newItem)
     newItems[index] = newItem; // re-setting Item
-    console.log("newItems",newItems)
-    //setCharacter(character => ({...character, items: newItems})); // set array back
+    setCharacter(character => ({...character, items: newItems})); // set array back
   };
 
   // Delete rows in the table
@@ -127,7 +121,7 @@ export default function CharacterGear() {
 
   // Add rows in the table
   const addItemRow = () => {
-    const newItems = [...character.items, {item: "", weight: ""}]; // copying the old array and adding blank item
+    const newItems = [...character.items, {name: "", description: "", weight: "", type: "", range: "", cost: "", uses: "", tags: []}]; // copying the old array and adding blank item
     setCharacter(character => ({...character, items: newItems})); // set array back
   }
   //,

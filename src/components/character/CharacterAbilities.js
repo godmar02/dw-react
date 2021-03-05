@@ -73,11 +73,7 @@ export default function CharacterAbilities() {
   }
 
   return (
-    <Accordion>
-      <AccordionSummary
-        expandIcon={<ExpandMore />}>Abilities
-      </AccordionSummary>
-      <AccordionDetails>
+<>
      <table style={{"width":"100%"}}>
        <thead>
          <tr>
@@ -160,7 +156,6 @@ export default function CharacterAbilities() {
          </tr>
        </tbody>
      </table>
-   </AccordionDetails>
-   </Accordion>
+   </>
     );
 }
