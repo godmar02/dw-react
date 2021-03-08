@@ -97,8 +97,6 @@ export default function CharacterGear() {
 
   //Delete Item Tags
   const deleteTag = (index, key) => () => {
-    //console.log("index:", index)
-    //console.log("key:", key)
     let newItems = [...character.items]; // copying the old items array
     let newItem = newItems[index]; // copying the specific item
     let newItemTags = [...newItem.tags]; // copying the old item tags

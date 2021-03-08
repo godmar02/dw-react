@@ -66,7 +66,6 @@ export default function CharacterSheet() {
   const classes = useStyles();
   const [value, setValue] = useState(0);
   const [character, setCharacter] = useState({});
-  const [isSaving, setIsSaving] = useState(false);
   const {campaignURL, characterURL} = useParams();
   const {currentUser} = useContext(AuthState);
 
@@ -92,26 +91,19 @@ export default function CharacterSheet() {
 
   // Debounced Save
   const debouncedSave = useCallback(debounce(character => FirebaseService.saveCharacter(campaignURL, characterURL, character).then(() => {
-    setIsSaving(false);
     console.info('Saved Character:', character);
   }).catch((error) => {
     alert("Failed to save character data correctly, see console error");
     console.error("Error saving document:", error);
-    //If saving fails then it will not retry until the error is rectified
-  }), process.env.DEBOUNCE_SAVE_DELAY_MS), []);
+  }), 5000), []);
 
   // Save changes to character
   useEffect(() => {
     if (character && Object.keys(character).length >= 1 && currentUser.email === character.owner) {
-      setIsSaving(true);
       console.info("CharacterState:", character);
       debouncedSave(character);
     }
   }, [character]); //Only trigger effect on change of character
-
-  useEffect(() => {
-    console.info("isSaving:", isSaving)
-  }, [isSaving]); //Only trigger effect on change of saving state
 
   const ctx = useMemo(() => ({character, setCharacter}), [character]); //Memo-ised state for performance
 
