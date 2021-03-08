@@ -64,7 +64,7 @@ export default function CharacterType() {
 
   return (
       <TableContainer component={Paper}>
-        <Table className={classes.table} aria-label="simple table">
+        <Table className={classes.table} size="small" aria-label="simple table">
           <TableBody>
             <TableRow>
               <th>CLASS
@@ -72,12 +72,12 @@ export default function CharacterType() {
               <TableCell style={{
                   "width" : "25%"
                 }}>
-                <FormControl variant="outlined" className={classes.formControl}>
+                <FormControl variant="outlined" size="small" className={classes.formControl}>
                   <Select tabIndex={-1} value={character.dwClass || "null"} name="class" onChange={event => {
                       handleCharacterChange(event);
                       setCharacter(character => ({...character, alignment: "null"}))
                     }}>
-                    <MenuItem disabled="true" value="null" hidden="hidden"/> {
+                    <MenuItem disabled value="null" hidden="hidden"/> {
                       dwClasses.map((data, key) => {
                         return (<MenuItem value={data} key={key}>
                           {data}
@@ -87,18 +87,14 @@ export default function CharacterType() {
                   </Select>
                 </FormControl>
               </TableCell>
-              <TableCell style={{
-                  "width" : "50%"
-                }}/>
+              <TableCell></TableCell>
             </TableRow>
             <TableRow>
-              <th>
-                <label htmlFor="race">RACE</label>
-              </th>
+              <th>RACE</th>
               <TableCell>
-                <FormControl variant="outlined" className={classes.formControl}>
+                <FormControl variant="outlined" size="small" className={classes.formControl}>
                   <Select tabIndex={-1} value={character.race || "null"} name="race" onChange={handleCharacterChange}>
-                    <MenuItem disabled="true" value="null" hidden="hidden"/> {
+                    <MenuItem disabled value="null" hidden="hidden"/> {
                       races.map((data, key) => {
                         return (<MenuItem value={data} key={key}>
                           {data}
@@ -109,19 +105,17 @@ export default function CharacterType() {
                 </FormControl>
               </TableCell>
               <TableCell>
-                <TextField multiline fullwidth="true" variant="outlined" aria-label="empty textarea" name="raceAttributes" InputProps={{
+                <TextField multiline fullWidth variant="outlined" aria-label="empty textarea" name="raceAttributes" InputProps={{
                     readOnly: true
                   }} value={raceAttributes()}/>
               </TableCell>
             </TableRow>
             <TableRow>
-              <th>
-                <label htmlFor="alignment">ALIGNMENT</label>
-              </th>
+              <th>ALIGNMENT</th>
               <TableCell>
-                <FormControl variant="outlined" className={classes.formControl}>
+                <FormControl variant="outlined" size="small" className={classes.formControl}>
                   <Select tabIndex={-1} value={character.alignment || "null"} name="alignment" onChange={handleCharacterChange}>
-                    <MenuItem disabled="true" value="null" hidden="hidden"/> {
+                    <MenuItem disabled value="null" hidden="hidden"/> {
                       character.dwClass && dwc && alignments.[dwc].map((data, key) => {
                         return (<MenuItem value={data} key={key}>
                           {data}
@@ -132,7 +126,7 @@ export default function CharacterType() {
                 </FormControl>
               </TableCell>
               <TableCell>
-                <TextField multiline fullwidth="true" variant="outlined" aria-label="empty textarea" name="alignmentAttribute" InputProps={{
+                <TextField multiline fullWidth variant="outlined" aria-label="empty textarea" name="alignmentAttribute" InputProps={{
                     readOnly: true
                   }} value={alignmentAttributes()}/>
               </TableCell>

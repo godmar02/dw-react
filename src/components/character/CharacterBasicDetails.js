@@ -23,12 +23,10 @@ export default function CharacterBasicDetails() {
 
   return (
         <TableContainer component={Paper}>
-    <Table className={classes.table} aria-label="simple table">
+    <Table className={classes.table} size="small" aria-label="simple table">
     <TableBody>
       <TableRow>
-        <th style={{"width" : "25%"}}>
-          <label htmlFor="fullName">FULL NAME</label>
-        </th>
+        <th>FULL NAME</th>
         <TableCell>
           <TextField
             multiline
@@ -42,9 +40,7 @@ export default function CharacterBasicDetails() {
         </TableCell>
       </TableRow>
       <TableRow>
-        <th style={{"width" : "25%"}}>
-          <label htmlFor="backstory">BACKSTORY</label>
-        </th>
+        <th>BACKSTORY</th>
         <TableCell>
           <TextField
             multiline
@@ -58,9 +54,7 @@ export default function CharacterBasicDetails() {
         </TableCell>
       </TableRow>
       <TableRow>
-        <th style={{"width" : "25%"}}>
-          <label htmlFor="look">LOOK</label>
-        </th>
+        <th>LOOK</th>
         <TableCell>
           <TextField
             multiline

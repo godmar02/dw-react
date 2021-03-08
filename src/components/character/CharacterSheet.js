@@ -111,9 +111,9 @@ export default function CharacterSheet() {
     <CharacterSheetHeader/>
     <br/>
     <div className={classes.root}>
-      <CharacterAbilities/>
-      <br/>
       <CharacterBasicStats/>
+      <br/>
+      <CharacterAbilities/>
       <br/>
       <AppBar position="static">
         <Tabs value={value} onChange={handleTabChange} aria-label="simple tabs example">

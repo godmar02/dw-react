@@ -18,7 +18,22 @@ import {makeStyles} from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(1),
-    minWidth: 120
+    width: 126,
+    textAlign: 'center'
+  },
+  textField: {
+    width: 126,
+    '& input': {
+      textAlign: 'center'
+    }
+  },
+  textFieldBold: {
+    width: 126,
+    '& input': {
+      textAlign: 'center',
+      fontWeight: "bold",
+      fontSize: 25
+    },
   }
 }));
 
@@ -95,26 +110,20 @@ export default function CharacterAbilities() {
   }
 
   return (<TableContainer component={Paper}>
-    <Table style={{
-        "width" : "100%"
-      }}>
+    <Table size="small">
       <TableBody>
         <TableRow>
           {
             character.abilities && character.abilities.map((abilities, index) => {
-              return (<th key={index}>
-                <label htmlFor={abilities.category} value={abilities.category} name={abilities.category}>
-                  {abilities.category}
-                </label>
-              </th>)
+              return (<th key={index}>{abilities.category}</th>)
             })
           }
         </TableRow>
         <TableRow>
           {
             character.abilities && character.abilities.map((abilities, index) => {
-              return (<TableCell key={index}>
-                <TextField type="number" variant="outlined" min={1} max={18} name={abilities.category + "Score"} value={abilities.score} onChange={updateAbilityScore(index)}/>
+              return (<TableCell key={index} align="center">
+                <TextField type="number" variant="outlined" size="small" margin="none" min={1} max={18} name={abilities.category + "Score"} value={abilities.score} className={classes.textField} onChange={updateAbilityScore(index)}/>
               </TableCell>)
             })
           }
@@ -122,10 +131,10 @@ export default function CharacterAbilities() {
         <TableRow>
           {
             character.abilities && character.abilities.map((abilities, index) => {
-              return (<TableCell key={index}>
+              return (<TableCell key={index} align="center">
                 <TextField variant="outlined" name={abilities.category + "Modifier"} value={abilityModifier(abilities.score, abilities.affliction)} InputProps={{
                     readOnly: true
-                  }}/>
+                  }} className={classes.textFieldBold}/>
               </TableCell>)
             })
           }
@@ -134,10 +143,10 @@ export default function CharacterAbilities() {
           {
             character.abilities && character.abilities.map((abilities, index) => {
               const ab = abilities.category;
-              return (<TableCell key={index}>
-                <FormControl variant="outlined" className={classes.formControl}>
+              return (<TableCell key={index} align="center">
+                <FormControl variant="outlined" size="small" className={classes.formControl}>
                   <Select tabIndex={-1} value={abilities.affliction || "null"} name={abilities.category + "Affliction"} onChange={updateAbilityAffliction(index)}>
-                    <MenuItem disabled="disabled" value="null" hidden="hidden"/> {
+                    {
                       abilityAfflictions.[ab].map((data, key) => {
                         return (<MenuItem value={data} key={key}>
                           {data}
