@@ -7,28 +7,33 @@ import CampaignState from 'components/contexts/CampaignState';
 import {Add, Delete} from '@material-ui/icons';
 import {
   Button,
+  Card,
+  CardContent,
+  CardHeader,
   Dialog,
   DialogActions,
   DialogContent,
   DialogContentText,
   DialogTitle,
+  Grid,
   IconButton,
-  Paper,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
+  Typography,
   TextField
 } from '@material-ui/core';
 import {makeStyles} from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
-  table: {
-    minWidth: 650
-  }
+  root: {
+    minWidth: 275,
+  },
+  title: {
+    fontSize: 14,
+  },
+  pos: {
+    marginBottom: 12,
+  },
 });
+
 
 export default function CampaignDetails() {
 
@@ -81,42 +86,45 @@ export default function CampaignDetails() {
   }
 
   return (<>
-    <TableContainer component = {Paper}>
-      <Table className={classes.table} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell>Character</TableCell>
-            <TableCell>Owner</TableCell>
-            <TableCell>HP</TableCell>
-            <TableCell>XP</TableCell>
-            <TableCell>
+    <Grid container spacing={3}>
+        {
+            campaign.campaign && campaign.campaign.map((campaign, index) => {
+              return (
+                <Grid item xs={3} key={index}>
+                <Card className={classes.root} >
+                  <CardHeader
+                     action={
+                       <IconButton aria-label="delete" onClick={() => deleteCharacter(campaignURL, campaign.character)}>
+                         <Delete />
+                       </IconButton>
+                     }
+                     title={<Link to={"/dw-react/" + campaignURL + "/" + campaign.character}>{campaign.character}</Link>}
+                     subheader={campaign.characterData.owner}/>
+                  <CardContent>
+                    <Typography variant="body1" component="p">{campaign.characterData.dwClass}</Typography>
+                    <Typography variant="body1" component="p">{campaign.characterData.race}</Typography>
+                    <Typography variant="body1" component="p">{campaign.characterData.alignment}</Typography>
+                    <br/>
+                    <Typography variant="body2" component="p">HP: {campaign.characterData.hp}</Typography>
+                    <Typography variant="body2" component="p">XP: {campaign.characterData.xp}</Typography>
+                  </CardContent>
+                </Card>
+              </Grid>)
+            })
+          }
+
+          <Grid item xs={3}>
+          <Card className={classes.root}>
+            <CardHeader title="Add Character"/>
+            <CardContent>
               <IconButton aria-label="add" onClick={handleClickOpen}>
                 <Add />
               </IconButton>
-            </TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {
-            campaign.campaign && campaign.campaign.map((campaign, index) => {
-              return (<TableRow key={index}>
-                <TableCell>
-                  <Link to={"/dw-react/" + campaignURL + "/" + campaign.character}>{campaign.character}</Link>
-                </TableCell>
-                <TableCell>{campaign.characterData.owner}</TableCell>
-                <TableCell>{campaign.characterData.hp}</TableCell>
-                <TableCell>{campaign.characterData.xp}</TableCell>
-                <TableCell>
-                  <IconButton aria-label="delete" onClick={() => deleteCharacter(campaignURL, campaign.character)}>
-                    <Delete />
-                  </IconButton>
-                </TableCell>
-              </TableRow>)
-            })
-          }
-        </TableBody>
-      </Table>
-    </TableContainer>
+            </CardContent>
+          </Card>
+          </Grid>
+
+        </Grid>
     <Dialog open={open} onClose={handleCancel} aria-labelledby="form-dialog-title">
       <DialogTitle id="form-dialog-title">Create new character</DialogTitle > <DialogContent>
         <DialogContentText>

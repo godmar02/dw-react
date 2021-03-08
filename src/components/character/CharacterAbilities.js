@@ -2,22 +2,27 @@ import React, {useContext} from 'react';
 import CharacterState from 'components/contexts/CharacterState';
 import {abilityAfflictions} from 'data/abilityAfflictions';
 import {
+  Card,
+  CardContent,
+  CardHeader,
   FormControl,
+  Grid,
   MenuItem,
-  Paper,
   Select,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableRow,
   TextField
 } from '@material-ui/core';
 import {makeStyles} from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
+  card: {
+      width: 160,
+      padding: 0,
+  },
+  cardHeader: {
+      textAlign: 'center'
+  },
   formControl: {
-    margin: theme.spacing(1),
+    margin: 0,
     width: 126,
     textAlign: 'center'
   },
@@ -109,57 +114,33 @@ export default function CharacterAbilities() {
     }
   }
 
-  return (<TableContainer component={Paper}>
-    <Table size="small">
-      <TableBody>
-        <TableRow>
-          {
-            character.abilities && character.abilities.map((abilities, index) => {
-              return (<th key={index}>{abilities.category}</th>)
-            })
-          }
-        </TableRow>
-        <TableRow>
-          {
-            character.abilities && character.abilities.map((abilities, index) => {
-              return (<TableCell key={index} align="center">
-                <TextField type="number" variant="outlined" size="small" margin="none" min={1} max={18} name={abilities.category + "Score"} value={abilities.score} className={classes.textField} onChange={updateAbilityScore(index)}/>
-              </TableCell>)
-            })
-          }
-        </TableRow>
-        <TableRow>
-          {
-            character.abilities && character.abilities.map((abilities, index) => {
-              return (<TableCell key={index} align="center">
-                <TextField variant="outlined" name={abilities.category + "Modifier"} value={abilityModifier(abilities.score, abilities.affliction)} InputProps={{
-                    readOnly: true
-                  }} className={classes.textFieldBold}/>
-              </TableCell>)
-            })
-          }
-        </TableRow>
-        <TableRow>
-          {
-            character.abilities && character.abilities.map((abilities, index) => {
-              const ab = abilities.category;
-              return (<TableCell key={index} align="center">
-                <FormControl variant="outlined" size="small" className={classes.formControl}>
-                  <Select tabIndex={-1} value={abilities.affliction || "null"} name={abilities.category + "Affliction"} onChange={updateAbilityAffliction(index)}>
-                    {
-                      abilityAfflictions.[ab].map((data, key) => {
-                        return (<MenuItem value={data} key={key}>
-                          {data}
-                        </MenuItem>);
-                      })
-                    }
-                  </Select>
-                </FormControl>
-              </TableCell>)
-            })
-          }
-        </TableRow>
-      </TableBody>
-    </Table>
-  </TableContainer>);
+  return (
+    <Grid container spacing={0} justify="center">
+      {
+        character.abilities && character.abilities.map((abilities, index) => {
+          const ab = abilities.category;
+          return(
+          <Grid item key={index}>
+            <Card className={classes.card} >
+              <CardHeader title={abilities.category} className={classes.cardHeader}/>
+              <CardContent>
+                  <TextField type="number" variant="outlined" size="small" margin="none" min={1} max={18} name={abilities.category + "Score"} value={abilities.score} className={classes.textField} onChange={updateAbilityScore(index)}/>
+                  <TextField variant="outlined" name={abilities.category + "Modifier"} value={abilityModifier(abilities.score, abilities.affliction)} InputProps={{readOnly: true}} className={classes.textFieldBold}/>
+                  <FormControl variant="outlined" size="small" className={classes.formControl}>
+                    <Select tabIndex={-1} value={abilities.affliction || "null"} name={abilities.category + "Affliction"} onChange={updateAbilityAffliction(index)}>
+                      {
+                        abilityAfflictions.[ab].map((data, key) => {
+                          return (<MenuItem value={data} key={key}>
+                            {data}
+                          </MenuItem>);
+                        })
+                      }
+                    </Select>
+                  </FormControl>
+              </CardContent>
+            </Card>
+          </Grid>);
+        })
+      }
+    </Grid>);
 }
