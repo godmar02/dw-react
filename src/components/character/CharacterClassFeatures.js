@@ -3,7 +3,7 @@ import CharacterState from 'components/contexts/CharacterState';
 import {Add,Delete} from '@material-ui/icons';
 import {makeStyles} from '@material-ui/core/styles';
 import {ExpandMore} from '@material-ui/icons';
-import {Accordion,AccordionSummary,AccordionDetails,Checkbox,IconButton,Paper,Table,TableBody,TableCell,TableContainer,TableHead,TableRow,TextField} from '@material-ui/core';
+import {Checkbox,IconButton,Paper,Table,TableBody,TableCell,TableContainer,TableHead,TableRow,TextField} from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -54,9 +54,6 @@ export default function CharacterClassFeatures() {
   }
 
   return (
-    <Accordion>
-      <AccordionSummary expandIcon={<ExpandMore/>}>Class Features</AccordionSummary>
-      <AccordionDetails>
         <TableContainer component={Paper}>
           <Table className={classes.table} aria-label="simple table">
             <TableHead>
@@ -103,7 +100,5 @@ export default function CharacterClassFeatures() {
               }
             </TableBody>
           </Table>
-        </TableContainer>
-      </AccordionDetails>
-  </Accordion>);
+        </TableContainer>);
 }

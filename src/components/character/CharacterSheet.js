@@ -111,34 +111,38 @@ export default function CharacterSheet() {
     <CharacterSheetHeader/>
     <br/>
     <div className={classes.root}>
+      <CharacterAbilities/>
+      <br/>
+      <CharacterBasicStats/>
+      <br/>
       <AppBar position="static">
         <Tabs value={value} onChange={handleTabChange} aria-label="simple tabs example">
-          <Tab label="Character" {...a11yProps(0)}/>
-          <Tab label="Gear" {...a11yProps(1)}/>
-          <Tab label="Moves" {...a11yProps(2)}/>
-          <Tab label="Dice Roller" {...a11yProps(3)}/>
+          <Tab label="Basic Details" {...a11yProps(0)}/>
+          <Tab label="Bonds" {...a11yProps(1)}/>
+          <Tab label="Class Features" {...a11yProps(2)}/>
+          <Tab label="Gear" {...a11yProps(3)}/>
+          <Tab label="Moves" {...a11yProps(4)}/>
+          <Tab label="Dice Roller" {...a11yProps(5)}/>
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
         <CharacterBasicDetails/>
         <br/>
         <CharacterType/>
-        <br/>
-        <CharacterBasicStats/>
-        <br/>
-        <CharacterAbilities/>
-        <br/>
-        <CharacterBonds/>
-        <br/>
-        <CharacterClassFeatures/>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <CharacterGear/>
+        <CharacterBonds/>
       </TabPanel>
       <TabPanel value={value} index={2}>
-        <CharacterMoves/>
+        <CharacterClassFeatures/>
       </TabPanel>
       <TabPanel value={value} index={3}>
+        <CharacterGear/>
+      </TabPanel>
+      <TabPanel value={value} index={4}>
+        <CharacterMoves/>
+      </TabPanel>
+      <TabPanel value={value} index={5}>
         <DiceRoller/>
       </TabPanel>
     </div>

@@ -1,6 +1,5 @@
 import React, {useContext} from 'react';
-import {Accordion,AccordionSummary,AccordionDetails,Paper,Table,TableBody,TableCell,TableContainer,TableRow,TextField} from '@material-ui/core';
-import {ExpandMore} from '@material-ui/icons';
+import {Paper,Table,TableBody,TableCell,TableContainer,TableRow,TextField} from '@material-ui/core';
 import {makeStyles} from '@material-ui/core/styles';
 import CharacterState from 'components/contexts/CharacterState';
 
@@ -23,11 +22,6 @@ export default function CharacterBasicDetails() {
   };
 
   return (
-    <Accordion>
-      <AccordionSummary
-        expandIcon={<ExpandMore />}>Basic Details
-      </AccordionSummary>
-      <AccordionDetails>
         <TableContainer component={Paper}>
     <Table className={classes.table} aria-label="simple table">
     <TableBody>
@@ -80,7 +74,6 @@ export default function CharacterBasicDetails() {
         </TableCell>
       </TableRow>
     </TableBody>
-  </Table></TableContainer></AccordionDetails>
-</Accordion>
+  </Table></TableContainer>
           );
 }

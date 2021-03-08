@@ -14,7 +14,6 @@ export default function CharacterLevel() {
   };
 
   return (
-
             <TextField
               type="number"
               variant="outlined"

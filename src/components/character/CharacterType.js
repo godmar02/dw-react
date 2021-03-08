@@ -5,9 +5,6 @@ import {dwClasses} from 'data/classList';
 import {alignments} from 'data/classAlignments';
 import {classDetails} from 'data/classDetails';
 import {
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
   FormControl,
   MenuItem,
   Paper,
@@ -19,7 +16,6 @@ import {
   TableRow,
   TextField
 } from '@material-ui/core';
-import {ExpandMore} from '@material-ui/icons';
 import {makeStyles} from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -66,10 +62,7 @@ export default function CharacterType() {
     setCharacter(character => ({...character,[name]: value}))
   };
 
-  return (<Accordion>
-    <AccordionSummary expandIcon={<ExpandMore />}>Character Type
-    </AccordionSummary>
-    <AccordionDetails>
+  return (
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="simple table">
           <TableBody>
@@ -146,7 +139,5 @@ export default function CharacterType() {
             </TableRow>
           </TableBody>
         </Table>
-      </TableContainer>
-    </AccordionDetails>
-  </Accordion>);
+      </TableContainer>);
 }

@@ -1,6 +1,12 @@
 import React from 'react';
-import {Accordion,AccordionSummary,AccordionDetails} from '@material-ui/core';
-import {ExpandMore} from '@material-ui/icons';
+import {
+  Paper,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableRow
+} from '@material-ui/core';
 import CharacterDamage from 'components/character/CharacterDamage'
 import CharacterArmour from 'components/character/CharacterArmour'
 import CharacterFunds from 'components/character/CharacterFunds'
@@ -10,18 +16,18 @@ import CharacterXP from 'components/character/CharacterXP'
 
 export default function CharacterBasicStats() {
 
-  return (
-  <div>
-    <Accordion>
-      <AccordionSummary expandIcon={<ExpandMore />}>Basic Stats</AccordionSummary>
-      <AccordionDetails>
-        <CharacterLevel/>
-        <CharacterXP/>
-        <CharacterDamage/>
-        <CharacterArmour/>
-        <CharacterFunds/>
-        <CharacterHP/>
-      </AccordionDetails>
-    </Accordion>
-  </div>);
+  return (<TableContainer component={Paper}>
+    <Table>
+      <TableBody>
+        <TableRow>
+          <TableCell><CharacterLevel/></TableCell>
+          <TableCell><CharacterXP/></TableCell>
+          <TableCell><CharacterDamage/></TableCell>
+          <TableCell><CharacterArmour/></TableCell>
+          <TableCell><CharacterFunds/></TableCell>
+          <TableCell><CharacterHP/></TableCell>
+        </TableRow>
+      </TableBody>
+    </Table>
+  </TableContainer>);
 }

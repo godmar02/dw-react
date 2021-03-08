@@ -2,8 +2,7 @@ import React, {useContext} from 'react';
 import CharacterState from 'components/contexts/CharacterState';
 import {Add,Delete} from '@material-ui/icons';
 import {makeStyles} from '@material-ui/core/styles';
-import {ExpandMore} from '@material-ui/icons';
-import {Accordion,AccordionSummary,AccordionDetails,IconButton,Paper,Table,TableBody,TableCell,TableContainer,TableHead,TableRow,TextField} from '@material-ui/core';
+import {IconButton,Paper,Table,TableBody,TableCell,TableContainer,TableHead,TableRow,TextField} from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -47,11 +46,7 @@ export default function CharacterBonds() {
     setCharacter(character => ({...character, bonds: newBonds})); // set array back
   }
 
-  return (<Accordion>
-    <AccordionSummary
-      expandIcon={<ExpandMore />}>Bonds
-    </AccordionSummary>
-    <AccordionDetails>
+  return (
       <TableContainer component={Paper}>
     <Table className={classes.table} aria-label="simple table">
       <TableHead>
@@ -93,7 +88,5 @@ export default function CharacterBonds() {
       <tfoot/>
     </Table>
     </TableContainer>
-  </AccordionDetails>
-  </Accordion>
     );
 }
