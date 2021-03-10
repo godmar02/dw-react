@@ -3,16 +3,16 @@
     - UserProfile - shows logged in user
       - ProfilePicture
       - ProfileDetails
-    - *AppHeader
-    - *Homepage / 
-      - *CampaignList
-    - *NavSidebar - allows user navigation
-      - *CampaignDetails
-        - *CampaignHeader
-        - *CharacterList
-        - *CampaignViews
-        - *CampaignOptions
-      - *CreateCampaign
+    - \*AppHeader
+    - \*Homepage /
+      - \*CampaignList
+    - \*NavSidebar - allows user navigation
+      - \*CampaignDetails
+        - \*CampaignHeader
+        - \*CharacterList
+        - \*CampaignViews
+        - \*CampaignOptions
+      - \*CreateCampaign
     - CharacterSheet /{campaign}/{character} - holds sheet state
       - CharacterSheetHeader
       - CharacterAbilitiesTable
@@ -22,7 +22,7 @@
         - CharacterDamage
         - CharacterArmour
         - CharacterHP
-        - CharacterFunds    
+        - CharacterFunds
       - CharacterBondsTable
       - CharacterDetailsTable
       - CharacterTypeTable

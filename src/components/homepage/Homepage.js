@@ -1,40 +1,41 @@
-import React, {useState, useEffect, useMemo} from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import * as FirebaseService from 'services/firebase';
 import HomepageHeader from 'components/homepage/HomepageHeader';
 import HomepageDetails from 'components/homepage/HomepageDetails';
 import HomepageState from 'components/contexts/HomepageState';
 
 export default function Homepage() {
-
   const [campaigns, setCampaigns] = useState({});
 
   // Use an effect hook to subscribe to the campaign stream and
   // automatically unsubscribe when the component unmounts.
   useEffect(() => {
     const unsubscribe = FirebaseService.streamCampaigns({
-      next: querySnapshot => {
+      next: (querySnapshot) => {
         const updatedCampaignList = querySnapshot.docs.map((docSnapshot) => {
-          return ({id: docSnapshot.id, owner: docSnapshot.data().owner})
+          return { id: docSnapshot.id, owner: docSnapshot.data().owner };
         });
-        setCampaigns(campaign => ({campaigns: updatedCampaignList}));
+        setCampaigns((campaign) => ({ campaigns: updatedCampaignList }));
       },
       error: (error) => {
-        alert("Failed to load data correctly, see console error");
-        console.error("Error loading data:", error);
-      }
+        alert('Failed to load data correctly, see console error');
+        console.error('Error loading data:', error);
+      },
     });
     return unsubscribe;
   }, [setCampaigns]);
 
   useEffect(() => {
-    console.log("Campaigns State:", campaigns)
+    console.log('Campaigns State:', campaigns);
   }, [campaigns]); //Only log to console if state actually changes
 
-  const ctx = useMemo(() => ({campaigns}), [campaigns]); //Memo-ised state for performance
+  const ctx = useMemo(() => ({ campaigns }), [campaigns]); //Memo-ised state for performance
 
-  return (<HomepageState.Provider value={ctx}>
-    <HomepageHeader/>
-    <br/>
-    <HomepageDetails/>
-  </HomepageState.Provider>);
+  return (
+    <HomepageState.Provider value={ctx}>
+      <HomepageHeader />
+      <br />
+      <HomepageDetails />
+    </HomepageState.Provider>
+  );
 }

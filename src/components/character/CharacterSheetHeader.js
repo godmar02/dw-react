@@ -1,18 +1,19 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
-import {useParams} from 'react-router';
-import {Breadcrumbs} from '@material-ui/core';
+import { Link } from 'react-router-dom';
+import { useParams } from 'react-router';
+import { Breadcrumbs } from '@material-ui/core';
 
 export default function CharacterSheetHeader() {
+  const { campaignURL, characterURL } = useParams();
 
-  const {campaignURL, characterURL} = useParams();
-
-  return (<>
-    <Breadcrumbs aria-label = "breadcrumb">
-      <Link to="/dw-react">Home</Link>
-      <Link to={"/dw-react/" + campaignURL}>{campaignURL}</Link>
-      <p>{characterURL}</p>
-    </Breadcrumbs>
-    <h1>Character: {characterURL}</h1>
-  </>);
+  return (
+    <>
+      <Breadcrumbs aria-label='breadcrumb'>
+        <Link to='/dw-react'>Home</Link>
+        <Link to={'/dw-react/' + campaignURL}>{campaignURL}</Link>
+        <p>{characterURL}</p>
+      </Breadcrumbs>
+      <h1>Character: {characterURL}</h1>
+    </>
+  );
 }
