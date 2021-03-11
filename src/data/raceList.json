@@ -1,8 +1,3 @@
 {
-  "races": ["Dwarf",
-    "Elf",
-    "Goblin",
-    "Halfling",
-    "Human"
-  ]
+  "races": ["Dwarf", "Elf", "Goblin", "Halfling", "Human"]
 }
