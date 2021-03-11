@@ -1,31 +1,31 @@
 {
   "classDetails": {
     "Barbarian": {
-      "intro": "",
-      "suggestedNames": "<p>NAMES: Gorm, Si-Yi, Priscilla, Sen, Xia, Anneira, Haepha, Lur, Shar, Korrin, Nkosi, Fafnir, Qua, Sacer, Vercin’geto, Barbozar, Clovis, Frael, Thra-raxes, Sillius, Sha-Sheena, Khamisi</p><p>TITLES: the Glorious, the Hungry, the Irascible, the Undefeated, the Gluttonous, Foesmasher, Bonebreaker, the Mirthful, the Melancholic, All-Mighty, the Giant, the Triumphant</p>",
-      "suggestedLook": "<p>Choose one for each, or write your own:</p><ul><li>BODY: Mighty thews, long shanks, scrawny, supple</li><li>EYES: Tormented, haunted, wild, shrouded</li><li>DECORATION: Tattoos, bejeweled, unmarred</li><li>CLOTHES: Scraps, silks, scavenger’s outfit, weather-inappropriate</li></ul>",
-      "suggestedBonds": [
+      "description": "",
+      "suggested_names": "<p>NAMES: Gorm, Si-Yi, Priscilla, Sen, Xia, Anneira, Haepha, Lur, Shar, Korrin, Nkosi, Fafnir, Qua, Sacer, Vercin’geto, Barbozar, Clovis, Frael, Thra-raxes, Sillius, Sha-Sheena, Khamisi</p><p>TITLES: the Glorious, the Hungry, the Irascible, the Undefeated, the Gluttonous, Foesmasher, Bonebreaker, the Mirthful, the Melancholic, All-Mighty, the Giant, the Triumphant</p>",
+      "suggested_look": "<p>Choose one for each, or write your own:</p><ul><li>BODY: Mighty thews, long shanks, scrawny, supple</li><li>EYES: Tormented, haunted, wild, shrouded</li><li>DECORATION: Tattoos, bejeweled, unmarred</li><li>CLOTHES: Scraps, silks, scavenger’s outfit, weather-inappropriate</li></ul>",
+      "suggested_bonds": [
         "_______________ is puny and foolish, but amusing to me.",
         "_______________ 's ways are strange and confusing.",
         "_______________ is always getting into trouble - I must protect them from themselves.",
         "_______________ shares my hunger for glory; the earth will tremble at our passing!"
       ],
       "damage": "d10",
-      "baseHp": 8,
-      "baseLoad": 8,
-      "alignmentAttributes": {
+      "base_hp": 8,
+      "base_load": 8,
+      "alignment_attributes": {
         "Chaotic": "You eschew a convention of the civilized world.",
         "Neutral": "Teach someone the ways of your people."
       },
-      "raceAttributes": {
+      "race_attributes": {
         "Any": "You may be elf, dwarf, halfling, or human, You and your people are not from around here. At the beginning of each session, the GM will ask you something about your homeland, why you left, or what you left behind. If you answer them, mark XP"
       }
     },
     "Bard": {
-      "intro": "<p>The poems say an adventurer&#8217;s life is all open roads and the glory of coin and combat. The tales told in every farmhand-filled inn have to have some ring of truth to them, don&#8217;t they? The songs to inspire peasantry and royals alike&#8212;to soothe the savage beast or drive men to a frenzy&#8212;have to come from somewhere.</p><p>Enter the bard. You, with your smooth tongue and quick wit. You teller-of-tales and singer-of-songs. It takes a mere minstrel to retell a thing but a true bard to live it. Strap on your boots, noble orator. Sharpen that hidden dagger and take up the call. Someone&#8217;s got to be there, fighting shoulder-to-shoulder with the goons and the thugs and the soon-to-be-heroes. Who better than you to write the tale of your own heroism?</p><p>Nobody. Get going.</p>",
-      "suggestedNames": "<p><em>Elf</em>: Astrafel, Daelwyn, Feliana, Damarra, Sistranalle, Pendrell, Melliandre, Dagoliir</p> <p><em>Human</em>: Baldric, Leena, Dunwick, Willem, Edwyn, Florian, Seraphine, Quorra, Charlotte, Lily, Ramonde, Cassandra</p>",
-      "suggestedLook": "<p>Choose one for each:</p><p>Knowing Eyes, Fiery Eyes, or Joyous Eyes</p><p>Fancy Hair, Wild Hair, or Stylish Cap</p><p>Finery, Traveling Clothes, or Poor Clothes</p><p>Fit Body, Well-fed Body, or Thin Body</p>",
-      "suggestedBonds": [
+      "description": "<p>The poems say an adventurer&#8217;s life is all open roads and the glory of coin and combat. The tales told in every farmhand-filled inn have to have some ring of truth to them, don&#8217;t they? The songs to inspire peasantry and royals alike&#8212;to soothe the savage beast or drive men to a frenzy&#8212;have to come from somewhere.</p><p>Enter the bard. You, with your smooth tongue and quick wit. You teller-of-tales and singer-of-songs. It takes a mere minstrel to retell a thing but a true bard to live it. Strap on your boots, noble orator. Sharpen that hidden dagger and take up the call. Someone&#8217;s got to be there, fighting shoulder-to-shoulder with the goons and the thugs and the soon-to-be-heroes. Who better than you to write the tale of your own heroism?</p><p>Nobody. Get going.</p>",
+      "suggested_names": "<p><em>Elf</em>: Astrafel, Daelwyn, Feliana, Damarra, Sistranalle, Pendrell, Melliandre, Dagoliir</p> <p><em>Human</em>: Baldric, Leena, Dunwick, Willem, Edwyn, Florian, Seraphine, Quorra, Charlotte, Lily, Ramonde, Cassandra</p>",
+      "suggested_look": "<p>Choose one for each:</p><p>Knowing Eyes, Fiery Eyes, or Joyous Eyes</p><p>Fancy Hair, Wild Hair, or Stylish Cap</p><p>Finery, Traveling Clothes, or Poor Clothes</p><p>Fit Body, Well-fed Body, or Thin Body</p>",
+      "suggested_bonds": [
         "This is not my first adventure with _______________.",
         "I sang stories of _______________ long before I ever met them in person.",
         "_______________ is often the butt of my jokes.",
@@ -34,14 +34,14 @@
         "_______________ does not trust me, and for good reason."
       ],
       "damage": "d6",
-      "baseHp": 6,
-      "baseLoad": 9,
-      "alignmentAttributes": {
+      "base_hp": 6,
+      "base_load": 9,
+      "alignment_attributes": {
         "Good": "Perform your art to aid someone else.",
         "Neutral": "Avoid a conflict or defuse a tense situation.",
         "Chaotic": "Spur others to significant and unplanned decisive action."
       },
-      "raceAttributes": {
+      "race_attributes": {
         "Dwarf": "Undefined",
         "Elf": "When you enter an important location (your call) you can ask the GM for one fact from the history of that location.",
         "Goblin": "Undefined",
@@ -50,24 +50,24 @@
       }
     },
     "Cleric": {
-      "intro": "<p>The lands of Dungeon World are a gods-forsaken mess. They&#8217;re lousy with the walking dead, beasts of all sorts, and the vast unnatural spaces between safe and temple-blessed civilizations. It is a godless world out there. That&#8217;s why it needs you.</p><p>Bringing the glory of your god to the heathens isn&#8217;t just in your nature&#8212;it&#8217;s your calling. It falls to you to proselytize with sword and mace and spell. To cleave deep into the witless heart of the wilds and plant the seed of divinity there. Some say that it is best to keep god close to your heart. You know that&#8217;s rubbish. God lives at the edge of a blade.</p><p>Show the world who is lord.</p>",
-      "suggestedNames": "<p><em>Dwarf</em>: Durga, Aelfar, Gerda, Rurgosh, Bjorn, Drummond, Helga, Siggrun, Freya</p><p><em>Human</em>: Wesley, Brinton, Jon, Sara, Hawthorn, Elise, Clarke, Lenore, Piotr, Dahlia, Carmine</p>",
-      "suggestedLook": "<p>Choose one for each:</p><p>Kind Eyes, Sharp Eyes, or Sad Eyes</p><p>Tonsure, Strange Hair, or Bald</p><p>Flowing Robes, Habit, or Common Garb</p><p>Thin Body, Knobby Body, or Flabby Body</p>",
-      "suggestedBonds": [
+      "description": "<p>The lands of Dungeon World are a gods-forsaken mess. They&#8217;re lousy with the walking dead, beasts of all sorts, and the vast unnatural spaces between safe and temple-blessed civilizations. It is a godless world out there. That&#8217;s why it needs you.</p><p>Bringing the glory of your god to the heathens isn&#8217;t just in your nature&#8212;it&#8217;s your calling. It falls to you to proselytize with sword and mace and spell. To cleave deep into the witless heart of the wilds and plant the seed of divinity there. Some say that it is best to keep god close to your heart. You know that&#8217;s rubbish. God lives at the edge of a blade.</p><p>Show the world who is lord.</p>",
+      "suggested_names": "<p><em>Dwarf</em>: Durga, Aelfar, Gerda, Rurgosh, Bjorn, Drummond, Helga, Siggrun, Freya</p><p><em>Human</em>: Wesley, Brinton, Jon, Sara, Hawthorn, Elise, Clarke, Lenore, Piotr, Dahlia, Carmine</p>",
+      "suggested_look": "<p>Choose one for each:</p><p>Kind Eyes, Sharp Eyes, or Sad Eyes</p><p>Tonsure, Strange Hair, or Bald</p><p>Flowing Robes, Habit, or Common Garb</p><p>Thin Body, Knobby Body, or Flabby Body</p>",
+      "suggested_bonds": [
         "_______________ has insulted my deity; I do not trust them.",
         "_______________ is a good and faithful person; I trust them implicitly.",
         "_______________ is in constant danger, I will keep them safe.",
         "I am working on converting _______________ to my faith."
       ],
       "damage": "d6",
-      "baseHp": 6,
-      "baseLoad": 10,
-      "alignmentAttributes": {
+      "base_hp": 6,
+      "base_load": 10,
+      "alignment_attributes": {
         "Good": "Endanger yourself to heal another.",
         "Lawful": "Endanger yourself following the precepts of your church or god.",
         "Evil": "Harm another to prove the superiority of your church or god."
       },
-      "raceAttributes": {
+      "race_attributes": {
         "Dwarf": "You are one with stone. When you commune you are also granted a special version of Words of the Unspeaking as a rote which only works on stone.",
         "Elf": "Undefined",
         "Goblin": "Undefined",
@@ -76,24 +76,24 @@
       }
     },
     "Druid": {
-      "intro": "<p>Cast your eyes around the fire. What has brought you to these people, stinking of the dust and sweat of the city? Perhaps it is a kindness&#8212;do you protect them as the mother bear watches over her cubs? Are they your pack, now? Strange brothers and sisters you have. Whatever your inspiration, they would certainly fail without your sharp senses and sharper claws.</p><p>You are of the sacred spaces; you are born of soil and wear the marks of her spirits on your skin. You may have had a life before, maybe you were a city dweller like them, but not now. You&#8217;ve given up that static shape. Listen to your allies pray to their carved stone gods and polish their silver shells. They speak of the glory they&#8217;ll find back in that festering town you left behind.</p><p>Their gods are children, their steel is false protection. You walk the old ways, you wear the pelts of the earth itself. You&#8217;ll take your share of the treasure, but will you ever walk as one of them? Only time will tell.</p>",
-      "suggestedNames": "<p><em>Elf</em>: Hycorax, Ethanwe, Sinathel, Demanor, Menoliir, Mithralan, Taeros, Aegor</p><p><em>Halfling</em>: Tanner, Dunstan, Rose, Ivy, Robard, Mab, Thistle, Puck, Anne, Serah</p><p><em>Human</em>: Elana, Obelis, Herran, Syla, Andanna, Siobhan, Aziz, Pelin, Sibel, Nils, Wei</p>",
-      "suggestedLook": "<p>Choose one for each:</p><p>Wise Eyes, Wild Eyes, or Haunting Eyes</p><p>Furry Hood, Messy Hair, or Braided Hair</p><p>Ceremonial Garb, Practical Leathers, or Weathered Hides</p>",
-      "suggestedBonds": [
+      "description": "<p>Cast your eyes around the fire. What has brought you to these people, stinking of the dust and sweat of the city? Perhaps it is a kindness&#8212;do you protect them as the mother bear watches over her cubs? Are they your pack, now? Strange brothers and sisters you have. Whatever your inspiration, they would certainly fail without your sharp senses and sharper claws.</p><p>You are of the sacred spaces; you are born of soil and wear the marks of her spirits on your skin. You may have had a life before, maybe you were a city dweller like them, but not now. You&#8217;ve given up that static shape. Listen to your allies pray to their carved stone gods and polish their silver shells. They speak of the glory they&#8217;ll find back in that festering town you left behind.</p><p>Their gods are children, their steel is false protection. You walk the old ways, you wear the pelts of the earth itself. You&#8217;ll take your share of the treasure, but will you ever walk as one of them? Only time will tell.</p>",
+      "suggested_names": "<p><em>Elf</em>: Hycorax, Ethanwe, Sinathel, Demanor, Menoliir, Mithralan, Taeros, Aegor</p><p><em>Halfling</em>: Tanner, Dunstan, Rose, Ivy, Robard, Mab, Thistle, Puck, Anne, Serah</p><p><em>Human</em>: Elana, Obelis, Herran, Syla, Andanna, Siobhan, Aziz, Pelin, Sibel, Nils, Wei</p>",
+      "suggested_look": "<p>Choose one for each:</p><p>Wise Eyes, Wild Eyes, or Haunting Eyes</p><p>Furry Hood, Messy Hair, or Braided Hair</p><p>Ceremonial Garb, Practical Leathers, or Weathered Hides</p>",
+      "suggested_bonds": [
         "____________________ smells more like prey than a hunter.",
         "The spirits spoke to me of a great danger that follows ______________.",
         "I have showed ________________ a secret rite of the Land.",
         "___________ has tasted my blood and I theirs. We are bound by it."
       ],
       "damage": "d6",
-      "baseHp": 6,
-      "baseLoad": 6,
-      "alignmentAttributes": {
+      "base_hp": 6,
+      "base_load": 6,
+      "alignment_attributes": {
         "Chaotic": "Destroy a symbol of civilization.",
         "Good": "Help something or someone grow.",
         "Neutral": "Eliminate an unnatural menace."
       },
-      "raceAttributes": {
+      "race_attributes": {
         "Dwarf": "When you share a drink with someone, you may parley with them using CON instead of CHA.",
         "Elf": "The sap of the elder trees flows within you. In addition to any other attunements, the Great Forest is always considered your land.",
         "Goblin": "Undefined",
@@ -102,24 +102,24 @@
       }
     },
     "Fighter": {
-      "intro": "<p>It&#8217;s a thankless job&#8212;living day to day by your armor and the skill of your arm. To dive heedlessly into danger. They won&#8217;t be playing golden horns for the time you took that knife to the ribs for them in the bar in Bucksberg. No flock of angels to sing of the time you dragged them, still screaming, from the edge of the Pits of Madness, no.</p><p>Forget them.</p><p>You do this for the guts and the glory. The scream of battle and the hot, hot blood of it. You are a beast of iron. Your friends may carry blades of forged steel but, fighter, you are steel. While your traveling companions might moan about their wounds over a campfire in the wilderness, you bear your scars with pride.</p><p>You are the wall&#8212;let every danger smash itself to nothing on you. In the end, you&#8217;ll be the last one standing.</p>",
-      "suggestedNames": "<p><em>Dwarf</em>: Ozruk, Surtur, Brunhilda, Annika, Janos, Greta, Dim, Rundrig, Jarl, Xotoq</p>  <p><em>Elf</em>: Elohiir, Sharaseth, Hasrith, Shevaral, Cadeus, Eldar, Kithracet, Thelian</p>    <p><em>Halfling</em>: Finnegan, Olive, Randolph, Bartleby, Aubrey, Baldwin, Becca</p> <p><em>Human</em>: Hawke, Rudiger, Gregor, Brianne, Walton, Castor, Shanna, Ajax, Hob</p>",
-      "suggestedLook": "<p>Choose one for each:</p><p>Hard Eyes, Dead Eyes, or Eager Eyes</p><p>Wild Hair, Shorn Hair, or Battered Helm</p><p>Calloused Skin, Tanned Skin, or Scarred Skin</p><p>Built Body, Lithe Body, or Ravaged Body</p>",
-      "suggestedBonds": [
+      "description": "<p>It&#8217;s a thankless job&#8212;living day to day by your armor and the skill of your arm. To dive heedlessly into danger. They won&#8217;t be playing golden horns for the time you took that knife to the ribs for them in the bar in Bucksberg. No flock of angels to sing of the time you dragged them, still screaming, from the edge of the Pits of Madness, no.</p><p>Forget them.</p><p>You do this for the guts and the glory. The scream of battle and the hot, hot blood of it. You are a beast of iron. Your friends may carry blades of forged steel but, fighter, you are steel. While your traveling companions might moan about their wounds over a campfire in the wilderness, you bear your scars with pride.</p><p>You are the wall&#8212;let every danger smash itself to nothing on you. In the end, you&#8217;ll be the last one standing.</p>",
+      "suggested_names": "<p><em>Dwarf</em>: Ozruk, Surtur, Brunhilda, Annika, Janos, Greta, Dim, Rundrig, Jarl, Xotoq</p>  <p><em>Elf</em>: Elohiir, Sharaseth, Hasrith, Shevaral, Cadeus, Eldar, Kithracet, Thelian</p>    <p><em>Halfling</em>: Finnegan, Olive, Randolph, Bartleby, Aubrey, Baldwin, Becca</p> <p><em>Human</em>: Hawke, Rudiger, Gregor, Brianne, Walton, Castor, Shanna, Ajax, Hob</p>",
+      "suggested_look": "<p>Choose one for each:</p><p>Hard Eyes, Dead Eyes, or Eager Eyes</p><p>Wild Hair, Shorn Hair, or Battered Helm</p><p>Calloused Skin, Tanned Skin, or Scarred Skin</p><p>Built Body, Lithe Body, or Ravaged Body</p>",
+      "suggested_bonds": [
         "_______________ owes me their life, whether they admit it or not.",
         "I have sworn to protect _______________.",
         "I worry about the ability of _______________ to survive in the dungeon.",
         "_______________ is soft, but I will make them hard like me."
       ],
       "damage": "d10",
-      "baseHp": 10,
-      "baseLoad": 12,
-      "alignmentAttributes": {
+      "base_hp": 10,
+      "base_load": 12,
+      "alignment_attributes": {
         "Good": "Defend those weaker than you.",
         "Neutral": "Defeat a worthy opponent.",
         "Evil": "Kill a defenseless or surrendered enemy."
       },
-      "raceAttributes": {
+      "race_attributes": {
         "Dwarf": "Undefined",
         "Elf": "Choose one weapon—you can always treat weapons of that type as if they had the precise tag.",
         "Goblin": "Undefined",
@@ -128,23 +128,23 @@
       }
     },
     "Paladin": {
-      "intro": "<p>Hell awaits. An eternity of torment in fire or ice or whatever best suits the sins of the damned throngs of Dungeon World. All that stands between the pits of that grim torture and salvation is you. Holy man, armored war machine, templar of the Good and the Light, right? The cleric may say his prayers at night to the gods, dwelling in their heavens. The fighter may wield his sharp sword in the name of &#8220;good&#8221; but you know. Only you.</p><p>Eyes, hands, and sweet killing blow of the gods, you are. Yours is the gift of righteousness and virtue. Of justice. Vision, too. A purity of intent that your companions do not have.</p><p>So guide these fools, paladin. Take up your holy cause and bring salvation to the wastrel world.</p> <p>Vae victis, right?</p>",
-      "suggestedNames": "<p>Thaddeus, Augustine, Lux, Cassius, Hadrian, Lucia, Octavia, Regulus, Valeria, Sanguinus, Titanius</p>",
-      "suggestedLook": "<p>Choose one for each:</p><p>Kind Eyes, Fiery Eyes, or Glowing Eyes</p><p>Helmet, Styled Hair, or Bald</p><p>Worn Holy Symbol or Fancy Holy Symbol</p><p>Fit Body, Bulky Body, or Thin Body</p>",
-      "suggestedBonds": [
+      "description": "<p>Hell awaits. An eternity of torment in fire or ice or whatever best suits the sins of the damned throngs of Dungeon World. All that stands between the pits of that grim torture and salvation is you. Holy man, armored war machine, templar of the Good and the Light, right? The cleric may say his prayers at night to the gods, dwelling in their heavens. The fighter may wield his sharp sword in the name of &#8220;good&#8221; but you know. Only you.</p><p>Eyes, hands, and sweet killing blow of the gods, you are. Yours is the gift of righteousness and virtue. Of justice. Vision, too. A purity of intent that your companions do not have.</p><p>So guide these fools, paladin. Take up your holy cause and bring salvation to the wastrel world.</p> <p>Vae victis, right?</p>",
+      "suggested_names": "<p>Thaddeus, Augustine, Lux, Cassius, Hadrian, Lucia, Octavia, Regulus, Valeria, Sanguinus, Titanius</p>",
+      "suggested_look": "<p>Choose one for each:</p><p>Kind Eyes, Fiery Eyes, or Glowing Eyes</p><p>Helmet, Styled Hair, or Bald</p><p>Worn Holy Symbol or Fancy Holy Symbol</p><p>Fit Body, Bulky Body, or Thin Body</p>",
+      "suggested_bonds": [
         "_______________'s misguided behavior endangers their very soul!",
         "_______________ has stood by me in battle and can be trusted completely.",
         "I respect the beliefs of _______________ but hope they will someday see the true way.",
         "_______________ is a brave soul, I have much to learn from them."
       ],
       "damage": "d10",
-      "baseHp": 10,
-      "baseLoad": 12,
-      "alignmentAttributes": {
+      "base_hp": 10,
+      "base_load": 12,
+      "alignment_attributes": {
         "Lawful": "Deny mercy to a criminal or unbeliever.",
         "Good": "Endanger yourself to protect someone weaker than you."
       },
-      "raceAttributes": {
+      "race_attributes": {
         "Dwarf": "Undefined",
         "Elf": "Undefined",
         "Goblin": "Undefined",
@@ -153,24 +153,24 @@
       }
     },
     "Ranger": {
-      "intro": "<p>These city-born folk you travel with. Have they heard the call of the wolf? Felt the winds howl in the bleak deserts of the East? Have they hunted their prey with the bow and the knife like you? Hell no. That&#8217;s why they need you.</p><p>Guide. Hunter. Creature of the wilds. You are these things and more. Your time in the wilderness may have been solitary until now, but the call of some greater thing&#8212;call it fate if you like&#8212;has cast your lot with these folk. Brave, they may be. Powerful and strong, too. You know the secrets of the spaces between, though.</p><p>Without you, they&#8217;d be lost. Blaze a trail through the blood and dark, strider.</p>",
-      "suggestedNames": "<p><em>Elf</em>: Throndir, Elrosine, Aranwe, Celion, Dambrath, Lanethe</p> <p><em>Human</em>: Jonah, Halek, Brandon, Emory, Shrike, Nora, Diana</p>",
-      "suggestedLook": "<p>Choose one for each:</p><p>Wild Eyes, Sharp Eyes, or Animal Eyes</p><p>Hooded Head, Wild Hair, or Bald</p><p>Cape, Camouflage, or Traveling Clothes</p><p>Lithe Body, Wild Body, or Sharp Body</p>",
-      "suggestedBonds": [
+      "description": "<p>These city-born folk you travel with. Have they heard the call of the wolf? Felt the winds howl in the bleak deserts of the East? Have they hunted their prey with the bow and the knife like you? Hell no. That&#8217;s why they need you.</p><p>Guide. Hunter. Creature of the wilds. You are these things and more. Your time in the wilderness may have been solitary until now, but the call of some greater thing&#8212;call it fate if you like&#8212;has cast your lot with these folk. Brave, they may be. Powerful and strong, too. You know the secrets of the spaces between, though.</p><p>Without you, they&#8217;d be lost. Blaze a trail through the blood and dark, strider.</p>",
+      "suggested_names": "<p><em>Elf</em>: Throndir, Elrosine, Aranwe, Celion, Dambrath, Lanethe</p> <p><em>Human</em>: Jonah, Halek, Brandon, Emory, Shrike, Nora, Diana</p>",
+      "suggested_look": "<p>Choose one for each:</p><p>Wild Eyes, Sharp Eyes, or Animal Eyes</p><p>Hooded Head, Wild Hair, or Bald</p><p>Cape, Camouflage, or Traveling Clothes</p><p>Lithe Body, Wild Body, or Sharp Body</p>",
+      "suggested_bonds": [
         "I stole something from _______________.",
         "_______________ has my back when things go wrong.",
         "_______________ knows incriminating details about me.",
         "_______________ and I have a con running."
       ],
       "damage": "d8",
-      "baseHp": 8,
-      "baseLoad": 11,
-      "alignmentAttributes": {
+      "base_hp": 8,
+      "base_load": 11,
+      "alignment_attributes": {
         "Chaotic": "Free someone from literal or figurative bonds.",
         "Good": "Endanger yourself to combat an unnatural threat.",
         "Neutral": "Help an animal or spirit of the wild."
       },
-      "raceAttributes": {
+      "race_attributes": {
         "Dwarf": "Undefined",
         "Elf": "When you undertake a perilous journey through wilderness whatever job you take you succeed as if you rolled a 10+.",
         "Goblin": "Undefined",
@@ -179,24 +179,24 @@
       }
     },
     "Thief": {
-      "intro": "<p>You&#8217;ve heard them, sitting around the campfire. Bragging about this battle or that. About how their gods are smiling on your merry band. You count your coins and smile to yourself&#8212;this is the thrill above all. You alone know the secret of Dungeon World&#8212;filthy filthy lucre.</p><p>Sure, they give you lip for all the times you&#8217;ve snuck off alone but without you, who among them wouldn&#8217;t have been dissected by a flying guillotine or poisoned straight to death by some ancient needle trap? So, let them complain. When you&#8217;re done with all this delving you&#8217;ll toast their hero&#8217;s graves.</p><p>From your castle. Full of gold. You rogue.</p>",
-      "suggestedNames": "<p><em>Halfling</em>: Felix, Rook, Mouse, Sketch, Trixie, Robin, Omar, Brynn, Bug</p><p><em>Human</em>: Sparrow, Shank, Jack, Marlow, Dodge, Rat, Pox, Humble, Farley</p>",
-      "suggestedLook": "<p>Choose one for each:</p><p>Shifty Eyes or Criminal Eyes</p><p>Hooded Head, Messy Hair, or Cropped Hair</p><p>Dark Clothes, Fancy Clothes, or Common Clothes</p><p>Lithe Body, Knobby Body, or Flabby Body</p>",
-      "suggestedBonds": [
+      "description": "<p>You&#8217;ve heard them, sitting around the campfire. Bragging about this battle or that. About how their gods are smiling on your merry band. You count your coins and smile to yourself&#8212;this is the thrill above all. You alone know the secret of Dungeon World&#8212;filthy filthy lucre.</p><p>Sure, they give you lip for all the times you&#8217;ve snuck off alone but without you, who among them wouldn&#8217;t have been dissected by a flying guillotine or poisoned straight to death by some ancient needle trap? So, let them complain. When you&#8217;re done with all this delving you&#8217;ll toast their hero&#8217;s graves.</p><p>From your castle. Full of gold. You rogue.</p>",
+      "suggested_names": "<p><em>Halfling</em>: Felix, Rook, Mouse, Sketch, Trixie, Robin, Omar, Brynn, Bug</p><p><em>Human</em>: Sparrow, Shank, Jack, Marlow, Dodge, Rat, Pox, Humble, Farley</p>",
+      "suggested_look": "<p>Choose one for each:</p><p>Shifty Eyes or Criminal Eyes</p><p>Hooded Head, Messy Hair, or Cropped Hair</p><p>Dark Clothes, Fancy Clothes, or Common Clothes</p><p>Lithe Body, Knobby Body, or Flabby Body</p>",
+      "suggested_bonds": [
         "I stole something from _______________.",
         "_______________ has my back when things go wrong.",
         "_______________ knows incriminating details about me.",
         "_______________ and I have a con running."
       ],
       "damage": "d8",
-      "baseHp": 6,
-      "baseLoad": 9,
-      "alignmentAttributes": {
+      "base_hp": 6,
+      "base_load": 9,
+      "alignment_attributes": {
         "Chaotic": "Leap into danger without a plan.",
         "Neutral": "Avoid detection or infiltrate a location.",
         "Evil": "Shift danger or blame from yourself to someone else."
       },
-      "raceAttributes": {
+      "race_attributes": {
         "Dwarf": "Undefined",
         "Elf": "Undefined",
         "Goblin": "Undefined",
@@ -205,23 +205,23 @@
       }
     },
     "Wizard": {
-      "intro": "<p>Dungeon World has rules. Not the laws of men or the rule of some petty tyrant. Bigger, better rules. You drop something&#8212;it falls. You can&#8217;t make something out of nothing. The dead stay dead, right?</p><p>Oh, the things we tell ourselves to feel better about the long, dark nights.</p><p>You&#8217;ve spent so very long poring over those tomes of yours. The experiments that nearly drove you mad and all the botched summonings that endangered your very soul. For what? For power. What else is there? Not just the power of King or Country but the power to boil a man&#8217;s blood in his veins. To call on the thunder of the sky and the churn of the roiling earth. To shrug off the rules the world holds so dear.</p><p>Let them cast their sidelong glances. Let them call you &#8220;warlock&#8221; or &#8220;diabolist.&#8221; Who among them can hurl fireballs from their eyes?</p><p>Yeah. We didn&#8217;t think so.</p>",
-      "suggestedNames": "<p><em>Elf</em>: Galadiir, Fenfaril, Lilliastre, Phirosalle, Enkirash, Halwyr</p> <p><em>Human</em>: Avon, Morgan, Rath, Ysolde, Ovid, Vitus, Aldara, Xeno, Uri</p>",
-      "suggestedLook": "<p>Choose one for each:</p><p>Haunted Eyes, Sharp Eyes, or Crazy Eyes</p><p>Styled Hair, Wild Hair, or Pointed Hat</p><p>Worn Robes, Stylish Robes, or Strange Robes</p><p>Pudgy Body, Creepy Body, or Thin Body</p>",
-      "suggestedBonds": [
+      "description": "<p>Dungeon World has rules. Not the laws of men or the rule of some petty tyrant. Bigger, better rules. You drop something&#8212;it falls. You can&#8217;t make something out of nothing. The dead stay dead, right?</p><p>Oh, the things we tell ourselves to feel better about the long, dark nights.</p><p>You&#8217;ve spent so very long poring over those tomes of yours. The experiments that nearly drove you mad and all the botched summonings that endangered your very soul. For what? For power. What else is there? Not just the power of King or Country but the power to boil a man&#8217;s blood in his veins. To call on the thunder of the sky and the churn of the roiling earth. To shrug off the rules the world holds so dear.</p><p>Let them cast their sidelong glances. Let them call you &#8220;warlock&#8221; or &#8220;diabolist.&#8221; Who among them can hurl fireballs from their eyes?</p><p>Yeah. We didn&#8217;t think so.</p>",
+      "suggested_names": "<p><em>Elf</em>: Galadiir, Fenfaril, Lilliastre, Phirosalle, Enkirash, Halwyr</p> <p><em>Human</em>: Avon, Morgan, Rath, Ysolde, Ovid, Vitus, Aldara, Xeno, Uri</p>",
+      "suggested_look": "<p>Choose one for each:</p><p>Haunted Eyes, Sharp Eyes, or Crazy Eyes</p><p>Styled Hair, Wild Hair, or Pointed Hat</p><p>Worn Robes, Stylish Robes, or Strange Robes</p><p>Pudgy Body, Creepy Body, or Thin Body</p>",
+      "suggested_bonds": [
         "_______________ will play an important role in the events to come. I have foreseen it!",
         "_______________ is keeping an important secret from me.",
         "_______________ is woefully misinformed about the world; I will teach them all that I can."
       ],
       "damage": "d4",
-      "baseHp": 4,
-      "baseLoad": 7,
-      "alignmentAttributes": {
+      "base_hp": 4,
+      "base_load": 7,
+      "alignment_attributes": {
         "Good": "Use magic to directly aid another.",
         "Neutral": "Discover something about a magical mystery.",
         "Evil": "Use magic to cause terror and fear."
       },
-      "raceAttributes": {
+      "race_attributes": {
         "Dwarf": "Undefined",
         "Elf": "Magic is as natural as breath to you. Detect Magic is a cantrip for you.",
         "Goblin": "Undefined",

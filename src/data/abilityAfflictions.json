@@ -1,5 +1,5 @@
 {
-  "abilityAfflictions": {
+  "ability_afflictions": {
     "STR": ["Unafflicted", "Weak"],
     "DEX": ["Unafflicted", "Shaky"],
     "CON": ["Unafflicted", "Sick"],
