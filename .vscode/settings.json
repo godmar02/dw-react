@@ -3,5 +3,11 @@
     "editor.formatOnSave": true,
     "prettier.singleQuote": true,
     "prettier.jsxBracketSameLine": true,
-    "prettier.jsxSingleQuote": true
+    "prettier.jsxSingleQuote": true,
+    "cSpell.words": [
+        "browserslist",
+        "fontsource",
+        "fontsource roboto",
+        "roboto"
+    ]
 }
