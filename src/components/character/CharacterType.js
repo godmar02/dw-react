@@ -1,9 +1,8 @@
 import React, { useContext } from 'react';
 import CharacterState from 'components/contexts/CharacterState';
 import { races } from 'data/raceList';
-import { dwClasses } from 'data/classList';
-import { alignments } from 'data/classAlignments';
-import { classDetails } from 'data/classDetails';
+import { dw_classes } from 'data/classList';
+import { class_details } from 'data/classDetails';
 import {
   FormControl,
   MenuItem,
@@ -38,17 +37,17 @@ export default function CharacterType() {
   const alig = character.alignment;
   const race = character.race;
 
-  const raceAttributes = () => {
+  const raceAttribute = () => {
     if (character.dwClass && character.race) {
-      return classDetails[dwc].raceAttributes[race];
+      return class_details[dwc].race_attributes[race];
     } else {
       return '';
     }
   };
 
-  const alignmentAttributes = () => {
+  const alignmentAttribute = () => {
     if (character.dwClass && character.alignment) {
-      return classDetails[dwc].alignmentAttributes[alig];
+      return class_details[dwc].alignment_attributes[alig];
     } else {
       return '';
     }
@@ -87,7 +86,7 @@ export default function CharacterType() {
                     }));
                   }}>
                   <MenuItem disabled value='null' hidden='hidden' />{' '}
-                  {dwClasses.map((data, key) => {
+                  {dw_classes.map((data, key) => {
                     return (
                       <MenuItem value={data} key={key}>
                         {data}
@@ -128,11 +127,11 @@ export default function CharacterType() {
                 fullWidth
                 variant='outlined'
                 aria-label='empty textarea'
-                name='raceAttributes'
+                name='raceAttribute'
                 InputProps={{
                   readOnly: true,
                 }}
-                value={raceAttributes()}
+                value={raceAttribute()}
               />
             </TableCell>
           </TableRow>
@@ -150,8 +149,7 @@ export default function CharacterType() {
                   onChange={handleCharacterChange}>
                   <MenuItem disabled value='null' hidden='hidden' />{' '}
                   {character.dwClass &&
-                    dwc &&
-                    alignments[dwc].map((data, key) => {
+                    class_details[dwc].alignment_attributes.map((data, key) => {
                       return (
                         <MenuItem value={data} key={key}>
                           {data}
@@ -171,7 +169,7 @@ export default function CharacterType() {
                 InputProps={{
                   readOnly: true,
                 }}
-                value={alignmentAttributes()}
+                value={alignmentAttribute()}
               />
             </TableCell>
           </TableRow>

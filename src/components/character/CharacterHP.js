@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import CharacterState from 'components/contexts/CharacterState';
-import { classDetails } from 'data/classDetails';
+import { class_details } from 'data/classDetails';
 import { TextField } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -24,7 +24,7 @@ export default function CharacterHP() {
     if (character.dwClass && character.abilities) {
       return (
         '/ ' +
-        (classDetails[dwc].baseHp +
+        (class_details[dwc].base_hp +
           parseInt(
             character.abilities.find((x) => x.category === 'CON').score,
             10

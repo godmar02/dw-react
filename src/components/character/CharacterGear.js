@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import CharacterState from 'components/contexts/CharacterState';
-import { classDetails } from 'data/classDetails';
+import { class_details } from 'data/classDetails';
 import { Add, Delete } from '@material-ui/icons';
 import {
   Chip,
@@ -98,7 +98,7 @@ export default function CharacterGear() {
 
       let modifier = baseModifier - afflicted;
 
-      return '/ ' + (classDetails[dwc].baseLoad + modifier);
+      return '/ ' + (class_details[dwc].base_load + modifier);
     } else {
       return '';
     }

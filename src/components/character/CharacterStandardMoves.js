@@ -5,13 +5,13 @@ import {
   AccordionDetails,
 } from '@material-ui/core';
 import { ExpandMore } from '@material-ui/icons';
-import { standardMoves } from 'data/movesList';
+import { standard_moves } from 'data/standardMovesList';
 
 export default function CharacterStandardMoves() {
   return (
     <>
       {' '}
-      {standardMoves.map((data, index) => {
+      {standard_moves.map((data, index) => {
         return (
           <Accordion key={index}>
             <AccordionSummary expandIcon={<ExpandMore />}>

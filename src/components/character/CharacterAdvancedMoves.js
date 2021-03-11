@@ -5,12 +5,12 @@ import {
   AccordionDetails,
 } from '@material-ui/core';
 import { ExpandMore } from '@material-ui/icons';
-import { advancedMoves } from 'data/movesList';
+import { advanced_moves } from 'data/advancedMovesList';
 
 export default function CharacterAdvancedMoves() {
   return (
     <>
-      {advancedMoves.map((data, index) => {
+      {advanced_moves.map((data, index) => {
         return (
           <Accordion key={index}>
             <AccordionSummary expandIcon={<ExpandMore />}>

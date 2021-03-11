@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import CharacterState from 'components/contexts/CharacterState';
-import { abilityAfflictions } from 'data/abilityAfflictions';
+import { ability_afflictions } from 'data/abilityAfflictions';
 import {
   Card,
   CardContent,
@@ -156,7 +156,7 @@ export default function CharacterAbilities() {
                       value={abilities.affliction || 'null'}
                       name={abilities.category + 'Affliction'}
                       onChange={updateAbilityAffliction(index)}>
-                      {abilityAfflictions[ab].map((data, key) => {
+                      {ability_afflictions[ab].map((data, key) => {
                         return (
                           <MenuItem value={data} key={key}>
                             {data}
