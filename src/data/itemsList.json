@@ -442,7 +442,7 @@
       "cost": 50,
       "weight": 2,
       "uses": "",
-      "tags": ["1 piercing", "Precise"]
+      "tags": ["+1 piercing", "Precise"]
     },
     {
       "name": "Leather",
@@ -453,7 +453,7 @@
       "cost": 10,
       "weight": 1,
       "uses": "",
-      "tags": ["worn"]
+      "tags": ["Worn"]
     },
     {
       "name": "Chainmail",
@@ -464,7 +464,7 @@
       "cost": 10,
       "weight": 1,
       "uses": "",
-      "tags": ["worn"]
+      "tags": ["Worn"]
     },
     {
       "name": "Scale Mail",
@@ -475,7 +475,7 @@
       "cost": 50,
       "weight": 3,
       "uses": "",
-      "tags": ["worn", "clumsy"]
+      "tags": ["Worn", "Clumsy"]
     },
     {
       "name": "Plate",
@@ -486,7 +486,7 @@
       "cost": 350,
       "weight": 4,
       "uses": "",
-      "tags": ["worn", "clumsy"]
+      "tags": ["Worn", "Clumsy"]
     },
     {
       "name": "Shield",

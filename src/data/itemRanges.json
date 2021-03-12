@@ -1,0 +1,12 @@
+{
+  "itemRanges": [
+    "Close",
+    "Far",
+    "Hand",
+    "Near",
+    "Near & Far",
+    "Reach",
+    "Reach & Near",
+    "N/A"
+  ]
+}

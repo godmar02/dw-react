@@ -1,11 +1,12 @@
-import React, { useContext } from 'react';
+import React, { useContext, useTheme, useState } from 'react';
 import CharacterState from 'components/contexts/CharacterState';
 import { class_details } from 'data/classDetails';
 import { Add, Delete } from '@material-ui/icons';
 import {
   Chip,
-  IconButton,
   FormControl,
+  IconButton,
+  Input,
   Paper,
   Select,
   MenuItem,
@@ -18,30 +19,38 @@ import {
   TextField,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import { itemRanges } from 'data/itemRanges';
+import { itemTypes } from 'data/itemTypes';
+import { itemTags } from 'data/itemTags';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
+  chips: {
     display: 'flex',
-    justifyContent: 'center',
     flexWrap: 'wrap',
-    listStyle: 'none',
-    padding: theme.spacing(0.5),
-    margin: 0,
   },
   chip: {
-    margin: theme.spacing(0.5),
+    margin: 2,
   },
   formControl: {
     margin: theme.spacing(1),
     minWidth: 120,
-  },
-  selectEmpty: {
-    marginTop: theme.spacing(2),
+    maxWidth: 300,
   },
   table: {
     minWidth: 650,
   },
 }));
+
+const ITEM_HEIGHT = 48;
+const ITEM_PADDING_TOP = 8;
+const MenuProps = {
+  PaperProps: {
+    style: {
+      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+      width: 250,
+    },
+  },
+};
 
 export default function CharacterGear() {
   const classes = useStyles();
@@ -109,19 +118,9 @@ export default function CharacterGear() {
     const target = event.target;
     const value = target.value;
     const name = target.name;
+    console.log('target', target);
     let newItems = [...character.items]; // copying the old array
     newItems[index] = { ...character.items[index], [name]: value }; // replace value
-    setCharacter((character) => ({ ...character, items: newItems })); // set array back
-  };
-
-  //Delete Item Tags
-  const deleteTag = (index, key) => () => {
-    let newItems = [...character.items]; // copying the old items array
-    let newItem = newItems[index]; // copying the specific item
-    let newItemTags = [...newItem.tags]; // copying the old item tags
-    newItemTags = newItemTags.filter((tags) => tags.key !== key); // filtering the old item tags to remove tag
-    newItem = { ...newItem, tags: newItemTags }; // re-setting Item Tags for Item
-    newItems[index] = newItem; // re-setting Item
     setCharacter((character) => ({ ...character, items: newItems })); // set array back
   };
 
@@ -154,7 +153,6 @@ export default function CharacterGear() {
     ]; // copying the old array and adding blank item
     setCharacter((character) => ({ ...character, items: newItems })); // set array back
   };
-  //,
 
   return (
     <TableContainer component={Paper}>
@@ -198,10 +196,11 @@ export default function CharacterGear() {
                         onChange={(event) =>
                           handleCharacterChange(event, index)
                         }>
-                        <MenuItem value='Armour'>Armour</MenuItem>
-                        <MenuItem value='Item'>Item</MenuItem>
-                        <MenuItem value='Poison'>Poison</MenuItem>
-                        <MenuItem value='Weapon'>Weapon</MenuItem>
+                        {itemTypes.map((type) => (
+                          <MenuItem key={type} value={type}>
+                            {type}
+                          </MenuItem>
+                        ))}
                       </Select>
                     </FormControl>
                   </TableCell>
@@ -252,14 +251,11 @@ export default function CharacterGear() {
                         onChange={(event) =>
                           handleCharacterChange(event, index)
                         }>
-                        <MenuItem value='Close'>Close</MenuItem>
-                        <MenuItem value='Hand'>Hand</MenuItem>
-                        <MenuItem value='Far'>Far</MenuItem>
-                        <MenuItem value='Near'>Near</MenuItem>
-                        <MenuItem value='Near & Far'>Near & Far</MenuItem>
-                        <MenuItem value='Reach'>Reach</MenuItem>
-                        <MenuItem value='Reach & Near'>Reach & Near</MenuItem>
-                        <MenuItem value='N/A'>N/A</MenuItem>
+                        {itemRanges.map((range) => (
+                          <MenuItem key={range} value={range}>
+                            {range}
+                          </MenuItem>
+                        ))}
                       </Select>
                     </FormControl>
                   </TableCell>
@@ -287,22 +283,35 @@ export default function CharacterGear() {
                       onChange={(event) => handleCharacterChange(event, index)}
                     />
                   </TableCell>
-                  <TableCell align='center'>
-                    <div className={classes.root}>
-                      {items.tags.map((data) => {
-                        return (
-                          <li key={data.key}>
-                            <Chip
-                              size='small'
-                              color='primary'
-                              label={data.tag}
-                              onDelete={deleteTag(index, data.key)}
-                              className={classes.chip}
-                            />
-                          </li>
-                        );
-                      })}
-                    </div>
+                  <TableCell>
+                    <FormControl className={classes.formControl}>
+                      <Select
+                        multiple
+                        value={items.tags}
+                        name='tags'
+                        onChange={(event) =>
+                          handleCharacterChange(event, index)
+                        }
+                        input={<Input />}
+                        renderValue={(selected) => (
+                          <div className={classes.chips}>
+                            {selected.map((value) => (
+                              <Chip
+                                key={value}
+                                label={value}
+                                className={classes.chip}
+                              />
+                            ))}
+                          </div>
+                        )}
+                        MenuProps={MenuProps}>
+                        {itemTags.map((name) => (
+                          <MenuItem key={name} value={name}>
+                            {name}
+                          </MenuItem>
+                        ))}
+                      </Select>
+                    </FormControl>
                   </TableCell>
                   <TableCell colSpan='2'>
                     <TextField
