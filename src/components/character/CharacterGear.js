@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
 export default function CharacterGear() {
   const classes = useStyles();
   const { character, setCharacter } = useContext(CharacterState);
-  const dwc = character.dwClass;
+  const dwc = character.dw_class;
 
   // Total Load
   const totalLoad = () => {
@@ -63,7 +63,7 @@ export default function CharacterGear() {
   // Max Load
   const maxLoad = () => {
     if (
-      character.dwClass &&
+      character.dw_class &&
       character.abilities.find((x) => x.category === 'STR').score &&
       character.abilities.find((x) => x.category === 'STR').affliction
     ) {
@@ -161,11 +161,12 @@ export default function CharacterGear() {
       <Table className={classes.table} aria-label='simple table'>
         <TableHead>
           <TableRow>
-            <TableCell align='center'>NAME</TableCell>
             <TableCell align='center'>TYPE</TableCell>
+            <TableCell align='center'>NAME</TableCell>
             <TableCell align='center' colSpan='4'>
-              DESCRIPTION
+              DESCRIPTION00000000000
             </TableCell>
+            <TableCell align='center'>AMOUR</TableCell>
             <TableCell align='center'>RANGE</TableCell>
             <TableCell align='center'>COST</TableCell>
             <TableCell align='center'>USES</TableCell>
@@ -185,20 +186,10 @@ export default function CharacterGear() {
             character.items.map((items, index) => {
               return (
                 <TableRow key={index}>
-                  <TableCell>
-                    <TextField
-                      fullWidth
-                      variant='outlined'
-                      aria-label='empty textarea'
-                      placeholder='Item name'
-                      value={items.name}
-                      name='name'
-                      onChange={(event) => handleCharacterChange(event, index)}
-                    />
-                  </TableCell>
                   <TableCell align='center'>
                     <FormControl
                       variant='outlined'
+                      size='small'
                       className={classes.formControl}>
                       <Select
                         tabIndex={-1}
@@ -207,28 +198,52 @@ export default function CharacterGear() {
                         onChange={(event) =>
                           handleCharacterChange(event, index)
                         }>
-                        <MenuItem disabled value='null' hidden='hidden' />
+                        <MenuItem value='Armour'>Armour</MenuItem>
                         <MenuItem value='Item'>Item</MenuItem>
                         <MenuItem value='Poison'>Poison</MenuItem>
                         <MenuItem value='Weapon'>Weapon</MenuItem>
                       </Select>
                     </FormControl>
                   </TableCell>
+                  <TableCell>
+                    <TextField
+                      fullWidth
+                      size='small'
+                      variant='outlined'
+                      aria-label='empty textarea'
+                      value={items.name}
+                      name='name'
+                      onChange={(event) => handleCharacterChange(event, index)}
+                    />
+                  </TableCell>
                   <TableCell colSpan='4'>
                     <TextField
                       multiline
                       fullWidth
+                      size='small'
                       variant='outlined'
                       aria-label='empty textarea'
-                      placeholder='Item description'
                       value={items.description}
                       name='description'
                       onChange={(event) => handleCharacterChange(event, index)}
                     />
                   </TableCell>
                   <TableCell align='center'>
+                    <TextField
+                      type='number'
+                      fullWidth
+                      size='small'
+                      variant='outlined'
+                      min={0}
+                      name='armour'
+                      value={items.armour}
+                      onChange={(event) => handleCharacterChange(event, index)}
+                    />
+                  </TableCell>
+                  <TableCell align='center'>
                     <FormControl
                       variant='outlined'
+                      size='small'
                       className={classes.formControl}>
                       <Select
                         tabIndex={-1}
@@ -237,7 +252,6 @@ export default function CharacterGear() {
                         onChange={(event) =>
                           handleCharacterChange(event, index)
                         }>
-                        <MenuItem value='null' hidden='hidden' />
                         <MenuItem value='Close'>Close</MenuItem>
                         <MenuItem value='Hand'>Hand</MenuItem>
                         <MenuItem value='Far'>Far</MenuItem>
@@ -245,6 +259,7 @@ export default function CharacterGear() {
                         <MenuItem value='Near & Far'>Near & Far</MenuItem>
                         <MenuItem value='Reach'>Reach</MenuItem>
                         <MenuItem value='Reach & Near'>Reach & Near</MenuItem>
+                        <MenuItem value='N/A'>N/A</MenuItem>
                       </Select>
                     </FormControl>
                   </TableCell>
@@ -252,6 +267,7 @@ export default function CharacterGear() {
                     <TextField
                       type='number'
                       fullWidth
+                      size='small'
                       variant='outlined'
                       min={0}
                       name='cost'
@@ -263,6 +279,7 @@ export default function CharacterGear() {
                     <TextField
                       type='number'
                       fullWidth
+                      size='small'
                       variant='outlined'
                       min={0}
                       name='uses'
@@ -291,6 +308,7 @@ export default function CharacterGear() {
                     <TextField
                       type='number'
                       fullWidth
+                      size='small'
                       variant='outlined'
                       min={0}
                       value={items.weight}
@@ -309,13 +327,14 @@ export default function CharacterGear() {
               );
             })}
           <TableRow>
-            <TableCell align='right' colSpan='10'>
+            <TableCell align='right' colSpan='11'>
               LOAD
             </TableCell>
             <TableCell>
               <TextField
                 type='number'
                 fullWidth
+                size='small'
                 variant='outlined'
                 name='totalLoad'
                 InputProps={{
@@ -327,6 +346,7 @@ export default function CharacterGear() {
             <TableCell>
               <TextField
                 fullWidth
+                size='small'
                 variant='outlined'
                 name='maxLoad'
                 InputProps={{

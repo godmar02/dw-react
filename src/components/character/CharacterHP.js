@@ -17,11 +17,11 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CharacterHP() {
   const { character, setCharacter } = useContext(CharacterState);
-  const dwc = character.dwClass;
+  const dwc = character.dw_class;
   const classes = useStyles();
 
   const maxHp = () => {
-    if (character.dwClass && character.abilities) {
+    if (character.dw_class && character.abilities) {
       return (
         '/ ' +
         (class_details[dwc].base_hp +

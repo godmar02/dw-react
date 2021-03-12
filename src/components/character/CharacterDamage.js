@@ -16,11 +16,11 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CharacterDamage() {
   const { character } = useContext(CharacterState);
-  const dwc = character.dwClass;
+  const dwc = character.dw_class;
   const classes = useStyles();
 
   const damage = () => {
-    if (character.dwClass) {
+    if (character.dw_class) {
       return class_details[dwc].damage;
     } else {
       return '';

@@ -41,8 +41,8 @@ export default function CharacterBasicDetails() {
                 variant='outlined'
                 aria-label='empty textarea'
                 placeholder='Add your characters full name here'
-                value={character.fullName}
-                name='fullName'
+                value={character.full_name}
+                name='full_name'
                 onChange={handleCharacterChange}
               />
             </TableCell>

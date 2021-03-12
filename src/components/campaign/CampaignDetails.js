@@ -1,24 +1,18 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router';
 import * as FirebaseService from 'services/firebase';
-import AuthState from 'components/contexts/AuthState';
 import CampaignState from 'components/contexts/CampaignState';
+import CreateCharacterState from 'components/contexts/CreateCharacterState';
+import CreateCharacter from 'components/campaign/CreateCharacter';
 import { Add, Delete } from '@material-ui/icons';
 import {
-  Button,
   Card,
   CardContent,
   CardHeader,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
   Grid,
   IconButton,
   Typography,
-  TextField,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -36,40 +30,13 @@ const useStyles = makeStyles({
 
 export default function CampaignDetails() {
   const classes = useStyles();
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(CreateCharacterState);
   const { campaign } = useContext(CampaignState);
-  const [charaName, setCharaName] = useState('');
-  const { currentUser } = useContext(AuthState);
   const { campaignURL } = useParams();
+  const ctx = useMemo(() => ({ open, setOpen }), [open]);
 
   const handleClickOpen = () => {
     setOpen(true);
-  };
-
-  const handleCancel = () => {
-    setOpen(false);
-  };
-
-  const handleSave = () => {
-    setOpen(false);
-    saveCharacter();
-  };
-
-  // Create New Character
-  const saveCharacter = () => {
-    if (campaignURL && charaName) {
-      //don't save unless details present
-      FirebaseService.createCharacter(campaignURL, charaName, currentUser.email)
-        .then(() => {
-          console.info('Created Character:', charaName);
-        })
-        .catch((error) => {
-          alert('Failed to create character, see console error');
-          console.error('Error creating document:', error);
-        });
-    } else {
-      alert('Cannot save blank character');
-    }
   };
 
   // Delete Character
@@ -90,7 +57,7 @@ export default function CampaignDetails() {
   };
 
   return (
-    <>
+    <CreateCharacterState.Provider value={ctx}>
       <Grid container spacing={3}>
         {campaign.campaign &&
           campaign.campaign.map((campaign, index) => {
@@ -119,7 +86,7 @@ export default function CampaignDetails() {
                   />
                   <CardContent>
                     <Typography variant='body1' component='p'>
-                      {campaign.characterData.dwClass}
+                      {campaign.characterData.dw_class}
                     </Typography>
                     <Typography variant='body1' component='p'>
                       {campaign.characterData.race}
@@ -139,7 +106,6 @@ export default function CampaignDetails() {
               </Grid>
             );
           })}
-
         <Grid item xs={3}>
           <Card className={classes.root}>
             <CardHeader title='Add Character' />
@@ -151,34 +117,7 @@ export default function CampaignDetails() {
           </Card>
         </Grid>
       </Grid>
-      <Dialog
-        open={open}
-        onClose={handleCancel}
-        aria-labelledby='form-dialog-title'>
-        <DialogTitle id='form-dialog-title'>Create new character</DialogTitle>{' '}
-        <DialogContent>
-          <DialogContentText>
-            To create a character, please enter the new character name here. You
-            will not be able to change this once saved.
-          </DialogContentText>
-          <TextField
-            autoFocus={true}
-            margin='dense'
-            id='name'
-            label='Short Character Name'
-            fullWidth
-            onChange={(event) => setCharaName(event.target.value)}
-          />
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleCancel} color='primary'>
-            Cancel
-          </Button>
-          <Button onClick={handleSave} color='primary'>
-            Create Character
-          </Button>
-        </DialogActions>
-      </Dialog>
-    </>
+      <CreateCharacter />
+    </CreateCharacterState.Provider>
   );
 }

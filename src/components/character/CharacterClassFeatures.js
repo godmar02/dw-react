@@ -35,32 +35,38 @@ export default function CharacterClassFeatures() {
 
   // State manipulation
   const updateFeatureCheckbox = (index) => (e) => {
-    let newFeatures = [...character.classFeatures]; // copying the old array
+    let newFeatures = [...character.class_features]; // copying the old array
     newFeatures[index] = {
-      ...character.classFeatures[index],
+      ...character.class_features[index],
       checkbox: e.target.checked,
     }; // replace value
-    setCharacter((character) => ({ ...character, classFeatures: newFeatures })); // set array back
+    setCharacter((character) => ({
+      ...character,
+      class_features: newFeatures,
+    })); // set array back
   };
 
   const updateFeature = (index) => (e) => {
-    let newFeatures = [...character.classFeatures]; // copying the old array
+    let newFeatures = [...character.class_features]; // copying the old array
     newFeatures[index] = {
-      ...character.classFeatures[index],
+      ...character.class_features[index],
       feature: e.target.value,
     }; // replace value
-    setCharacter((character) => ({ ...character, classFeatures: newFeatures })); // set array back
+    setCharacter((character) => ({
+      ...character,
+      class_features: newFeatures,
+    })); // set array back
   };
 
   // Delete rows in the table
   const deleteFeatureRow = (index) => {
-    const newFeatures = [...character.classFeatures]; // copying the old array
-    if (character.classFeatures.length !== 1) {
+    const newFeatures = [...character.class_features]; // copying the old array
+    if (character.class_features.length !== 1) {
       //don't delete last row
       newFeatures.splice(index, 1); // remove item from array
       setCharacter((character) => ({
         ...character,
-        classFeatures: newFeatures,
+        class_features: newFeatures,
       })); // set array back
     } else {
       alert('Cannot delete final row');
@@ -70,10 +76,13 @@ export default function CharacterClassFeatures() {
   // Add rows in the table
   const addFeatureRow = () => {
     const newFeatures = [
-      ...character.classFeatures,
+      ...character.class_features,
       { feature: '', checkbox: false },
     ]; // copying the old array and adding blank item
-    setCharacter((character) => ({ ...character, classFeatures: newFeatures })); // set array back
+    setCharacter((character) => ({
+      ...character,
+      class_features: newFeatures,
+    })); // set array back
   };
 
   return (
@@ -92,14 +101,14 @@ export default function CharacterClassFeatures() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {character.classFeatures &&
-            character.classFeatures.map((classFeatures, index) => {
+          {character.class_features &&
+            character.class_features.map((class_features, index) => {
               return (
                 <TableRow key={index}>
                   <TableCell>
                     <Checkbox
-                      name={'classFeatureCheckbox' + index}
-                      checked={!!classFeatures.checkbox}
+                      name={'class_feature_checkbox' + index}
+                      checked={!!class_features.checkbox}
                       onChange={updateFeatureCheckbox(index)}
                       color='primary'
                     />
@@ -111,8 +120,8 @@ export default function CharacterClassFeatures() {
                       variant='outlined'
                       aria-label='empty textarea'
                       placeholder='Add any Class Features here (e.g. Spell Lists, Poison Recipes, Druid Balance, Paladin Quests or anything else!)'
-                      value={classFeatures.feature}
-                      name={'classFeature' + index}
+                      value={class_features.feature}
+                      name={'class_feature' + index}
                       onChange={updateFeature(index)}
                     />
                   </TableCell>

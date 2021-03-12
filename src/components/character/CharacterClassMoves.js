@@ -9,7 +9,7 @@ import { ExpandMore } from '@material-ui/icons';
 
 export default function CharacterClassStartingMoves() {
   const { character } = useContext(CharacterState);
-  const dwc = character.dwClass;
+  const dwc = character.dw_class;
 
   return <></>;
 }

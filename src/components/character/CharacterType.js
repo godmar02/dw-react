@@ -4,10 +4,7 @@ import { races } from 'data/raceList';
 import { dw_classes } from 'data/classList';
 import { class_details } from 'data/classDetails';
 import {
-  FormControl,
-  MenuItem,
   Paper,
-  Select,
   Table,
   TableBody,
   TableCell,
@@ -32,32 +29,17 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CharacterType() {
   const classes = useStyles();
-  const { character, setCharacter } = useContext(CharacterState);
-  const dwc = character.dwClass;
+  const { character } = useContext(CharacterState);
+  const dwc = character.dw_class;
   const alig = character.alignment;
-  const race = character.race;
-
-  const raceAttribute = () => {
-    if (character.dwClass && character.race) {
-      return class_details[dwc].race_attributes[race];
-    } else {
-      return '';
-    }
-  };
 
   const alignmentAttribute = () => {
-    if (character.dwClass && character.alignment) {
-      return class_details[dwc].alignment_attributes[alig];
+    if (character.dw_class && character.alignment) {
+      return class_details[dwc].alignments.find((x) => x.alignment === alig)
+        .attribute;
     } else {
       return '';
     }
-  };
-
-  const handleCharacterChange = (event) => {
-    const target = event.target;
-    const value = target.value;
-    const name = target.name;
-    setCharacter((character) => ({ ...character, [name]: value }));
   };
 
   return (
@@ -70,57 +52,13 @@ export default function CharacterType() {
               style={{
                 width: '25%',
               }}>
-              <FormControl
-                variant='outlined'
-                size='small'
-                className={classes.formControl}>
-                <Select
-                  tabIndex={-1}
-                  value={character.dwClass || 'null'}
-                  name='class'
-                  onChange={(event) => {
-                    handleCharacterChange(event);
-                    setCharacter((character) => ({
-                      ...character,
-                      alignment: 'null',
-                    }));
-                  }}>
-                  <MenuItem disabled value='null' hidden='hidden' />{' '}
-                  {dw_classes.map((data, key) => {
-                    return (
-                      <MenuItem value={data} key={key}>
-                        {data}
-                      </MenuItem>
-                    );
-                  })}
-                </Select>
-              </FormControl>
+              {character.dw_class}
             </TableCell>
             <TableCell></TableCell>
           </TableRow>
           <TableRow>
             <th>RACE</th>
-            <TableCell>
-              <FormControl
-                variant='outlined'
-                size='small'
-                className={classes.formControl}>
-                <Select
-                  tabIndex={-1}
-                  value={character.race || 'null'}
-                  name='race'
-                  onChange={handleCharacterChange}>
-                  <MenuItem disabled value='null' hidden='hidden' />{' '}
-                  {races.map((data, key) => {
-                    return (
-                      <MenuItem value={data} key={key}>
-                        {data}
-                      </MenuItem>
-                    );
-                  })}
-                </Select>
-              </FormControl>
-            </TableCell>
+            <TableCell>{character.race}</TableCell>
             <TableCell>
               <TextField
                 multiline
@@ -131,46 +69,27 @@ export default function CharacterType() {
                 InputProps={{
                   readOnly: true,
                 }}
-                value={raceAttribute()}
+                value={character.race_attribute}
               />
             </TableCell>
           </TableRow>
           <TableRow>
             <th>ALIGNMENT</th>
+            <TableCell>{character.alignment}</TableCell>
             <TableCell>
-              <FormControl
-                variant='outlined'
-                size='small'
-                className={classes.formControl}>
-                <Select
-                  tabIndex={-1}
-                  value={character.alignment || 'null'}
-                  name='alignment'
-                  onChange={handleCharacterChange}>
-                  <MenuItem disabled value='null' hidden='hidden' />{' '}
-                  {character.dwClass &&
-                    class_details[dwc].alignment_attributes.map((data, key) => {
-                      return (
-                        <MenuItem value={data} key={key}>
-                          {data}
-                        </MenuItem>
-                      );
-                    })}
-                </Select>
-              </FormControl>
-            </TableCell>
-            <TableCell>
-              <TextField
-                multiline
-                fullWidth
-                variant='outlined'
-                aria-label='empty textarea'
-                name='alignmentAttribute'
-                InputProps={{
-                  readOnly: true,
-                }}
-                value={alignmentAttribute()}
-              />
+              {
+                <TextField
+                  multiline
+                  fullWidth
+                  variant='outlined'
+                  aria-label='empty textarea'
+                  name='alignmentAttribute'
+                  InputProps={{
+                    readOnly: true,
+                  }}
+                  value={alignmentAttribute()}
+                />
+              }
             </TableCell>
           </TableRow>
         </TableBody>
