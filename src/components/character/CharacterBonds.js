@@ -71,7 +71,7 @@ export default function CharacterBonds() {
         </TableHead>
         <TableBody>
           {character.bonds &&
-            character.bonds.map((bonds, index) => {
+            character.bonds.map((bond, index) => {
               return (
                 <TableRow key={index}>
                   <TableCell>
@@ -81,7 +81,7 @@ export default function CharacterBonds() {
                       variant='outlined'
                       aria-label='empty textarea'
                       placeholder='Add 2-3 bonds here'
-                      value={bonds.bond}
+                      value={bond}
                       name={'bond' + index}
                       onChange={updateBond(index)}
                     />

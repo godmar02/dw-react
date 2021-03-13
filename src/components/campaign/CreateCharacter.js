@@ -67,6 +67,7 @@ export default function CampaignDetails() {
   const [charaRace, setCharaRace] = useState('');
   const [charaAlignment, setCharaAlignment] = useState('');
   const [charaRaceAttribute, setCharaRaceAttribute] = useState('');
+  const [charaBonds, setCharaBonds] = useState([]);
   const { currentUser } = useContext(AuthState);
   const { campaignURL } = useParams();
   const [activeStep, setActiveStep] = useState(0);
@@ -84,24 +85,22 @@ export default function CampaignDetails() {
     setCharaRaceAttribute(event.target.value);
   };
 
+  const handleBondChange = (event) => {};
+
   const handleCancel = () => {
     setCharaName('');
     setCharaClass('');
     setCharaRace('');
     setCharaAlignment('');
     setCharaRaceAttribute('');
+    setCharaBonds([]);
     setActiveStep(0);
     setOpen(false);
   };
 
   const handleSave = () => {
     saveCharacter();
-    setCharaName('');
-    setCharaClass('');
-    setCharaRace('');
-    setCharaAlignment('');
-    setCharaRaceAttribute('');
-    setOpen(false);
+    handleCancel();
   };
 
   const alignmentAttribute = () => {
@@ -138,7 +137,6 @@ export default function CampaignDetails() {
     }
   };
 
-  // Create New Character
   const saveCharacter = () => {
     if (
       campaignURL &&
@@ -166,7 +164,7 @@ export default function CampaignDetails() {
         alignment: charaAlignment,
         armour: '0',
         backstory: '',
-        bonds: [{ bond: '' }],
+        bonds: charaBonds,
         class_features: [{ feature: '', checkbox: false }],
         dw_class: charaClass,
         full_name: '',
@@ -219,9 +217,9 @@ export default function CampaignDetails() {
                   setCharaAlignment('');
                   setCharaClass(event.target.value);
                 }}>
-                {dw_classes.map((data, key) => {
+                {dw_classes.map((data, index) => {
                   return (
-                    <MenuItem value={data} key={key}>
+                    <MenuItem value={data} key={index}>
                       {data}
                     </MenuItem>
                   );
@@ -237,9 +235,9 @@ export default function CampaignDetails() {
                 value={charaRace}
                 name='race'
                 onChange={(event) => setCharaRace(event.target.value)}>
-                {races.map((data, key) => {
+                {races.map((data, index) => {
                   return (
-                    <MenuItem value={data} key={key}>
+                    <MenuItem value={data} key={index}>
                       {data}
                     </MenuItem>
                   );
@@ -255,9 +253,9 @@ export default function CampaignDetails() {
                 name='alignment'
                 onChange={(event) => setCharaAlignment(event.target.value)}>
                 {charaClass &&
-                  class_details[charaClass].alignments.map((data, key) => {
+                  class_details[charaClass].alignments.map((data, index) => {
                     return (
-                      <MenuItem value={data.alignment} key={key}>
+                      <MenuItem value={data.alignment} key={index}>
                         {data.alignment}
                       </MenuItem>
                     );
@@ -291,9 +289,10 @@ export default function CampaignDetails() {
               value={charaRaceAttribute}
               onChange={handleRadioChange}>
               {charaClass &&
-                class_details[charaClass].race_attributes.map((data, key) => {
+                class_details[charaClass].race_attributes.map((data, index) => {
                   return (
                     <FormControlLabel
+                      key={index}
                       value={data.attribute}
                       control={<Radio />}
                       label={data.attribute + ' (' + data.race + ')'}
@@ -312,24 +311,29 @@ export default function CampaignDetails() {
           <div className={classes.root}>
             <FormControl component='fieldset' className={classes.formControl}>
               <FormLabel component='legend'>
-                Choose some optionally suggested bonds
+                Choose some optionally suggested bonds or you can create your
+                own!
               </FormLabel>
               <FormGroup>
                 {charaClass &&
-                  class_details[charaClass].suggested_bonds.map((data) => {
-                    return (
-                      <FormControlLabel
-                        control={
-                          <Checkbox
-                            //checked={gilad}
-                            //onChange={handleChange}
-                            name={data}
-                          />
-                        }
-                        label={data}
-                      />
-                    );
-                  })}
+                  class_details[charaClass].suggested_bonds.map(
+                    (data, index) => {
+                      return (
+                        <FormControlLabel
+                          key={index}
+                          control={
+                            <Checkbox
+                              //checked={gilad}
+                              onChange={handleBondChange}
+                              color='primary'
+                              name={data}
+                            />
+                          }
+                          label={data}
+                        />
+                      );
+                    }
+                  )}
               </FormGroup>
             </FormControl>
           </div>

@@ -194,8 +194,8 @@ export default function CharacterGear() {
                           onChange={(event) =>
                             handleCharacterChange(event, index)
                           }>
-                          {itemTypes.map((type) => (
-                            <MenuItem key={type} value={type}>
+                          {itemTypes.map((type, index) => (
+                            <MenuItem key={index} value={type}>
                               {type}
                             </MenuItem>
                           ))}
@@ -255,8 +255,8 @@ export default function CharacterGear() {
                           onChange={(event) =>
                             handleCharacterChange(event, index)
                           }>
-                          {itemRanges.map((range) => (
-                            <MenuItem key={range} value={range}>
+                          {itemRanges.map((range, index) => (
+                            <MenuItem key={index} value={range}>
                               {range}
                             </MenuItem>
                           ))}
@@ -303,9 +303,9 @@ export default function CharacterGear() {
                           input={<Input />}
                           renderValue={(selected) => (
                             <div className={classes.chips}>
-                              {selected.map((value) => (
+                              {selected.map((value, index) => (
                                 <Chip
-                                  key={value}
+                                  key={index}
                                   label={value}
                                   className={classes.chip}
                                 />
@@ -313,8 +313,8 @@ export default function CharacterGear() {
                             </div>
                           )}
                           MenuProps={MenuProps}>
-                          {itemTags.map((name) => (
-                            <MenuItem key={name} value={name}>
+                          {itemTags.map((name, index) => (
+                            <MenuItem key={index} value={name}>
                               {name}
                             </MenuItem>
                           ))}

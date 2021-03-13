@@ -170,9 +170,9 @@ export default function CharacterAbilities() {
                       value={abilities.affliction || 'null'}
                       name={abilities.category + 'Affliction'}
                       onChange={updateAbilityAffliction(index)}>
-                      {ability_afflictions[ab].map((data, key) => {
+                      {ability_afflictions[ab].map((data, index) => {
                         return (
-                          <MenuItem value={data} key={key}>
+                          <MenuItem value={data} key={index}>
                             {data}
                           </MenuItem>
                         );
