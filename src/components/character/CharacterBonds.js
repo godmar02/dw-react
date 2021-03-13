@@ -34,7 +34,7 @@ export default function CharacterBonds() {
   // State manipulation
   const updateBond = (index) => (e) => {
     let newBonds = [...character.bonds]; // copying the old array
-    newBonds[index] = { ...character.bonds[index], bond: e.target.value }; // replace value
+    newBonds[index] = e.target.value; // replace value
     setCharacter((character) => ({ ...character, bonds: newBonds })); // set array back
   };
 
@@ -52,7 +52,7 @@ export default function CharacterBonds() {
 
   // Add rows in the table
   const addBondsRow = () => {
-    const newBonds = [...character.bonds, { bond: '' }]; // copying the old array and adding blank item
+    const newBonds = [...character.bonds, '']; // copying the old array and adding blank item
     setCharacter((character) => ({ ...character, bonds: newBonds })); // set array back
   };
 

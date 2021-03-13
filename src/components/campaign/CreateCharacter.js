@@ -81,11 +81,22 @@ export default function CampaignDetails() {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
-  const handleRadioChange = (event) => {
-    setCharaRaceAttribute(event.target.value);
+  const handleBondChange = (event) => {
+    let target = event.target;
+    if (target.checked) {
+      console.log('adding this to array:', target.name);
+      //add to array
+      const newBonds = [...charaBonds, target.name]; // copying the old array and adding item
+      setCharaBonds(newBonds); // set array back
+      console.log(charaBonds);
+    } else {
+      console.log('Removing this from array:', target.name);
+      //remove from array
+      let newBonds = charaBonds.filter((bond) => bond !== target.name); // copying the old array
+      setCharaBonds(newBonds); // set array back
+      console.log(charaBonds);
+    }
   };
-
-  const handleBondChange = (event) => {};
 
   const handleCancel = () => {
     setCharaName('');
@@ -287,7 +298,7 @@ export default function CampaignDetails() {
               aria-label='race attribute'
               name='race attribute'
               value={charaRaceAttribute}
-              onChange={handleRadioChange}>
+              onChange={(event) => setCharaRaceAttribute(event.target.value)}>
               {charaClass &&
                 class_details[charaClass].race_attributes.map((data, index) => {
                   return (
@@ -323,7 +334,7 @@ export default function CampaignDetails() {
                           key={index}
                           control={
                             <Checkbox
-                              //checked={gilad}
+                              key={index}
                               onChange={handleBondChange}
                               color='primary'
                               name={data}
@@ -343,6 +354,41 @@ export default function CampaignDetails() {
     }
   }
 
+  function nextButtons(stepIndex) {
+    if (stepIndex === steps.length - 1) {
+      if (
+        campaignURL &&
+        charaName &&
+        charaClass &&
+        charaAlignment &&
+        charaRace &&
+        charaRaceAttribute
+      ) {
+        return (
+          <Button variant='contained' color='primary' onClick={handleSave}>
+            Create Character
+          </Button>
+        );
+      } else {
+        return (
+          <Button
+            disabled
+            variant='contained'
+            color='primary'
+            onClick={handleSave}>
+            Create Character
+          </Button>
+        );
+      }
+    } else {
+      return (
+        <Button variant='contained' color='primary' onClick={handleNext}>
+          Next
+        </Button>
+      );
+    }
+  }
+
   return (
     <Dialog open={open} onClose={handleCancel}>
       <DialogContent>
@@ -356,7 +402,7 @@ export default function CampaignDetails() {
           </Stepper>
           <div>
             <div>
-              <Typography className={classes.instructions}>
+              <Typography component={'span'} className={classes.instructions}>
                 {getStepContent(activeStep)}
               </Typography>
             </div>
@@ -366,15 +412,7 @@ export default function CampaignDetails() {
               className={classes.backButton}>
               Back
             </Button>
-            {activeStep === steps.length - 1 ? (
-              <Button variant='contained' color='primary' onClick={handleSave}>
-                Create Character
-              </Button>
-            ) : (
-              <Button variant='contained' color='primary' onClick={handleNext}>
-                Next
-              </Button>
-            )}
+            {nextButtons(activeStep)}
           </div>
         </div>
       </DialogContent>
