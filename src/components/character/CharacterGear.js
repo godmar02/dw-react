@@ -163,17 +163,13 @@ export default function CharacterGear() {
             <TableRow>
               <TableCell align='center'>TYPE</TableCell>
               <TableCell align='center'>NAME</TableCell>
-              <TableCell align='center' colSpan='4'>
-                DESCRIPTION00000000000
-              </TableCell>
+              <TableCell align='center'>DESCRIPTION</TableCell>
               <TableCell align='center'>AMOUR</TableCell>
               <TableCell align='center'>RANGE</TableCell>
               <TableCell align='center'>COST</TableCell>
               <TableCell align='center'>USES</TableCell>
               <TableCell align='center'>TAGS</TableCell>
-              <TableCell align='center' colSpan='2'>
-                WEIGHT
-              </TableCell>
+              <TableCell align='center'>WEIGHT</TableCell>
               <TableCell>
                 <IconButton aria-label='add' onClick={handleClickOpen}>
                   <Add />
@@ -219,7 +215,7 @@ export default function CharacterGear() {
                         }
                       />
                     </TableCell>
-                    <TableCell colSpan='4'>
+                    <TableCell>
                       <TextField
                         multiline
                         fullWidth
@@ -325,7 +321,7 @@ export default function CharacterGear() {
                         </Select>
                       </FormControl>
                     </TableCell>
-                    <TableCell colSpan='2'>
+                    <TableCell>
                       <TextField
                         type='number'
                         fullWidth
@@ -350,12 +346,11 @@ export default function CharacterGear() {
                 );
               })}
             <TableRow>
-              <TableCell align='right' colSpan='11'>
+              <TableCell align='right' colSpan='8'>
                 LOAD
               </TableCell>
               <TableCell>
                 <TextField
-                  type='number'
                   fullWidth
                   error={validateLoad()}
                   size='small'
@@ -364,21 +359,10 @@ export default function CharacterGear() {
                   InputProps={{
                     readOnly: true,
                   }}
-                  value={totalLoad()}
+                  value={totalLoad() + ' / ' + maxLoad()}
                 />
               </TableCell>
-              <TableCell>
-                <TextField
-                  fullWidth
-                  size='small'
-                  variant='outlined'
-                  name='maxLoad'
-                  InputProps={{
-                    readOnly: true,
-                  }}
-                  value={'/ ' + maxLoad()}
-                />
-              </TableCell>
+              <TableCell></TableCell>
             </TableRow>
           </TableBody>
         </Table>

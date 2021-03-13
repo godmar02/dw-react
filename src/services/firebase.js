@@ -33,60 +33,7 @@ export function createCampaign(campaign, owner) {
   return db.collection('campaigns').doc(campaign).set({ owner: owner });
 }
 
-// Create new character
-export function createCharacter(
-  campaign,
-  charaName,
-  owner,
-  dwClass,
-  alignment,
-  race,
-  raceAttribute
-) {
-  return db
-    .collection('campaigns')
-    .doc(campaign)
-    .collection('characters')
-    .doc(charaName)
-    .set({
-      abilities: [
-        { category: 'STR', score: '1', affliction: 'Unafflicted' },
-        { category: 'DEX', score: '1', affliction: 'Unafflicted' },
-        { category: 'CON', score: '1', affliction: 'Unafflicted' },
-        { category: 'INT', score: '1', affliction: 'Unafflicted' },
-        { category: 'WIS', score: '1', affliction: 'Unafflicted' },
-        { category: 'CHA', score: '1', affliction: 'Unafflicted' },
-      ],
-      alignment: alignment,
-      armour: '',
-      backstory: '',
-      bonds: [{ bond: '' }],
-      class_features: [{ feature: '', checkbox: false }],
-      dw_class: dwClass,
-      full_name: '',
-      funds: '',
-      hp: '',
-      items: [
-        {
-          name: '',
-          description: '',
-          type: '',
-          range: '',
-          cost: '',
-          weight: '',
-          uses: '',
-          tags: [],
-        },
-      ],
-      level: '',
-      look: '',
-      owner: owner,
-      race: race,
-      race_attribute: raceAttribute,
-      xp: '',
-    });
-}
-// Save Character
+// Save/Create Character
 export function saveCharacter(campaign, character, data) {
   return db
     .collection('campaigns')

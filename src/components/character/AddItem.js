@@ -8,26 +8,12 @@ import {
   DialogContent,
   DialogContentText,
   DialogTitle,
-  FormControl,
-  InputLabel,
-  MenuItem,
-  Select,
+  TextField,
 } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import Autocomplete from '@material-ui/lab/Autocomplete';
 import { items } from 'data/itemsList';
 
-const useStyles = makeStyles((theme) => ({
-  formControl: {
-    margin: theme.spacing(1),
-    minWidth: 120,
-  },
-  selectEmpty: {
-    marginTop: theme.spacing(2),
-  },
-}));
-
 export default function CampaignDetails() {
-  const classes = useStyles();
   const { open, setOpen } = useContext(AddItemState);
   const { character, setCharacter } = useContext(CharacterState);
   const [item, setItem] = useState('');
@@ -46,8 +32,10 @@ export default function CampaignDetails() {
   // Add rows in the table
   const addItemRow = () => {
     const newItem = items.find((x) => x.name === item);
-    const newItems = [...character.items, newItem]; // copying the old array and adding new item depending upon selection
-    setCharacter((character) => ({ ...character, items: newItems })); // set array back
+    if (newItem) {
+      const newItems = [...character.items, newItem]; // copying the old array and adding new item depending upon selection
+      setCharacter((character) => ({ ...character, items: newItems })); // set array back
+    }
   };
 
   return (
@@ -58,25 +46,22 @@ export default function CampaignDetails() {
       <DialogTitle id='form-dialog-title'>Add new item</DialogTitle>{' '}
       <DialogContent>
         <DialogContentText>
-          Select an item to add from the list. If you wish to create your own
-          select '---CUSTOM---'.
+          Search for an item to add. If you wish to create your own choose
+          'CUSTOM'.
         </DialogContentText>
-        <FormControl variant='outlined' className={classes.formControl}>
-          <InputLabel>Item</InputLabel>
-          <Select
-            label='Item'
-            value={item}
-            name='item'
-            onChange={(event) => setItem(event.target.value)}>
-            {items.map((data, key) => {
-              return (
-                <MenuItem value={data.name} key={key}>
-                  {data.name}
-                </MenuItem>
-              );
-            })}
-          </Select>
-        </FormControl>
+        <Autocomplete
+          freeSolo
+          onChange={(event, value) => setItem(value)}
+          options={items.map((option) => option.name)}
+          renderInput={(params) => (
+            <TextField
+              {...params}
+              label='Items'
+              margin='normal'
+              variant='outlined'
+            />
+          )}
+        />
       </DialogContent>
       <DialogActions>
         <Button onClick={handleCancel} color='primary'>

@@ -1,12 +1,11 @@
 import React, { useContext } from 'react';
 import CharacterState from 'components/contexts/CharacterState';
-import { TextField } from '@material-ui/core';
+import { InputAdornment, TextField } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   textField: {
-    width: 80,
-
+    width: 100,
     '& input': {
       textAlign: 'center',
     },
@@ -50,23 +49,17 @@ export default function CharacterXP() {
         variant='outlined'
         label='XP'
         error={validateXp()}
+        InputProps={{
+          endAdornment: (
+            <InputAdornment position='end'>{' / ' + maxXp()}</InputAdornment>
+          ),
+        }}
         min={0}
         size='small'
         className={classes.textField}
         name='xp'
         value={character.xp || ''}
         onChange={handleCharacterChange}
-      />
-      <TextField
-        variant='outlined'
-        size='small'
-        label='Max XP'
-        className={classes.textField}
-        name='maxXp'
-        InputProps={{
-          readOnly: true,
-        }}
-        value={'/ ' + maxXp()}
       />
     </>
   );

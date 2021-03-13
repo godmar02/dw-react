@@ -85,15 +85,43 @@ export default function CampaignDetails() {
       charaRaceAttribute
     ) {
       //don't save unless details present
-      FirebaseService.createCharacter(
-        campaignURL,
-        charaName,
-        currentUser.email,
-        charaClass,
-        charaAlignment,
-        charaRace,
-        charaRaceAttribute
-      )
+      FirebaseService.saveCharacter(campaignURL, charaName, {
+        abilities: [
+          { category: 'STR', score: '1', affliction: 'Unafflicted' },
+          { category: 'DEX', score: '1', affliction: 'Unafflicted' },
+          { category: 'CON', score: '1', affliction: 'Unafflicted' },
+          { category: 'INT', score: '1', affliction: 'Unafflicted' },
+          { category: 'WIS', score: '1', affliction: 'Unafflicted' },
+          { category: 'CHA', score: '1', affliction: 'Unafflicted' },
+        ],
+        alignment: charaAlignment,
+        armour: '0',
+        backstory: '',
+        bonds: [{ bond: '' }],
+        class_features: [{ feature: '', checkbox: false }],
+        dw_class: charaClass,
+        full_name: '',
+        funds: '0',
+        hp: '',
+        items: [
+          {
+            name: '',
+            description: '',
+            type: '',
+            range: '',
+            cost: '',
+            weight: '',
+            uses: '',
+            tags: [],
+          },
+        ],
+        level: '1',
+        look: '',
+        owner: currentUser.email,
+        race: charaRace,
+        race_attribute: charaRaceAttribute,
+        xp: '0',
+      })
         .then(() => {
           console.info('Created Character:', charaName);
         })
