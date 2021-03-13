@@ -14,7 +14,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import { AppBar, Box, Tab, Tabs } from '@material-ui/core';
 import CharacterSheetHeader from 'components/character/CharacterSheetHeader';
 import CharacterBasicDetails from 'components/character/CharacterBasicDetails';
-import CharacterType from 'components/character/CharacterType';
 import CharacterBasicStats from 'components/character/CharacterBasicStats';
 import CharacterAbilities from 'components/character/CharacterAbilities';
 import CharacterBonds from 'components/character/CharacterBonds';
@@ -140,13 +139,10 @@ export default function CharacterSheet() {
         <CharacterAbilities />
         <br />
         <AppBar position='static'>
-          <Tabs
-            value={value}
-            onChange={handleTabChange}
-            aria-label='simple tabs example'>
-            <Tab label='Basic Details' {...a11yProps(0)} />
+          <Tabs value={value} onChange={handleTabChange}>
+            <Tab label='Character' {...a11yProps(0)} />
             <Tab label='Bonds' {...a11yProps(1)} />
-            <Tab label='Class Features' {...a11yProps(2)} />
+            <Tab label='Features' {...a11yProps(2)} />
             <Tab label='Gear' {...a11yProps(3)} />
             <Tab label='Moves' {...a11yProps(4)} />
             <Tab label='Dice Roller' {...a11yProps(5)} />
@@ -154,8 +150,6 @@ export default function CharacterSheet() {
         </AppBar>
         <TabPanel value={value} index={0}>
           <CharacterBasicDetails />
-          <br />
-          <CharacterType />
         </TabPanel>
         <TabPanel value={value} index={1}>
           <CharacterBonds />

@@ -10,7 +10,6 @@ import { standard_moves } from 'data/standardMovesList';
 export default function CharacterStandardMoves() {
   return (
     <>
-      {' '}
       {standard_moves.map((data, index) => {
         return (
           <Accordion key={index}>
@@ -22,7 +21,7 @@ export default function CharacterStandardMoves() {
             </AccordionDetails>
           </Accordion>
         );
-      })}{' '}
+      })}
     </>
   );
 }

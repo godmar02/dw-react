@@ -36,6 +36,7 @@ useEffect(() => {
     ],
     level: 2,
     look: 'scraggly',
+    moves: [],
     owner: 'markwgodden@gmail.com',
     race: 'Elf',
     race_attribute: 'test',
