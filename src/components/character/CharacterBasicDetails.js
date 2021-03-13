@@ -10,6 +10,7 @@ import {
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import CharacterState from 'components/contexts/CharacterState';
+import { class_details } from 'data/classDetails';
 
 const useStyles = makeStyles({
   table: {
@@ -26,6 +27,15 @@ export default function CharacterBasicDetails() {
     const value = target.value;
     const name = target.name;
     setCharacter((character) => ({ ...character, [name]: value }));
+  };
+
+  const suggestedLook = () => {
+    if (character.dw_class) {
+      let dwc = character.dw_class;
+      return class_details[dwc].suggested_look;
+    } else {
+      return '';
+    }
   };
 
   return (
@@ -70,7 +80,7 @@ export default function CharacterBasicDetails() {
                 fullWidth
                 variant='outlined'
                 aria-label='empty textarea'
-                placeholder="Describe your character's appearance here"
+                placeholder={suggestedLook()}
                 name='look'
                 value={character.look}
                 onChange={handleCharacterChange}

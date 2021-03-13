@@ -8,7 +8,6 @@ import {
   Checkbox,
   Dialog,
   DialogContent,
-  DialogContentText,
   FormControl,
   FormControlLabel,
   FormGroup,
@@ -51,10 +50,11 @@ const useStyles = makeStyles((theme) => ({
 
 function getSteps() {
   return [
-    'Choose',
+    'Choose Class, Race & Alignment',
+    'Create Name',
     'Select Race Attribute',
     'Select Gear',
-    'Select Moves',
+    'Select Class Moves',
     'Select Bonds',
   ];
 }
@@ -117,6 +117,14 @@ export default function CampaignDetails() {
   const classDescription = () => {
     if (charaClass) {
       return class_details[charaClass].description;
+    } else {
+      return '';
+    }
+  };
+
+  const suggestedNames = () => {
+    if (charaClass) {
+      return class_details[charaClass].suggested_names;
     } else {
       return '';
     }
@@ -201,22 +209,16 @@ export default function CampaignDetails() {
       case 0:
         return (
           <>
-            <TextField
-              autoFocus={true}
-              margin='dense'
-              id='name'
-              label='Short Character Name'
-              fullWidth
-              onChange={(event) => setCharaName(event.target.value)}
-            />
-            <br />
             <FormControl variant='outlined' className={classes.formControl}>
               <InputLabel>Class</InputLabel>
               <Select
                 label='Class'
                 value={charaClass}
                 name='class'
-                onChange={(event) => setCharaClass(event.target.value)}>
+                onChange={(event) => {
+                  setCharaAlignment('');
+                  setCharaClass(event.target.value);
+                }}>
                 {dw_classes.map((data, key) => {
                   return (
                     <MenuItem value={data} key={key}>
@@ -267,6 +269,21 @@ export default function CampaignDetails() {
         );
       case 1:
         return (
+          <>
+            <TextField
+              autoFocus={true}
+              margin='dense'
+              id='name'
+              label='Short Character Name'
+              fullWidth
+              onChange={(event) => setCharaName(event.target.value)}
+            />
+            <p>Suggested Names: </p>
+            <p dangerouslySetInnerHTML={{ __html: suggestedNames() }} />
+          </>
+        );
+      case 2:
+        return (
           <FormControl component='fieldset' className={classes.formControl}>
             <RadioGroup
               aria-label='race attribute'
@@ -286,11 +303,11 @@ export default function CampaignDetails() {
             </RadioGroup>
           </FormControl>
         );
-      case 2:
-        return <p dangerouslySetInnerHTML={{ __html: gearDetails() }} />;
       case 3:
-        return 'This is the bit I really care about!';
+        return <p dangerouslySetInnerHTML={{ __html: gearDetails() }} />;
       case 4:
+        return 'This is the bit I really care about!';
+      case 5:
         return (
           <div className={classes.root}>
             <FormControl component='fieldset' className={classes.formControl}>

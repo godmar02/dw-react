@@ -85,7 +85,7 @@
       "range": "",
       "cost": 10,
       "weight": 0,
-      "uses": "",
+      "uses": "1",
       "tags": []
     },
     {

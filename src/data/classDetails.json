@@ -1554,12 +1554,9 @@
       ],
       "gear_details": "<p>Your load is 7+Str. You start with your spellbook (1 weight) and dungeon rations (5 uses, 1 weight). Choose your defenses:</p><ul><li>Leather armor (1 armor, 1 weight)</li><li>Bag of books (5 uses, 2 weight) and 3 healing potions</li></ul><p>Choose your weapon:</p><ul><li>Dagger (hand, 1 weight)</li><li>Staff (close, two-handed, 1 weight)</li></ul><p>Choose one:</p><ul><li>Healing potion (0 weight)</li><li>3 antitoxins (0 weight)</li></ul>",
       "starting_gear_options": [
-        [
-          "Leather armor",
-          "Bag of books (5 uses, 2 weight) and 3 healing potions"
-        ],
+        ["Leather armor", "Bag of books and 3 healing potions"],
         ["Dagger", "Staff"],
-        ["Healing potion", "3 antitoxins"]
+        ["Healing potion", "3 Antitoxins"]
       ],
       "moves": [
         {
