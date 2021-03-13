@@ -64,6 +64,16 @@ export default function CampaignDetails() {
     saveCharacter();
   };
 
+  const alignmentAttribute = () => {
+    if (charaClass && charaAlignment) {
+      return class_details[charaClass].alignments.find(
+        (x) => x.alignment === charaAlignment
+      ).attribute;
+    } else {
+      return '';
+    }
+  };
+
   // Create New Character
   const saveCharacter = () => {
     if (
@@ -167,6 +177,19 @@ export default function CampaignDetails() {
               })}
           </Select>
         </FormControl>
+        {
+          <TextField
+            multiline
+            fullWidth
+            variant='outlined'
+            aria-label='empty textarea'
+            name='alignmentAttribute'
+            InputProps={{
+              readOnly: true,
+            }}
+            value={alignmentAttribute()}
+          />
+        }
         <br />
         <FormControl component='fieldset' className={classes.formControl}>
           <FormLabel component='legend'>Race Attribute</FormLabel>

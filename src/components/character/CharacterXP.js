@@ -19,11 +19,20 @@ export default function CharacterXP() {
   const classes = useStyles();
 
   // Total Load
-  const calcMaxXp = () => {
+  const maxXp = () => {
     if (character.level) {
-      return '/ ' + (parseInt(character.level, 10) + 7);
+      return parseInt(character.level, 10) + 7;
     } else {
       return '';
+    }
+  };
+
+  // Validate XP
+  const validateXp = () => {
+    if (parseInt(character.xp, 10) > maxXp()) {
+      return true;
+    } else {
+      return false;
     }
   };
 
@@ -40,6 +49,7 @@ export default function CharacterXP() {
         type='number'
         variant='outlined'
         label='XP'
+        error={validateXp()}
         min={0}
         size='small'
         className={classes.textField}
@@ -56,7 +66,7 @@ export default function CharacterXP() {
         InputProps={{
           readOnly: true,
         }}
-        value={calcMaxXp()}
+        value={'/ ' + maxXp()}
       />
     </>
   );

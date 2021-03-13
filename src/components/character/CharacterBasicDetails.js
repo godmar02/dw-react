@@ -33,7 +33,7 @@ export default function CharacterBasicDetails() {
       <Table className={classes.table} size='small' aria-label='simple table'>
         <TableBody>
           <TableRow>
-            <th>FULL NAME</th>
+            <TableCell>FULL NAME</TableCell>
             <TableCell>
               <TextField
                 multiline
@@ -48,7 +48,7 @@ export default function CharacterBasicDetails() {
             </TableCell>
           </TableRow>
           <TableRow>
-            <th>BACKSTORY</th>
+            <TableCell>BACKSTORY</TableCell>
             <TableCell>
               <TextField
                 multiline
@@ -63,7 +63,7 @@ export default function CharacterBasicDetails() {
             </TableCell>
           </TableRow>
           <TableRow>
-            <th>LOOK</th>
+            <TableCell>LOOK</TableCell>
             <TableCell>
               <TextField
                 multiline

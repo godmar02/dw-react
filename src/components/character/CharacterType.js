@@ -47,18 +47,7 @@ export default function CharacterType() {
       <Table className={classes.table} size='small' aria-label='simple table'>
         <TableBody>
           <TableRow>
-            <th>CLASS</th>
-            <TableCell
-              style={{
-                width: '25%',
-              }}>
-              {character.dw_class}
-            </TableCell>
-            <TableCell></TableCell>
-          </TableRow>
-          <TableRow>
-            <th>RACE</th>
-            <TableCell>{character.race}</TableCell>
+            <TableCell>RACE ATTRIBUTE</TableCell>
             <TableCell>
               <TextField
                 multiline
@@ -74,8 +63,7 @@ export default function CharacterType() {
             </TableCell>
           </TableRow>
           <TableRow>
-            <th>ALIGNMENT</th>
-            <TableCell>{character.alignment}</TableCell>
+            <TableCell>ALIGNMENT ATTRIBUTE</TableCell>
             <TableCell>
               {
                 <TextField

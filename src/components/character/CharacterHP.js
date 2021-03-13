@@ -23,15 +23,23 @@ export default function CharacterHP() {
   const maxHp = () => {
     if (character.dw_class && character.abilities) {
       return (
-        '/ ' +
-        (class_details[dwc].base_hp +
-          parseInt(
-            character.abilities.find((x) => x.category === 'CON').score,
-            10
-          ))
+        class_details[dwc].base_hp +
+        parseInt(
+          character.abilities.find((x) => x.category === 'CON').score,
+          10
+        )
       );
     } else {
       return '';
+    }
+  };
+
+  // Validate XP
+  const validateHp = () => {
+    if (parseInt(character.hp, 10) > maxHp()) {
+      return true;
+    } else {
+      return false;
     }
   };
 
@@ -48,6 +56,7 @@ export default function CharacterHP() {
         type='number'
         variant='outlined'
         label='HP'
+        error={validateHp()}
         min={0}
         size='small'
         className={classes.textField}
@@ -64,7 +73,7 @@ export default function CharacterHP() {
         InputProps={{
           readOnly: true,
         }}
-        value={maxHp()}
+        value={'/ ' + maxHp()}
       />
     </>
   );

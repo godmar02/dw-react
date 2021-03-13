@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import CharacterState from 'components/contexts/CharacterState';
 import { ability_afflictions } from 'data/abilityAfflictions';
 import {
@@ -112,6 +112,19 @@ export default function CharacterAbilities() {
     }
   };
 
+  // Validate Score
+  const validateScore = () => {
+    const totalScore = character.abilities.reduce(
+      (totalScore, data) => totalScore + parseInt(data.score || 0, 10),
+      0
+    );
+    if (totalScore !== 73) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
   return (
     <Grid container spacing={0} justify='center'>
       {character.abilities &&
@@ -128,6 +141,7 @@ export default function CharacterAbilities() {
                   <TextField
                     type='number'
                     variant='outlined'
+                    error={validateScore()}
                     size='small'
                     margin='none'
                     min={1}

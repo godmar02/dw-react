@@ -1,6 +1,17 @@
 {
   "items": [
     {
+      "name": "---CUSTOM---",
+      "description": "",
+      "type": "",
+      "armour": "",
+      "range": "",
+      "cost": "",
+      "weight": "",
+      "uses": "",
+      "tags": []
+    },
+    {
       "name": "Adventuring Gear",
       "description": "Adventuring gear is a collection of useful mundane items such as chalk, poles, spikes, ropes, etc. When you rummage through your adventuring gear for some useful mundane item, you find what you need and mark off a use.",
       "type": "Item",
@@ -23,18 +34,6 @@
       "tags": ["Slow"]
     },
     {
-      "name": "Poultices and Herbs",
-      "description": "When you carefully treat someone’s wounds with poultices and herbs, heal them of 7 damage and expend a use.",
-      "type": "Item",
-      "armour": 0,
-      "range": "",
-      "cost": 10,
-      "weight": 1,
-      "uses": 2,
-      "tags": ["Slow"]
-    },
-
-    {
       "name": "Healing Potion",
       "description": "When you drink an entire healing potion, heal yourself of 10 damage or remove one debility, your choice.",
       "type": "Item",
@@ -55,6 +54,17 @@
       "weight": 4,
       "uses": "",
       "tags": []
+    },
+    {
+      "name": "Poultices and Herbs",
+      "description": "When you carefully treat someone’s wounds with poultices and herbs, heal them of 7 damage and expend a use.",
+      "type": "Item",
+      "armour": 0,
+      "range": "",
+      "cost": 10,
+      "weight": 1,
+      "uses": 2,
+      "tags": ["Slow"]
     },
     {
       "name": "Bag of Books",

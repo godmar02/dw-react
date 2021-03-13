@@ -30,9 +30,9 @@ const useStyles = makeStyles({
 
 export default function CampaignDetails() {
   const classes = useStyles();
-  const [open, setOpen] = useState(CreateCharacterState);
   const { campaign } = useContext(CampaignState);
   const { campaignURL } = useParams();
+  const [open, setOpen] = useState(false);
   const ctx = useMemo(() => ({ open, setOpen }), [open]);
 
   const handleClickOpen = () => {
