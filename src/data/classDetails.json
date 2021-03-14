@@ -1005,9 +1005,9 @@
         "I respect the beliefs of _______________ but hope they will someday see the true way.",
         "_______________ is a brave soul, I have much to learn from them."
       ],
-      "gear_details": "<p>Your load is 12+Str. You start with dungeon rations (5 uses, 1 weight), scale armor (2 armor, 3 weight), and some mark of faith, describe it (0 weight).</p><p>Choose your weapon:</p><ul><li>Halberd (reach, +1 damage, two-handed, 2 weight)</li><li>Long sword (close, +1 damage, 1 weight) and shield (+1 armor, 2 weight)</li></ul><p>Choose one:</p><ul><li>Adventuring gear (1 weight)</li><li>Dungeon rations (1 weight) and healing potion (0 weight)</li></ul>",
+      "gear_details": "<p>Your load is 12+Str. You start with dungeon rations (5 uses, 1 weight), scale mail (2 armor, 3 weight), and some mark of faith, describe it (0 weight).</p><p>Choose your weapon:</p><ul><li>Halberd (reach, +1 damage, two-handed, 2 weight)</li><li>Long sword (close, +1 damage, 1 weight) and shield (+1 armor, 2 weight)</li></ul><p>Choose one:</p><ul><li>Adventuring gear (1 weight)</li><li>Dungeon rations (1 weight) and healing potion (0 weight)</li></ul>",
       "starting_funds": 0,
-      "starting_gear": ["Dungeon Rations", "Scale Armour", "Mark of Faith"],
+      "starting_gear": ["Dungeon Rations", "Scale Mail", "Mark of Faith"],
       "starting_gear_options": [
         ["Halberd", "Long sword and shield"],
         ["Adventuring gear", "Dungeon rations and healing potion"]
@@ -1388,12 +1388,14 @@
       ],
       "gear_details": "<p>Your load is 9+Str. You start with dungeon rations (5 uses, 1 weight), leather armor (1 armor, 1 weight), 3 uses of your chosen poison, and 10 coins.</p><p>Choose your arms:</p><ul><li>Dagger (hand, 1 weight) and short sword (close, 1 weight)</li><li>Rapier (close, precise, 1 weight)</li></ul><p>Choose a ranged weapon:</p><ul><li>3 throwing daggers (thrown, near, 0 weight)</li><li>Ragged Bow (near, 2 weight) and bundle of arrows (3 ammo, 1 weight)</li></ul><p>Choose one:</p><ul><li>Adventuring gear (1 weight)</li><li>Healing potion (0 weight)</li></ul>",
       "starting_funds": 10,
-      "starting_gear": [
-        "Dungeon Rations",
-        "Leather Armour",
-        "3 uses of chosen poison"
-      ],
+      "starting_gear": ["Dungeon Rations", "Leather Armour"],
       "starting_gear_options": [
+        [
+          "3x Oil of Tagit",
+          "3x Bloodweed",
+          "3x Goldenroot",
+          "3x Serpent’s Tears"
+        ],
         ["Dagger and short sword", "Rapier"],
         ["3 throwing daggers", "Ragged Bow and bundle of arrows"],
         ["Adventuring gear", "Healing potion"]

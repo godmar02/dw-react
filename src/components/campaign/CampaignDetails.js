@@ -101,6 +101,9 @@ export default function CampaignDetails() {
                     <Typography variant='body2' component='p'>
                       XP: {campaign.characterData.xp}
                     </Typography>
+                    <Typography variant='body2' component='p'>
+                      Funds: {campaign.characterData.funds}
+                    </Typography>
                   </CardContent>
                 </Card>
               </Grid>
