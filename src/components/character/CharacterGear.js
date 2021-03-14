@@ -7,7 +7,9 @@ import { itemRanges } from 'data/itemRanges';
 import { itemTypes } from 'data/itemTypes';
 import { itemTags } from 'data/itemTags';
 import {
+  Box,
   Chip,
+  Collapse,
   FormControl,
   IconButton,
   Input,
@@ -23,7 +25,12 @@ import {
   TextField,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import { Add, Delete } from '@material-ui/icons';
+import {
+  Add,
+  Delete,
+  KeyboardArrowDown,
+  KeyboardArrowUp,
+} from '@material-ui/icons';
 
 const useStyles = makeStyles((theme) => ({
   chips: {
@@ -40,6 +47,11 @@ const useStyles = makeStyles((theme) => ({
   },
   table: {
     minWidth: 650,
+  },
+  root: {
+    '& > *': {
+      borderBottom: 'unset',
+    },
   },
 }));
 
@@ -59,6 +71,7 @@ export default function CharacterGear() {
   const { character, setCharacter } = useContext(CharacterState);
   const dwc = character.dw_class;
   const [open, setOpen] = useState(false);
+  const [openRow, setOpenRow] = useState(false);
   const ctx = useMemo(() => ({ open, setOpen }), [open]);
 
   const totalLoad = () => {
@@ -156,14 +169,10 @@ export default function CharacterGear() {
         <Table className={classes.table} aria-label='simple table'>
           <TableHead>
             <TableRow>
-              <TableCell align='center'>TYPE</TableCell>
+              <TableCell></TableCell>
               <TableCell align='center'>NAME</TableCell>
-              <TableCell align='center'>DESCRIPTION</TableCell>
               <TableCell align='center'>AMOUR</TableCell>
-              <TableCell align='center'>RANGE</TableCell>
-              <TableCell align='center'>COST</TableCell>
               <TableCell align='center'>USES</TableCell>
-              <TableCell align='center'>TAGS</TableCell>
               <TableCell align='center'>WEIGHT</TableCell>
               <TableCell>
                 <IconButton aria-label='add' onClick={handleClickOpen}>
@@ -176,154 +185,203 @@ export default function CharacterGear() {
             {character.items &&
               character.items.map((items, index) => {
                 return (
-                  <TableRow key={index}>
-                    <TableCell align='center'>
-                      <FormControl
-                        variant='outlined'
-                        size='small'
-                        className={classes.formControl}>
-                        <Select
-                          tabIndex={-1}
-                          value={items.type}
-                          name='type'
-                          onChange={(event) => updateItem(event, index)}>
-                          {itemTypes.map((type, index) => (
-                            <MenuItem key={index} value={type}>
-                              {type}
-                            </MenuItem>
-                          ))}
-                        </Select>
-                      </FormControl>
-                    </TableCell>
-                    <TableCell>
-                      <TextField
-                        fullWidth
-                        size='small'
-                        variant='outlined'
-                        aria-label='empty textarea'
-                        value={items.name}
-                        name='name'
-                        onChange={(event) => updateItem(event, index)}
-                      />
-                    </TableCell>
-                    <TableCell>
-                      <TextField
-                        multiline
-                        fullWidth
-                        size='small'
-                        variant='outlined'
-                        aria-label='empty textarea'
-                        value={items.description}
-                        name='description'
-                        onChange={(event) => updateItem(event, index)}
-                      />
-                    </TableCell>
-                    <TableCell align='center'>
-                      <TextField
-                        type='number'
-                        fullWidth
-                        size='small'
-                        variant='outlined'
-                        min={0}
-                        name='armour'
-                        value={items.armour}
-                        onChange={(event) => updateItem(event, index)}
-                      />
-                    </TableCell>
-                    <TableCell align='center'>
-                      <FormControl
-                        variant='outlined'
-                        size='small'
-                        className={classes.formControl}>
-                        <Select
-                          tabIndex={-1}
-                          value={items.range}
-                          name='range'
-                          onChange={(event) => updateItem(event, index)}>
-                          {itemRanges.map((range, index) => (
-                            <MenuItem key={index} value={range}>
-                              {range}
-                            </MenuItem>
-                          ))}
-                        </Select>
-                      </FormControl>
-                    </TableCell>
-                    <TableCell align='center'>
-                      <TextField
-                        type='number'
-                        fullWidth
-                        size='small'
-                        variant='outlined'
-                        min={0}
-                        name='cost'
-                        value={items.cost}
-                        onChange={(event) => updateItem(event, index)}
-                      />
-                    </TableCell>
-                    <TableCell align='center'>
-                      <TextField
-                        type='number'
-                        fullWidth
-                        size='small'
-                        variant='outlined'
-                        min={0}
-                        name='uses'
-                        value={items.uses}
-                        onChange={(event) => updateItem(event, index)}
-                      />
-                    </TableCell>
-                    <TableCell>
-                      <FormControl className={classes.formControl}>
-                        <Select
-                          multiple
-                          value={items.tags}
-                          name='tags'
-                          onChange={(event) => updateItem(event, index)}
-                          input={<Input />}
-                          renderValue={(selected) => (
-                            <div className={classes.chips}>
-                              {selected.map((value, index) => (
-                                <Chip
-                                  key={index}
-                                  label={value}
-                                  className={classes.chip}
-                                />
-                              ))}
-                            </div>
+                  <>
+                    <TableRow key={index} className={classes.root}>
+                      <TableCell>
+                        <IconButton
+                          aria-label='expand row'
+                          size='small'
+                          onClick={() => setOpenRow(!openRow)}>
+                          {openRow ? (
+                            <KeyboardArrowUp />
+                          ) : (
+                            <KeyboardArrowDown />
                           )}
-                          MenuProps={MenuProps}>
-                          {itemTags.map((name, index) => (
-                            <MenuItem key={index} value={name}>
-                              {name}
-                            </MenuItem>
-                          ))}
-                        </Select>
-                      </FormControl>
-                    </TableCell>
-                    <TableCell>
-                      <TextField
-                        type='number'
-                        fullWidth
-                        size='small'
-                        variant='outlined'
-                        min={0}
-                        value={items.weight}
-                        name='weight'
-                        onChange={(event) => updateItem(event, index)}
-                      />
-                    </TableCell>
-                    <TableCell>
-                      <IconButton
-                        aria-label='delete'
-                        onClick={() => deleteItem(index)}>
-                        <Delete />
-                      </IconButton>
-                    </TableCell>
-                  </TableRow>
+                        </IconButton>
+                      </TableCell>
+                      <TableCell>
+                        <TextField
+                          fullWidth
+                          size='small'
+                          variant='outlined'
+                          aria-label='empty textarea'
+                          value={items.name}
+                          name='name'
+                          onChange={(event) => updateItem(event, index)}
+                        />
+                      </TableCell>
+                      <TableCell align='center'>
+                        <TextField
+                          type='number'
+                          fullWidth
+                          size='small'
+                          variant='outlined'
+                          min={0}
+                          name='armour'
+                          value={items.armour}
+                          onChange={(event) => updateItem(event, index)}
+                        />
+                      </TableCell>
+                      <TableCell align='center'>
+                        <TextField
+                          type='number'
+                          fullWidth
+                          size='small'
+                          variant='outlined'
+                          min={0}
+                          name='uses'
+                          value={items.uses}
+                          onChange={(event) => updateItem(event, index)}
+                        />
+                      </TableCell>
+                      <TableCell>
+                        <TextField
+                          type='number'
+                          fullWidth
+                          size='small'
+                          variant='outlined'
+                          min={0}
+                          value={items.weight}
+                          name='weight'
+                          onChange={(event) => updateItem(event, index)}
+                        />
+                      </TableCell>
+                      <TableCell>
+                        <IconButton
+                          aria-label='delete'
+                          onClick={() => deleteItem(index)}>
+                          <Delete />
+                        </IconButton>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell
+                        style={{ paddingBottom: 0, paddingTop: 0 }}
+                        colSpan={6}>
+                        <Collapse in={openRow} timeout='auto' unmountOnExit>
+                          <Box margin={1}>
+                            <Table size='small' aria-label='purchases'>
+                              <TableHead>
+                                <TableRow>
+                                  <TableCell align='center'>TYPE</TableCell>
+                                  <TableCell align='center'>
+                                    DESCRIPTION
+                                  </TableCell>
+                                  <TableCell align='center'>RANGE</TableCell>
+                                  <TableCell align='center'>COST</TableCell>
+                                  <TableCell align='center'>TAGS</TableCell>
+                                </TableRow>
+                              </TableHead>
+                              <TableBody>
+                                <TableCell align='center'>
+                                  <FormControl
+                                    variant='outlined'
+                                    size='small'
+                                    className={classes.formControl}>
+                                    <Select
+                                      tabIndex={-1}
+                                      value={items.type}
+                                      name='type'
+                                      onChange={(event) =>
+                                        updateItem(event, index)
+                                      }>
+                                      {itemTypes.map((type, index) => (
+                                        <MenuItem key={index} value={type}>
+                                          {type}
+                                        </MenuItem>
+                                      ))}
+                                    </Select>
+                                  </FormControl>
+                                </TableCell>
+                                <TableCell>
+                                  <TextField
+                                    multiline
+                                    fullWidth
+                                    size='small'
+                                    variant='outlined'
+                                    aria-label='empty textarea'
+                                    value={items.description}
+                                    name='description'
+                                    onChange={(event) =>
+                                      updateItem(event, index)
+                                    }
+                                  />
+                                </TableCell>
+                                <TableCell align='center'>
+                                  <FormControl
+                                    variant='outlined'
+                                    size='small'
+                                    className={classes.formControl}>
+                                    <Select
+                                      tabIndex={-1}
+                                      value={items.range}
+                                      name='range'
+                                      onChange={(event) =>
+                                        updateItem(event, index)
+                                      }>
+                                      {itemRanges.map((range, index) => (
+                                        <MenuItem key={index} value={range}>
+                                          {range}
+                                        </MenuItem>
+                                      ))}
+                                    </Select>
+                                  </FormControl>
+                                </TableCell>
+                                <TableCell align='center'>
+                                  <TextField
+                                    type='number'
+                                    fullWidth
+                                    size='small'
+                                    variant='outlined'
+                                    min={0}
+                                    name='cost'
+                                    value={items.cost}
+                                    onChange={(event) =>
+                                      updateItem(event, index)
+                                    }
+                                  />
+                                </TableCell>
+                                <TableCell>
+                                  <FormControl className={classes.formControl}>
+                                    <Select
+                                      multiple
+                                      value={items.tags}
+                                      name='tags'
+                                      onChange={(event) =>
+                                        updateItem(event, index)
+                                      }
+                                      input={<Input />}
+                                      renderValue={(selected) => (
+                                        <div className={classes.chips}>
+                                          {selected.map((value, index) => (
+                                            <Chip
+                                              key={index}
+                                              label={value}
+                                              className={classes.chip}
+                                            />
+                                          ))}
+                                        </div>
+                                      )}
+                                      MenuProps={MenuProps}>
+                                      {itemTags.map((name, index) => (
+                                        <MenuItem key={index} value={name}>
+                                          {name}
+                                        </MenuItem>
+                                      ))}
+                                    </Select>
+                                  </FormControl>
+                                </TableCell>
+                              </TableBody>
+                            </Table>
+                          </Box>
+                        </Collapse>
+                      </TableCell>
+                    </TableRow>
+                  </>
                 );
               })}
             <TableRow>
-              <TableCell align='right' colSpan='8'>
+              <TableCell align='right' colSpan='4'>
                 LOAD
               </TableCell>
               <TableCell>
