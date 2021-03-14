@@ -11,6 +11,8 @@
         "_______________ shares my hunger for glory; the earth will tremble at our passing!"
       ],
       "gear_details": "<p>You start with Dungeon Rations (5 uses, 1 weight), a Dagger (hand, 1 weight), and some Token of where you’ve travelled or where you’re from.</p><p>Choose one of:</p><ul><li>Axe (close, 1 weight)</li><li>Two-handed Sword (close, +1 damage, 2 weight)</li></ul><p>Choose one:</p><ul><li>Adventuring Gear (5 uses, 1 weight) and Dungeon Rations (5 uses, ration, 1 weight)</li><li>Chainmail (1 armor, worn, 1 weight)</li></ul>",
+      "starting_funds": 0,
+      "starting_gear": ["Dungeon Rations", "Dagger", "Token"],
       "starting_gear_options": [
         ["Axe", "Two-handed Sword"],
         ["Adventuring Gear and Dungeon Rations", "Chainmail"]
@@ -186,10 +188,10 @@
           "attribute": "Teach someone the ways of your people."
         }
       ],
-      "race_attributes": [
+      "race_moves": [
         {
           "race": "Any",
-          "attribute": "You may be elf, dwarf, halfling, or human, You and your people are not from around here. At the beginning of each session, the GM will ask you something about your homeland, why you left, or what you left behind. If you answer them, mark XP"
+          "move": "You may be elf, dwarf, halfling, or human, You and your people are not from around here. At the beginning of each session, the GM will ask you something about your homeland, why you left, or what you left behind. If you answer them, mark XP"
         }
       ]
     },
@@ -205,7 +207,9 @@
         "_______________ trusted me with a secret.",
         "_______________ does not trust me, and for good reason."
       ],
-      "gear_details": "<p>Your load is 9+Str. You have dungeon rations (5 uses, 1 weight). Choose one instrument, all are 0 weight for you:</p><ul><li>Your father&#8217;s mandolin, repaired</li><li>A fine lute, a gift from a noble</li><li>The pipes with which you courted your first love</li><li>A stolen horn</li><li>A fiddle, never before played</li><li>A songbook in a forgotten tongue</li></ul><p>Choose your clothing:</p><ul><li>Leather armor (1 armor, 1 weight)</li><li>Ostentatious clothes (0 weight)</li></ul><p>Choose your armament:</p><ul><li>Dueling rapier (close, precise, 2 weight)</li><li>Worn bow (near, 2 weight), bundle of arrows (3 ammo, 1 weight), and short sword (close, 1 weight)</li></ul><p>Choose one:</p><ul><li>Adventuring gear (1 weight)</li><li>Bandages (0 weight)</li><li>Halfling pipeleaf (0 weight)</li><li>3 coins</li></ul>",
+      "gear_details": "<p>Your load is 9+Str. You have dungeon rations (5 uses, 1 weight).</p><p>Choose one instrument, all are 0 weight for you:</p><ul><li>Your father&#8217;s mandolin, repaired</li><li>A fine lute, a gift from a noble</li><li>The pipes with which you courted your first love</li><li>A stolen horn</li><li>A fiddle, never before played</li><li>A songbook in a forgotten tongue</li></ul><p>Choose your clothing:</p><ul><li>Leather armor (1 armor, 1 weight)</li><li>Ostentatious clothes (0 weight)</li></ul><p>Choose your armament:</p><ul><li>Dueling rapier (close, precise, 2 weight)</li><li>Worn bow (near, 2 weight), bundle of arrows (3 ammo, 1 weight), and short sword (close, 1 weight)</li></ul><p>Choose one:</p><ul><li>Adventuring gear (1 weight)</li><li>Bandages (0 weight)</li><li>Halfling pipeleaf (0 weight)</li><li>3 coins</li></ul>",
+      "starting_funds": 0,
+      "starting_gear": ["Dungeon Rations"],
       "starting_gear_options": [
         [
           "Your father's mandolin, repaired",
@@ -220,7 +224,7 @@
           "Dueling rapier (close, precise, 2 weight)",
           "Worn bow (near, 2 weight), bundle of arrows (3 ammo, 1 weight), and short sword (close, 1 weight)"
         ],
-        ["Adventuring gear", "Bandages", "Halfling pipeleaf", "3 coins"]
+        ["Adventuring Gear", "Bandages", "Halfling Pipeleaf", "3 coins"]
       ],
       "moves": [
         {
@@ -385,14 +389,14 @@
           "attribute": "Spur others to significant and unplanned decisive action."
         }
       ],
-      "race_attributes": [
+      "race_moves": [
         {
           "race": "Elf",
-          "attribute": "When you enter an important location (your call) you can ask the GM for one fact from the history of that location."
+          "move": "When you enter an important location (your call) you can ask the GM for one fact from the history of that location."
         },
         {
           "race": "Human",
-          "attribute": "When you first enter a civilized settlement someone who respects the custom of hospitality to minstrels will take you in as their guest."
+          "move": "When you first enter a civilized settlement someone who respects the custom of hospitality to minstrels will take you in as their guest."
         }
       ]
     },
@@ -406,7 +410,9 @@
         "_______________ is in constant danger, I will keep them safe.",
         "I am working on converting _______________ to my faith."
       ],
-      "gear_details": "<p>Your load is 10+Str. You carry dungeon rations (5 uses, 1 weight) and some symbol of the divine, describe it (0 weight). Choose your defenses:</p><ul><li>Chainmail (1 armor, 1 weight)</li><li>Shield (+1 armor, 2 weight)</li></ul><p>Choose your armament:</p><ul><li>Warhammer (close, 1 weight)</li><li>Mace (close, 1 weight)</li><li>Staff (close, two-handed, 1 weight) and bandages (0 weight)</li></ul><p>Choose one:</p><ul><li>Adventuring gear (1 weight) and dungeon rations (5 uses, 1 weight)</li><li>Healing potion (0 weight)</li></ul>",
+      "gear_details": "<p>Your load is 10+Str. You carry dungeon rations (5 uses, 1 weight) and some symbol of the divine, describe it (0 weight).</p><p>Choose your defenses:</p><ul><li>Chainmail (1 armor, 1 weight)</li><li>Shield (+1 armor, 2 weight)</li></ul><p>Choose your armament:</p><ul><li>Warhammer (close, 1 weight)</li><li>Mace (close, 1 weight)</li><li>Staff (close, two-handed, 1 weight) and bandages (0 weight)</li></ul><p>Choose one:</p><ul><li>Adventuring gear (1 weight) and dungeon rations (5 uses, 1 weight)</li><li>Healing potion (0 weight)</li></ul>",
+      "starting_funds": 0,
+      "starting_gear": ["Dungeon Rations", "Symbol of the Divine"],
       "starting_gear_options": [
         ["Chainmail", "Shield"],
         ["Warhammer", "Mace", "Staff and bandages"],
@@ -587,14 +593,14 @@
           "attribute": "Harm another to prove the superiority of your church or god."
         }
       ],
-      "race_attributes": [
+      "race_moves": [
         {
           "race": "Dwarf",
-          "attribute": "You are one with stone. When you commune you are also granted a special version of Words of the Unspeaking as a rote which only works on stone."
+          "move": "You are one with stone. When you commune you are also granted a special version of Words of the Unspeaking as a rote which only works on stone."
         },
         {
           "race": "Human",
-          "attribute": "Your faith is diverse. Choose one wizard spell. You can cast and be granted that spell as if it was a cleric spell."
+          "move": "Your faith is diverse. Choose one wizard spell. You can cast and be granted that spell as if it was a cleric spell."
         }
       ]
     },
@@ -608,7 +614,9 @@
         "I have showed ________________ a secret rite of the Land.",
         "___________ has tasted my blood and I theirs. We are bound by it."
       ],
-      "gear_details": "<p>Your load is 6+Str. You carry some token of your land, describe it. Choose your defenses:</p><ul><li>Hide armor (1 armor, 1 weight)</li><li>Wooden shield (+1 armor, 1 weight)</li></ul>Choose your armament:<ul><li>Shillelagh (close, 2 weight)</li><li>Staff (close, two-handed, 1 weight)</li><li>Spear (close, thrown, near, 1 weight)</li></ul>Choose one:<ul><li>Adventuring gear (1 weight)</li><li>Poultices and herbs (2 uses, 1 weight)</li><li>Halfling pipeleaf (0 weight)</li><li>3 antitoxin (0 weight)</li></ul>",
+      "gear_details": "<p>Your load is 6+Str. You carry some token of your land, describe it.</p><p>Choose your defenses:</p><ul><li>Hide armor (1 armor, 1 weight)</li><li>Wooden shield (+1 armor, 1 weight)</li></ul>Choose your armament:<ul><li>Shillelagh (close, 2 weight)</li><li>Staff (close, two-handed, 1 weight)</li><li>Spear (close, thrown, near, 1 weight)</li></ul>Choose one:<ul><li>Adventuring gear (1 weight)</li><li>Poultices and herbs (2 uses, 1 weight)</li><li>Halfling pipeleaf (0 weight)</li><li>3 antitoxin (0 weight)</li></ul>",
+      "starting_funds": 0,
+      "starting_gear": ["Token"],
       "starting_gear_options": [
         ["Hide armor", "Wooden shield"],
         ["Shillelagh", "Staff", "Spear"],
@@ -783,22 +791,22 @@
         }
       ],
 
-      "race_attributes": [
+      "race_moves": [
         {
           "race": "Dwarf",
-          "attribute": "When you share a drink with someone, you may parley with them using CON instead of CHA."
+          "move": "When you share a drink with someone, you may parley with them using CON instead of CHA."
         },
         {
           "race": "Elf",
-          "attribute": "The sap of the elder trees flows within you. In addition to any other attunements, the Great Forest is always considered your land."
+          "move": "The sap of the elder trees flows within you. In addition to any other attunements, the Great Forest is always considered your land."
         },
         {
           "race": "Halfling",
-          "attribute": "You sing the healing songs of spring and brook. When you make camp, you and your allies heal +1d6."
+          "move": "You sing the healing songs of spring and brook. When you make camp, you and your allies heal +1d6."
         },
         {
           "race": "Human",
-          "attribute": "As your people learned to bind animals to field and farm, so too are you bound to them. You may always take the shape of any domesticated animal, in addition to your normal options."
+          "move": "As your people learned to bind animals to field and farm, so too are you bound to them. You may always take the shape of any domesticated animal, in addition to your normal options."
         }
       ]
     },
@@ -812,7 +820,9 @@
         "I worry about the ability of _______________ to survive in the dungeon.",
         "_______________ is soft, but I will make them hard like me."
       ],
-      "gear_details": "<p>Your load is 12+Str. You carry your signature weapon and dungeon rations (5 uses, 1 weight). Choose your defenses:</p><ul><li>Chainmail (1 armor, 1 weight) and adventuring gear (1 weight)</li><li>Scale armor (2 armor, 3 weight)</li></ul><p>Choose two:</p><ul><li>2 Healing potions (0 weight)</li><li>Shield (+1 armor, 2 weight)</li><li>Antitoxin (0 weight), dungeon rations (1 weight), and poultices and herbs (1 weight)</li><li>22 coins</li></ul>",
+      "gear_details": "<p>Your load is 12+Str. You carry your signature weapon and dungeon rations (5 uses, 1 weight).</p><p>Choose your defenses:</p><ul><li>Chainmail (1 armor, 1 weight) and adventuring gear (1 weight)</li><li>Scale armor (2 armor, 3 weight)</li></ul><p>Choose two:</p><ul><li>2 Healing potions (0 weight)</li><li>Shield (+1 armor, 2 weight)</li><li>Antitoxin (0 weight), dungeon rations (1 weight), and poultices and herbs (1 weight)</li><li>22 coins</li></ul>",
+      "starting_funds": 0,
+      "starting_gear": ["Dungeon Rations", "Signature Weapon"],
       "starting_gear_options": [
         ["Chainmail and adventuring gear", "Scale armor"],
         [
@@ -970,18 +980,18 @@
           "attribute": "Kill a defenseless or surrendered enemy."
         }
       ],
-      "race_attributes": [
+      "race_moves": [
         {
           "race": "Elf",
-          "attribute": "Choose one weapon—you can always treat weapons of that type as if they had the precise tag."
+          "move": "Choose one weapon—you can always treat weapons of that type as if they had the precise tag."
         },
         {
           "race": "Halfling",
-          "attribute": "When you defy danger and use your small size to your advantage, take +1."
+          "move": "When you defy danger and use your small size to your advantage, take +1."
         },
         {
           "race": "Human",
-          "attribute": "Once per battle you may reroll a single damage roll (yours or someone else's)."
+          "move": "Once per battle you may reroll a single damage roll (yours or someone else's)."
         }
       ]
     },
@@ -995,7 +1005,9 @@
         "I respect the beliefs of _______________ but hope they will someday see the true way.",
         "_______________ is a brave soul, I have much to learn from them."
       ],
-      "gear_details": "<p>Your load is 12+Str. You start with dungeon rations (5 uses, 1 weight), scale armor (2 armor, 3 weight), and some mark of faith, describe it (0 weight). Choose your weapon:</p><ul><li>Halberd (reach, +1 damage, two-handed, 2 weight)</li><li>Long sword (close, +1 damage, 1 weight) and shield (+1 armor, 2 weight)</li></ul><p>Choose one:</p><ul><li>Adventuring gear (1 weight)</li><li>Dungeon rations (1 weight) and healing potion (0 weight)</li></ul>",
+      "gear_details": "<p>Your load is 12+Str. You start with dungeon rations (5 uses, 1 weight), scale armor (2 armor, 3 weight), and some mark of faith, describe it (0 weight).</p><p>Choose your weapon:</p><ul><li>Halberd (reach, +1 damage, two-handed, 2 weight)</li><li>Long sword (close, +1 damage, 1 weight) and shield (+1 armor, 2 weight)</li></ul><p>Choose one:</p><ul><li>Adventuring gear (1 weight)</li><li>Dungeon rations (1 weight) and healing potion (0 weight)</li></ul>",
+      "starting_funds": 0,
+      "starting_gear": ["Dungeon Rations", "Scale Armour", "Mark of Faith"],
       "starting_gear_options": [
         ["Halberd", "Long sword and shield"],
         ["Adventuring gear", "Dungeon rations and healing potion"]
@@ -1159,10 +1171,10 @@
           "attribute": "Endanger yourself to protect someone weaker than you."
         }
       ],
-      "race_attributes": [
+      "race_moves": [
         {
           "race": "Human",
-          "attribute": "When you pray for guidance, even for a moment, and ask, 'What here is evil?'' the GM will tell you, honestly."
+          "move": "When you pray for guidance, even for a moment, and ask, 'What here is evil?'' the GM will tell you, honestly."
         }
       ]
     },
@@ -1176,7 +1188,13 @@
         "_______________ knows incriminating details about me.",
         "_______________ and I have a con running."
       ],
-      "gear_details": "<p>Your load is 11+Str. You start with dungeon rations (5 uses, 1 weight), leather armor (1 armor, 1 weight), and a bundle of arrows (3 ammo, 1 weight). Choose your armament:</p><ul><li>Hunter&#8217;s bow (near, far, 1 weight) and short sword (close, 1 weight)</li><li>Hunter&#8217;s bow (near, far, 1 weight) and spear (reach, 1 weight)</li></ul><p>Choose one:</p><ul><li>Adventuring gear (1 weight) and dungeon rations (1 weight)</li><li>Adventuring gear (1 weight) and bundle of arrows (3 ammo, 1 weight)</li></ul>",
+      "gear_details": "<p>Your load is 11+Str. You start with dungeon rations (5 uses, 1 weight), leather armor (1 armor, 1 weight), and a bundle of arrows (3 ammo, 1 weight).</p><p>Choose your armament:</p><ul><li>Hunter&#8217;s bow (near, far, 1 weight) and short sword (close, 1 weight)</li><li>Hunter&#8217;s bow (near, far, 1 weight) and spear (reach, 1 weight)</li></ul><p>Choose one:</p><ul><li>Adventuring gear (1 weight) and dungeon rations (1 weight)</li><li>Adventuring gear (1 weight) and bundle of arrows (3 ammo, 1 weight)</li></ul>",
+      "starting_funds": 0,
+      "starting_gear": [
+        "Dungeon Rations",
+        "Leather Armour",
+        "Bundle of Arrows"
+      ],
       "starting_gear_options": [
         ["Hunter's bow and short sword", "Hunter's bow and spear"],
         [
@@ -1347,14 +1365,14 @@
           "attribute": "Help an animal or spirit of the wild."
         }
       ],
-      "race_attributes": [
+      "race_moves": [
         {
           "race": "Elf",
-          "attribute": "When you undertake a perilous journey through wilderness whatever job you take you succeed as if you rolled a 10+."
+          "move": "When you undertake a perilous journey through wilderness whatever job you take you succeed as if you rolled a 10+."
         },
         {
           "race": "Human",
-          "attribute": "When you make camp in a dungeon or city, you don't need to consume a ration."
+          "move": "When you make camp in a dungeon or city, you don't need to consume a ration."
         }
       ]
     },
@@ -1368,7 +1386,13 @@
         "_______________ knows incriminating details about me.",
         "_______________ and I have a con running."
       ],
-      "gear_details": "<p>Your load is 9+Str. You start with dungeon rations (5 uses, 1 weight), leather armor (1 armor, 1 weight), 3 uses of your chosen poison, and 10 coins. Choose your arms:</p><ul><li>Dagger (hand, 1 weight) and short sword (close, 1 weight)</li><li>Rapier (close, precise, 1 weight)</li></ul><p>Choose a ranged weapon:</p><ul><li>3 throwing daggers (thrown, near, 0 weight)</li><li>Ragged Bow (near, 2 weight) and bundle of arrows (3 ammo, 1 weight)</li></ul><p>Choose one:</p><ul><li>Adventuring gear (1 weight)</li><li>Healing potion (0 weight)</li></ul>",
+      "gear_details": "<p>Your load is 9+Str. You start with dungeon rations (5 uses, 1 weight), leather armor (1 armor, 1 weight), 3 uses of your chosen poison, and 10 coins.</p><p>Choose your arms:</p><ul><li>Dagger (hand, 1 weight) and short sword (close, 1 weight)</li><li>Rapier (close, precise, 1 weight)</li></ul><p>Choose a ranged weapon:</p><ul><li>3 throwing daggers (thrown, near, 0 weight)</li><li>Ragged Bow (near, 2 weight) and bundle of arrows (3 ammo, 1 weight)</li></ul><p>Choose one:</p><ul><li>Adventuring gear (1 weight)</li><li>Healing potion (0 weight)</li></ul>",
+      "starting_funds": 10,
+      "starting_gear": [
+        "Dungeon Rations",
+        "Leather Armour",
+        "3 uses of chosen poison"
+      ],
       "starting_gear_options": [
         ["Dagger and short sword", "Rapier"],
         ["3 throwing daggers", "Ragged Bow and bundle of arrows"],
@@ -1532,14 +1556,14 @@
         }
       ],
 
-      "race_attributes": [
+      "race_moves": [
         {
           "race": "Halfling",
-          "attribute": "When you attack with a ranged weapon, deal +2 damage."
+          "move": "When you attack with a ranged weapon, deal +2 damage."
         },
         {
           "race": "Human",
-          "attribute": "You are a professional. When you spout lore or discern realities about criminal activities, take +1."
+          "move": "You are a professional. When you spout lore or discern realities about criminal activities, take +1."
         }
       ]
     },
@@ -1552,7 +1576,10 @@
         "_______________ is keeping an important secret from me.",
         "_______________ is woefully misinformed about the world; I will teach them all that I can."
       ],
-      "gear_details": "<p>Your load is 7+Str. You start with your spellbook (1 weight) and dungeon rations (5 uses, 1 weight). Choose your defenses:</p><ul><li>Leather armor (1 armor, 1 weight)</li><li>Bag of books (5 uses, 2 weight) and 3 healing potions</li></ul><p>Choose your weapon:</p><ul><li>Dagger (hand, 1 weight)</li><li>Staff (close, two-handed, 1 weight)</li></ul><p>Choose one:</p><ul><li>Healing potion (0 weight)</li><li>3 antitoxins (0 weight)</li></ul>",
+      "gear_details": "<p>Your load is 7+Str. You start with your spellbook (1 weight) and dungeon rations (5 uses, 1 weight).</p><p>Choose your defenses:</p><ul><li>Leather armor (1 armor, 1 weight)</li><li>Bag of books (5 uses, 2 weight) and 3 healing potions</li></ul><p>Choose your weapon:</p><ul><li>Dagger (hand, 1 weight)</li><li>Staff (close, two-handed, 1 weight)</li></ul><p>Choose one:</p><ul><li>Healing potion (0 weight)</li><li>3 antitoxins (0 weight)</li></ul>",
+
+      "starting_funds": 0,
+      "starting_gear": ["Spellbook", "Dungeon Rations"],
       "starting_gear_options": [
         ["Leather armor", "Bag of books and 3 healing potions"],
         ["Dagger", "Staff"],
@@ -1728,15 +1755,15 @@
         }
       ],
 
-      "race_attributes": [
+      "race_moves": [
         {
           "race": "Elf",
-          "attribute": "Magic is as natural as breath to you. Detect Magic is a cantrip for you."
+          "move": "Magic is as natural as breath to you. Detect Magic is a cantrip for you."
         },
 
         {
           "race": "Human",
-          "attribute": "Choose one cleric spell. You can cast it as if it was a wizard spell."
+          "move": "Choose one cleric spell. You can cast it as if it was a wizard spell."
         }
       ]
     }

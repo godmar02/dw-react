@@ -12,6 +12,39 @@
       "tags": []
     },
     {
+      "name": "Symbol of the Divine",
+      "description": "A Symbol of the Divine, describe it",
+      "type": "Item",
+      "armour": 0,
+      "range": "",
+      "cost": "",
+      "weight": 0,
+      "uses": "",
+      "tags": []
+    },
+    {
+      "name": "Mark of Faith",
+      "description": "A Mark of Faith, describe it",
+      "type": "Item",
+      "armour": 0,
+      "range": "",
+      "cost": "",
+      "weight": 0,
+      "uses": "",
+      "tags": []
+    },
+    {
+      "name": "Token",
+      "description": "A Token of where you’ve travelled or where you’re from, describe it",
+      "type": "Item",
+      "armour": 0,
+      "range": "",
+      "cost": "",
+      "weight": 0,
+      "uses": "",
+      "tags": []
+    },
+    {
       "name": "Adventuring Gear",
       "description": "Adventuring gear is a collection of useful mundane items such as chalk, poles, spikes, ropes, etc. When you rummage through your adventuring gear for some useful mundane item, you find what you need and mark off a use.",
       "type": "Item",
@@ -400,6 +433,17 @@
       "tags": ["+1 damage"]
     },
     {
+      "name": "Two-handed Sword",
+      "description": "",
+      "type": "Weapon",
+      "armour": 0,
+      "range": "Close",
+      "cost": 20,
+      "weight": 2,
+      "uses": "",
+      "tags": ["+1 damage"]
+    },
+    {
       "name": "Battle Axe",
       "description": "",
       "type": "Weapon",
@@ -453,6 +497,17 @@
       "weight": 2,
       "uses": "",
       "tags": ["+1 piercing", "Precise"]
+    },
+    {
+      "name": "Signature Weapon",
+      "description": "",
+      "type": "Weapon",
+      "armour": 0,
+      "range": "",
+      "cost": "",
+      "weight": "",
+      "uses": "",
+      "tags": []
     },
     {
       "name": "Leather",

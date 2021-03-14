@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
+import React, { useContext, useMemo, useState } from 'react';
 import CharacterState from 'components/contexts/CharacterState';
-import { Add, Delete } from '@material-ui/icons';
-import { makeStyles } from '@material-ui/core/styles';
+import AddBondState from 'components/contexts/AddBondState';
+import AddBond from 'components/character/AddBond';
 import {
   IconButton,
   Paper,
@@ -13,6 +13,8 @@ import {
   TableRow,
   TextField,
 } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import { Add, Delete } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,75 +32,73 @@ const useStyles = makeStyles((theme) => ({
 export default function CharacterBonds() {
   const classes = useStyles();
   const { character, setCharacter } = useContext(CharacterState);
+  const [open, setOpen] = useState(false);
+  const ctx = useMemo(() => ({ open, setOpen }), [open]);
 
-  // State manipulation
   const updateBond = (index) => (e) => {
     let newBonds = [...character.bonds]; // copying the old array
     newBonds[index] = e.target.value; // replace value
     setCharacter((character) => ({ ...character, bonds: newBonds })); // set array back
   };
 
-  // Delete rows in the table
-  const deleteBondRow = (index) => {
+  const deleteBond = (index) => {
     const newBonds = [...character.bonds]; // copying the old array
-    if (character.bonds.length !== 1) {
-      //don't delete last row
-      newBonds.splice(index, 1); // remove item from array
-      setCharacter((character) => ({ ...character, bonds: newBonds })); // set array back
-    } else {
-      alert('Cannot delete final row');
-    }
-  };
-
-  // Add rows in the table
-  const addBondsRow = () => {
-    const newBonds = [...character.bonds, '']; // copying the old array and adding blank item
+    //don't delete last row
+    newBonds.splice(index, 1); // remove item from array
     setCharacter((character) => ({ ...character, bonds: newBonds })); // set array back
   };
 
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
   return (
-    <TableContainer component={Paper}>
-      <Table className={classes.table} aria-label='simple table'>
-        <TableHead>
-          <TableRow>
-            <TableCell align='center'>Bond</TableCell>
-            <TableCell>
-              <IconButton aria-label='add' onClick={() => addBondsRow()}>
-                <Add />
-              </IconButton>
-            </TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {character.bonds &&
-            character.bonds.map((bond, index) => {
-              return (
-                <TableRow key={index}>
-                  <TableCell>
-                    <TextField
-                      multiline
-                      fullWidth
-                      variant='outlined'
-                      aria-label='empty textarea'
-                      placeholder='Add 2-3 bonds here'
-                      value={bond}
-                      name={'bond' + index}
-                      onChange={updateBond(index)}
-                    />
-                  </TableCell>
-                  <TableCell>
-                    <IconButton
-                      aria-label='delete'
-                      onClick={() => deleteBondRow(index)}>
-                      <Delete />
-                    </IconButton>
-                  </TableCell>
-                </TableRow>
-              );
-            })}
-        </TableBody>
-        <tfoot />
-      </Table>
-    </TableContainer>
+    <>
+      <AddBondState.Provider value={ctx}>
+        <AddBond />
+      </AddBondState.Provider>
+      <TableContainer component={Paper}>
+        <Table className={classes.table} aria-label='simple table'>
+          <TableHead>
+            <TableRow>
+              <TableCell align='center'>Bond</TableCell>
+              <TableCell>
+                <IconButton aria-label='add' onClick={handleClickOpen}>
+                  <Add />
+                </IconButton>
+              </TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {character.bonds &&
+              character.bonds.map((bond, index) => {
+                return (
+                  <TableRow key={index}>
+                    <TableCell>
+                      <TextField
+                        multiline
+                        fullWidth
+                        variant='outlined'
+                        aria-label='empty textarea'
+                        placeholder='Add bonds detail here'
+                        value={bond}
+                        name={'bond' + index}
+                        onChange={updateBond(index)}
+                      />
+                    </TableCell>
+                    <TableCell>
+                      <IconButton
+                        aria-label='delete'
+                        onClick={() => deleteBond(index)}>
+                        <Delete />
+                      </IconButton>
+                    </TableCell>
+                  </TableRow>
+                );
+              })}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </>
   );
 }

@@ -29,7 +29,7 @@ export default function CharacterSheetHeader() {
       <h1>Name: {characterURL}</h1>
       <p>Class: {character.dw_class}</p>
       <p>
-        Race: {character.race} - {character.race_attribute}
+        Race: {character.race} - {character.race_move}
       </p>
       <p>
         Alignment: {character.alignment} - {alignmentAttribute()}

@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import AddItemState from 'components/contexts/AddItemState';
+import AddMoveState from 'components/contexts/AddMoveState';
 import CharacterState from 'components/contexts/CharacterState';
 import {
   Button,
@@ -11,29 +11,30 @@ import {
   TextField,
 } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import { items } from 'data/itemsList';
+import { class_details } from 'data/classDetails';
 
-export default function AddItem() {
-  const { open, setOpen } = useContext(AddItemState);
+export default function AddMove() {
+  const { open, setOpen } = useContext(AddMoveState);
   const { character, setCharacter } = useContext(CharacterState);
-  const [item, setItem] = useState('');
+  const [move, setMove] = useState('');
+  const dwc = character.dw_class;
 
   const handleCancel = () => {
-    setItem('');
+    setMove('');
     setOpen(false);
   };
 
   const handleSave = () => {
-    addItem();
-    setItem('');
+    addMove();
+    setMove('');
     setOpen(false);
   };
 
-  const addItem = () => {
-    const newItem = items.find((x) => x.name === item);
-    if (newItem) {
-      const newItems = [...character.items, newItem]; // copying the old array and adding new item depending upon selection
-      setCharacter((character) => ({ ...character, items: newItems })); // set array back
+  const addMove = () => {
+    const newMove = class_details.moves.find((x) => x.name === move);
+    if (newMove) {
+      const newMoves = [...character.moves, newMove]; // copying the old array and adding new move depending upon selection
+      setCharacter((character) => ({ ...character, moves: newMoves })); // set array back
     }
   };
 
@@ -42,20 +43,20 @@ export default function AddItem() {
       open={open}
       onClose={handleCancel}
       aria-labelledby='form-dialog-title'>
-      <DialogTitle id='form-dialog-title'>Add new item</DialogTitle>{' '}
+      <DialogTitle id='form-dialog-title'>Add new move</DialogTitle>{' '}
       <DialogContent>
         <DialogContentText>
-          Search for an item to add. If you wish to create your own choose
+          Search for an move to add. If you wish to create your own choose
           'CUSTOM'.
         </DialogContentText>
         <Autocomplete
           freeSolo
-          onChange={(event, value) => setItem(value)}
-          options={items.map((option) => option.name)}
+          onChange={(event, value) => setMove(value)}
+          options={class_details[dwc].moves.map((option) => option.name)}
           renderInput={(params) => (
             <TextField
               {...params}
-              label='Items'
+              label='Moves'
               margin='normal'
               variant='outlined'
             />
@@ -67,7 +68,7 @@ export default function AddItem() {
           Cancel
         </Button>
         <Button onClick={handleSave} color='primary'>
-          Add Item
+          Add Move
         </Button>
       </DialogActions>
     </Dialog>

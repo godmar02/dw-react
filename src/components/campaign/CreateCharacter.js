@@ -50,12 +50,12 @@ const useStyles = makeStyles((theme) => ({
 
 function getSteps() {
   return [
-    'Choose Class, Race & Alignment',
+    'Choose Class & Alignment',
     'Create Name',
-    'Select Race Attribute',
+    'Select Race & Race Move',
     'Select Gear',
     'Select Class Moves',
-    'Select Bonds',
+    'Add Bonds',
   ];
 }
 
@@ -66,7 +66,7 @@ export default function CampaignDetails() {
   const [charaClass, setCharaClass] = useState('');
   const [charaRace, setCharaRace] = useState('');
   const [charaAlignment, setCharaAlignment] = useState('');
-  const [charaRaceAttribute, setCharaRaceAttribute] = useState('');
+  const [charaRaceMove, setCharaRaceMove] = useState('');
   const [charaBonds, setCharaBonds] = useState([]);
   const { currentUser } = useContext(AuthState);
   const { campaignURL } = useParams();
@@ -103,7 +103,7 @@ export default function CampaignDetails() {
     setCharaClass('');
     setCharaRace('');
     setCharaAlignment('');
-    setCharaRaceAttribute('');
+    setCharaRaceMove('');
     setCharaBonds([]);
     setActiveStep(0);
     setOpen(false);
@@ -155,7 +155,7 @@ export default function CampaignDetails() {
       charaClass &&
       charaAlignment &&
       charaRace &&
-      charaRaceAttribute
+      charaRaceMove
     ) {
       let startingMoves = class_details[charaClass].moves.filter(
         (x) => x.level === 'starting'
@@ -198,7 +198,7 @@ export default function CampaignDetails() {
         moves: startingMoves,
         owner: currentUser.email,
         race: charaRace,
-        race_attribute: charaRaceAttribute,
+        race_move: charaRaceMove,
         xp: '0',
       })
         .then(() => {
@@ -238,24 +238,6 @@ export default function CampaignDetails() {
               </Select>
               <p dangerouslySetInnerHTML={{ __html: classDescription() }} />
             </FormControl>
-            <br />
-            <FormControl variant='outlined' className={classes.formControl}>
-              <InputLabel>Race</InputLabel>
-              <Select
-                label='Race'
-                value={charaRace}
-                name='race'
-                onChange={(event) => setCharaRace(event.target.value)}>
-                {races.map((data, index) => {
-                  return (
-                    <MenuItem value={data} key={index}>
-                      {data}
-                    </MenuItem>
-                  );
-                })}
-              </Select>
-            </FormControl>
-            <br />
             <FormControl variant='outlined' className={classes.formControl}>
               <InputLabel>Alignment</InputLabel>
               <Select
@@ -293,25 +275,44 @@ export default function CampaignDetails() {
         );
       case 2:
         return (
-          <FormControl component='fieldset' className={classes.formControl}>
-            <RadioGroup
-              aria-label='race attribute'
-              name='race attribute'
-              value={charaRaceAttribute}
-              onChange={(event) => setCharaRaceAttribute(event.target.value)}>
-              {charaClass &&
-                class_details[charaClass].race_attributes.map((data, index) => {
+          <>
+            <FormControl variant='outlined' className={classes.formControl}>
+              <InputLabel>Race</InputLabel>
+              <Select
+                label='Race'
+                value={charaRace}
+                name='race'
+                onChange={(event) => setCharaRace(event.target.value)}>
+                {races.map((data, index) => {
                   return (
-                    <FormControlLabel
-                      key={index}
-                      value={data.attribute}
-                      control={<Radio />}
-                      label={data.attribute + ' (' + data.race + ')'}
-                    />
+                    <MenuItem value={data} key={index}>
+                      {data}
+                    </MenuItem>
                   );
                 })}
-            </RadioGroup>
-          </FormControl>
+              </Select>
+            </FormControl>
+            <br />
+            <FormControl component='fieldset' className={classes.formControl}>
+              <RadioGroup
+                aria-label='race move'
+                name='race move'
+                value={charaRaceMove}
+                onChange={(event) => setCharaRaceMove(event.target.value)}>
+                {charaClass &&
+                  class_details[charaClass].race_moves.map((data, index) => {
+                    return (
+                      <FormControlLabel
+                        key={index}
+                        value={data.move}
+                        control={<Radio />}
+                        label={data.move + ' (' + data.race + ')'}
+                      />
+                    );
+                  })}
+              </RadioGroup>
+            </FormControl>
+          </>
         );
       case 3:
         return <p dangerouslySetInnerHTML={{ __html: gearDetails() }} />;
@@ -362,7 +363,7 @@ export default function CampaignDetails() {
         charaClass &&
         charaAlignment &&
         charaRace &&
-        charaRaceAttribute
+        charaRaceMove
       ) {
         return (
           <Button variant='contained' color='primary' onClick={handleSave}>

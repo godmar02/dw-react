@@ -10,5 +10,6 @@
         "fontsource",
         "fontsource roboto",
         "roboto"
-    ]
+    ],
+    "editor.wordWrap": "on"
 }

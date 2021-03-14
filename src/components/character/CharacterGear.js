@@ -1,8 +1,11 @@
 import React, { useContext, useMemo, useState } from 'react';
 import CharacterState from 'components/contexts/CharacterState';
 import AddItemState from 'components/contexts/AddItemState';
+import AddItem from 'components/character/AddItem';
 import { class_details } from 'data/classDetails';
-import { Add, Delete } from '@material-ui/icons';
+import { itemRanges } from 'data/itemRanges';
+import { itemTypes } from 'data/itemTypes';
+import { itemTags } from 'data/itemTags';
 import {
   Chip,
   FormControl,
@@ -20,10 +23,7 @@ import {
   TextField,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import { itemRanges } from 'data/itemRanges';
-import { itemTypes } from 'data/itemTypes';
-import { itemTags } from 'data/itemTags';
-import AddItem from 'components/character/AddItem';
+import { Add, Delete } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme) => ({
   chips: {
@@ -61,7 +61,6 @@ export default function CharacterGear() {
   const [open, setOpen] = useState(false);
   const ctx = useMemo(() => ({ open, setOpen }), [open]);
 
-  // Total Load
   const totalLoad = () => {
     if (character.items) {
       return character.items.reduce(
@@ -73,7 +72,6 @@ export default function CharacterGear() {
     }
   };
 
-  // Max Load
   const maxLoad = () => {
     if (
       character.dw_class &&
@@ -117,7 +115,6 @@ export default function CharacterGear() {
     }
   };
 
-  // Validate Load
   const validateLoad = () => {
     if (totalLoad() > maxLoad()) {
       return true;
@@ -126,8 +123,7 @@ export default function CharacterGear() {
     }
   };
 
-  // State manipulation
-  const handleCharacterChange = (event, index) => {
+  const updateItem = (event, index) => {
     const target = event.target;
     const value = target.value;
     const name = target.name;
@@ -136,8 +132,7 @@ export default function CharacterGear() {
     setCharacter((character) => ({ ...character, items: newItems })); // set array back
   };
 
-  // Delete rows in the table
-  const deleteItemRow = (index) => {
+  const deleteItem = (index) => {
     const newItems = [...character.items]; // copying the old array
     if (character.items.length !== 1) {
       //don't delete last row
@@ -191,9 +186,7 @@ export default function CharacterGear() {
                           tabIndex={-1}
                           value={items.type}
                           name='type'
-                          onChange={(event) =>
-                            handleCharacterChange(event, index)
-                          }>
+                          onChange={(event) => updateItem(event, index)}>
                           {itemTypes.map((type, index) => (
                             <MenuItem key={index} value={type}>
                               {type}
@@ -210,9 +203,7 @@ export default function CharacterGear() {
                         aria-label='empty textarea'
                         value={items.name}
                         name='name'
-                        onChange={(event) =>
-                          handleCharacterChange(event, index)
-                        }
+                        onChange={(event) => updateItem(event, index)}
                       />
                     </TableCell>
                     <TableCell>
@@ -224,9 +215,7 @@ export default function CharacterGear() {
                         aria-label='empty textarea'
                         value={items.description}
                         name='description'
-                        onChange={(event) =>
-                          handleCharacterChange(event, index)
-                        }
+                        onChange={(event) => updateItem(event, index)}
                       />
                     </TableCell>
                     <TableCell align='center'>
@@ -238,9 +227,7 @@ export default function CharacterGear() {
                         min={0}
                         name='armour'
                         value={items.armour}
-                        onChange={(event) =>
-                          handleCharacterChange(event, index)
-                        }
+                        onChange={(event) => updateItem(event, index)}
                       />
                     </TableCell>
                     <TableCell align='center'>
@@ -252,9 +239,7 @@ export default function CharacterGear() {
                           tabIndex={-1}
                           value={items.range}
                           name='range'
-                          onChange={(event) =>
-                            handleCharacterChange(event, index)
-                          }>
+                          onChange={(event) => updateItem(event, index)}>
                           {itemRanges.map((range, index) => (
                             <MenuItem key={index} value={range}>
                               {range}
@@ -272,9 +257,7 @@ export default function CharacterGear() {
                         min={0}
                         name='cost'
                         value={items.cost}
-                        onChange={(event) =>
-                          handleCharacterChange(event, index)
-                        }
+                        onChange={(event) => updateItem(event, index)}
                       />
                     </TableCell>
                     <TableCell align='center'>
@@ -286,9 +269,7 @@ export default function CharacterGear() {
                         min={0}
                         name='uses'
                         value={items.uses}
-                        onChange={(event) =>
-                          handleCharacterChange(event, index)
-                        }
+                        onChange={(event) => updateItem(event, index)}
                       />
                     </TableCell>
                     <TableCell>
@@ -297,9 +278,7 @@ export default function CharacterGear() {
                           multiple
                           value={items.tags}
                           name='tags'
-                          onChange={(event) =>
-                            handleCharacterChange(event, index)
-                          }
+                          onChange={(event) => updateItem(event, index)}
                           input={<Input />}
                           renderValue={(selected) => (
                             <div className={classes.chips}>
@@ -330,15 +309,13 @@ export default function CharacterGear() {
                         min={0}
                         value={items.weight}
                         name='weight'
-                        onChange={(event) =>
-                          handleCharacterChange(event, index)
-                        }
+                        onChange={(event) => updateItem(event, index)}
                       />
                     </TableCell>
                     <TableCell>
                       <IconButton
                         aria-label='delete'
-                        onClick={() => deleteItemRow(index)}>
+                        onClick={() => deleteItem(index)}>
                         <Delete />
                       </IconButton>
                     </TableCell>
