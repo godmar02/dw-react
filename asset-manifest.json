@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.js": "/dw-react/static/js/main.41f0d7fa.chunk.js",
-    "main.js.map": "/dw-react/static/js/main.41f0d7fa.chunk.js.map",
+    "main.js": "/dw-react/static/js/main.5201e80c.chunk.js",
+    "main.js.map": "/dw-react/static/js/main.5201e80c.chunk.js.map",
     "runtime-main.js": "/dw-react/static/js/runtime-main.fa72870d.js",
     "runtime-main.js.map": "/dw-react/static/js/runtime-main.fa72870d.js.map",
     "static/css/2.93b99520.chunk.css": "/dw-react/static/css/2.93b99520.chunk.css",
-    "static/js/2.a15ff43d.chunk.js": "/dw-react/static/js/2.a15ff43d.chunk.js",
-    "static/js/2.a15ff43d.chunk.js.map": "/dw-react/static/js/2.a15ff43d.chunk.js.map",
+    "static/js/2.b661a94e.chunk.js": "/dw-react/static/js/2.b661a94e.chunk.js",
+    "static/js/2.b661a94e.chunk.js.map": "/dw-react/static/js/2.b661a94e.chunk.js.map",
     "index.html": "/dw-react/index.html",
     "static/css/2.93b99520.chunk.css.map": "/dw-react/static/css/2.93b99520.chunk.css.map",
-    "static/js/2.a15ff43d.chunk.js.LICENSE.txt": "/dw-react/static/js/2.a15ff43d.chunk.js.LICENSE.txt",
+    "static/js/2.b661a94e.chunk.js.LICENSE.txt": "/dw-react/static/js/2.b661a94e.chunk.js.LICENSE.txt",
     "static/media/index.css": "/dw-react/static/media/roboto-vietnamese-400-normal.52cebac0.woff2"
   },
   "entrypoints": [
     "static/js/runtime-main.fa72870d.js",
     "static/css/2.93b99520.chunk.css",
-    "static/js/2.a15ff43d.chunk.js",
-    "static/js/main.41f0d7fa.chunk.js"
+    "static/js/2.b661a94e.chunk.js",
+    "static/js/main.5201e80c.chunk.js"
   ]
 }
