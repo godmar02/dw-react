@@ -26,7 +26,7 @@ export default function Homepage() {
   }, [setCampaigns]);
 
   useEffect(() => {
-    console.log('Campaigns State:', campaigns);
+    console.info('Campaigns State:', campaigns);
   }, [campaigns]); //Only log to console if state actually changes
 
   const ctx = useMemo(() => ({ campaigns }), [campaigns]); //Memo-ised state for performance

@@ -26,6 +26,7 @@ import {
 import { makeStyles } from '@material-ui/core/styles';
 import { class_details } from 'data/classDetails';
 import { dw_classes } from 'data/classList';
+import { items } from 'data/itemsList';
 import { races } from 'data/raceList';
 
 const useStyles = makeStyles((theme) => ({
@@ -84,17 +85,13 @@ export default function CampaignDetails() {
   const handleBondChange = (event) => {
     let target = event.target;
     if (target.checked) {
-      console.log('adding this to array:', target.name);
       //add to array
       const newBonds = [...charaBonds, target.name]; // copying the old array and adding item
       setCharaBonds(newBonds); // set array back
-      console.log(charaBonds);
     } else {
-      console.log('Removing this from array:', target.name);
       //remove from array
       let newBonds = charaBonds.filter((bond) => bond !== target.name); // copying the old array
       setCharaBonds(newBonds); // set array back
-      console.log(charaBonds);
     }
   };
 
@@ -157,12 +154,16 @@ export default function CampaignDetails() {
       charaRace &&
       charaRaceMove
     ) {
-      let startingMoves = class_details[charaClass].moves.filter(
-        (x) => x.level === 'starting'
+      const startingFunds = class_details[charaClass].starting_funds;
+      const startingMoves = class_details[charaClass].moves
+        .filter((x) => x.level === 'starting')
+        .map((moves) => moves.name);
+      const startingGear = class_details[charaClass].starting_gear.map((item) =>
+        items.find((x) => x.name === item)
       );
-      startingMoves = startingMoves.map((moves) => moves.name);
+      console.log(startingGear);
 
-      //don't save unless details present
+      // SAVE FUNCTION
       FirebaseService.saveCharacter(campaignURL, charaName, {
         abilities: [
           { category: 'STR', score: '1', affliction: 'Unafflicted' },
@@ -179,20 +180,9 @@ export default function CampaignDetails() {
         class_features: [{ feature: '', checkbox: false }],
         dw_class: charaClass,
         full_name: '',
-        funds: '0',
+        funds: startingFunds,
         hp: '',
-        items: [
-          {
-            name: '',
-            description: '',
-            type: '',
-            range: '',
-            cost: '',
-            weight: '',
-            uses: '',
-            tags: [],
-          },
-        ],
+        items: startingGear,
         level: '1',
         look: '',
         moves: startingMoves,
