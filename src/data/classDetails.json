@@ -11,7 +11,7 @@
         "_______________ shares my hunger for glory; the earth will tremble at our passing!"
       ],
       "starting_funds": 0,
-      "starting_gear_details": "<p>You start with Dungeon Rations (5 uses, 1 weight), a Dagger (hand, 1 weight), and some Token of where you’ve travelled or where you’re from.</p><p>Choose one of:</p><ul><li>Axe (close, 1 weight)</li><li>Two-handed Sword (close, +1 damage, 2 weight)</li></ul><p>Choose one:</p><ul><li>Adventuring Gear (5 uses, 1 weight) and Dungeon Rations (5 uses, ration, 1 weight)</li><li>Chainmail (1 armor, worn, 1 weight)</li></ul>",
+      "starting_gear_details": "<p>You start with Dungeon Rations (5 uses, 1 weight), a Dagger (hand, 1 weight), and some Token of where you’ve travelled or where you’re from.</p><p>Choose one of:</p><ul><li>Axe (close, 1 weight)</li><li>Two-handed Sword (close, +1 damage, 2 weight)</li></ul><p>Choose one:</p><ul><li>Adventuring Gear (5 uses, 1 weight) and Dungeon Rations (5 uses, ration, 1 weight)</li><li>Chainmail (1 armour, worn, 1 weight)</li></ul>",
       "starting_gear": ["Dungeon Rations", "Dagger", "Token"],
       "starting_gear_options": [
         [["Axe"], ["Two-handed Sword"]],
@@ -81,7 +81,7 @@
         "_______________ does not trust me, and for good reason."
       ],
       "starting_funds": 0,
-      "starting_gear_details": "<p>Your load is 9+Str. You have dungeon rations (5 uses, 1 weight).</p><p>Choose one instrument, all are 0 weight for you:</p><ul><li>Your father&#8217;s mandolin, repaired</li><li>A fine lute, a gift from a noble</li><li>The pipes with which you courted your first love</li><li>A stolen horn</li><li>A fiddle, never before played</li><li>A songbook in a forgotten tongue</li></ul><p>Choose your clothing:</p><ul><li>Leather armor (1 armor, 1 weight)</li><li>Ostentatious clothes (0 weight)</li></ul><p>Choose your armament:</p><ul><li>Dueling rapier (close, precise, 2 weight)</li><li>Worn bow (near, 2 weight), bundle of arrows (3 ammo, 1 weight), and short sword (close, 1 weight)</li></ul><p>Choose one:</p><ul><li>Adventuring gear (1 weight)</li><li>Bandages (0 weight)</li><li>Halfling pipeleaf (0 weight)</li><li>3 coins</li></ul>",
+      "starting_gear_details": "<p>Your load is 9+Str. You have dungeon rations (5 uses, 1 weight).</p><p>Choose one instrument, all are 0 weight for you:</p><ul><li>Your father&#8217;s mandolin, repaired</li><li>A fine lute, a gift from a noble</li><li>The pipes with which you courted your first love</li><li>A stolen horn</li><li>A fiddle, never before played</li><li>A songbook in a forgotten tongue</li></ul><p>Choose your clothing:</p><ul><li>Leather armour (1 armour, 1 weight)</li><li>Ostentatious clothes (0 weight)</li></ul><p>Choose your armament:</p><ul><li>Dueling rapier (close, precise, 2 weight)</li><li>Worn bow (near, 2 weight), bundle of arrows (3 ammo, 1 weight), and short sword (close, 1 weight)</li></ul><p>Choose one:</p><ul><li>Adventuring gear (1 weight)</li><li>Bandages (0 weight)</li><li>Halfling pipeleaf (0 weight)</li><li>3 coins</li></ul>",
       "starting_gear": ["Dungeon Rations"],
       "starting_gear_options": [
         [
@@ -92,7 +92,7 @@
           ["A fiddle, never before played"],
           ["A songbook in a forgotten tongue"]
         ],
-        [["Leather armor"], ["Ostentatious clothes"]],
+        [["Leather armour"], ["Ostentatious clothes"]],
         [["Dueling Rapier"], ["Worn bow", "Bundle of Arrows", "Short Sword"]],
         [["Adventuring Gear"], ["Bandages"], ["Halfling Pipeleaf"], ["3 coins"]]
       ],
@@ -166,7 +166,7 @@
         "I am working on converting _______________ to my faith."
       ],
       "starting_funds": 0,
-      "starting_gear_details": "<p>Your load is 10+Str. You carry dungeon rations (5 uses, 1 weight) and some symbol of the divine, describe it (0 weight).</p><p>Choose your defenses:</p><ul><li>Chainmail (1 armor, 1 weight)</li><li>Shield (+1 armor, 2 weight)</li></ul><p>Choose your armament:</p><ul><li>Warhammer (close, 1 weight)</li><li>Mace (close, 1 weight)</li><li>Staff (close, two-handed, 1 weight) and bandages (0 weight)</li></ul><p>Choose one:</p><ul><li>Adventuring gear (1 weight) and dungeon rations (5 uses, 1 weight)</li><li>Healing potion (0 weight)</li></ul>",
+      "starting_gear_details": "<p>Your load is 10+Str. You carry dungeon rations (5 uses, 1 weight) and some symbol of the divine, describe it (0 weight).</p><p>Choose your defenses:</p><ul><li>Chainmail (1 armour, 1 weight)</li><li>Shield (+1 armour, 2 weight)</li></ul><p>Choose your armament:</p><ul><li>Warhammer (close, 1 weight)</li><li>Mace (close, 1 weight)</li><li>Staff (close, two-handed, 1 weight) and bandages (0 weight)</li></ul><p>Choose one:</p><ul><li>Adventuring gear (1 weight) and dungeon rations (5 uses, 1 weight)</li><li>Healing potion (0 weight)</li></ul>",
       "starting_gear": ["Dungeon Rations", "Symbol of the Divine"],
       "starting_gear_options": [
         [["Chainmail"], ["Shield"]],
@@ -202,7 +202,7 @@
         "Greater First Aid",
         "Divine Invincibility",
         "Martyr",
-        "Divine Armor",
+        "Divine Armour",
         "Greater Empower",
         "Multiclass Dabbler"
       ],
@@ -245,10 +245,10 @@
         "___________ has tasted my blood and I theirs. We are bound by it."
       ],
       "starting_funds": 0,
-      "starting_gear_details": "<p>Your load is 6+Str. You carry some token of your land, describe it.</p><p>Choose your defenses:</p><ul><li>Hide armor (1 armor, 1 weight)</li><li>Wooden shield (+1 armor, 1 weight)</li></ul>Choose your armament:<ul><li>Shillelagh (close, 2 weight)</li><li>Staff (close, two-handed, 1 weight)</li><li>Spear (close, thrown, near, 1 weight)</li></ul>Choose one:<ul><li>Adventuring gear (1 weight)</li><li>Poultices and herbs (2 uses, 1 weight)</li><li>Halfling pipeleaf (0 weight)</li><li>3 antitoxin (0 weight)</li></ul>",
+      "starting_gear_details": "<p>Your load is 6+Str. You carry some token of your land, describe it.</p><p>Choose your defenses:</p><ul><li>Hide armour (1 armour, 1 weight)</li><li>Wooden shield (+1 armour, 1 weight)</li></ul>Choose your armament:<ul><li>Shillelagh (close, 2 weight)</li><li>Staff (close, two-handed, 1 weight)</li><li>Spear (close, thrown, near, 1 weight)</li></ul>Choose one:<ul><li>Adventuring gear (1 weight)</li><li>Poultices and herbs (2 uses, 1 weight)</li><li>Halfling pipeleaf (0 weight)</li><li>3 antitoxin (0 weight)</li></ul>",
       "starting_gear": ["Token"],
       "starting_gear_options": [
-        [["Hide armor"], ["Wooden Shield"]],
+        [["Hide armour"], ["Wooden Shield"]],
         [["Shillelagh"], ["Staff"], ["Spear"]],
         [
           ["Adventuring Gear"],
@@ -325,7 +325,7 @@
       ]
     },
     "Fighter": {
-      "description": "<p>It&#8217;s a thankless job&#8212;living day to day by your armor and the skill of your arm. To dive heedlessly into danger. They won&#8217;t be playing golden horns for the time you took that knife to the ribs for them in the bar in Bucksberg. No flock of angels to sing of the time you dragged them, still screaming, from the edge of the Pits of Madness, no.</p><p>Forget them.</p><p>You do this for the guts and the glory. The scream of battle and the hot, hot blood of it. You are a beast of iron. Your friends may carry blades of forged steel but, fighter, you are steel. While your traveling companions might moan about their wounds over a campfire in the wilderness, you bear your scars with pride.</p><p>You are the wall&#8212;let every danger smash itself to nothing on you. In the end, you&#8217;ll be the last one standing.</p>",
+      "description": "<p>It&#8217;s a thankless job&#8212;living day to day by your armour and the skill of your arm. To dive heedlessly into danger. They won&#8217;t be playing golden horns for the time you took that knife to the ribs for them in the bar in Bucksberg. No flock of angels to sing of the time you dragged them, still screaming, from the edge of the Pits of Madness, no.</p><p>Forget them.</p><p>You do this for the guts and the glory. The scream of battle and the hot, hot blood of it. You are a beast of iron. Your friends may carry blades of forged steel but, fighter, you are steel. While your traveling companions might moan about their wounds over a campfire in the wilderness, you bear your scars with pride.</p><p>You are the wall&#8212;let every danger smash itself to nothing on you. In the end, you&#8217;ll be the last one standing.</p>",
       "suggested_names": "<p><em>Dwarf</em>: Ozruk, Surtur, Brunhilda, Annika, Janos, Greta, Dim, Rundrig, Jarl, Xotoq</p>  <p><em>Elf</em>: Elohiir, Sharaseth, Hasrith, Shevaral, Cadeus, Eldar, Kithracet, Thelian</p>    <p><em>Halfling</em>: Finnegan, Olive, Randolph, Bartleby, Aubrey, Baldwin, Becca</p> <p><em>Human</em>: Hawke, Rudiger, Gregor, Brianne, Walton, Castor, Shanna, Ajax, Hob</p>",
       "suggested_look": "<p>Choose one for each:</p><p>Hard Eyes, Dead Eyes, or Eager Eyes</p><p>Wild Hair, Shorn Hair, or Battered Helm</p><p>Calloused Skin, Tanned Skin, or Scarred Skin</p><p>Built Body, Lithe Body, or Ravaged Body</p>",
       "suggested_bonds": [
@@ -335,10 +335,10 @@
         "_______________ is soft, but I will make them hard like me."
       ],
       "starting_funds": 0,
-      "starting_gear_details": "<p>Your load is 12+Str. You carry your signature weapon and dungeon rations (5 uses, 1 weight).</p><p>Choose your defenses:</p><ul><li>Chainmail (1 armor, 1 weight) and adventuring gear (1 weight)</li><li>Scale armor (2 armor, 3 weight)</li></ul><p>Choose two:</p><ul><li>2 Healing potions (0 weight)</li><li>Shield (+1 armor, 2 weight)</li><li>Antitoxin (0 weight), dungeon rations (1 weight), and poultices and herbs (1 weight)</li><li>22 coins</li></ul>",
+      "starting_gear_details": "<p>Your load is 12+Str. You carry your signature weapon and dungeon rations (5 uses, 1 weight).</p><p>Choose your defenses:</p><ul><li>Chainmail (1 armour, 1 weight) and adventuring gear (1 weight)</li><li>Scale armour (2 armour, 3 weight)</li></ul><p>Choose two:</p><ul><li>2 Healing potions (0 weight)</li><li>Shield (+1 armour, 2 weight)</li><li>Antitoxin (0 weight), dungeon rations (1 weight), and poultices and herbs (1 weight)</li><li>22 coins</li></ul>",
       "starting_gear": ["Dungeon Rations", "Signature Weapon"],
       "starting_gear_options": [
-        [["Chainmail", "Adventuring Gear"], ["Scale armor"]],
+        [["Chainmail", "Adventuring Gear"], ["Scale armour"]],
         [
           ["2 Healing potions"],
           ["Shield"],
@@ -348,14 +348,14 @@
       ],
       "starting_moves": [
         "Bend Bars, Lift Gates",
-        "Armored",
+        "Armoured",
         "Signature Weapon"
       ],
       "starting_move_options": [],
       "2to5_moves": [
         "Merciless",
         "Heirloom",
-        "Armor Mastery",
+        "Armour Mastery",
         "Improved Weapon",
         "Seeing Red",
         "Interrogator",
@@ -366,7 +366,7 @@
       "6to10_moves": [
         "Blacksmith",
         "Bloodthirsty",
-        "Armored Perfection",
+        "Armoured Perfection",
         "Evil Eye",
         "Taste of Blood",
         "Multiclass Initiate",
@@ -405,7 +405,7 @@
       ]
     },
     "Paladin": {
-      "description": "<p>Hell awaits. An eternity of torment in fire or ice or whatever best suits the sins of the damned throngs of Dungeon World. All that stands between the pits of that grim torture and salvation is you. Holy man, armored war machine, templar of the Good and the Light, right? The cleric may say his prayers at night to the gods, dwelling in their heavens. The fighter may wield his sharp sword in the name of &#8220;good&#8221; but you know. Only you.</p><p>Eyes, hands, and sweet killing blow of the gods, you are. Yours is the gift of righteousness and virtue. Of justice. Vision, too. A purity of intent that your companions do not have.</p><p>So guide these fools, paladin. Take up your holy cause and bring salvation to the wastrel world.</p> <p>Vae victis, right?</p>",
+      "description": "<p>Hell awaits. An eternity of torment in fire or ice or whatever best suits the sins of the damned throngs of Dungeon World. All that stands between the pits of that grim torture and salvation is you. Holy man, armoured war machine, templar of the Good and the Light, right? The cleric may say his prayers at night to the gods, dwelling in their heavens. The fighter may wield his sharp sword in the name of &#8220;good&#8221; but you know. Only you.</p><p>Eyes, hands, and sweet killing blow of the gods, you are. Yours is the gift of righteousness and virtue. Of justice. Vision, too. A purity of intent that your companions do not have.</p><p>So guide these fools, paladin. Take up your holy cause and bring salvation to the wastrel world.</p> <p>Vae victis, right?</p>",
       "suggested_names": "<p>Thaddeus, Augustine, Lux, Cassius, Hadrian, Lucia, Octavia, Regulus, Valeria, Sanguinus, Titanius</p>",
       "suggested_look": "<p>Choose one for each:</p><p>Kind Eyes, Fiery Eyes, or Glowing Eyes</p><p>Helmet, Styled Hair, or Bald</p><p>Worn Holy Symbol or Fancy Holy Symbol</p><p>Fit Body, Bulky Body, or Thin Body</p>",
       "suggested_bonds": [
@@ -415,7 +415,7 @@
         "_______________ is a brave soul, I have much to learn from them."
       ],
       "starting_funds": 0,
-      "starting_gear_details": "<p>Your load is 12+Str. You start with dungeon rations (5 uses, 1 weight), scale mail (2 armor, 3 weight), and some mark of faith, describe it (0 weight).</p><p>Choose your weapon:</p><ul><li>Halberd (reach, +1 damage, two-handed, 2 weight)</li><li>Long sword (close, +1 damage, 1 weight) and shield (+1 armor, 2 weight)</li></ul><p>Choose one:</p><ul><li>Adventuring gear (1 weight)</li><li>Dungeon rations (1 weight) and healing potion (0 weight)</li></ul>",
+      "starting_gear_details": "<p>Your load is 12+Str. You start with dungeon rations (5 uses, 1 weight), scale mail (2 armour, 3 weight), and some mark of faith, describe it (0 weight).</p><p>Choose your weapon:</p><ul><li>Halberd (reach, +1 damage, two-handed, 2 weight)</li><li>Long sword (close, +1 damage, 1 weight) and shield (+1 armour, 2 weight)</li></ul><p>Choose one:</p><ul><li>Adventuring gear (1 weight)</li><li>Dungeon rations (1 weight) and healing potion (0 weight)</li></ul>",
       "starting_gear": ["Dungeon Rations", "Scale Mail", "Mark of Faith"],
       "starting_gear_options": [
         [["Halberd"], ["Long Sword", "Shield"]],
@@ -423,7 +423,7 @@
       ],
       "starting_moves": [
         "Lay on Hands (Cha)",
-        "Armored",
+        "Armoured",
         "I Am the Law",
         "Quest"
       ],
@@ -483,7 +483,7 @@
         "_______________ and I have a con running."
       ],
       "starting_funds": 0,
-      "starting_gear_details": "<p>Your load is 11+Str. You start with dungeon rations (5 uses, 1 weight), leather armor (1 armor, 1 weight), and a bundle of arrows (3 ammo, 1 weight).</p><p>Choose your armament:</p><ul><li>Hunter&#8217;s bow (near, far, 1 weight) and short sword (close, 1 weight)</li><li>Hunter&#8217;s bow (near, far, 1 weight) and spear (reach, 1 weight)</li></ul><p>Choose one:</p><ul><li>Adventuring gear (1 weight) and dungeon rations (1 weight)</li><li>Adventuring gear (1 weight) and bundle of arrows (3 ammo, 1 weight)</li></ul>",
+      "starting_gear_details": "<p>Your load is 11+Str. You start with dungeon rations (5 uses, 1 weight), leather armour (1 armour, 1 weight), and a bundle of arrows (3 ammo, 1 weight).</p><p>Choose your armament:</p><ul><li>Hunter&#8217;s bow (near, far, 1 weight) and short sword (close, 1 weight)</li><li>Hunter&#8217;s bow (near, far, 1 weight) and spear (reach, 1 weight)</li></ul><p>Choose one:</p><ul><li>Adventuring gear (1 weight) and dungeon rations (1 weight)</li><li>Adventuring gear (1 weight) and bundle of arrows (3 ammo, 1 weight)</li></ul>",
       "starting_gear": [
         "Dungeon Rations",
         "Leather Armour",
@@ -569,7 +569,7 @@
         "_______________ and I have a con running."
       ],
       "starting_funds": 10,
-      "starting_gear_details": "<p>Your load is 9+Str. You start with dungeon rations (5 uses, 1 weight), leather armor (1 armor, 1 weight), 3 uses of your chosen poison, and 10 coins.</p><p>Choose your arms:</p><ul><li>Dagger (hand, 1 weight) and short sword (close, 1 weight)</li><li>Rapier (close, precise, 1 weight)</li></ul><p>Choose a ranged weapon:</p><ul><li>3 throwing daggers (thrown, near, 0 weight)</li><li>Ragged Bow (near, 2 weight) and bundle of arrows (3 ammo, 1 weight)</li></ul><p>Choose one:</p><ul><li>Adventuring gear (1 weight)</li><li>Healing potion (0 weight)</li></ul>",
+      "starting_gear_details": "<p>Your load is 9+Str. You start with dungeon rations (5 uses, 1 weight), leather armour (1 armour, 1 weight), 3 uses of your chosen poison, and 10 coins.</p><p>Choose your arms:</p><ul><li>Dagger (hand, 1 weight) and short sword (close, 1 weight)</li><li>Rapier (close, precise, 1 weight)</li></ul><p>Choose a ranged weapon:</p><ul><li>3 throwing daggers (thrown, near, 0 weight)</li><li>Ragged Bow (near, 2 weight) and bundle of arrows (3 ammo, 1 weight)</li></ul><p>Choose one:</p><ul><li>Adventuring gear (1 weight)</li><li>Healing potion (0 weight)</li></ul>",
       "starting_gear": ["Dungeon Rations", "Leather Armour"],
       "starting_gear_options": [
         [
@@ -651,10 +651,10 @@
         "_______________ is woefully misinformed about the world; I will teach them all that I can."
       ],
       "starting_funds": 0,
-      "starting_gear_details": "<p>Your load is 7+Str. You start with your spellbook (1 weight) and dungeon rations (5 uses, 1 weight).</p><p>Choose your defenses:</p><ul><li>Leather armor (1 armor, 1 weight)</li><li>Bag of books (5 uses, 2 weight) and 3 healing potions</li></ul><p>Choose your weapon:</p><ul><li>Dagger (hand, 1 weight)</li><li>Staff (close, two-handed, 1 weight)</li></ul><p>Choose one:</p><ul><li>Healing potion (0 weight)</li><li>3 antitoxins (0 weight)</li></ul>",
+      "starting_gear_details": "<p>Your load is 7+Str. You start with your spellbook (1 weight) and dungeon rations (5 uses, 1 weight).</p><p>Choose your defenses:</p><ul><li>Leather armour (1 armour, 1 weight)</li><li>Bag of books (5 uses, 2 weight) and 3 healing potions</li></ul><p>Choose your weapon:</p><ul><li>Dagger (hand, 1 weight)</li><li>Staff (close, two-handed, 1 weight)</li></ul><p>Choose one:</p><ul><li>Healing potion (0 weight)</li><li>3 antitoxins (0 weight)</li></ul>",
       "starting_gear": ["Spellbook", "Dungeon Rations"],
       "starting_gear_options": [
-        [["Leather Armor"], ["Bag of Books", "3 Healing Potions"]],
+        [["Leather Armour"], ["Bag of Books", "3 Healing Potions"]],
         [["Dagger"], ["Staff"]],
         [["Healing potion"], ["3 Antitoxins"]]
       ],
@@ -683,7 +683,7 @@
         "Greater Empowered Magic",
         "Enchanter's Soul",
         "Highly Logical",
-        "Arcane Armor",
+        "Arcane Armour",
         "Protective Counter",
         "Ethereal Tether",
         "Mystical Puppet Strings",

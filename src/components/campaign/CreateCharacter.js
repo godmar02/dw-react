@@ -155,7 +155,7 @@ export default function CampaignDetails() {
       charaRaceMove
     ) {
       const startingFunds = class_details[charaClass].starting_funds;
-      const startingMoves = class_details[charaClass].moves
+      const startingMoves = class_details[charaClass].starting_moves
         .filter((x) => x.level === 'starting')
         .map((moves) => moves.name);
       const startingGear = class_details[charaClass].starting_gear.map((item) =>
@@ -307,7 +307,7 @@ export default function CampaignDetails() {
       case 3:
         return <p dangerouslySetInnerHTML={{ __html: gearDetails() }} />;
       case 4:
-        return 'This is the bit I really care about!';
+        return 'Class Move Choices!';
       case 5:
         return (
           <div className={classes.root}>

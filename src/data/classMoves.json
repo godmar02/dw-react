@@ -2,13 +2,13 @@
   "class_moves": [
     {
       "name": "Full Plate and Packing Steel",
-      "description": "<p>You ignore the clumsy tag on armor you wear.</p>",
+      "description": "<p>You ignore the clumsy tag on armour you wear.</p>",
       "level": "starting",
       "class": "Barbarian"
     },
     {
       "name": "Unencumbered, Unharmed",
-      "description": "<p>So long as you are below your Load and neither wear armor nor carry a shield, take +1 armor.</p>",
+      "description": "<p>So long as you are below your Load and neither wear armour nor carry a shield, take +1 armour.</p>",
       "level": "starting",
       "class": "Barbarian"
     },
@@ -218,7 +218,7 @@
     },
     {
       "name": "Duelist's Parry",
-      "description": "<p>When you hack and slash, you take +1 armor forward.</p>",
+      "description": "<p>When you hack and slash, you take +1 armour forward.</p>",
       "level": "2to5",
       "class": "Bard"
     },
@@ -284,7 +284,7 @@
     },
     {
       "name": "Duelist's Block",
-      "description": "<p>Replaces: Duelist&#8217;s Parry</p><p>When you hack and slash, you take +2 armor forward.</p>",
+      "description": "<p>Replaces: Duelist&#8217;s Parry</p><p>When you hack and slash, you take +2 armour forward.</p>",
       "level": "6to10",
       "class": "Bard"
     },
@@ -368,7 +368,7 @@
     },
     {
       "name": "Penitent",
-      "description": "<p>When you <strong>take damage and embrace the pain</strong>, you may take +1d4 damage (ignoring armor). If you do, take +1 forward to cast a spell.</p>",
+      "description": "<p>When you <strong>take damage and embrace the pain</strong>, you may take +1d4 damage (ignoring armour). If you do, take +1 forward to cast a spell.</p>",
       "level": "2to5",
       "class": "Cleric"
     },
@@ -386,7 +386,7 @@
     },
     {
       "name": "Divine Protection",
-      "description": "<p>When you wear no armor or shield you get 2 armor.</p>",
+      "description": "<p>When you wear no armour or shield you get 2 armour.</p>",
       "level": "2to5",
       "class": "Cleric"
     },
@@ -434,13 +434,13 @@
     },
     {
       "name": "Martyr",
-      "description": "<p>Replaces: Penitent</p><p>When you <strong>take damage and embrace the pain</strong>, you may take +1d4 damage (ignoring armor). If you do, take +1 forward to cast a spell and add your level to any damage done or healed by the spell.</p>",
+      "description": "<p>Replaces: Penitent</p><p>When you <strong>take damage and embrace the pain</strong>, you may take +1d4 damage (ignoring armour). If you do, take +1 forward to cast a spell and add your level to any damage done or healed by the spell.</p>",
       "level": "6to10",
       "class": "Cleric"
     },
     {
-      "name": "Divine Armor",
-      "description": "<p>Replaces: Divine Protection</p><p>When you wear no armor or shield you get 3 armor.</p>",
+      "name": "Divine Armour",
+      "description": "<p>Replaces: Divine Protection</p><p>When you wear no armour or shield you get 3 armour.</p>",
       "level": "6to10",
       "class": "Cleric"
     },
@@ -507,7 +507,7 @@
     },
     {
       "name": "Barkskin",
-      "description": "<p>So long as your feet touch the ground you have +1 armor.</p>",
+      "description": "<p>So long as your feet touch the ground you have +1 armour.</p>",
       "level": "2to5",
       "class": "Druid"
     },
@@ -585,7 +585,7 @@
     },
     {
       "name": "Formshaper",
-      "description": "<p>Requires: Formcrafter</p><p>You may increase your armor by 1 or deal an additional +1d4 damage while in an animal form. Choose which when you shapeshift.</p>",
+      "description": "<p>Requires: Formcrafter</p><p>You may increase your armour by 1 or deal an additional +1d4 damage while in an animal form. Choose which when you shapeshift.</p>",
       "level": "6to10",
       "class": "Druid"
     },
@@ -609,8 +609,8 @@
       "class": "Fighter"
     },
     {
-      "name": "Armored",
-      "description": "<p>You ignore the clumsy tag on armor you wear.</p>",
+      "name": "Armoured",
+      "description": "<p>You ignore the clumsy tag on armour you wear.</p>",
       "level": "starting",
       "class": "Fighter"
     },
@@ -633,8 +633,8 @@
       "class": "Fighter"
     },
     {
-      "name": "Armor Mastery",
-      "description": "<p>When you <strong>make your armor take the brunt of damage dealt to you</strong>, the damage is negated but you must reduce the armor value of your armor or shield (your choice) by 1. The value is reduced each time you make this choice. If the reduction leaves the item with 0 armor it is destroyed.</p>",
+      "name": "Armour Mastery",
+      "description": "<p>When you <strong>make your armour take the brunt of damage dealt to you</strong>, the damage is negated but you must reduce the armour value of your armour or shield (your choice) by 1. The value is reduced each time you make this choice. If the reduction leaves the item with 0 armour it is destroyed.</p>",
       "level": "2to5",
       "class": "Fighter"
     },
@@ -670,7 +670,7 @@
     },
     {
       "name": "Iron Hide",
-      "description": "<p>You gain +1 armor.</p>",
+      "description": "<p>You gain +1 armour.</p>",
       "level": "2to5",
       "class": "Fighter"
     },
@@ -687,8 +687,8 @@
       "class": "Fighter"
     },
     {
-      "name": "Armored Perfection",
-      "description": "<p>Replaces: Armor Mastery</p><p>When you <strong>choose to let your armor take the brunt of damage dealt to you</strong>, the damage is negated and you take +1 forward against the attacker, but you must reduce the armor value of your armor or shield (your choice) by 1. The value is reduced each time you make this choice. If the reduction leaves the item with 0 armor it is destroyed.</p>",
+      "name": "Armoured Perfection",
+      "description": "<p>Replaces: Armour Mastery</p><p>When you <strong>choose to let your armour take the brunt of damage dealt to you</strong>, the damage is negated and you take +1 forward against the attacker, but you must reduce the armour value of your armour or shield (your choice) by 1. The value is reduced each time you make this choice. If the reduction leaves the item with 0 armour it is destroyed.</p>",
       "level": "6to10",
       "class": "Fighter"
     },
@@ -712,7 +712,7 @@
     },
     {
       "name": "Steel Hide",
-      "description": "<p>Replaces: Iron Hide</p><p>You gain +2 armor.</p>",
+      "description": "<p>Replaces: Iron Hide</p><p>You gain +2 armour.</p>",
       "level": "6to10",
       "class": "Fighter"
     },
@@ -742,8 +742,8 @@
       "class": "Paladin"
     },
     {
-      "name": "Armored",
-      "description": "<p>You ignore the clumsy tag on armor you wear.</p>",
+      "name": "Armoured",
+      "description": "<p>You ignore the clumsy tag on armour you wear.</p>",
       "level": "starting",
       "class": "Paladin"
     },
@@ -803,7 +803,7 @@
     },
     {
       "name": "Holy Protection",
-      "description": "<p>You get +1 armor while on a quest.</p>",
+      "description": "<p>You get +1 armour while on a quest.</p>",
       "level": "2to5",
       "class": "Paladin"
     },
@@ -833,7 +833,7 @@
     },
     {
       "name": "Ever Onward",
-      "description": "<p>Replaces: Charge!</p><p>When you lead the charge into combat, those you lead take +1 forward and +2 armor forward.</p>",
+      "description": "<p>Replaces: Charge!</p><p>When you lead the charge into combat, those you lead take +1 forward and +2 armour forward.</p>",
       "level": "6to10",
       "class": "Paladin"
     },
@@ -851,7 +851,7 @@
     },
     {
       "name": "Divine Protection",
-      "description": "<p>Replaces: Holy Protection</p><p>You get +2 armor while on a quest.</p>",
+      "description": "<p>Replaces: Holy Protection</p><p>You get +2 armour while on a quest.</p>",
       "level": "6to10",
       "class": "Paladin"
     },
@@ -894,13 +894,13 @@
     },
     {
       "name": "Animal Companion",
-      "description": "<p>You have a supernatural connection with a loyal animal. You can&#8217;t talk to it per se but it always acts as you wish it to. Name your animal companion and choose a species:</p><p ns0:pstyle=\"Example\">Wolf, cougar, bear, eagle, dog, hawk, cat, owl, pigeon, rat, mule</p><p>Choose a base:</p><ul><li>Ferocity +2, Cunning +1, 1 Armor, Instinct +1</li><li>Ferocity +2, Cunning +2, 0 Armor, Instinct +1</li><li>Ferocity +1, Cunning +2, 1 Armor, Instinct +1</li><li>Ferocity +3, Cunning +1, 1 Armor, Instinct +2</li></ul><p>Choose as many strengths as its ferocity:</p><p ns0:pstyle=\"Example\">Fast, burly, huge, calm, adaptable, quick reflexes, tireless, camouflage, ferocious, intimidating, keen senses, stealthy</p><p>Your animal companion is trained to fight humanoids. Choose as many additional trainings as its cunning:</p><p ns0:pstyle=\"Example\">Hunt, search, scout, guard, fight monsters, perform, labor, travel</p><p>Choose as many weaknesses as its instinct:</p><p ns0:pstyle=\"Example\">Flighty, savage, slow, broken, frightening, forgetful, stubborn, lame</p>",
+      "description": "<p>You have a supernatural connection with a loyal animal. You can&#8217;t talk to it per se but it always acts as you wish it to. Name your animal companion and choose a species:</p><p ns0:pstyle=\"Example\">Wolf, cougar, bear, eagle, dog, hawk, cat, owl, pigeon, rat, mule</p><p>Choose a base:</p><ul><li>Ferocity +2, Cunning +1, 1 Armour, Instinct +1</li><li>Ferocity +2, Cunning +2, 0 Armour, Instinct +1</li><li>Ferocity +1, Cunning +2, 1 Armour, Instinct +1</li><li>Ferocity +3, Cunning +1, 1 Armour, Instinct +2</li></ul><p>Choose as many strengths as its ferocity:</p><p ns0:pstyle=\"Example\">Fast, burly, huge, calm, adaptable, quick reflexes, tireless, camouflage, ferocious, intimidating, keen senses, stealthy</p><p>Your animal companion is trained to fight humanoids. Choose as many additional trainings as its cunning:</p><p ns0:pstyle=\"Example\">Hunt, search, scout, guard, fight monsters, perform, labor, travel</p><p>Choose as many weaknesses as its instinct:</p><p ns0:pstyle=\"Example\">Flighty, savage, slow, broken, frightening, forgetful, stubborn, lame</p>",
       "level": "starting",
       "class": "Ranger"
     },
     {
       "name": "Command",
-      "description": "<p>When you work with your animal companion on something it&#8217;s trained in&#8230;</p><ul><li>&#8230;and you attack the same target, add its ferocity to your damage</li><li>&#8230;and you track, add its cunning to your roll</li><li>&#8230;and you take damage, add its armor to your armor</li><li>&#8230;and you discern realities, add its cunning to your roll</li><li>&#8230;and you parley, add its cunning to your roll</li><li>&#8230;and someone interferes with you, add its instinct to their roll</li></ul>",
+      "description": "<p>When you work with your animal companion on something it&#8217;s trained in&#8230;</p><ul><li>&#8230;and you attack the same target, add its ferocity to your damage</li><li>&#8230;and you track, add its cunning to your roll</li><li>&#8230;and you take damage, add its armour to your armour</li><li>&#8230;and you discern realities, add its cunning to your roll</li><li>&#8230;and you parley, add its cunning to your roll</li><li>&#8230;and someone interferes with you, add its instinct to their roll</li></ul>",
       "level": "starting",
       "class": "Ranger"
     },
@@ -1038,7 +1038,7 @@
     },
     {
       "name": "Backstab",
-      "description": "<p>When you <strong>attack a surprised or defenseless enemy with a melee weapon</strong>, you can choose to deal your damage or roll+DEX. &#10036;On a 10+ choose two. &#10036;On a 7&#8211;9 choose one.</p><ul><li>You don&#8217;t get into melee with them</li><li>You deal your damage+1d6</li><li>You create an advantage, +1 forward to you or an ally acting on it</li><li>Reduce their armor by 1 until they repair it</li></ul>",
+      "description": "<p>When you <strong>attack a surprised or defenseless enemy with a melee weapon</strong>, you can choose to deal your damage or roll+DEX. &#10036;On a 10+ choose two. &#10036;On a 7&#8211;9 choose one.</p><ul><li>You don&#8217;t get into melee with them</li><li>You deal your damage+1d6</li><li>You create an advantage, +1 forward to you or an ally acting on it</li><li>Reduce their armour by 1 until they repair it</li></ul>",
       "level": "starting",
       "class": "Thief"
     },
@@ -1098,7 +1098,7 @@
     },
     {
       "name": "Underdog",
-      "description": "<p>When you&#8217;re outnumbered, you have +1 armor.</p>",
+      "description": "<p>When you&#8217;re outnumbered, you have +1 armour.</p>",
       "level": "2to5",
       "class": "Thief"
     },
@@ -1128,7 +1128,7 @@
     },
     {
       "name": "Serious Underdog",
-      "description": "<p>Replaces: Underdog</p><p>You have +1 armor. When you&#8217;re outnumbered, you have +2 armor instead.</p>",
+      "description": "<p>Replaces: Underdog</p><p>You have +1 armour. When you&#8217;re outnumbered, you have +2 armour instead.</p>",
       "level": "6to10",
       "class": "Thief"
     },
@@ -1237,7 +1237,7 @@
     },
     {
       "name": "Arcane Ward",
-      "description": "<p>As long as you have at least one prepared spell of first level or higher, you have +2 armor.</p>",
+      "description": "<p>As long as you have at least one prepared spell of first level or higher, you have +2 armour.</p>",
       "level": "2to5",
       "class": "Wizard"
     },
@@ -1278,8 +1278,8 @@
       "class": "Wizard"
     },
     {
-      "name": "Arcane Armor",
-      "description": "<p>Replaces: Arcane Ward</p><p>As long as you have at least one prepared spell of first level or higher, you have +4 armor.</p>",
+      "name": "Arcane Armour",
+      "description": "<p>Replaces: Arcane Ward</p><p>As long as you have at least one prepared spell of first level or higher, you have +4 armour.</p>",
       "level": "6to10",
       "class": "Wizard"
     },
