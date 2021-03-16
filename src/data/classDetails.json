@@ -85,16 +85,16 @@
       "starting_gear": ["Dungeon Rations"],
       "starting_gear_options": [
         [
-          ["Your father's mandolin, repaired"],
-          ["A fine lute, a gift from a noble"],
-          ["The pipes with which you courted your first love"],
-          ["A stolen horn"],
-          ["A fiddle, never before played"],
-          ["A songbook in a forgotten tongue"]
+          ["Father's Mandolin"],
+          ["Fine Lute"],
+          ["Lover's Pipes"],
+          ["Stolen Horn"],
+          ["Fiddle"],
+          ["Songbook"]
         ],
-        [["Leather armour"], ["Ostentatious clothes"]],
-        [["Dueling Rapier"], ["Worn bow", "Bundle of Arrows", "Short Sword"]],
-        [["Adventuring Gear"], ["Bandages"], ["Halfling Pipeleaf"], ["3 coins"]]
+        [["Leather Armour"], ["Ostentatious Clothes"]],
+        [["Dueling Rapier"], ["Worn Bow", "Bundle of Arrows", "Short Sword"]],
+        [["Adventuring Gear"], ["Bandages"], ["Halfling Pipeleaf"], ["3 Coins"]]
       ],
       "starting_moves": [
         "Arcane Art",
@@ -171,7 +171,7 @@
       "starting_gear_options": [
         [["Chainmail"], ["Shield"]],
         [["Warhammer"], ["Mace"], ["Staff", "Bandages"]],
-        [["Adventuring Gear", "Dungeon Rations"], ["Healing potion"]]
+        [["Adventuring Gear", "Dungeon Rations"], ["Healing Potion"]]
       ],
       "starting_moves": [
         "Deity",
@@ -248,13 +248,13 @@
       "starting_gear_details": "<p>Your load is 6+Str. You carry some token of your land, describe it.</p><p>Choose your defenses:</p><ul><li>Hide armour (1 armour, 1 weight)</li><li>Wooden shield (+1 armour, 1 weight)</li></ul>Choose your armament:<ul><li>Shillelagh (close, 2 weight)</li><li>Staff (close, two-handed, 1 weight)</li><li>Spear (close, thrown, near, 1 weight)</li></ul>Choose one:<ul><li>Adventuring gear (1 weight)</li><li>Poultices and herbs (2 uses, 1 weight)</li><li>Halfling pipeleaf (0 weight)</li><li>3 antitoxin (0 weight)</li></ul>",
       "starting_gear": ["Token"],
       "starting_gear_options": [
-        [["Hide armour"], ["Wooden Shield"]],
+        [["Hide Armour"], ["Wooden Shield"]],
         [["Shillelagh"], ["Staff"], ["Spear"]],
         [
           ["Adventuring Gear"],
           ["Poultices and Herbs"],
           ["Halfling Pipeleaf"],
-          ["3 antitoxin"]
+          ["Antitoxin", "Antitoxin", "Antitoxin"]
         ]
       ],
       "starting_moves": [
@@ -335,15 +335,15 @@
         "_______________ is soft, but I will make them hard like me."
       ],
       "starting_funds": 0,
-      "starting_gear_details": "<p>Your load is 12+Str. You carry your signature weapon and dungeon rations (5 uses, 1 weight).</p><p>Choose your defenses:</p><ul><li>Chainmail (1 armour, 1 weight) and adventuring gear (1 weight)</li><li>Scale armour (2 armour, 3 weight)</li></ul><p>Choose two:</p><ul><li>2 Healing potions (0 weight)</li><li>Shield (+1 armour, 2 weight)</li><li>Antitoxin (0 weight), dungeon rations (1 weight), and poultices and herbs (1 weight)</li><li>22 coins</li></ul>",
+      "starting_gear_details": "<p>Your load is 12+Str. You carry your signature weapon and dungeon rations (5 uses, 1 weight).</p><p>Choose your defenses:</p><ul><li>Chainmail (1 armour, 1 weight) and adventuring gear (1 weight)</li><li>Scale Mail (2 armour, 3 weight)</li></ul><p>Choose two:</p><ul><li>2 Healing potions (0 weight)</li><li>Shield (+1 armour, 2 weight)</li><li>Antitoxin (0 weight), dungeon rations (1 weight), and poultices and herbs (1 weight)</li><li>22 coins</li></ul>",
       "starting_gear": ["Dungeon Rations", "Signature Weapon"],
       "starting_gear_options": [
-        [["Chainmail", "Adventuring Gear"], ["Scale armour"]],
+        [["Chainmail", "Adventuring Gear"], ["Scale Mail"]],
         [
-          ["2 Healing potions"],
+          ["2 Healing Potions"],
           ["Shield"],
           ["Antitoxin", "Dungeon Rations", "Poultices and Herbs"],
-          ["22 coins"]
+          ["22 Coins"]
         ]
       ],
       "starting_moves": [
@@ -419,7 +419,7 @@
       "starting_gear": ["Dungeon Rations", "Scale Mail", "Mark of Faith"],
       "starting_gear_options": [
         [["Halberd"], ["Long Sword", "Shield"]],
-        [["Adventuring gear"], ["Dungeon rations", "healing potion"]]
+        [["Adventuring Gear"], ["Dungeon Rations", "Healing Potion"]]
       ],
       "starting_moves": [
         "Lay on Hands (Cha)",
@@ -573,13 +573,16 @@
       "starting_gear": ["Dungeon Rations", "Leather Armour"],
       "starting_gear_options": [
         [
-          ["3x Oil of Tagit"],
-          ["3x Bloodweed"],
-          ["3x Goldenroot"],
-          ["3x Serpent’s Tears"]
+          ["Oil of Tagit", "Oil of Tagit", "Oil of Tagit"],
+          ["Bloodweed", "Bloodweed", "Bloodweed"],
+          ["Goldenroot", "Goldenroot", "Goldenroot"],
+          ["Serpent’s Tears", "Serpent’s Tears", "Serpent’s Tears"]
         ],
         [["Dagger", "Short Sword"], ["Rapier"]],
-        [["3 Throwing Daggers"], ["Ragged Bow", "Bundle of Arrows"]],
+        [
+          ["Throwing Dagger", "Throwing Dagger", "Throwing Dagger"],
+          ["Ragged Bow", "Bundle of Arrows"]
+        ],
         [["Adventuring Gear"], ["Healing Potion"]]
       ],
       "starting_moves": [
@@ -654,9 +657,9 @@
       "starting_gear_details": "<p>Your load is 7+Str. You start with your spellbook (1 weight) and dungeon rations (5 uses, 1 weight).</p><p>Choose your defenses:</p><ul><li>Leather armour (1 armour, 1 weight)</li><li>Bag of books (5 uses, 2 weight) and 3 healing potions</li></ul><p>Choose your weapon:</p><ul><li>Dagger (hand, 1 weight)</li><li>Staff (close, two-handed, 1 weight)</li></ul><p>Choose one:</p><ul><li>Healing potion (0 weight)</li><li>3 antitoxins (0 weight)</li></ul>",
       "starting_gear": ["Spellbook", "Dungeon Rations"],
       "starting_gear_options": [
-        [["Leather Armour"], ["Bag of Books", "3 Healing Potions"]],
+        [["Leather Armour"], ["Bag of Books", "3 Healing Potion"]],
         [["Dagger"], ["Staff"]],
-        [["Healing potion"], ["3 Antitoxins"]]
+        [["Healing Potion"], ["Antitoxin", "Antitoxin", "Antitoxin"]]
       ],
       "starting_moves": [
         "Spellbook",

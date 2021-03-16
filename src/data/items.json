@@ -12,6 +12,105 @@
       "tags": []
     },
     {
+      "name": "Hide Armour",
+      "description": "",
+      "type": "Armour",
+      "armour": 1,
+      "range": "N/A",
+      "cost": "",
+      "weight": 1,
+      "uses": "",
+      "tags": ["Worn"]
+    },
+    {
+      "name": "Wooden Shield",
+      "description": "",
+      "type": "Armour",
+      "armour": "",
+      "range": "N/A",
+      "cost": "",
+      "weight": 1,
+      "uses": "",
+      "tags": ["+1 armour"]
+    },
+    {
+      "name": "Father's Mandolin",
+      "description": "Your father's mandolin, repaired",
+      "type": "Item",
+      "armour": "0",
+      "range": "N/A",
+      "cost": "",
+      "weight": "0",
+      "uses": "",
+      "tags": []
+    },
+    {
+      "name": "Fine Lute",
+      "description": "A fine lute, a gift from a noble",
+      "type": "Item",
+      "armour": "0",
+      "range": "N/A",
+      "cost": "",
+      "weight": "0",
+      "uses": "",
+      "tags": []
+    },
+    {
+      "name": "Lover's Pipes",
+      "description": "The pipes with which you courted your first love",
+      "type": "Item",
+      "armour": "0",
+      "range": "N/A",
+      "cost": "",
+      "weight": "0",
+      "uses": "",
+      "tags": []
+    },
+    {
+      "name": "Stolen Horn",
+      "description": "A stolen horn",
+      "type": "Item",
+      "armour": "0",
+      "range": "N/A",
+      "cost": "",
+      "weight": "0",
+      "uses": "",
+      "tags": []
+    },
+    {
+      "name": "Fiddle",
+      "description": "A fiddle, never before played",
+      "type": "Item",
+      "armour": "0",
+      "range": "N/A",
+      "cost": "",
+      "weight": "0",
+      "uses": "",
+      "tags": []
+    },
+    {
+      "name": "Songbook",
+      "description": "A songbook in a forgotten tongue",
+      "type": "Item",
+      "armour": "0",
+      "range": "N/A",
+      "cost": "",
+      "weight": "0",
+      "uses": "",
+      "tags": []
+    },
+    {
+      "name": "Ostentatious Clothes",
+      "description": "",
+      "type": "Item",
+      "armour": "0",
+      "range": "N/A",
+      "cost": "",
+      "weight": "0",
+      "uses": "",
+      "tags": []
+    },
+    {
       "name": "Signature Weapon",
       "description": "",
       "type": "Weapon",
@@ -19,6 +118,17 @@
       "range": "",
       "cost": "",
       "weight": "",
+      "uses": "",
+      "tags": []
+    },
+    {
+      "name": "Worn Bow",
+      "description": "",
+      "type": "Weapon",
+      "armour": 0,
+      "range": "Near",
+      "cost": "",
+      "weight": "2",
       "uses": "",
       "tags": []
     },
@@ -568,7 +678,7 @@
       "name": "Shield",
       "description": "",
       "type": "Armour",
-      "armour": 1,
+      "armour": "",
       "range": "N/A",
       "cost": 15,
       "weight": 2,
