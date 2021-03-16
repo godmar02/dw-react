@@ -11,7 +11,7 @@ import {
   TextField,
 } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import { items } from 'data/itemsList';
+import { items } from 'data/items';
 
 export default function AddItem() {
   const { open, setOpen } = useContext(AddItemState);

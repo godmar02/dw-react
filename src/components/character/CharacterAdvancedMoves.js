@@ -5,7 +5,7 @@ import {
   AccordionDetails,
 } from '@material-ui/core';
 import { ExpandMore } from '@material-ui/icons';
-import { advanced_moves } from 'data/advancedMovesList';
+import { advanced_moves } from 'data/advancedMoves';
 
 export default function CharacterAdvancedMoves() {
   return (

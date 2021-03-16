@@ -25,9 +25,9 @@ import {
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { class_details } from 'data/classDetails';
-import { dw_classes } from 'data/classList';
-import { items } from 'data/itemsList';
-import { races } from 'data/raceList';
+import { dw_classes } from 'data/classes';
+import { items } from 'data/items';
+import { races } from 'data/race';
 
 const useStyles = makeStyles((theme) => ({
   root: {

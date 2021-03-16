@@ -5,7 +5,7 @@ import {
   AccordionDetails,
 } from '@material-ui/core';
 import { ExpandMore } from '@material-ui/icons';
-import { standard_moves } from 'data/standardMovesList';
+import { standard_moves } from 'data/standardMoves';
 
 export default function CharacterStandardMoves() {
   return (
