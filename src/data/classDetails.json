@@ -1391,14 +1391,14 @@
       "starting_gear": ["Dungeon Rations", "Leather Armour"],
       "starting_gear_options": [
         [
-          "3x Oil of Tagit",
-          "3x Bloodweed",
-          "3x Goldenroot",
-          "3x Serpent’s Tears"
+          ["3x Oil of Tagit"],
+          ["3x Bloodweed"],
+          ["3x Goldenroot"],
+          ["3x Serpent’s Tears"]
         ],
-        ["Dagger and short sword", "Rapier"],
-        ["3 throwing daggers", "Ragged Bow and bundle of arrows"],
-        ["Adventuring gear", "Healing potion"]
+        [["Dagger","Short Sword"], ["Rapier"]],
+        [["3 Throwing Daggers"], ["Ragged Bow","Bundle of Arrows"]],
+        [["Adventuring Gear"], ["Healing Potion"]]
       ],
       "moves": [
         {
@@ -1582,9 +1582,9 @@
       "starting_funds": 0,
       "starting_gear": ["Spellbook", "Dungeon Rations"],
       "starting_gear_options": [
-        ["Leather armor", "Bag of books and 3 healing potions"],
-        ["Dagger", "Staff"],
-        ["Healing potion", "3 Antitoxins"]
+        [["Leather Armor"], ["Bag of Books","3 Healing Potions"]],
+        [["Dagger"], ["Staff"]],
+        [["Healing potion"], ["3 Antitoxins"]]
       ],
       "moves": [
         {
