@@ -30,8 +30,10 @@ export default function AddItem() {
   };
 
   const addItem = () => {
-    const newItem = items.find((x) => x.name === item);
+    let newItem = items.find((x) => x.name === item);
     if (newItem) {
+      //TO DO ADD CHECkBOX
+      //newItem = [...newItem, (checkbox: false)];
       const newItems = [...character.items, newItem]; // copying the old array and adding new item depending upon selection
       setCharacter((character) => ({ ...character, items: newItems })); // set array back
     }

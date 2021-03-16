@@ -3,12 +3,12 @@ import CharacterState from 'components/contexts/CharacterState';
 import AddItemState from 'components/contexts/AddItemState';
 import AddItem from 'components/character/AddItem';
 import { class_details } from 'data/classDetails';
-import { itemRanges } from 'data/itemRanges';
 import { itemTypes } from 'data/itemTypes';
 import { itemTags } from 'data/itemTags';
 import {
   Box,
   Chip,
+  Checkbox,
   Collapse,
   FormControl,
   IconButton,
@@ -160,6 +160,18 @@ export default function CharacterGear() {
     setOpen(true);
   };
 
+  const updateItemCheckbox = (index) => (e) => {
+    let newItems = [...character.items]; // copying the old array
+    newItems[index] = {
+      ...character.items[index],
+      checkbox: e.target.checked,
+    }; // replace value
+    setCharacter((character) => ({
+      ...character,
+      items: newItems,
+    })); // set array back
+  };
+
   return (
     <>
       <AddItemState.Provider value={ctx}>
@@ -170,6 +182,7 @@ export default function CharacterGear() {
           <TableHead>
             <TableRow>
               <TableCell></TableCell>
+              <TableCell align='center'>EQUIPPED</TableCell>
               <TableCell align='center'>NAME</TableCell>
               <TableCell align='center'>AMOUR</TableCell>
               <TableCell align='center'>USES</TableCell>
@@ -200,6 +213,14 @@ export default function CharacterGear() {
                         </IconButton>
                       </TableCell>
                       <TableCell>
+                        <Checkbox
+                          name={'item_checkbox' + index}
+                          checked={!!items.checkbox}
+                          onChange={updateItemCheckbox(index)}
+                          color='primary'
+                        />
+                      </TableCell>
+                      <TableCell>
                         <TextField
                           fullWidth
                           size='small'
@@ -207,18 +228,6 @@ export default function CharacterGear() {
                           aria-label='empty textarea'
                           value={items.name}
                           name='name'
-                          onChange={(event) => updateItem(event, index)}
-                        />
-                      </TableCell>
-                      <TableCell align='center'>
-                        <TextField
-                          type='number'
-                          fullWidth
-                          size='small'
-                          variant='outlined'
-                          min={0}
-                          name='armour'
-                          value={items.armour}
                           onChange={(event) => updateItem(event, index)}
                         />
                       </TableCell>
@@ -267,7 +276,6 @@ export default function CharacterGear() {
                                   <TableCell align='center'>
                                     DESCRIPTION
                                   </TableCell>
-                                  <TableCell align='center'>RANGE</TableCell>
                                   <TableCell align='center'>COST</TableCell>
                                   <TableCell align='center'>TAGS</TableCell>
                                 </TableRow>
@@ -306,26 +314,6 @@ export default function CharacterGear() {
                                       updateItem(event, index)
                                     }
                                   />
-                                </TableCell>
-                                <TableCell align='center'>
-                                  <FormControl
-                                    variant='outlined'
-                                    size='small'
-                                    className={classes.formControl}>
-                                    <Select
-                                      tabIndex={-1}
-                                      value={items.range}
-                                      name='range'
-                                      onChange={(event) =>
-                                        updateItem(event, index)
-                                      }>
-                                      {itemRanges.map((range, index) => (
-                                        <MenuItem key={index} value={range}>
-                                          {range}
-                                        </MenuItem>
-                                      ))}
-                                    </Select>
-                                  </FormControl>
                                 </TableCell>
                                 <TableCell align='center'>
                                   <TextField
