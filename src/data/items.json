@@ -12,6 +12,39 @@
       "tags": []
     },
     {
+      "name": "Battle Standard",
+      "description": "Battle Standard. Worth at least 500 to the right collector. Probably worth more back home than selling through a broker.",
+      "type": "",
+      "armour": "",
+      "range": "",
+      "cost": 500,
+      "weight": 2,
+      "uses": "",
+      "tags": []
+    },
+    {
+      "name": "Mithril Scale Mail",
+      "description": "Armour made for a female elf. Worth less to general dealer due to its limited fit.",
+      "type": "",
+      "armour": 2,
+      "range": "",
+      "cost": 150,
+      "weight": 1,
+      "uses": "",
+      "tags": ["Worn"]
+    },
+    {
+      "name": "Rowena's Sword",
+      "description": "A custom long sword (this may be worth more thant 20 coins due to its provenance)",
+      "type": "Weapon",
+      "armour": 0,
+      "range": "Close",
+      "cost": 20,
+      "weight": 2,
+      "uses": "",
+      "tags": ["+1 piercing", "Messy"]
+    },
+    {
       "name": "Hide Armour",
       "description": "",
       "type": "Armour",
