@@ -63,7 +63,7 @@ export default function CharacterBonds() {
                         fullWidth
                         variant='outlined'
                         aria-label='empty textarea'
-                        placeholder='Add bonds detail here'
+                        placeholder='Add bond detail here'
                         value={bond}
                         name={'bond' + index}
                         onChange={updateBond(index)}

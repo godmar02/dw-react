@@ -54,10 +54,9 @@ export default function CharacterClassStartingMoves() {
           </Accordion>
         );
       })}
-      <Accordion>
+      <Accordion textAlign='center'>
         <AccordionSummary>
           <IconButton aria-label='add' onClick={handleClickOpen}>
-            Add Move
             <Add />
           </IconButton>
         </AccordionSummary>

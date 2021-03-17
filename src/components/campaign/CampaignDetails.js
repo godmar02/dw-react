@@ -110,8 +110,8 @@ export default function CampaignDetails() {
               })}
             <Grid item>
               <Card className={classes.root}>
-                <CardHeader title='Add Character' />
-                <CardContent>
+                <CardHeader textAlign='center' title='Add Character' />
+                <CardContent textAlign='center'>
                   <IconButton aria-label='add' onClick={handleClickOpen}>
                     <Add />
                   </IconButton>

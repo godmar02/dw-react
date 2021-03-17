@@ -95,7 +95,7 @@ export default function CharacterClassFeatures() {
                       fullWidth
                       variant='outlined'
                       aria-label='empty textarea'
-                      placeholder='Add any Class Features here (e.g. Spell Lists, Poison Recipes, Druid Balance, Paladin Quests or anything else!)'
+                      placeholder='Add class features detail here (e.g. Spell Lists, Poison Recipes, Druid Balance, Paladin Quests etc)'
                       value={class_features.feature}
                       name={'class_feature' + index}
                       onChange={updateFeature(index)}
