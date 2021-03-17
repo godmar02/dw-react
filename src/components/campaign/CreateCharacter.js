@@ -27,7 +27,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import { class_details } from 'data/classDetails';
 import { dw_classes } from 'data/dwClasses';
 import { items } from 'data/items';
-import { races } from 'data/races';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -50,7 +49,7 @@ function getSteps() {
   return [
     'Choose Class & Alignment',
     'Create Name',
-    'Select Race & Race Move',
+    'Choose Race & Race Move',
     'Select Gear',
     'Select Class Moves',
     'Add Bonds',
@@ -61,6 +60,7 @@ export default function CampaignDetails() {
   const classes = useStyles();
   const { open, setOpen } = useContext(CreateCharacterState);
   const [charaName, setCharaName] = useState('');
+  const [charaFullName, setCharaFullName] = useState('');
   const [charaClass, setCharaClass] = useState('');
   const [charaRace, setCharaRace] = useState('');
   const [charaAlignment, setCharaAlignment] = useState('');
@@ -99,6 +99,7 @@ export default function CampaignDetails() {
     setCharaAlignment('');
     setCharaRaceMove('');
     setCharaBonds([]);
+    setCharaFullName('');
     setActiveStep(0);
     setOpen(false);
   };
@@ -178,7 +179,7 @@ export default function CampaignDetails() {
         bonds: charaBonds,
         class_features: [],
         dw_class: charaClass,
-        full_name: '',
+        full_name: charaFullName,
         funds: startingFunds,
         hp: '',
         items: startingGear,
@@ -255,7 +256,17 @@ export default function CampaignDetails() {
               autoFocus={true}
               margin='dense'
               id='name'
+              label='Character Name'
+              placeholder='Your characters full name, titles and all'
+              fullWidth
+              onChange={(event) => setCharaFullName(event.target.value)}
+            />
+            <TextField
+              autoFocus={false}
+              margin='dense'
+              id='name'
               label='Short Character Name'
+              placeholder='Your characters preferred name'
               fullWidth
               onChange={(event) => setCharaName(event.target.value)}
             />
@@ -266,22 +277,15 @@ export default function CampaignDetails() {
       case 2:
         return (
           <>
-            <FormControl variant='outlined' className={classes.formControl}>
-              <InputLabel>Race</InputLabel>
-              <Select
-                label='Race'
-                value={charaRace}
-                name='race'
-                onChange={(event) => setCharaRace(event.target.value)}>
-                {races.map((data, index) => {
-                  return (
-                    <MenuItem value={data} key={index}>
-                      {data}
-                    </MenuItem>
-                  );
-                })}
-              </Select>
-            </FormControl>
+            <TextField
+              autoFocus={true}
+              margin='dense'
+              id='name'
+              label='Race'
+              placeholder='e.g. Dwarf, Elf, Goblin, Halfling, Human'
+              fullWidth
+              onChange={(event) => setCharaRace(event.target.value)}
+            />
             <br />
             <FormControl component='fieldset' className={classes.formControl}>
               <RadioGroup
