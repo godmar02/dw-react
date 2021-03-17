@@ -52,16 +52,6 @@ export default function CharacterBonds() {
       </AddBondState.Provider>
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label='simple table'>
-          <TableHead>
-            <TableRow>
-              <TableCell align='center'>Bond</TableCell>
-              <TableCell>
-                <IconButton aria-label='add' onClick={handleClickOpen}>
-                  <Add />
-                </IconButton>
-              </TableCell>
-            </TableRow>
-          </TableHead>
           <TableBody>
             {character.bonds &&
               character.bonds.map((bond, index) => {
@@ -89,6 +79,13 @@ export default function CharacterBonds() {
                   </TableRow>
                 );
               })}
+            <TableRow>
+              <TableCell align='center' colSpan='2'>
+                <IconButton aria-label='add' onClick={handleClickOpen}>
+                  <Add />
+                </IconButton>
+              </TableCell>
+            </TableRow>
           </TableBody>
         </Table>
       </TableContainer>

@@ -76,18 +76,6 @@ export default function CharacterClassFeatures() {
   return (
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label='simple table'>
-        <TableHead>
-          <TableRow>
-            <TableCell colSpan='2' align='center'>
-              Feature
-            </TableCell>
-            <TableCell>
-              <IconButton aria-label='add' onClick={() => addFeatureRow()}>
-                <Add />
-              </IconButton>
-            </TableCell>
-          </TableRow>
-        </TableHead>
         <TableBody>
           {character.class_features &&
             character.class_features.map((class_features, index) => {
@@ -123,6 +111,13 @@ export default function CharacterClassFeatures() {
                 </TableRow>
               );
             })}
+          <TableRow>
+            <TableCell colSpan='3' align='center'>
+              <IconButton aria-label='add' onClick={() => addFeatureRow()}>
+                <Add />
+              </IconButton>
+            </TableCell>
+          </TableRow>
         </TableBody>
       </Table>
     </TableContainer>

@@ -140,7 +140,7 @@ export default function CharacterSheet() {
         <br />
         <AppBar position='static'>
           <Tabs value={value} onChange={handleTabChange}>
-            <Tab label='Character' {...a11yProps(0)} />
+            <Tab label='About' {...a11yProps(0)} />
             <Tab label='Bonds' {...a11yProps(1)} />
             <Tab label='Features' {...a11yProps(2)} />
             <Tab label='Gear' {...a11yProps(3)} />
