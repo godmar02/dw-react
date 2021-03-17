@@ -151,8 +151,7 @@ export default function CampaignDetails() {
       charaRace &&
       charaRaceMove
     ) {
-      const startingFunds = class_details[charaClass].starting_funds;
-      //Starting funds = 0 not working...
+      const startingFunds = String(class_details[charaClass].starting_funds);
       const startingMoves = class_details[charaClass].starting_moves;
       const startingGear = class_details[charaClass].starting_gear.map(
         (item) =>
@@ -228,6 +227,7 @@ export default function CampaignDetails() {
               </Select>
               <p dangerouslySetInnerHTML={{ __html: classDescription() }} />
             </FormControl>
+            <br />
             <FormControl variant='outlined' className={classes.formControl}>
               <InputLabel>Alignment</InputLabel>
               <Select
