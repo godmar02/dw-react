@@ -1,8 +1,7 @@
-add moves on Create
 add items on Create
 Add character sizing
 Create Character - Open character on success...
 Look placeholder
 Class add move center
-add remove moves
+add/remove moves
 Spells?
