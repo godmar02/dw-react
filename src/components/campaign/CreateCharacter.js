@@ -59,6 +59,8 @@ function getSteps() {
 export default function CampaignDetails() {
   const classes = useStyles();
   const { open, setOpen } = useContext(CreateCharacterState);
+  const { currentUser } = useContext(AuthState);
+  const { campaignURL } = useParams();
   const [charaName, setCharaName] = useState('');
   const [charaFullName, setCharaFullName] = useState('');
   const [charaClass, setCharaClass] = useState('');
@@ -66,8 +68,6 @@ export default function CampaignDetails() {
   const [charaAlignment, setCharaAlignment] = useState('');
   const [charaRaceMove, setCharaRaceMove] = useState('');
   const [charaBonds, setCharaBonds] = useState([]);
-  const { currentUser } = useContext(AuthState);
-  const { campaignURL } = useParams();
   const [activeStep, setActiveStep] = useState(0);
   const steps = getSteps();
 
@@ -280,7 +280,7 @@ export default function CampaignDetails() {
             <TextField
               autoFocus={true}
               margin='dense'
-              id='name'
+              id='race'
               label='Race'
               placeholder='e.g. Dwarf, Elf, Goblin, Halfling, Human'
               fullWidth
@@ -311,7 +311,7 @@ export default function CampaignDetails() {
       case 3:
         return <p dangerouslySetInnerHTML={{ __html: gearDetails() }} />;
       case 4:
-        return 'Class Move Choices!';
+        return 'TBD';
       case 5:
         return (
           <div className={classes.root}>
