@@ -43,10 +43,17 @@ const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(1),
     minWidth: 120,
-    maxWidth: 300,
+    maxWidth: 250,
   },
   table: {
     minWidth: 650,
+  },
+  textField: {
+    width: 120,
+    '& input': {
+      textAlign: 'center',
+    },
+    ////TODO Add min=0
   },
   root: {
     '& > *': {
@@ -66,12 +73,195 @@ const MenuProps = {
   },
 };
 
+function Row(props) {
+  const { item } = props;
+  const { index } = props;
+  const classes = useStyles();
+  const [openRow, setOpenRow] = useState(false);
+  const { character, setCharacter } = useContext(CharacterState);
+
+  const updateItem = (event, index) => {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+    let newItems = [...character.items]; // copying the old array
+    newItems[index] = { ...character.items[index], [name]: value }; // replace value
+    setCharacter((character) => ({ ...character, items: newItems })); // set array back
+  };
+
+  const updateItemCheckbox = (index) => (e) => {
+    let newItems = [...character.items]; // copying the old array
+    newItems[index] = {
+      ...character.items[index],
+      checkbox: e.target.checked,
+    }; // replace value
+    setCharacter((character) => ({
+      ...character,
+      items: newItems,
+    })); // set array back
+  };
+
+  const deleteItem = (index) => {
+    const newItems = [...character.items]; // copying the old array
+    newItems.splice(index, 1); // remove item from array
+    setCharacter((character) => ({ ...character, items: newItems })); // set array back
+  };
+
+  return (
+    <>
+      <TableRow className={classes.root}>
+        <TableCell>
+          <IconButton
+            aria-label='expand row'
+            size='small'
+            onClick={() => setOpenRow(!openRow)}>
+            {openRow ? <KeyboardArrowUp /> : <KeyboardArrowDown />}
+          </IconButton>
+        </TableCell>
+        <TableCell>
+          <Checkbox
+            name={'item_checkbox' + index}
+            checked={!!item.checkbox}
+            onChange={updateItemCheckbox(index)}
+            color='primary'
+          />
+        </TableCell>
+        <TableCell>
+          <TextField
+            fullWidth
+            size='small'
+            variant='outlined'
+            aria-label='empty textarea'
+            value={item.name}
+            name='name'
+            onChange={(event) => updateItem(event, index)}
+          />
+        </TableCell>
+        <TableCell align='center'>
+          <TextField
+            type='number'
+            fullWidth
+            size='small'
+            variant='outlined'
+            className={classes.textField}
+            name='uses'
+            value={item.uses}
+            onChange={(event) => updateItem(event, index)}
+          />
+        </TableCell>
+        <TableCell>
+          <FormControl className={classes.formControl}>
+            <Select
+              multiple
+              value={item.tags}
+              name='tags'
+              onChange={(event) => updateItem(event, index)}
+              input={<Input />}
+              renderValue={(selected) => (
+                <div className={classes.chips}>
+                  {selected.map((value, index) => (
+                    <Chip key={index} label={value} className={classes.chip} />
+                  ))}
+                </div>
+              )}
+              MenuProps={MenuProps}>
+              {itemTags.map((name, index) => (
+                <MenuItem key={index} value={name}>
+                  {name}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        </TableCell>
+        <TableCell>
+          <TextField
+            type='number'
+            fullWidth
+            size='small'
+            variant='outlined'
+            className={classes.textField}
+            value={item.weight}
+            name='weight'
+            onChange={(event) => updateItem(event, index)}
+          />
+        </TableCell>
+        <TableCell>
+          <IconButton aria-label='delete' onClick={() => deleteItem(index)}>
+            <Delete />
+          </IconButton>
+        </TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
+          <Collapse in={openRow} timeout='auto' unmountOnExit>
+            <Box margin={1}>
+              <Table size='small' aria-label='purchases'>
+                <TableHead>
+                  <TableRow>
+                    <TableCell align='center'>TYPE</TableCell>
+                    <TableCell>DESCRIPTION</TableCell>
+                    <TableCell align='center'>COST</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  <TableCell align='center'>
+                    <FormControl
+                      variant='outlined'
+                      size='small'
+                      className={classes.formControl}>
+                      <Select
+                        tabIndex={-1}
+                        value={item.type}
+                        name='type'
+                        onChange={(event) => updateItem(event, index)}>
+                        {itemTypes.map((type, index) => (
+                          <MenuItem key={index} value={type}>
+                            {type}
+                          </MenuItem>
+                        ))}
+                      </Select>
+                    </FormControl>
+                  </TableCell>
+                  <TableCell>
+                    <TextField
+                      multiline
+                      fullWidth
+                      size='small'
+                      variant='outlined'
+                      aria-label='empty textarea'
+                      value={item.description}
+                      name='description'
+                      onChange={(event) => updateItem(event, index)}
+                    />
+                  </TableCell>
+                  <TableCell align='center'>
+                    <TextField
+                      type='number'
+                      fullWidth
+                      size='small'
+                      variant='outlined'
+                      className={classes.textField}
+                      name='cost'
+                      value={item.cost}
+                      onChange={(event) => updateItem(event, index)}
+                    />
+                  </TableCell>
+                </TableBody>
+              </Table>
+            </Box>
+          </Collapse>
+        </TableCell>
+      </TableRow>
+    </>
+  );
+}
+
 export default function CharacterGear() {
   const classes = useStyles();
-  const { character, setCharacter } = useContext(CharacterState);
+  const { character } = useContext(CharacterState);
   const dwc = character.dw_class;
   const [open, setOpen] = useState(false);
-  const [openRow, setOpenRow] = useState(false);
+
   const ctx = useMemo(() => ({ open, setOpen }), [open]);
 
   const totalLoad = () => {
@@ -136,40 +326,8 @@ export default function CharacterGear() {
     }
   };
 
-  const updateItem = (event, index) => {
-    const target = event.target;
-    const value = target.value;
-    const name = target.name;
-    let newItems = [...character.items]; // copying the old array
-    newItems[index] = { ...character.items[index], [name]: value }; // replace value
-    setCharacter((character) => ({ ...character, items: newItems })); // set array back
-  };
-
-  const deleteItem = (index) => {
-    const newItems = [...character.items]; // copying the old array
-    if (character.items.length !== 1) {
-      //don't delete last row
-      newItems.splice(index, 1); // remove item from array
-      setCharacter((character) => ({ ...character, items: newItems })); // set array back
-    } else {
-      alert('Cannot delete final row');
-    }
-  };
-
   const handleClickOpen = () => {
     setOpen(true);
-  };
-
-  const updateItemCheckbox = (index) => (e) => {
-    let newItems = [...character.items]; // copying the old array
-    newItems[index] = {
-      ...character.items[index],
-      checkbox: e.target.checked,
-    }; // replace value
-    setCharacter((character) => ({
-      ...character,
-      items: newItems,
-    })); // set array back
   };
 
   return (
@@ -184,8 +342,8 @@ export default function CharacterGear() {
               <TableCell></TableCell>
               <TableCell align='center'>EQUIPPED</TableCell>
               <TableCell align='center'>NAME</TableCell>
-              <TableCell align='center'>AMOUR</TableCell>
               <TableCell align='center'>USES</TableCell>
+              <TableCell align='center'>TAGS</TableCell>
               <TableCell align='center'>WEIGHT</TableCell>
               <TableCell>
                 <IconButton aria-label='add' onClick={handleClickOpen}>
@@ -196,180 +354,11 @@ export default function CharacterGear() {
           </TableHead>
           <TableBody>
             {character.items &&
-              character.items.map((items, index) => {
-                return (
-                  <>
-                    <TableRow key={index} className={classes.root}>
-                      <TableCell>
-                        <IconButton
-                          aria-label='expand row'
-                          size='small'
-                          onClick={() => setOpenRow(!openRow)}>
-                          {openRow ? (
-                            <KeyboardArrowUp />
-                          ) : (
-                            <KeyboardArrowDown />
-                          )}
-                        </IconButton>
-                      </TableCell>
-                      <TableCell>
-                        <Checkbox
-                          name={'item_checkbox' + index}
-                          checked={!!items.checkbox}
-                          onChange={updateItemCheckbox(index)}
-                          color='primary'
-                        />
-                      </TableCell>
-                      <TableCell>
-                        <TextField
-                          fullWidth
-                          size='small'
-                          variant='outlined'
-                          aria-label='empty textarea'
-                          value={items.name}
-                          name='name'
-                          onChange={(event) => updateItem(event, index)}
-                        />
-                      </TableCell>
-                      <TableCell align='center'>
-                        <TextField
-                          type='number'
-                          fullWidth
-                          size='small'
-                          variant='outlined'
-                          min={0}
-                          name='uses'
-                          value={items.uses}
-                          onChange={(event) => updateItem(event, index)}
-                        />
-                      </TableCell>
-                      <TableCell>
-                        <TextField
-                          type='number'
-                          fullWidth
-                          size='small'
-                          variant='outlined'
-                          min={0}
-                          value={items.weight}
-                          name='weight'
-                          onChange={(event) => updateItem(event, index)}
-                        />
-                      </TableCell>
-                      <TableCell>
-                        <IconButton
-                          aria-label='delete'
-                          onClick={() => deleteItem(index)}>
-                          <Delete />
-                        </IconButton>
-                      </TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell
-                        style={{ paddingBottom: 0, paddingTop: 0 }}
-                        colSpan={6}>
-                        <Collapse in={openRow} timeout='auto' unmountOnExit>
-                          <Box margin={1}>
-                            <Table size='small' aria-label='purchases'>
-                              <TableHead>
-                                <TableRow>
-                                  <TableCell align='center'>TYPE</TableCell>
-                                  <TableCell align='center'>
-                                    DESCRIPTION
-                                  </TableCell>
-                                  <TableCell align='center'>COST</TableCell>
-                                  <TableCell align='center'>TAGS</TableCell>
-                                </TableRow>
-                              </TableHead>
-                              <TableBody>
-                                <TableCell align='center'>
-                                  <FormControl
-                                    variant='outlined'
-                                    size='small'
-                                    className={classes.formControl}>
-                                    <Select
-                                      tabIndex={-1}
-                                      value={items.type}
-                                      name='type'
-                                      onChange={(event) =>
-                                        updateItem(event, index)
-                                      }>
-                                      {itemTypes.map((type, index) => (
-                                        <MenuItem key={index} value={type}>
-                                          {type}
-                                        </MenuItem>
-                                      ))}
-                                    </Select>
-                                  </FormControl>
-                                </TableCell>
-                                <TableCell>
-                                  <TextField
-                                    multiline
-                                    fullWidth
-                                    size='small'
-                                    variant='outlined'
-                                    aria-label='empty textarea'
-                                    value={items.description}
-                                    name='description'
-                                    onChange={(event) =>
-                                      updateItem(event, index)
-                                    }
-                                  />
-                                </TableCell>
-                                <TableCell align='center'>
-                                  <TextField
-                                    type='number'
-                                    fullWidth
-                                    size='small'
-                                    variant='outlined'
-                                    min={0}
-                                    name='cost'
-                                    value={items.cost}
-                                    onChange={(event) =>
-                                      updateItem(event, index)
-                                    }
-                                  />
-                                </TableCell>
-                                <TableCell>
-                                  <FormControl className={classes.formControl}>
-                                    <Select
-                                      multiple
-                                      value={items.tags}
-                                      name='tags'
-                                      onChange={(event) =>
-                                        updateItem(event, index)
-                                      }
-                                      input={<Input />}
-                                      renderValue={(selected) => (
-                                        <div className={classes.chips}>
-                                          {selected.map((value, index) => (
-                                            <Chip
-                                              key={index}
-                                              label={value}
-                                              className={classes.chip}
-                                            />
-                                          ))}
-                                        </div>
-                                      )}
-                                      MenuProps={MenuProps}>
-                                      {itemTags.map((name, index) => (
-                                        <MenuItem key={index} value={name}>
-                                          {name}
-                                        </MenuItem>
-                                      ))}
-                                    </Select>
-                                  </FormControl>
-                                </TableCell>
-                              </TableBody>
-                            </Table>
-                          </Box>
-                        </Collapse>
-                      </TableCell>
-                    </TableRow>
-                  </>
-                );
-              })}
+              character.items.map((item, index) => (
+                <Row key={index} index={index} item={item} />
+              ))}
             <TableRow>
-              <TableCell align='right' colSpan='4'>
+              <TableCell align='right' colSpan='5'>
                 LOAD
               </TableCell>
               <TableCell>
@@ -379,6 +368,7 @@ export default function CharacterGear() {
                   size='small'
                   variant='outlined'
                   name='totalLoad'
+                  className={classes.textField}
                   InputProps={{
                     readOnly: true,
                   }}

@@ -31,6 +31,7 @@ const useStyles = makeStyles((theme) => ({
     '& input': {
       textAlign: 'center',
     },
+    //TODO Add min=1 max =18
   },
   textFieldBold: {
     width: 126,
@@ -144,8 +145,6 @@ export default function CharacterAbilities() {
                     error={validateScore()}
                     size='small'
                     margin='none'
-                    min={1}
-                    max={18}
                     name={abilities.category + 'Score'}
                     value={abilities.score}
                     className={classes.textField}

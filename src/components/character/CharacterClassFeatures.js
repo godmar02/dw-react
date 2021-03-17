@@ -61,16 +61,11 @@ export default function CharacterClassFeatures() {
   // Delete rows in the table
   const deleteFeatureRow = (index) => {
     const newFeatures = [...character.class_features]; // copying the old array
-    if (character.class_features.length !== 1) {
-      //don't delete last row
-      newFeatures.splice(index, 1); // remove item from array
-      setCharacter((character) => ({
-        ...character,
-        class_features: newFeatures,
-      })); // set array back
-    } else {
-      alert('Cannot delete final row');
-    }
+    newFeatures.splice(index, 1); // remove item from array
+    setCharacter((character) => ({
+      ...character,
+      class_features: newFeatures,
+    })); // set array back
   };
 
   // Add rows in the table

@@ -178,7 +178,7 @@ export default function CampaignDetails() {
         armour: '0',
         backstory: '',
         bonds: charaBonds,
-        class_features: [{ feature: '', checkbox: false }],
+        class_features: [],
         dw_class: charaClass,
         full_name: '',
         funds: startingFunds,
