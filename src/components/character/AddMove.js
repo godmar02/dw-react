@@ -45,14 +45,13 @@ export default function AddMove() {
       aria-labelledby='form-dialog-title'>
       <DialogTitle id='form-dialog-title'>Add new move</DialogTitle>{' '}
       <DialogContent>
-        <DialogContentText>
-          Search for an move to add. If you wish to create your own choose
-          'CUSTOM'.
-        </DialogContentText>
+        <DialogContentText>Search for an move to add.</DialogContentText>
         <Autocomplete
           freeSolo
           onChange={(event, value) => setMove(value)}
-          options={class_details[dwc].moves.map((option) => option.name)}
+          options={class_details[dwc].starting_moves.map(
+            (option) => option.name
+          )}
           renderInput={(params) => (
             <TextField
               {...params}

@@ -24,7 +24,7 @@
         "The Upper Hand"
       ],
       "starting_move_options": ["Musclebound", "What Are You Waiting For?"],
-      "2to5_moves": [
+      "two_to_five_move_options": [
         "Still Hungry",
         "Appetite for Destruction",
         "My Love For You Is Like a Truck",
@@ -38,7 +38,7 @@
         "Eye for Weakness",
         "On the Move"
       ],
-      "6to10_moves": [
+      "six_to_ten_move_options": [
         "A Good Day to Die",
         "Kill 'em All",
         "War Cry",
@@ -104,7 +104,7 @@
         "Healing Song"
       ],
       "starting_move_options": [],
-      "2to5_moves": [
+      "two_to_five_move_options": [
         "Vicious Cacophony",
         "It Goes To Eleven",
         "Metal Hurlant",
@@ -114,7 +114,7 @@
         "Bamboozle",
         "Multiclass Dabbler"
       ],
-      "6to10_moves": [
+      "six_to_ten_move_options": [
         "Multiclass Initiate",
         "Healing Chorus",
         "Vicious Blast",
@@ -181,7 +181,7 @@
         "Cast a Spell"
       ],
       "starting_move_options": [],
-      "2to5_moves": [
+      "two_to_five_move_options": [
         "Chosen One",
         "Invigorate",
         "The Scales of Life and Death",
@@ -193,7 +193,7 @@
         "Orison for Guidance",
         "Divine Protection"
       ],
-      "6to10_moves": [
+      "six_to_ten_move_options": [
         "Devoted Healer",
         "Anointed",
         "Apotheosis",
@@ -265,7 +265,7 @@
         "Studied Essence"
       ],
       "starting_move_options": [],
-      "2to5_moves": [
+      "two_to_five_move_options": [
         "Hunter's Brother",
         "Red of Tooth and Claw",
         "Communion of Whispers",
@@ -276,7 +276,7 @@
         "Formcrafter",
         "Elemental Mastery"
       ],
-      "6to10_moves": [
+      "six_to_ten_move_options": [
         "Balance",
         "Embracing No Form",
         "Doppelg\u00e4nger's Dance",
@@ -352,7 +352,7 @@
         "Signature Weapon"
       ],
       "starting_move_options": [],
-      "2to5_moves": [
+      "two_to_five_move_options": [
         "Merciless",
         "Heirloom",
         "Armour Mastery",
@@ -363,7 +363,7 @@
         "Multiclass Dabbler",
         "Iron Hide"
       ],
-      "6to10_moves": [
+      "six_to_ten_move_options": [
         "Blacksmith",
         "Bloodthirsty",
         "Armoured Perfection",
@@ -428,7 +428,7 @@
         "Quest"
       ],
       "starting_move_options": [],
-      "2to5_moves": [
+      "two_to_five_move_options": [
         "Divine Favor",
         "Bloody Aegis",
         "Smite",
@@ -439,7 +439,7 @@
         "Holy Protection",
         "Voice of Authority"
       ],
-      "6to10_moves": [
+      "six_to_ten_move_options": [
         "Hospitaller",
         "Evidence of Faith",
         "Holy Smite",
@@ -506,7 +506,7 @@
         "Command"
       ],
       "starting_move_options": [],
-      "2to5_moves": [
+      "two_to_five_move_options": [
         "Half-Elven",
         "Wild Empathy",
         "Familiar Prey",
@@ -518,7 +518,7 @@
         "God Amidst the Wastes",
         "Follow Me"
       ],
-      "6to10_moves": [
+      "six_to_ten_move_options": [
         "A Safe Place",
         "Wild Speech",
         "Hunter's Prey",
@@ -593,7 +593,7 @@
         "Poisoner"
       ],
       "starting_move_options": [],
-      "2to5_moves": [
+      "two_to_five_move_options": [
         "Cheap Shot",
         "Cautious",
         "Wealth and Taste",
@@ -603,7 +603,7 @@
         "Brewer",
         "Underdog"
       ],
-      "6to10_moves": [
+      "six_to_ten_move_options": [
         "Connections",
         "Dirty Fighter",
         "Extremely Cautious",
@@ -669,7 +669,7 @@
         "Ritual"
       ],
       "starting_move_options": [],
-      "2to5_moves": [
+      "two_to_five_move_options": [
         "Prodigy",
         "Empowered Magic",
         "Fount of Knowledge",
@@ -680,7 +680,7 @@
         "Arcane Ward",
         "Counterspell"
       ],
-      "6to10_moves": [
+      "six_to_ten_move_options": [
         "Quick Study",
         "Master",
         "Greater Empowered Magic",

@@ -23,11 +23,11 @@ export default function CharacterClassStartingMoves() {
   const deleteMove = (index) => {
     const newMoves = [...character.moves]; // copying the old array
     if (character.moves.length !== 1) {
-      //don't delete last row
+      //TODO don't delete if starting move
       newMoves.splice(index, 1); // remove item from array
       setCharacter((character) => ({ ...character, moves: newMoves })); // set array back
     } else {
-      alert('Cannot delete final row');
+      alert('Cannot delete starting move');
     }
   };
 
@@ -55,6 +55,14 @@ export default function CharacterClassStartingMoves() {
           </Accordion>
         );
       })}
+      <Accordion>
+        <AccordionSummary>
+          <IconButton aria-label='add' onClick={handleClickOpen}>
+            Add Move
+            <Add />
+          </IconButton>
+        </AccordionSummary>
+      </Accordion>
     </>
   );
 }
