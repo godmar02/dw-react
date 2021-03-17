@@ -7,9 +7,6 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
   textField: {
     width: 100,
-    '& input': {
-      textAlign: 'center',
-    },
   },
 }));
 
@@ -59,10 +56,14 @@ export default function CharacterHP() {
           endAdornment: (
             <InputAdornment position='end'>{' / ' + maxHp()}</InputAdornment>
           ),
+          className: classes.input,
         }}
-        min={0}
         size='small'
         className={classes.textField}
+        inputProps={{
+          style: { textAlign: 'center' },
+          min: 0,
+        }}
         name='hp'
         value={character.hp || ''}
         onChange={handleCharacterChange}

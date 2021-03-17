@@ -6,9 +6,6 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
   textField: {
     width: 80,
-    '& input': {
-      textAlign: 'center',
-    },
   },
 }));
 
@@ -29,7 +26,10 @@ export default function CharacterArmour() {
       variant='outlined'
       size='small'
       label='Armour'
-      min={0}
+      inputProps={{
+        style: { textAlign: 'center' },
+        min: 0,
+      }}
       name='armour'
       className={classes.textField}
       value={character.armour || ''}

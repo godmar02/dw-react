@@ -26,8 +26,8 @@ export default function CharacterSheetHeader() {
         <Link to={'/dw-react/' + campaignURL}>{campaignURL}</Link>
         <p>{characterURL}</p>
       </Breadcrumbs>
-      <h1>Name: {characterURL}</h1>
-      <p>Class: {character.dw_class}</p>
+      <h1>{characterURL}</h1>
+      <p>{character.dw_class}</p>
       <p>
         Race: {character.race} - {character.race_move}
       </p>

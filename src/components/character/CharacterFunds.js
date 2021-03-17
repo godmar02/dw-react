@@ -6,9 +6,6 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
   textField: {
     width: 80,
-    '& input': {
-      textAlign: 'center',
-    },
   },
 }));
 
@@ -31,7 +28,10 @@ export default function CharacterFunds() {
       className={classes.textField}
       name='funds'
       label='Funds'
-      min={0}
+      inputProps={{
+        style: { textAlign: 'center' },
+        min: 0,
+      }}
       value={character.funds || ''}
       onChange={handleCharacterChange}
     />

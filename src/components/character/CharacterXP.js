@@ -6,9 +6,6 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
   textField: {
     width: 100,
-    '& input': {
-      textAlign: 'center',
-    },
   },
 }));
 
@@ -52,10 +49,14 @@ export default function CharacterXP() {
           endAdornment: (
             <InputAdornment position='end'>{' / ' + maxXp()}</InputAdornment>
           ),
+          className: classes.input,
         }}
-        min={0}
         size='small'
         className={classes.textField}
+        inputProps={{
+          style: { textAlign: 'center' },
+          min: 0,
+        }}
         name='xp'
         value={character.xp || ''}
         onChange={handleCharacterChange}

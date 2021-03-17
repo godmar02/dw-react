@@ -28,18 +28,6 @@ const useStyles = makeStyles((theme) => ({
   },
   textField: {
     width: 126,
-    '& input': {
-      textAlign: 'center',
-    },
-    //TODO Add min=1 max =18
-  },
-  textFieldBold: {
-    width: 126,
-    '& input': {
-      textAlign: 'center',
-      fontWeight: 'bold',
-      fontSize: 25,
-    },
   },
 }));
 
@@ -150,6 +138,11 @@ export default function CharacterAbilities() {
                         name={abilities.category + 'Score'}
                         value={abilities.score}
                         className={classes.textField}
+                        inputProps={{
+                          style: { textAlign: 'center' },
+                          min: 1,
+                          max: 18,
+                        }}
                         onChange={updateAbilityScore(index)}
                       />
                       <TextField
@@ -160,7 +153,14 @@ export default function CharacterAbilities() {
                           abilities.affliction
                         )}
                         InputProps={{ readOnly: true }}
-                        className={classes.textFieldBold}
+                        inputProps={{
+                          style: {
+                            textAlign: 'center',
+                            fontWeight: 'bold',
+                            fontSize: 25,
+                          },
+                        }}
+                        className={classes.textField}
                       />
                       <FormControl
                         variant='outlined'

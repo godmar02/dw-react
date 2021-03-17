@@ -50,10 +50,6 @@ const useStyles = makeStyles((theme) => ({
   },
   textField: {
     width: 120,
-    '& input': {
-      textAlign: 'center',
-    },
-    ////TODO Add min=0
   },
   root: {
     '& > *': {
@@ -144,6 +140,10 @@ function Row(props) {
             size='small'
             variant='outlined'
             className={classes.textField}
+            inputProps={{
+              style: { textAlign: 'center' },
+              min: 0,
+            }}
             name='uses'
             value={item.uses}
             onChange={(event) => updateItem(event, index)}
@@ -180,6 +180,10 @@ function Row(props) {
             size='small'
             variant='outlined'
             className={classes.textField}
+            inputProps={{
+              style: { textAlign: 'center' },
+              min: 0,
+            }}
             value={item.weight}
             name='weight'
             onChange={(event) => updateItem(event, index)}
@@ -241,6 +245,10 @@ function Row(props) {
                       size='small'
                       variant='outlined'
                       className={classes.textField}
+                      inputProps={{
+                        style: { textAlign: 'center' },
+                        min: 0,
+                      }}
                       name='cost'
                       value={item.cost}
                       onChange={(event) => updateItem(event, index)}
@@ -371,6 +379,9 @@ export default function CharacterGear() {
                   className={classes.textField}
                   InputProps={{
                     readOnly: true,
+                  }}
+                  inputProps={{
+                    style: { textAlign: 'center' },
                   }}
                   value={totalLoad() + ' / ' + maxLoad()}
                 />

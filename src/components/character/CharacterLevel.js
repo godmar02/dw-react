@@ -6,9 +6,6 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
   textField: {
     width: 80,
-    '& input': {
-      textAlign: 'center',
-    },
   },
 }));
 
@@ -30,7 +27,10 @@ export default function CharacterLevel() {
       size='small'
       label='Level'
       className={classes.textField}
-      min={1}
+      inputProps={{
+        style: { textAlign: 'center' },
+        min: 1,
+      }}
       name='level'
       value={character.level || ''}
       onChange={handleCharacterChange}
