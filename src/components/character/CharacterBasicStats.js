@@ -25,6 +25,9 @@ export default function CharacterBasicStats() {
             <CharacterLevel />
           </Grid>
           <Grid item>
+            <CharacterHP />
+          </Grid>
+          <Grid item>
             <CharacterXP />
           </Grid>
           <Grid item>
@@ -35,9 +38,6 @@ export default function CharacterBasicStats() {
           </Grid>
           <Grid item>
             <CharacterFunds />
-          </Grid>
-          <Grid item>
-            <CharacterHP />
           </Grid>
         </Grid>
       </Grid>
