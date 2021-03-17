@@ -159,8 +159,12 @@ export default function CampaignDetails() {
         .filter((x) => x.level === 'starting')
         .map((moves) => moves.name);
       const startingGear = class_details[charaClass].starting_gear.map(
-        (item) => items.find((x) => x.name === item)
-        //TODO ADD CHECKBOX
+        (item) =>
+          Object.assign(
+            {},
+            items.find((x) => x.name === item),
+            { checkbox: false }
+          ) // Finding Item and adding blank checkbox
       );
       console.log(startingGear);
 
