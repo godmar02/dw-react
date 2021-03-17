@@ -17,13 +17,6 @@ import {
 } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    width: '100%',
-  },
-  heading: {
-    fontSize: theme.typography.pxToRem(15),
-    fontWeight: theme.typography.fontWeightRegular,
-  },
   table: {
     minWidth: 650,
   },

@@ -127,62 +127,66 @@ export default function CharacterAbilities() {
   };
 
   return (
-    <Grid container spacing={0} justify='center'>
-      {character.abilities &&
-        character.abilities.map((abilities, index) => {
-          const ab = abilities.category;
-          return (
-            <Grid item key={index}>
-              <Card className={classes.card}>
-                <CardHeader
-                  title={abilities.category}
-                  className={classes.cardHeader}
-                />
-                <CardContent>
-                  <TextField
-                    type='number'
-                    variant='outlined'
-                    error={validateScore()}
-                    size='small'
-                    margin='none'
-                    name={abilities.category + 'Score'}
-                    value={abilities.score}
-                    className={classes.textField}
-                    onChange={updateAbilityScore(index)}
-                  />
-                  <TextField
-                    variant='outlined'
-                    name={abilities.category + 'Modifier'}
-                    value={abilityModifier(
-                      abilities.score,
-                      abilities.affliction
-                    )}
-                    InputProps={{ readOnly: true }}
-                    className={classes.textFieldBold}
-                  />
-                  <FormControl
-                    variant='outlined'
-                    size='small'
-                    className={classes.formControl}>
-                    <Select
-                      tabIndex={-1}
-                      value={abilities.affliction || 'null'}
-                      name={abilities.category + 'Affliction'}
-                      onChange={updateAbilityAffliction(index)}>
-                      {ability_afflictions[ab].map((data, index) => {
-                        return (
-                          <MenuItem value={data} key={index}>
-                            {data}
-                          </MenuItem>
-                        );
-                      })}
-                    </Select>
-                  </FormControl>
-                </CardContent>
-              </Card>
-            </Grid>
-          );
-        })}
+    <Grid className={classes.root} spacing={2}>
+      <Grid item xs={12}>
+        <Grid container justify='center' spacing={1}>
+          {character.abilities &&
+            character.abilities.map((abilities, index) => {
+              const ab = abilities.category;
+              return (
+                <Grid item key={index}>
+                  <Card className={classes.card}>
+                    <CardHeader
+                      title={abilities.category}
+                      className={classes.cardHeader}
+                    />
+                    <CardContent>
+                      <TextField
+                        type='number'
+                        variant='outlined'
+                        error={validateScore()}
+                        size='small'
+                        margin='none'
+                        name={abilities.category + 'Score'}
+                        value={abilities.score}
+                        className={classes.textField}
+                        onChange={updateAbilityScore(index)}
+                      />
+                      <TextField
+                        variant='outlined'
+                        name={abilities.category + 'Modifier'}
+                        value={abilityModifier(
+                          abilities.score,
+                          abilities.affliction
+                        )}
+                        InputProps={{ readOnly: true }}
+                        className={classes.textFieldBold}
+                      />
+                      <FormControl
+                        variant='outlined'
+                        size='small'
+                        className={classes.formControl}>
+                        <Select
+                          tabIndex={-1}
+                          value={abilities.affliction || 'null'}
+                          name={abilities.category + 'Affliction'}
+                          onChange={updateAbilityAffliction(index)}>
+                          {ability_afflictions[ab].map((data, index) => {
+                            return (
+                              <MenuItem value={data} key={index}>
+                                {data}
+                              </MenuItem>
+                            );
+                          })}
+                        </Select>
+                      </FormControl>
+                    </CardContent>
+                  </Card>
+                </Grid>
+              );
+            })}
+        </Grid>
+      </Grid>
     </Grid>
   );
 }

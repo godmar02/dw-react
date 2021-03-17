@@ -17,13 +17,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Add, Delete } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    width: '100%',
-  },
-  heading: {
-    fontSize: theme.typography.pxToRem(15),
-    fontWeight: theme.typography.fontWeightRegular,
-  },
   table: {
     minWidth: 650,
   },

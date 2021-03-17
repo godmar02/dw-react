@@ -10,7 +10,6 @@ const useStyles = makeStyles((theme) => ({
     '& input': {
       textAlign: 'center',
     },
-    margin: 4,
   },
 }));
 

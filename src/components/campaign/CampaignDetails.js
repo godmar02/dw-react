@@ -20,12 +20,6 @@ const useStyles = makeStyles({
   root: {
     minWidth: 275,
   },
-  title: {
-    fontSize: 14,
-  },
-  pos: {
-    marginBottom: 12,
-  },
 });
 
 export default function CampaignDetails() {
@@ -58,66 +52,73 @@ export default function CampaignDetails() {
 
   return (
     <CreateCharacterState.Provider value={ctx}>
-      <Grid container spacing={3}>
-        {campaign.campaign &&
-          campaign.campaign.map((campaign, index) => {
-            return (
-              <Grid item xs={3} key={index}>
-                <Card className={classes.root}>
-                  <CardHeader
-                    action={
-                      <IconButton
-                        aria-label='delete'
-                        onClick={() =>
-                          deleteCharacter(campaignURL, campaign.character)
-                        }>
-                        <Delete />
-                      </IconButton>
-                    }
-                    title={
-                      <Link
-                        to={
-                          '/dw-react/' + campaignURL + '/' + campaign.character
-                        }>
-                        {campaign.character}
-                      </Link>
-                    }
-                    subheader={campaign.characterData.owner}
-                  />
-                  <CardContent>
-                    <Typography variant='body1' component='p'>
-                      {campaign.characterData.dw_class}
-                    </Typography>
-                    <Typography variant='body1' component='p'>
-                      {campaign.characterData.race}
-                    </Typography>
-                    <Typography variant='body1' component='p'>
-                      {campaign.characterData.alignment}
-                    </Typography>
-                    <br />
-                    <Typography variant='body2' component='p'>
-                      HP: {campaign.characterData.hp}
-                    </Typography>
-                    <Typography variant='body2' component='p'>
-                      XP: {campaign.characterData.xp}
-                    </Typography>
-                    <Typography variant='body2' component='p'>
-                      Funds: {campaign.characterData.funds}
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </Grid>
-            );
-          })}
-        <Grid item xs={3}>
-          <Card className={classes.root}>
-            <CardHeader title='Add Character' />
-            <CardContent>
-              <IconButton aria-label='add' onClick={handleClickOpen}>
-                <Add />
-              </IconButton>
-            </CardContent>
-          </Card>
+      <Grid className={classes.root} spacing={2}>
+        <Grid item xs={12}>
+          <Grid container justify='center' spacing={1}>
+            {campaign.campaign &&
+              campaign.campaign.map((campaign, index) => {
+                return (
+                  <Grid item key={index}>
+                    <Card className={classes.root}>
+                      <CardHeader
+                        action={
+                          <IconButton
+                            aria-label='delete'
+                            onClick={() =>
+                              deleteCharacter(campaignURL, campaign.character)
+                            }>
+                            <Delete />
+                          </IconButton>
+                        }
+                        title={
+                          <Link
+                            to={
+                              '/dw-react/' +
+                              campaignURL +
+                              '/' +
+                              campaign.character
+                            }>
+                            {campaign.character}
+                          </Link>
+                        }
+                        subheader={campaign.characterData.owner}
+                      />
+                      <CardContent>
+                        <Typography variant='body1' component='p'>
+                          {campaign.characterData.dw_class}
+                        </Typography>
+                        <Typography variant='body1' component='p'>
+                          {campaign.characterData.race}
+                        </Typography>
+                        <Typography variant='body1' component='p'>
+                          {campaign.characterData.alignment}
+                        </Typography>
+                        <br />
+                        <Typography variant='body2' component='p'>
+                          HP: {campaign.characterData.hp}
+                        </Typography>
+                        <Typography variant='body2' component='p'>
+                          XP: {campaign.characterData.xp}
+                        </Typography>
+                        <Typography variant='body2' component='p'>
+                          Funds: {campaign.characterData.funds}
+                        </Typography>
+                      </CardContent>
+                    </Card>
+                  </Grid>
+                );
+              })}
+            <Grid item>
+              <Card className={classes.root}>
+                <CardHeader title='Add Character' />
+                <CardContent>
+                  <IconButton aria-label='add' onClick={handleClickOpen}>
+                    <Add />
+                  </IconButton>
+                </CardContent>
+              </Card>
+            </Grid>
+          </Grid>
         </Grid>
       </Grid>
       <CreateCharacter />

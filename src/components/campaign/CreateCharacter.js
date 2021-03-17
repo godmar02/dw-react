@@ -37,9 +37,6 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(1),
     minWidth: 120,
   },
-  selectEmpty: {
-    marginTop: theme.spacing(2),
-  },
   backButton: {
     marginRight: theme.spacing(1),
   },
@@ -155,6 +152,7 @@ export default function CampaignDetails() {
       charaRaceMove
     ) {
       const startingFunds = class_details[charaClass].starting_funds;
+      //Starting funds = 0 not working...
       const startingMoves = class_details[charaClass].starting_moves;
       const startingGear = class_details[charaClass].starting_gear.map(
         (item) =>
