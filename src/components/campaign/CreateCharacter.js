@@ -155,9 +155,7 @@ export default function CampaignDetails() {
       charaRaceMove
     ) {
       const startingFunds = class_details[charaClass].starting_funds;
-      const startingMoves = class_details[charaClass].starting_moves
-        .filter((x) => x.level === 'starting')
-        .map((moves) => moves.name);
+      const startingMoves = class_details[charaClass].starting_moves;
       const startingGear = class_details[charaClass].starting_gear.map(
         (item) =>
           Object.assign(
@@ -166,7 +164,6 @@ export default function CampaignDetails() {
             { checkbox: false }
           ) // Finding Item and adding blank checkbox
       );
-      console.log(startingGear);
 
       // SAVE FUNCTION
       FirebaseService.saveCharacter(campaignURL, charaName, {

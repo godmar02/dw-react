@@ -38,6 +38,9 @@ export default function AddMove() {
     }
   };
 
+  //TODO, MAKE THIS A RADIO SELECTION WITH DETAILS FOR DIFFERENT LEVELS
+  //REPLACE EXISTING OPTION ON SELECTION
+
   return (
     <Dialog
       open={open}

@@ -2,7 +2,7 @@ import React, { useContext, useMemo, useState } from 'react';
 import CharacterState from 'components/contexts/CharacterState';
 import AddMoveState from 'components/contexts/AddMoveState';
 import AddMove from 'components/character/AddMove';
-import { class_details } from 'data/classDetails';
+import { class_moves } from 'data/classMoves';
 import {
   Accordion,
   AccordionSummary,
@@ -13,9 +13,8 @@ import { Add, Delete, ExpandMore } from '@material-ui/icons';
 
 export default function CharacterClassStartingMoves() {
   const { character, setCharacter } = useContext(CharacterState);
-  const dwc = character.dw_class;
   function getMove(move, field) {
-    return class_details[dwc].moves.find((x) => x.name === move)[field];
+    return class_moves.find((x) => x.name === move)[field];
   }
   const [open, setOpen] = useState(false);
   const ctx = useMemo(() => ({ open, setOpen }), [open]);
