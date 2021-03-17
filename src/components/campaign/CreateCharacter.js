@@ -27,6 +27,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { class_details } from 'data/classDetails';
 import { dw_classes } from 'data/dwClasses';
 import { items } from 'data/items';
+import { class_moves } from 'data/classMoves';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -67,6 +68,8 @@ export default function CampaignDetails() {
   const [charaRace, setCharaRace] = useState('');
   const [charaAlignment, setCharaAlignment] = useState('');
   const [charaRaceMove, setCharaRaceMove] = useState('');
+  const [charaMoveOption, setCharaMoveOption] = useState([]);
+  const [charaGearOption, setCharaGearOption] = useState([]);
   const [charaBonds, setCharaBonds] = useState([]);
   const [activeStep, setActiveStep] = useState(0);
   const steps = getSteps();
@@ -99,6 +102,8 @@ export default function CampaignDetails() {
     setCharaAlignment('');
     setCharaRaceMove('');
     setCharaBonds([]);
+    setCharaMoveOption([]);
+    setCharaGearOption([]);
     setCharaFullName('');
     setActiveStep(0);
     setOpen(false);
@@ -128,18 +133,45 @@ export default function CampaignDetails() {
   };
 
   const suggestedNames = () => {
-    if (charaClass) {
-      return class_details[charaClass].suggested_names;
-    } else {
-      return '';
-    }
+    return class_details[charaClass].suggested_names;
   };
 
-  const gearDetails = () => {
-    if (charaClass) {
-      return class_details[charaClass].gear_details;
+  const gearOptions = () => {
+    const gear = class_details[charaClass].starting_gear_details;
+    //const gear_options = class_details[charaClass].starting_gear_options;
+    return <p dangerouslySetInnerHTML={{ __html: gear }} />;
+  };
+
+  function moveDescription(move) {
+    const description = class_moves.find((x) => x.name === move).description;
+    return description;
+  }
+
+  const moveOptions = () => {
+    const moves = class_details[charaClass].starting_move_options;
+    if (moves.length > 0) {
+      return (
+        <FormControl component='fieldset' className={classes.formControl}>
+          <RadioGroup
+            aria-label='starting move choice'
+            name='starting move choice'
+            value={charaMoveOption}
+            onChange={(event) => setCharaMoveOption(event.target.value)}>
+            {moves.map((move, index) => {
+              return (
+                <FormControlLabel
+                  key={index}
+                  value={move}
+                  control={<Radio />}
+                  label={move + ' - ' + moveDescription(move)}
+                />
+              );
+            })}
+          </RadioGroup>
+        </FormControl>
+      );
     } else {
-      return '';
+      return <p>No move choices to make</p>;
     }
   };
 
@@ -153,7 +185,10 @@ export default function CampaignDetails() {
       charaRaceMove
     ) {
       const startingFunds = String(class_details[charaClass].starting_funds);
-      const startingMoves = class_details[charaClass].starting_moves;
+      let startingMoves = class_details[charaClass].starting_moves;
+      if (charaMoveOption.length > 0) {
+        startingMoves = [...startingMoves, charaMoveOption];
+      }
       const startingGear = class_details[charaClass].starting_gear.map(
         (item) =>
           Object.assign(
@@ -218,6 +253,10 @@ export default function CampaignDetails() {
                     name='class'
                     onChange={(event) => {
                       setCharaAlignment('');
+                      setCharaMoveOption([]);
+                      setCharaBonds([]);
+                      setCharaGearOption([]);
+                      setCharaRaceMove('');
                       setCharaClass(event.target.value);
                     }}>
                     {dw_classes.map((data, index) => {
@@ -282,7 +321,7 @@ export default function CampaignDetails() {
                   margin='dense'
                   id='full name'
                   label='Character Name'
-                  placeholder='Your characters full name, titles and all'
+                  placeholder="Your character's full name, titles and all"
                   value={charaFullName}
                   fullWidth
                   onChange={(event) => setCharaFullName(event.target.value)}
@@ -292,7 +331,7 @@ export default function CampaignDetails() {
                   margin='dense'
                   id='name'
                   label='Short Character Name'
-                  placeholder='Your characters preferred name'
+                  placeholder="Your character's preferred name"
                   value={charaName}
                   fullWidth
                   onChange={(event) => setCharaName(event.target.value)}
@@ -381,7 +420,7 @@ export default function CampaignDetails() {
           <div>
             <div>
               <Typography component={'span'} className={classes.instructions}>
-                <p dangerouslySetInnerHTML={{ __html: gearDetails() }} />
+                {gearOptions()}
               </Typography>
             </div>
             <Button
@@ -406,7 +445,7 @@ export default function CampaignDetails() {
           <div>
             <div>
               <Typography component={'span'} className={classes.instructions}>
-                'TBD'
+                {moveOptions()}
               </Typography>
             </div>
             <Button
@@ -415,7 +454,7 @@ export default function CampaignDetails() {
               className={classes.backButton}>
               Back
             </Button>
-            {charaClass && charaAlignment ? (
+            {charaMoveOption ? (
               <Button variant='contained' color='primary' onClick={handleNext}>
                 Next
               </Button>

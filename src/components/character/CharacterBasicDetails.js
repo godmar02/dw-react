@@ -65,7 +65,7 @@ export default function CharacterBasicDetails() {
                   fullWidth
                   variant='outlined'
                   aria-label='empty textarea'
-                  placeholder='Add your characters full name here'
+                  placeholder="Your character's full name, titles and all"
                   value={character.full_name}
                   name='full_name'
                   onChange={handleCharacterChange}
