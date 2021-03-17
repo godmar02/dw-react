@@ -207,180 +207,286 @@ export default function CampaignDetails() {
     switch (stepIndex) {
       case 0:
         return (
-          <>
-            <FormControl variant='outlined' className={classes.formControl}>
-              <InputLabel>Class</InputLabel>
-              <Select
-                label='Class'
-                value={charaClass}
-                name='class'
-                onChange={(event) => {
-                  setCharaAlignment('');
-                  setCharaClass(event.target.value);
-                }}>
-                {dw_classes.map((data, index) => {
-                  return (
-                    <MenuItem value={data} key={index}>
-                      {data}
-                    </MenuItem>
-                  );
-                })}
-              </Select>
-              <p dangerouslySetInnerHTML={{ __html: classDescription() }} />
-            </FormControl>
-            <br />
-            <FormControl variant='outlined' className={classes.formControl}>
-              <InputLabel>Alignment</InputLabel>
-              <Select
-                label='Alignment'
-                value={charaAlignment}
-                name='alignment'
-                onChange={(event) => setCharaAlignment(event.target.value)}>
-                {charaClass &&
-                  class_details[charaClass].alignments.map((data, index) => {
-                    return (
-                      <MenuItem value={data.alignment} key={index}>
-                        {data.alignment}
-                      </MenuItem>
-                    );
-                  })}
-              </Select>
-              <p dangerouslySetInnerHTML={{ __html: alignmentAttribute() }} />
-            </FormControl>
-          </>
+          <div>
+            <div>
+              <Typography component={'span'} className={classes.instructions}>
+                <FormControl variant='outlined' className={classes.formControl}>
+                  <InputLabel>Class</InputLabel>
+                  <Select
+                    label='Class'
+                    value={charaClass}
+                    name='class'
+                    onChange={(event) => {
+                      setCharaAlignment('');
+                      setCharaClass(event.target.value);
+                    }}>
+                    {dw_classes.map((data, index) => {
+                      return (
+                        <MenuItem value={data} key={index}>
+                          {data}
+                        </MenuItem>
+                      );
+                    })}
+                  </Select>
+                  <p dangerouslySetInnerHTML={{ __html: classDescription() }} />
+                </FormControl>
+                <br />
+                <FormControl variant='outlined' className={classes.formControl}>
+                  <InputLabel>Alignment</InputLabel>
+                  <Select
+                    label='Alignment'
+                    value={charaAlignment}
+                    name='alignment'
+                    onChange={(event) => setCharaAlignment(event.target.value)}>
+                    {charaClass &&
+                      class_details[charaClass].alignments.map(
+                        (data, index) => {
+                          return (
+                            <MenuItem value={data.alignment} key={index}>
+                              {data.alignment}
+                            </MenuItem>
+                          );
+                        }
+                      )}
+                  </Select>
+                  <p
+                    dangerouslySetInnerHTML={{ __html: alignmentAttribute() }}
+                  />
+                </FormControl>
+              </Typography>
+            </div>
+            <Button
+              disabled={activeStep === 0}
+              onClick={handleBack}
+              className={classes.backButton}>
+              Back
+            </Button>
+            {charaClass && charaAlignment ? (
+              <Button variant='contained' color='primary' onClick={handleNext}>
+                Next
+              </Button>
+            ) : (
+              <Button disabled variant='contained' color='primary'>
+                Next
+              </Button>
+            )}
+          </div>
         );
       case 1:
         return (
-          <>
-            <TextField
-              autoFocus={true}
-              margin='dense'
-              id='name'
-              label='Character Name'
-              placeholder='Your characters full name, titles and all'
-              fullWidth
-              onChange={(event) => setCharaFullName(event.target.value)}
-            />
-            <TextField
-              autoFocus={false}
-              margin='dense'
-              id='name'
-              label='Short Character Name'
-              placeholder='Your characters preferred name'
-              fullWidth
-              onChange={(event) => setCharaName(event.target.value)}
-            />
-            <p>Suggested Names: </p>
-            <p dangerouslySetInnerHTML={{ __html: suggestedNames() }} />
-          </>
+          <div>
+            <div>
+              <Typography component={'span'} className={classes.instructions}>
+                <TextField
+                  autoFocus={true}
+                  margin='dense'
+                  id='full name'
+                  label='Character Name'
+                  placeholder='Your characters full name, titles and all'
+                  value={charaFullName}
+                  fullWidth
+                  onChange={(event) => setCharaFullName(event.target.value)}
+                />
+                <TextField
+                  autoFocus={false}
+                  margin='dense'
+                  id='name'
+                  label='Short Character Name'
+                  placeholder='Your characters preferred name'
+                  value={charaName}
+                  fullWidth
+                  onChange={(event) => setCharaName(event.target.value)}
+                />
+                <p>Suggested Names: </p>
+                <p dangerouslySetInnerHTML={{ __html: suggestedNames() }} />
+              </Typography>
+            </div>
+            <Button
+              disabled={activeStep === 0}
+              onClick={handleBack}
+              className={classes.backButton}>
+              Back
+            </Button>
+            {charaName && charaFullName ? (
+              <Button variant='contained' color='primary' onClick={handleNext}>
+                Next
+              </Button>
+            ) : (
+              <Button disabled variant='contained' color='primary'>
+                Next
+              </Button>
+            )}
+          </div>
         );
       case 2:
         return (
-          <>
-            <TextField
-              autoFocus={true}
-              margin='dense'
-              id='race'
-              label='Race'
-              placeholder='e.g. Dwarf, Elf, Goblin, Halfling, Human'
-              fullWidth
-              onChange={(event) => setCharaRace(event.target.value)}
-            />
-            <br />
-            <FormControl component='fieldset' className={classes.formControl}>
-              <RadioGroup
-                aria-label='race move'
-                name='race move'
-                value={charaRaceMove}
-                onChange={(event) => setCharaRaceMove(event.target.value)}>
-                {charaClass &&
-                  class_details[charaClass].race_moves.map((data, index) => {
-                    return (
-                      <FormControlLabel
-                        key={index}
-                        value={data.move}
-                        control={<Radio />}
-                        label={data.move + ' (' + data.race + ')'}
-                      />
-                    );
-                  })}
-              </RadioGroup>
-            </FormControl>
-          </>
+          <div>
+            <div>
+              <Typography component={'span'} className={classes.instructions}>
+                <TextField
+                  autoFocus={true}
+                  margin='dense'
+                  id='race'
+                  label='Race'
+                  value={charaRace}
+                  placeholder='e.g. Dwarf, Elf, Goblin, Halfling, Human'
+                  fullWidth
+                  onChange={(event) => setCharaRace(event.target.value)}
+                />
+                <br />
+                <FormControl
+                  component='fieldset'
+                  className={classes.formControl}>
+                  <RadioGroup
+                    aria-label='race move'
+                    name='race move'
+                    value={charaRaceMove}
+                    onChange={(event) => setCharaRaceMove(event.target.value)}>
+                    {charaClass &&
+                      class_details[charaClass].race_moves.map(
+                        (data, index) => {
+                          return (
+                            <FormControlLabel
+                              key={index}
+                              value={data.move}
+                              control={<Radio />}
+                              label={data.move + ' (' + data.race + ')'}
+                            />
+                          );
+                        }
+                      )}
+                  </RadioGroup>
+                </FormControl>
+              </Typography>
+            </div>
+            <Button
+              disabled={activeStep === 0}
+              onClick={handleBack}
+              className={classes.backButton}>
+              Back
+            </Button>
+            {charaRace && charaRaceMove ? (
+              <Button variant='contained' color='primary' onClick={handleNext}>
+                Next
+              </Button>
+            ) : (
+              <Button disabled variant='contained' color='primary'>
+                Next
+              </Button>
+            )}
+          </div>
         );
       case 3:
-        return <p dangerouslySetInnerHTML={{ __html: gearDetails() }} />;
+        return (
+          <div>
+            <div>
+              <Typography component={'span'} className={classes.instructions}>
+                <p dangerouslySetInnerHTML={{ __html: gearDetails() }} />
+              </Typography>
+            </div>
+            <Button
+              disabled={activeStep === 0}
+              onClick={handleBack}
+              className={classes.backButton}>
+              Back
+            </Button>
+            {charaClass && charaAlignment ? (
+              <Button variant='contained' color='primary' onClick={handleNext}>
+                Next
+              </Button>
+            ) : (
+              <Button disabled variant='contained' color='primary'>
+                Next
+              </Button>
+            )}
+          </div>
+        );
       case 4:
-        return 'TBD';
+        return (
+          <div>
+            <div>
+              <Typography component={'span'} className={classes.instructions}>
+                'TBD'
+              </Typography>
+            </div>
+            <Button
+              disabled={activeStep === 0}
+              onClick={handleBack}
+              className={classes.backButton}>
+              Back
+            </Button>
+            {charaClass && charaAlignment ? (
+              <Button variant='contained' color='primary' onClick={handleNext}>
+                Next
+              </Button>
+            ) : (
+              <Button disabled variant='contained' color='primary'>
+                Next
+              </Button>
+            )}
+          </div>
+        );
       case 5:
         return (
-          <div className={classes.root}>
-            <FormControl component='fieldset' className={classes.formControl}>
-              <FormLabel component='legend'>
-                Choose some optionally suggested bonds or you can create your
-                own!
-              </FormLabel>
-              <FormGroup>
-                {charaClass &&
-                  class_details[charaClass].suggested_bonds.map(
-                    (data, index) => {
-                      return (
-                        <FormControlLabel
-                          key={index}
-                          control={
-                            <Checkbox
-                              key={index}
-                              onChange={handleBondChange}
-                              color='primary'
-                              name={data}
-                            />
+          <div>
+            <div>
+              <Typography component={'span'} className={classes.instructions}>
+                <div className={classes.root}>
+                  <FormControl
+                    component='fieldset'
+                    className={classes.formControl}>
+                    <FormLabel component='legend'>
+                      Choose some optionally suggested bonds or you can create
+                      your own!
+                    </FormLabel>
+                    <FormGroup>
+                      {charaClass &&
+                        class_details[charaClass].suggested_bonds.map(
+                          (data, index) => {
+                            return (
+                              <FormControlLabel
+                                key={index}
+                                control={
+                                  <Checkbox
+                                    key={index}
+                                    onChange={handleBondChange}
+                                    color='primary'
+                                    name={data}
+                                  />
+                                }
+                                label={data}
+                              />
+                            );
                           }
-                          label={data}
-                        />
-                      );
-                    }
-                  )}
-              </FormGroup>
-            </FormControl>
+                        )}
+                    </FormGroup>
+                  </FormControl>
+                </div>
+              </Typography>
+            </div>
+            <Button
+              disabled={activeStep === 0}
+              onClick={handleBack}
+              className={classes.backButton}>
+              Back
+            </Button>
+            {campaignURL ? (
+              <Button variant='contained' color='primary' onClick={handleSave}>
+                Create Character
+              </Button>
+            ) : (
+              <Button
+                disabled
+                variant='contained'
+                color='primary'
+                onClick={handleSave}>
+                Create Character
+              </Button>
+            )}
           </div>
         );
       default:
         return 'Unknown stepIndex';
-    }
-  }
-
-  function nextButtons(stepIndex) {
-    if (stepIndex === steps.length - 1) {
-      if (
-        campaignURL &&
-        charaName &&
-        charaClass &&
-        charaAlignment &&
-        charaRace &&
-        charaRaceMove
-      ) {
-        return (
-          <Button variant='contained' color='primary' onClick={handleSave}>
-            Create Character
-          </Button>
-        );
-      } else {
-        return (
-          <Button
-            disabled
-            variant='contained'
-            color='primary'
-            onClick={handleSave}>
-            Create Character
-          </Button>
-        );
-      }
-    } else {
-      return (
-        <Button variant='contained' color='primary' onClick={handleNext}>
-          Next
-        </Button>
-      );
     }
   }
 
@@ -395,20 +501,7 @@ export default function CampaignDetails() {
               </Step>
             ))}
           </Stepper>
-          <div>
-            <div>
-              <Typography component={'span'} className={classes.instructions}>
-                {getStepContent(activeStep)}
-              </Typography>
-            </div>
-            <Button
-              disabled={activeStep === 0}
-              onClick={handleBack}
-              className={classes.backButton}>
-              Back
-            </Button>
-            {nextButtons(activeStep)}
-          </div>
+          <div>{getStepContent(activeStep)}</div>
         </div>
       </DialogContent>
     </Dialog>

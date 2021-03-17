@@ -85,6 +85,9 @@ export default function CampaignDetails() {
                       />
                       <CardContent>
                         <Typography variant='body1' component='p'>
+                          Level {campaign.characterData.level}
+                        </Typography>
+                        <Typography variant='body1' component='p'>
                           {campaign.characterData.dw_class}
                         </Typography>
                         <Typography variant='body1' component='p'>
