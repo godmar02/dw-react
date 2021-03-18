@@ -50,7 +50,7 @@ function getSteps() {
   return [
     'Choose Class & Alignment',
     'Create Name',
-    'Choose Race & Race Move',
+    'Choose Race & Move',
     'Select Gear',
     'Select Class Moves',
     'Add Bonds',
@@ -136,10 +136,56 @@ export default function CampaignDetails() {
     return class_details[charaClass].suggested_names;
   };
 
+  function addCharaGearOption(items, index) {
+    console.log('items', items);
+    console.log('index', index);
+    let newGear = [...charaGearOption];
+    newGear[index] = items;
+    setCharaGearOption(newGear);
+    console.log('charaGearOption', charaGearOption);
+  }
+
   const gearOptions = () => {
     const gear = class_details[charaClass].starting_gear_details;
-    //const gear_options = class_details[charaClass].starting_gear_options;
-    return <p dangerouslySetInnerHTML={{ __html: gear }} />;
+    const gearChoices = class_details[charaClass].starting_gear_options;
+    if (gearChoices.length > 0) {
+      return (
+        <>
+          <p dangerouslySetInnerHTML={{ __html: gear }} />
+          <FormControl component='fieldset' className={classes.formControl}>
+            {gearChoices.map((gearChoice, index) => {
+              return (
+                <>
+                  <p key={index}>Choice {index + 1}</p>
+                  <RadioGroup
+                    aria-label='starting gear choice'
+                    name='starting gear choice'
+                    value={charaGearOption}
+                    onChange={(event) => {
+                      console.log(event.target);
+                      addCharaGearOption(event.target.value, index);
+                    }}>
+                    {gearChoice.map((option, index) => {
+                      console.log('option', option);
+                      return (
+                        <FormControlLabel
+                          key={index}
+                          value={index}
+                          control={<Radio />}
+                          label={option}
+                        />
+                      );
+                    })}
+                  </RadioGroup>
+                </>
+              );
+            })}
+          </FormControl>
+        </>
+      );
+    } else {
+      return <p>No move choices to make</p>;
+    }
   };
 
   function moveDescription(move) {
@@ -148,8 +194,8 @@ export default function CampaignDetails() {
   }
 
   const moveOptions = () => {
-    const moves = class_details[charaClass].starting_move_options;
-    if (moves.length > 0) {
+    const moveChoices = class_details[charaClass].starting_move_options;
+    if (moveChoices.length > 0) {
       return (
         <FormControl component='fieldset' className={classes.formControl}>
           <RadioGroup
@@ -157,7 +203,7 @@ export default function CampaignDetails() {
             name='starting move choice'
             value={charaMoveOption}
             onChange={(event) => setCharaMoveOption(event.target.value)}>
-            {moves.map((move, index) => {
+            {moveChoices.map((move, index) => {
               return (
                 <FormControlLabel
                   key={index}
@@ -174,6 +220,26 @@ export default function CampaignDetails() {
       return <p>No move choices to make</p>;
     }
   };
+
+  function moveNext() {
+    const moveChoices = class_details[charaClass].starting_move_options;
+    if (
+      (moveChoices.length > 0 && charaMoveOption.length > 0) ||
+      moveChoices.length == 0
+    ) {
+      return (
+        <Button variant='contained' color='primary' onClick={handleNext}>
+          Next
+        </Button>
+      );
+    } else {
+      return (
+        <Button disabled variant='contained' color='primary'>
+          Next
+        </Button>
+      );
+    }
+  }
 
   const saveCharacter = () => {
     if (
@@ -429,7 +495,7 @@ export default function CampaignDetails() {
               className={classes.backButton}>
               Back
             </Button>
-            {charaClass && charaAlignment ? (
+            {charaGearOption ? (
               <Button variant='contained' color='primary' onClick={handleNext}>
                 Next
               </Button>
@@ -454,15 +520,7 @@ export default function CampaignDetails() {
               className={classes.backButton}>
               Back
             </Button>
-            {charaMoveOption ? (
-              <Button variant='contained' color='primary' onClick={handleNext}>
-                Next
-              </Button>
-            ) : (
-              <Button disabled variant='contained' color='primary'>
-                Next
-              </Button>
-            )}
+            {moveNext()}
           </div>
         );
       case 5:

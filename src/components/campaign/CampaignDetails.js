@@ -52,7 +52,7 @@ export default function CampaignDetails() {
 
   return (
     <CreateCharacterState.Provider value={ctx}>
-      <Grid className={classes.root} spacing={2}>
+      <Grid className={classes.root}>
         <Grid item xs={12}>
           <Grid container justify='center' spacing={1}>
             {campaign.campaign &&
@@ -113,8 +113,8 @@ export default function CampaignDetails() {
               })}
             <Grid item>
               <Card className={classes.root}>
-                <CardHeader textAlign='center' title='Add Character' />
-                <CardContent textAlign='center'>
+                <CardHeader title='Add Character' />
+                <CardContent>
                   <IconButton aria-label='add' onClick={handleClickOpen}>
                     <Add />
                   </IconButton>
