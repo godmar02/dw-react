@@ -11,7 +11,7 @@
         "_______________ shares my hunger for glory; the earth will tremble at our passing!"
       ],
       "starting_funds": 0,
-      "starting_gear_details": "<p>You start with Dungeon Rations (5 uses, 1 weight), a Dagger (hand, 1 weight), and some Token of where you’ve travelled or where you’re from.</p><p>Choose one of:</p><ul><li>Axe (close, 1 weight)</li><li>Two-handed Sword (close, +1 damage, 2 weight)</li></ul><p>Choose one:</p><ul><li>Adventuring Gear (5 uses, 1 weight) and Dungeon Rations (5 uses, ration, 1 weight)</li><li>Chainmail (1 armour, worn, 1 weight)</li></ul>",
+      "starting_gear_details": "<p>You start with Dungeon Rations (5 uses, 1 weight), a Dagger (hand, 1 weight), and some Token of where you’ve travelled or where you’re from.</p>",
       "starting_gear": ["Dungeon Rations", "Dagger", "Token"],
       "starting_gear_options": [
         [["Axe"], ["Two-handed Sword"]],
@@ -81,7 +81,7 @@
         "_______________ does not trust me, and for good reason."
       ],
       "starting_funds": 0,
-      "starting_gear_details": "<p>Your load is 9+Str. You have dungeon rations (5 uses, 1 weight).</p><p>Choose one instrument, all are 0 weight for you:</p><ul><li>Your father&#8217;s mandolin, repaired</li><li>A fine lute, a gift from a noble</li><li>The pipes with which you courted your first love</li><li>A stolen horn</li><li>A fiddle, never before played</li><li>A songbook in a forgotten tongue</li></ul><p>Choose your clothing:</p><ul><li>Leather armour (1 armour, 1 weight)</li><li>Ostentatious clothes (0 weight)</li></ul><p>Choose your armament:</p><ul><li>Dueling rapier (close, precise, 2 weight)</li><li>Worn bow (near, 2 weight), bundle of arrows (3 ammo, 1 weight), and short sword (close, 1 weight)</li></ul><p>Choose one:</p><ul><li>Adventuring gear (1 weight)</li><li>Bandages (0 weight)</li><li>Halfling pipeleaf (0 weight)</li><li>3 coins</li></ul>",
+      "starting_gear_details": "<p>Your load is 9+Str. You have dungeon rations (5 uses, 1 weight).</p><p>Choose one instrument, all are 0 weight for you:</p><ul><li>Your father&#8217;s mandolin, repaired</li><li>A fine lute, a gift from a noble</li><li>The pipes with which you courted your first love</li><li>A stolen horn</li><li>A fiddle, never before played</li><li>A songbook in a forgotten tongue</li></ul>",
       "starting_gear": ["Dungeon Rations"],
       "starting_gear_options": [
         [
@@ -166,7 +166,7 @@
         "I am working on converting _______________ to my faith."
       ],
       "starting_funds": 0,
-      "starting_gear_details": "<p>Your load is 10+Str. You carry dungeon rations (5 uses, 1 weight) and some symbol of the divine, describe it (0 weight).</p><p>Choose your defenses:</p><ul><li>Chainmail (1 armour, 1 weight)</li><li>Shield (+1 armour, 2 weight)</li></ul><p>Choose your armament:</p><ul><li>Warhammer (close, 1 weight)</li><li>Mace (close, 1 weight)</li><li>Staff (close, two-handed, 1 weight) and bandages (0 weight)</li></ul><p>Choose one:</p><ul><li>Adventuring gear (1 weight) and dungeon rations (5 uses, 1 weight)</li><li>Healing potion (0 weight)</li></ul>",
+      "starting_gear_details": "<p>Your load is 10+Str. You carry dungeon rations (5 uses, 1 weight) and some symbol of the divine, describe it (0 weight).</p>",
       "starting_gear": ["Dungeon Rations", "Symbol of the Divine"],
       "starting_gear_options": [
         [["Chainmail"], ["Shield"]],
@@ -245,7 +245,7 @@
         "___________ has tasted my blood and I theirs. We are bound by it."
       ],
       "starting_funds": 0,
-      "starting_gear_details": "<p>Your load is 6+Str. You carry some token of your land, describe it.</p><p>Choose your defenses:</p><ul><li>Hide armour (1 armour, 1 weight)</li><li>Wooden shield (+1 armour, 1 weight)</li></ul>Choose your armament:<ul><li>Shillelagh (close, 2 weight)</li><li>Staff (close, two-handed, 1 weight)</li><li>Spear (close, thrown, near, 1 weight)</li></ul>Choose one:<ul><li>Adventuring gear (1 weight)</li><li>Poultices and herbs (2 uses, 1 weight)</li><li>Halfling pipeleaf (0 weight)</li><li>3 antitoxin (0 weight)</li></ul>",
+      "starting_gear_details": "<p>Your load is 6+Str. You carry some token of your land, describe it.</p>",
       "starting_gear": ["Token"],
       "starting_gear_options": [
         [["Hide Armour"], ["Wooden Shield"]],
@@ -254,7 +254,7 @@
           ["Adventuring Gear"],
           ["Poultices and Herbs"],
           ["Halfling Pipeleaf"],
-          ["Antitoxin", "Antitoxin", "Antitoxin"]
+          ["3 Antitoxin"]
         ]
       ],
       "starting_moves": [
@@ -335,7 +335,7 @@
         "_______________ is soft, but I will make them hard like me."
       ],
       "starting_funds": 0,
-      "starting_gear_details": "<p>Your load is 12+Str. You carry your signature weapon and dungeon rations (5 uses, 1 weight).</p><p>Choose your defenses:</p><ul><li>Chainmail (1 armour, 1 weight) and adventuring gear (1 weight)</li><li>Scale Mail (2 armour, 3 weight)</li></ul><p>Choose two:</p><ul><li>2 Healing potions (0 weight)</li><li>Shield (+1 armour, 2 weight)</li><li>Antitoxin (0 weight), dungeon rations (1 weight), and poultices and herbs (1 weight)</li><li>22 coins</li></ul>",
+      "starting_gear_details": "<p>Your load is 12+Str. You carry your signature weapon and dungeon rations (5 uses, 1 weight).</p><p>Choose two:</p><ul><li>2 Healing potions (0 weight)</li><li>Shield (+1 armour, 2 weight)</li><li>Antitoxin (0 weight), dungeon rations (1 weight), and poultices and herbs (1 weight)</li><li>22 coins</li></ul>",
       "starting_gear": ["Dungeon Rations", "Signature Weapon"],
       "starting_gear_options": [
         [["Chainmail", "Adventuring Gear"], ["Scale Mail"]],
@@ -415,7 +415,7 @@
         "_______________ is a brave soul, I have much to learn from them."
       ],
       "starting_funds": 0,
-      "starting_gear_details": "<p>Your load is 12+Str. You start with dungeon rations (5 uses, 1 weight), scale mail (2 armour, 3 weight), and some mark of faith, describe it (0 weight).</p><p>Choose your weapon:</p><ul><li>Halberd (reach, +1 damage, two-handed, 2 weight)</li><li>Long sword (close, +1 damage, 1 weight) and shield (+1 armour, 2 weight)</li></ul><p>Choose one:</p><ul><li>Adventuring gear (1 weight)</li><li>Dungeon rations (1 weight) and healing potion (0 weight)</li></ul>",
+      "starting_gear_details": "<p>Your load is 12+Str. You start with dungeon rations (5 uses, 1 weight), scale mail (2 armour, 3 weight), and some mark of faith, describe it (0 weight).</p>",
       "starting_gear": ["Dungeon Rations", "Scale Mail", "Mark of Faith"],
       "starting_gear_options": [
         [["Halberd"], ["Long Sword", "Shield"]],
@@ -483,7 +483,7 @@
         "_______________ and I have a con running."
       ],
       "starting_funds": 0,
-      "starting_gear_details": "<p>Your load is 11+Str. You start with dungeon rations (5 uses, 1 weight), leather armour (1 armour, 1 weight), and a bundle of arrows (3 ammo, 1 weight).</p><p>Choose your armament:</p><ul><li>Hunter&#8217;s bow (near, far, 1 weight) and short sword (close, 1 weight)</li><li>Hunter&#8217;s bow (near, far, 1 weight) and spear (reach, 1 weight)</li></ul><p>Choose one:</p><ul><li>Adventuring gear (1 weight) and dungeon rations (1 weight)</li><li>Adventuring gear (1 weight) and bundle of arrows (3 ammo, 1 weight)</li></ul>",
+      "starting_gear_details": "<p>Your load is 11+Str. You start with dungeon rations (5 uses, 1 weight), leather armour (1 armour, 1 weight), and a bundle of arrows (3 ammo, 1 weight).</p>",
       "starting_gear": [
         "Dungeon Rations",
         "Leather Armour",
@@ -569,14 +569,14 @@
         "_______________ and I have a con running."
       ],
       "starting_funds": 10,
-      "starting_gear_details": "<p>Your load is 9+Str. You start with dungeon rations (5 uses, 1 weight), leather armour (1 armour, 1 weight), 3 uses of your chosen poison, and 10 coins.</p><p>Choose your arms:</p><ul><li>Dagger (hand, 1 weight) and short sword (close, 1 weight)</li><li>Rapier (close, precise, 1 weight)</li></ul><p>Choose a ranged weapon:</p><ul><li>3 throwing daggers (thrown, near, 0 weight)</li><li>Ragged Bow (near, 2 weight) and bundle of arrows (3 ammo, 1 weight)</li></ul><p>Choose one:</p><ul><li>Adventuring gear (1 weight)</li><li>Healing potion (0 weight)</li></ul>",
+      "starting_gear_details": "<p>Your load is 9+Str. You start with dungeon rations (5 uses, 1 weight), leather armour (1 armour, 1 weight), 3 uses of your chosen poison, and 10 coins.</p>",
       "starting_gear": ["Dungeon Rations", "Leather Armour"],
       "starting_gear_options": [
         [
-          ["Oil of Tagit", "Oil of Tagit", "Oil of Tagit"],
-          ["Bloodweed", "Bloodweed", "Bloodweed"],
-          ["Goldenroot", "Goldenroot", "Goldenroot"],
-          ["Serpent’s Tears", "Serpent’s Tears", "Serpent’s Tears"]
+          ["3 Oil of Tagit"],
+          ["3 Bloodweed"],
+          ["3 Goldenroot"],
+          ["3 Serpent’s Tears"]
         ],
         [["Dagger", "Short Sword"], ["Rapier"]],
         [
@@ -654,12 +654,12 @@
         "_______________ is woefully misinformed about the world; I will teach them all that I can."
       ],
       "starting_funds": 0,
-      "starting_gear_details": "<p>Your load is 7+Str. You start with your spellbook (1 weight) and dungeon rations (5 uses, 1 weight).</p><p>Choose your defenses:</p><ul><li>Leather armour (1 armour, 1 weight)</li><li>Bag of books (5 uses, 2 weight) and 3 healing potions</li></ul><p>Choose your weapon:</p><ul><li>Dagger (hand, 1 weight)</li><li>Staff (close, two-handed, 1 weight)</li></ul><p>Choose one:</p><ul><li>Healing potion (0 weight)</li><li>3 antitoxins (0 weight)</li></ul>",
+      "starting_gear_details": "<p>Your load is 7+Str. You start with your spellbook (1 weight) and dungeon rations (5 uses, 1 weight).</p>",
       "starting_gear": ["Spellbook", "Dungeon Rations"],
       "starting_gear_options": [
         [["Leather Armour"], ["Bag of Books", "3 Healing Potion"]],
         [["Dagger"], ["Staff"]],
-        [["Healing Potion"], ["Antitoxin", "Antitoxin", "Antitoxin"]]
+        [["Healing Potion"], ["3 Antitoxin"]]
       ],
       "starting_moves": [
         "Spellbook",

@@ -139,26 +139,42 @@ export default function CampaignDetails() {
   function gearDescription(gear) {
     let description = '';
     let count = 0;
+
+    //MULTIPLE ITEMS (DRUID, THIEF, WIZARD)
+    //COINS (BARD, FIGHTER)
+    //CHOOSE TWO (FIGHTER)
+
     gear.map((input) => {
       let weight = '';
       let uses = '';
       let tags = '';
+      let attributes = '';
+      let item_description = '';
       const item = items.find((x) => x.name === input);
-      if (item.weight) {
-        weight = item.weight + ' weight';
-      }
-      if (item.uses) {
-        uses = item.uses + ' uses, ';
-      }
-      if (item.tags) {
-        tags = item.tags.join(', ') + ', ';
+      if (item) {
+        if (Number.isFinite(item.weight)) {
+          weight = item.weight + ' weight';
+        }
+        if (Number.isFinite(item.uses)) {
+          uses = item.uses + ' uses';
+        }
+        if (item.tags) {
+          tags = item.tags.join(', ');
+        }
+        attributes = [uses, tags, weight].filter(Boolean).join(', ');
+        if (attributes) {
+          item_description = input + ' (' + attributes + ')';
+        } else {
+          item_description = input;
+        }
+      } else {
+        item_description = input + ' XXXXX';
       }
 
-      const item_description = input + ' (' + uses + tags + weight + ')';
       if (count === 0) {
         description = item_description;
       } else {
-        description = description + 'and ' + item_description;
+        description = description + ' and ' + item_description;
       }
       count = count + 1;
 
