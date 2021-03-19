@@ -340,7 +340,7 @@
       "starting_gear_options": [
         [["Chainmail", "Adventuring Gear"], ["Scale Mail"]],
         [
-          ["2 Healing Potions"],
+          ["Healing Potion", "Healing Potion"],
           ["Shield"],
           ["Antitoxin", "Dungeon Rations", "Poultices and Herbs"],
           ["22 Coins"]

@@ -69,7 +69,7 @@ export default function CampaignDetails() {
   const [charaAlignment, setCharaAlignment] = useState('');
   const [charaRaceMove, setCharaRaceMove] = useState('');
   const [charaMoveOption, setCharaMoveOption] = useState([]);
-  const [charaGearOption, setCharaGearOption] = useState([]);
+  const [charaGearOptions, setCharaGearOptions] = useState([]);
   const [charaBonds, setCharaBonds] = useState([]);
   const [activeStep, setActiveStep] = useState(0);
   const steps = getSteps();
@@ -103,7 +103,7 @@ export default function CampaignDetails() {
     setCharaRaceMove('');
     setCharaBonds([]);
     setCharaMoveOption([]);
-    setCharaGearOption([]);
+    setCharaGearOptions([]);
     setCharaFullName('');
     setActiveStep(0);
     setOpen(false);
@@ -136,13 +136,42 @@ export default function CampaignDetails() {
     return class_details[charaClass].suggested_names;
   };
 
-  function addCharaGearOption(items, index) {
-    console.log('items', items);
-    console.log('index', index);
-    let newGear = [...charaGearOption];
+  function gearDescription(gear) {
+    let description = '';
+    let count = 0;
+    gear.map((input) => {
+      let weight = '';
+      let uses = '';
+      let tags = '';
+      const item = items.find((x) => x.name === input);
+      if (item.weight) {
+        weight = item.weight + ' weight';
+      }
+      if (item.uses) {
+        uses = item.uses + ' uses, ';
+      }
+      if (item.tags) {
+        tags = item.tags.join(', ') + ', ';
+      }
+
+      const item_description = input + ' (' + uses + tags + weight + ')';
+      if (count === 0) {
+        description = item_description;
+      } else {
+        description = description + 'and ' + item_description;
+      }
+      count = count + 1;
+
+      return description;
+    });
+    return description;
+  }
+
+  function addCharaGearOptions(items, index) {
+    let newGear = [...charaGearOptions];
     newGear[index] = items;
-    setCharaGearOption(newGear);
-    console.log('charaGearOption', charaGearOption);
+    setCharaGearOptions(newGear);
+    console.log('charaGearOptions', charaGearOptions);
   }
 
   const gearOptions = () => {
@@ -152,35 +181,34 @@ export default function CampaignDetails() {
       return (
         <>
           <p dangerouslySetInnerHTML={{ __html: gear }} />
-          <FormControl component='fieldset' className={classes.formControl}>
-            {gearChoices.map((gearChoice, index) => {
-              return (
-                <>
-                  <p key={index}>Choice {index + 1}</p>
-                  <RadioGroup
-                    aria-label='starting gear choice'
-                    name='starting gear choice'
-                    value={charaGearOption}
-                    onChange={(event) => {
-                      console.log(event.target);
-                      addCharaGearOption(event.target.value, index);
-                    }}>
-                    {gearChoice.map((option, index) => {
-                      console.log('option', option);
-                      return (
-                        <FormControlLabel
-                          key={index}
-                          value={index}
-                          control={<Radio />}
-                          label={option}
-                        />
-                      );
-                    })}
-                  </RadioGroup>
-                </>
-              );
-            })}
-          </FormControl>
+          {gearChoices.map((gearChoice, index) => {
+            return (
+              <FormControl
+                key={'group' + index}
+                component='fieldset'
+                className={classes.formControl}>
+                <FormLabel component='legend'>Choose One:</FormLabel>
+                <RadioGroup
+                  aria-label='starting gear choice'
+                  name='starting gear choice'
+                  value={charaGearOptions[index] || null}
+                  onChange={(event) => {
+                    addCharaGearOptions(event.target.value, index);
+                  }}>
+                  {gearChoice.map((gear, index) => {
+                    return (
+                      <FormControlLabel
+                        key={'option' + index}
+                        value={index.toString()}
+                        control={<Radio />}
+                        label={gearDescription(gear)}
+                      />
+                    );
+                  })}
+                </RadioGroup>
+              </FormControl>
+            );
+          })}
         </>
       );
     } else {
@@ -225,7 +253,7 @@ export default function CampaignDetails() {
     const moveChoices = class_details[charaClass].starting_move_options;
     if (
       (moveChoices.length > 0 && charaMoveOption.length > 0) ||
-      moveChoices.length == 0
+      moveChoices.length === 0
     ) {
       return (
         <Button variant='contained' color='primary' onClick={handleNext}>
@@ -321,7 +349,7 @@ export default function CampaignDetails() {
                       setCharaAlignment('');
                       setCharaMoveOption([]);
                       setCharaBonds([]);
-                      setCharaGearOption([]);
+                      setCharaGearOptions([]);
                       setCharaRaceMove('');
                       setCharaClass(event.target.value);
                     }}>
@@ -495,7 +523,7 @@ export default function CampaignDetails() {
               className={classes.backButton}>
               Back
             </Button>
-            {charaGearOption ? (
+            {charaGearOptions ? (
               <Button variant='contained' color='primary' onClick={handleNext}>
                 Next
               </Button>

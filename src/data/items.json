@@ -25,7 +25,7 @@
       "cost": 150,
       "weight": 1,
       "uses": "",
-      "tags": ["2 armour", "Worn"]
+      "tags": ["2 armour", "worn"]
     },
     {
       "name": "Rowena's Sword",
@@ -34,7 +34,7 @@
       "cost": 20,
       "weight": 2,
       "uses": "",
-      "tags": ["+1 piercing", "Close", "Messy"]
+      "tags": ["+1 piercing", "close", "messy"]
     },
     {
       "name": "Hide Armour",
@@ -43,7 +43,7 @@
       "cost": "",
       "weight": 1,
       "uses": "",
-      "tags": ["1 armour", "Worn"]
+      "tags": ["1 armour", "worn"]
     },
     {
       "name": "Wooden Shield",
@@ -133,7 +133,7 @@
       "cost": "",
       "weight": "2",
       "uses": "",
-      "tags": ["Near"]
+      "tags": ["near"]
     },
     {
       "name": "Symbol of the Divine",
@@ -187,7 +187,7 @@
       "cost": 5,
       "weight": 0,
       "uses": 3,
-      "tags": ["Slow"]
+      "tags": ["slow"]
     },
     {
       "name": "Healing Potion",
@@ -214,7 +214,7 @@
       "cost": 10,
       "weight": 1,
       "uses": 2,
-      "tags": ["Slow"]
+      "tags": ["slow"]
     },
     {
       "name": "Bag of Books",
@@ -241,7 +241,7 @@
       "cost": 3,
       "weight": 1,
       "uses": 5,
-      "tags": ["Ration"]
+      "tags": ["ration"]
     },
     {
       "name": "Personal Feast",
@@ -250,7 +250,7 @@
       "cost": 10,
       "weight": 1,
       "uses": 1,
-      "tags": ["Ration"]
+      "tags": ["ration"]
     },
     {
       "name": "Dwarven Hardtack",
@@ -259,7 +259,7 @@
       "cost": 3,
       "weight": 1,
       "uses": 7,
-      "tags": ["Ration", "Requires Dwarf"]
+      "tags": ["ration", "requires dwarf"]
     },
     {
       "name": "Elven Bread",
@@ -268,7 +268,7 @@
       "cost": 10,
       "weight": 1,
       "uses": 7,
-      "tags": ["Ration"]
+      "tags": ["ration"]
     },
     {
       "name": "Halfling Pipeleaf",
@@ -286,7 +286,7 @@
       "cost": 15,
       "weight": 0,
       "uses": "1",
-      "tags": ["Dangerous", "Applied"]
+      "tags": ["dangerous", "applied"]
     },
     {
       "name": "Bloodweed",
@@ -295,7 +295,7 @@
       "cost": 12,
       "weight": 0,
       "uses": "1",
-      "tags": ["Dangerous", "Touch"]
+      "tags": ["dangerous", "touch"]
     },
     {
       "name": "Goldenroot",
@@ -304,7 +304,7 @@
       "cost": 20,
       "weight": 0,
       "uses": "1",
-      "tags": ["Dangerous", "Applied"]
+      "tags": ["dangerous", "applied"]
     },
     {
       "name": "Serpent’s Tears",
@@ -313,7 +313,7 @@
       "cost": 10,
       "weight": 0,
       "uses": "1",
-      "tags": ["Dangerous", "Touch"]
+      "tags": ["dangerous", "touch"]
     },
     {
       "name": "Ragged Bow",
@@ -322,7 +322,7 @@
       "cost": 15,
       "weight": 2,
       "uses": "",
-      "tags": ["Near"]
+      "tags": ["near"]
     },
     {
       "name": "Fine Bow",
@@ -331,7 +331,7 @@
       "cost": 60,
       "weight": 2,
       "uses": "",
-      "tags": ["Near", "Far"]
+      "tags": ["near", "far"]
     },
     {
       "name": "Hunter’s Bow",
@@ -340,7 +340,7 @@
       "cost": 100,
       "weight": 1,
       "uses": "",
-      "tags": ["Near", "Far"]
+      "tags": ["near", "far"]
     },
     {
       "name": "Crossbow",
@@ -349,7 +349,7 @@
       "cost": 35,
       "weight": 3,
       "uses": "",
-      "tags": ["+1 damage", "Near", "Reload"]
+      "tags": ["+1 damage", "near", "reload"]
     },
     {
       "name": "Bundle of Arrows",
@@ -376,7 +376,7 @@
       "cost": 1,
       "weight": 2,
       "uses": "",
-      "tags": ["Close"]
+      "tags": ["close"]
     },
     {
       "name": "Shillelagh",
@@ -385,7 +385,7 @@
       "cost": 1,
       "weight": 2,
       "uses": "",
-      "tags": ["Close"]
+      "tags": ["close"]
     },
     {
       "name": "Staff",
@@ -394,7 +394,7 @@
       "cost": 1,
       "weight": 1,
       "uses": "",
-      "tags": ["Close", "Two-handed"]
+      "tags": ["close", "two-handed"]
     },
     {
       "name": "Dagger",
@@ -403,7 +403,7 @@
       "cost": 2,
       "weight": 1,
       "uses": "",
-      "tags": ["Hand"]
+      "tags": ["hand"]
     },
     {
       "name": "Shiv",
@@ -412,7 +412,7 @@
       "cost": 2,
       "weight": 1,
       "uses": "",
-      "tags": ["Hand"]
+      "tags": ["hand"]
     },
     {
       "name": "Knife",
@@ -421,7 +421,7 @@
       "cost": 2,
       "weight": 1,
       "uses": "",
-      "tags": ["Hand"]
+      "tags": ["hand"]
     },
     {
       "name": "Throwing Dagger",
@@ -430,7 +430,7 @@
       "cost": 1,
       "weight": 0,
       "uses": "",
-      "tags": ["Near", "Thrown"]
+      "tags": ["near", "thrown"]
     },
     {
       "name": "Short Sword",
@@ -439,7 +439,7 @@
       "cost": 8,
       "weight": 1,
       "uses": "",
-      "tags": ["Close"]
+      "tags": ["close"]
     },
     {
       "name": "Axe",
@@ -448,7 +448,7 @@
       "cost": 8,
       "weight": 1,
       "uses": "",
-      "tags": ["Close"]
+      "tags": ["close"]
     },
     {
       "name": "Warhammer",
@@ -457,7 +457,7 @@
       "cost": 8,
       "weight": 1,
       "uses": "",
-      "tags": ["Close"]
+      "tags": ["close"]
     },
     {
       "name": "Mace",
@@ -466,7 +466,7 @@
       "cost": 8,
       "weight": 1,
       "uses": "",
-      "tags": ["Close"]
+      "tags": ["close"]
     },
     {
       "name": "Spear",
@@ -475,7 +475,7 @@
       "cost": 5,
       "weight": 1,
       "uses": "",
-      "tags": ["Thrown", "Reach", "Near"]
+      "tags": ["thrown", "reach", "near"]
     },
     {
       "name": "Long Sword",
@@ -484,7 +484,7 @@
       "cost": 15,
       "weight": 2,
       "uses": "",
-      "tags": ["+1 damage", "Close"]
+      "tags": ["+1 damage", "close"]
     },
     {
       "name": "Two-handed Sword",
@@ -493,7 +493,7 @@
       "cost": 20,
       "weight": 2,
       "uses": "",
-      "tags": ["+1 damage", "Close"]
+      "tags": ["+1 damage", "close"]
     },
     {
       "name": "Battle Axe",
@@ -502,7 +502,7 @@
       "cost": 15,
       "weight": 2,
       "uses": "",
-      "tags": ["+1 damage", "Close"]
+      "tags": ["+1 damage", "close"]
     },
     {
       "name": "Flail",
@@ -511,7 +511,7 @@
       "cost": 15,
       "weight": 2,
       "uses": "",
-      "tags": ["+1 damage", "Close"]
+      "tags": ["+1 damage", "close"]
     },
     {
       "name": "Halberd",
@@ -520,7 +520,7 @@
       "cost": 9,
       "weight": 2,
       "uses": "",
-      "tags": ["+1 damage", "Reach", "Two-handed"]
+      "tags": ["+1 damage", "reach", "two-handed"]
     },
     {
       "name": "Rapier",
@@ -529,7 +529,7 @@
       "cost": 25,
       "weight": 1,
       "uses": "",
-      "tags": ["Close", "Precise"]
+      "tags": ["close", "precise"]
     },
     {
       "name": "Dueling Rapier",
@@ -538,7 +538,7 @@
       "cost": 50,
       "weight": 2,
       "uses": "",
-      "tags": ["+1 piercing", "Close", "Precise"]
+      "tags": ["+1 piercing", "close", "precise"]
     },
     {
       "name": "Leather Armour",
@@ -547,7 +547,7 @@
       "cost": 10,
       "weight": 1,
       "uses": "",
-      "tags": ["1 armour", "Worn"]
+      "tags": ["1 armour", "worn"]
     },
     {
       "name": "Chainmail",
@@ -556,7 +556,7 @@
       "cost": 10,
       "weight": 1,
       "uses": "",
-      "tags": ["1 armour", "Worn"]
+      "tags": ["1 armour", "worn"]
     },
     {
       "name": "Scale Mail",
@@ -565,7 +565,7 @@
       "cost": 50,
       "weight": 3,
       "uses": "",
-      "tags": ["2 armour", "Worn", "Clumsy"]
+      "tags": ["2 armour", "worn", "clumsy"]
     },
     {
       "name": "Plate Armour",
@@ -574,7 +574,7 @@
       "cost": 350,
       "weight": 4,
       "uses": "",
-      "tags": ["3 armour", "Worn", "Clumsy"]
+      "tags": ["3 armour", "worn", "clumsy"]
     },
     {
       "name": "Shield",
