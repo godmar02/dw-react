@@ -170,6 +170,8 @@ export default function CampaignDetails() {
         } else {
           item_description = input;
         }
+      } else if (singleInput === 'Coins') {
+        item_description = input;
       } else {
         item_description = input + ' (NON STANDARD ITEM - NEEDS TO BE FIXED)';
       }
@@ -576,6 +578,7 @@ export default function CampaignDetails() {
           </div>
         );
       case 3:
+        //TODO VALIDATE CHOICES BEFORE ENABLING NEXT
         return (
           <div>
             <div>

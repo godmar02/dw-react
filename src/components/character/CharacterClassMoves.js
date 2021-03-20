@@ -13,9 +13,6 @@ import { Add, Delete, ExpandMore } from '@material-ui/icons';
 
 export default function CharacterClassStartingMoves() {
   const { character, setCharacter } = useContext(CharacterState);
-  function getMove(move, field) {
-    return class_moves.find((x) => x.name === move)[field];
-  }
   const [open, setOpen] = useState(false);
   const ctx = useMemo(() => ({ open, setOpen }), [open]);
 
@@ -43,12 +40,12 @@ export default function CharacterClassStartingMoves() {
         return (
           <Accordion key={index}>
             <AccordionSummary expandIcon={<ExpandMore />}>
-              {data} ({getMove(data, 'level')})
+              {data.name} ({data.level})
             </AccordionSummary>
             <AccordionDetails>
               <p
                 dangerouslySetInnerHTML={{
-                  __html: getMove(data, 'description'),
+                  __html: data.description,
                 }}></p>
             </AccordionDetails>
           </Accordion>
