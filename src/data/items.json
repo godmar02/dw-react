@@ -429,7 +429,7 @@
       "type": "Weapon",
       "cost": 1,
       "weight": 0,
-      "uses": "",
+      "uses": 1,
       "tags": ["near", "thrown"]
     },
     {

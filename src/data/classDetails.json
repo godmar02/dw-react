@@ -81,7 +81,7 @@
         "_______________ does not trust me, and for good reason."
       ],
       "starting_funds": 0,
-      "starting_gear_details": "<p>Your load is 9+Str. You have dungeon rations (5 uses, 1 weight).</p><p>Choose one instrument, all are 0 weight for you:</p><ul><li>Your father&#8217;s mandolin, repaired</li><li>A fine lute, a gift from a noble</li><li>The pipes with which you courted your first love</li><li>A stolen horn</li><li>A fiddle, never before played</li><li>A songbook in a forgotten tongue</li></ul>",
+      "starting_gear_details": "<p>Your load is 9+Str. You have dungeon rations (5 uses, 1 weight) and a choice of one instrument:</p><ul><li>Your father&#8217;s mandolin, repaired</li><li>A fine lute, a gift from a noble</li><li>The pipes with which you courted your first love</li><li>A stolen horn</li><li>A fiddle, never before played</li><li>A songbook in a forgotten tongue</li></ul>",
       "starting_gear": ["Dungeon Rations"],
       "starting_gear_options": [
         [
@@ -94,7 +94,12 @@
         ],
         [["Leather Armour"], ["Ostentatious Clothes"]],
         [["Dueling Rapier"], ["Worn Bow", "Bundle of Arrows", "Short Sword"]],
-        [["Adventuring Gear"], ["Bandages"], ["Halfling Pipeleaf"], ["3 Coins"]]
+        [
+          ["Adventuring Gear"],
+          ["Bandages"],
+          ["Halfling Pipeleaf"],
+          ["3x Coins"]
+        ]
       ],
       "starting_moves": [
         "Arcane Art",
@@ -254,7 +259,7 @@
           ["Adventuring Gear"],
           ["Poultices and Herbs"],
           ["Halfling Pipeleaf"],
-          ["3 Antitoxin"]
+          ["3x Antitoxin"]
         ]
       ],
       "starting_moves": [
@@ -340,10 +345,10 @@
       "starting_gear_options": [
         [["Chainmail", "Adventuring Gear"], ["Scale Mail"]],
         [
-          ["Healing Potion", "Healing Potion"],
+          ["2x Healing Potion"],
           ["Shield"],
           ["Antitoxin", "Dungeon Rations", "Poultices and Herbs"],
-          ["22 Coins"]
+          ["22x Coins"]
         ]
       ],
       "starting_moves": [
@@ -573,16 +578,13 @@
       "starting_gear": ["Dungeon Rations", "Leather Armour"],
       "starting_gear_options": [
         [
-          ["3 Oil of Tagit"],
-          ["3 Bloodweed"],
-          ["3 Goldenroot"],
-          ["3 Serpent’s Tears"]
+          ["3x Oil of Tagit"],
+          ["3x Bloodweed"],
+          ["3x Goldenroot"],
+          ["3x Serpent’s Tears"]
         ],
         [["Dagger", "Short Sword"], ["Rapier"]],
-        [
-          ["Throwing Dagger", "Throwing Dagger", "Throwing Dagger"],
-          ["Ragged Bow", "Bundle of Arrows"]
-        ],
+        [["3x Throwing Dagger"], ["Ragged Bow", "Bundle of Arrows"]],
         [["Adventuring Gear"], ["Healing Potion"]]
       ],
       "starting_moves": [
@@ -657,9 +659,9 @@
       "starting_gear_details": "<p>Your load is 7+Str. You start with your spellbook (1 weight) and dungeon rations (5 uses, 1 weight).</p>",
       "starting_gear": ["Spellbook", "Dungeon Rations"],
       "starting_gear_options": [
-        [["Leather Armour"], ["Bag of Books", "3 Healing Potion"]],
+        [["Leather Armour"], ["Bag of Books", "3x Healing Potion"]],
         [["Dagger"], ["Staff"]],
-        [["Healing Potion"], ["3 Antitoxin"]]
+        [["Healing Potion"], ["3x Antitoxin"]]
       ],
       "starting_moves": [
         "Spellbook",

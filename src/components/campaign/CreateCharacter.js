@@ -85,13 +85,17 @@ export default function CampaignDetails() {
   const handleBondChange = (event) => {
     let target = event.target;
     if (target.checked) {
-      //add to array
-      const newBonds = [...charaBonds, target.name]; // copying the old array and adding item
-      setCharaBonds(newBonds); // set array back
+      // Add to array
+      // Copying the old array and adding item
+      const newBonds = [...charaBonds, target.name];
+      // Set array back
+      setCharaBonds(newBonds);
     } else {
-      //remove from array
-      let newBonds = charaBonds.filter((bond) => bond !== target.name); // copying the old array
-      setCharaBonds(newBonds); // set array back
+      // Remove from array
+      // Copying the old array
+      let newBonds = charaBonds.filter((bond) => bond !== target.name);
+      // Set array back
+      setCharaBonds(newBonds);
     }
   };
 
@@ -140,17 +144,16 @@ export default function CampaignDetails() {
     let description = '';
     let count = 0;
 
-    //MULTIPLE ITEMS (DRUID, THIEF, WIZARD)
-    //COINS (BARD, FIGHTER)
-    //CHOOSE TWO (FIGHTER)
-
     gear.map((input) => {
       let weight = '';
       let uses = '';
       let tags = '';
       let attributes = '';
       let item_description = '';
-      const item = items.find((x) => x.name === input);
+      // Stripping leading number and spaces
+      const singleInput = input.replace(/^\d*x /, '');
+
+      const item = items.find((x) => x.name === singleInput);
       if (item) {
         if (Number.isFinite(item.weight)) {
           weight = item.weight + ' weight';
@@ -168,7 +171,7 @@ export default function CampaignDetails() {
           item_description = input;
         }
       } else {
-        item_description = input + ' XXXXX';
+        item_description = input + ' (NON STANDARD ITEM - NEEDS TO BE FIXED)';
       }
 
       if (count === 0) {
@@ -183,11 +186,10 @@ export default function CampaignDetails() {
     return description;
   }
 
-  function addCharaGearOptions(items, index) {
+  function addCharaGearOptions(choice, index) {
     let newGear = [...charaGearOptions];
-    newGear[index] = items;
+    newGear[index] = choice;
     setCharaGearOptions(newGear);
-    console.log('charaGearOptions', charaGearOptions);
   }
 
   const gearOptions = () => {
@@ -294,19 +296,67 @@ export default function CampaignDetails() {
       charaRace &&
       charaRaceMove
     ) {
-      const startingFunds = String(class_details[charaClass].starting_funds);
+      // STARTING FUNDS
+      let startingFunds = String(class_details[charaClass].starting_funds);
+
+      // STARTING MOVES
       let startingMoves = class_details[charaClass].starting_moves;
       if (charaMoveOption.length > 0) {
         startingMoves = [...startingMoves, charaMoveOption];
       }
-      const startingGear = class_details[charaClass].starting_gear.map(
-        (item) =>
-          Object.assign(
-            {},
-            items.find((x) => x.name === item),
-            { checkbox: false }
-          ) // Finding Item and adding blank checkbox
-      );
+      startingMoves = startingMoves.map((move) => {
+        return class_moves.find((x) => x.name === move);
+      });
+
+      //TODO CHOOSE TWO (FIGHTER)
+
+      // STARTING GEAR
+      let startingGear = class_details[charaClass].starting_gear;
+      let gearChoices = charaGearOptions.map((choice, index) => {
+        // Lookup gear choices
+        return class_details[charaClass].starting_gear_options[index][choice];
+      });
+      // Flatten array of choices and add to starting Gear
+      startingGear = startingGear.concat(gearChoices.flat());
+      // Converting gear into actual items and adding checkboxes
+      startingGear = startingGear.map((item) => {
+        // Stripping leading number and spaces for multiple items
+        const singleItem = item.replace(/^\d*x /, '');
+
+        if (singleItem === 'Coins') {
+          // If item is a coin then add it to starting funds
+          const coins = item.replace(/x Coins/, '');
+          startingFunds = String(
+            parseInt(startingFunds, 10) + parseInt(coins, 10)
+          );
+          return null;
+        } else {
+          if (singleItem === item) {
+            // If item is a single item
+            return Object.assign(
+              {},
+              items.find((x) => x.name === item),
+              { checkbox: false }
+            );
+          } else {
+            // If item is a multiple
+            const ammount = item.match(/^\d*/);
+            let singleObject = Object.assign(
+              {},
+              items.find((x) => x.name === singleItem),
+              { checkbox: false }
+            );
+            singleObject.uses = singleObject.uses * ammount;
+            singleObject.cost = singleObject.cost * ammount;
+            singleObject.weight = singleObject.weight * ammount;
+            return singleObject;
+          }
+        }
+      });
+
+      //console.log('startingFunds:', startingFunds);
+      //console.log('startingMoves:', startingMoves);
+      //console.log('startingGear:', startingGear);
 
       // SAVE FUNCTION
       FirebaseService.saveCharacter(campaignURL, charaName, {
