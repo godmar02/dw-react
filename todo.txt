@@ -1,7 +1,14 @@
-add items on Create
-Add character sizing
-Create Character - Open character on success...
-Look placeholder
-Class add move center
-add/remove moves
-Spells?
+- FUNCTIONAL WORK
+    - CreateCharacter - Fighter add two items
+    - CreateCharacter - Validate gear choices before enabling next
+    - CreateCharacter - Make separate page
+    - CreateCharacter - Add/remove Spells?
+    - CharacterSheet - Edit moves description
+    - CharacterSheet - Add/remove class moves
+    - CharacterSheet - Add/remove Spells?
+
+- MINOR UI FIXES
+    - Add character sizing
+    - Create Character - Open character on success...
+    - Look placeholder HTML
+    - Centre the Class add move
