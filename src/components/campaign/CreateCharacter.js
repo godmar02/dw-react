@@ -289,6 +289,28 @@ export default function CampaignDetails() {
     }
   }
 
+  function gearNext() {
+    if (
+      charaGearOptions &&
+      charaGearOptions.length ===
+        class_details[charaClass].starting_gear_options.length &&
+      !charaGearOptions.includes(null) &&
+      !charaGearOptions.includes(undefined)
+    ) {
+      return (
+        <Button variant='contained' color='primary' onClick={handleNext}>
+          Next
+        </Button>
+      );
+    } else {
+      return (
+        <Button disabled variant='contained' color='primary'>
+          Next
+        </Button>
+      );
+    }
+  }
+
   const saveCharacter = () => {
     if (
       campaignURL &&
@@ -578,7 +600,6 @@ export default function CampaignDetails() {
           </div>
         );
       case 3:
-        //TODO VALIDATE CHOICES BEFORE ENABLING NEXT
         return (
           <div>
             <div>
@@ -592,15 +613,7 @@ export default function CampaignDetails() {
               className={classes.backButton}>
               Back
             </Button>
-            {charaGearOptions ? (
-              <Button variant='contained' color='primary' onClick={handleNext}>
-                Next
-              </Button>
-            ) : (
-              <Button disabled variant='contained' color='primary'>
-                Next
-              </Button>
-            )}
+            {gearNext()}
           </div>
         );
       case 4:
