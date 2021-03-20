@@ -14,8 +14,11 @@
       "starting_gear_details": "<p>You start with Dungeon Rations (5 uses, 1 weight), a Dagger (hand, 1 weight), and some Token of where you’ve travelled or where you’re from.</p>",
       "starting_gear": ["Dungeon Rations", "Dagger", "Token"],
       "starting_gear_options": [
-        [["Axe"], ["Two-handed Sword"]],
-        [["Adventuring Gear", "Dungeon Rations"], ["Chainmail"]]
+        { "multiplicity": 1, "options": [["Axe"], ["Two-handed Sword"]] },
+        {
+          "multiplicity": 1,
+          "options": [["Adventuring Gear", "Dungeon Rations"], ["Chainmail"]]
+        }
       ],
       "starting_moves": [
         "Full Plate and Packing Steel",
@@ -84,22 +87,37 @@
       "starting_gear_details": "<p>Your load is 9+Str. You have dungeon rations (5 uses, 1 weight) and a choice of one instrument:</p><ul><li>Your father&#8217;s mandolin, repaired</li><li>A fine lute, a gift from a noble</li><li>The pipes with which you courted your first love</li><li>A stolen horn</li><li>A fiddle, never before played</li><li>A songbook in a forgotten tongue</li></ul>",
       "starting_gear": ["Dungeon Rations"],
       "starting_gear_options": [
-        [
-          ["Father's Mandolin"],
-          ["Fine Lute"],
-          ["Lover's Pipes"],
-          ["Stolen Horn"],
-          ["Fiddle"],
-          ["Songbook"]
-        ],
-        [["Leather Armour"], ["Ostentatious Clothes"]],
-        [["Dueling Rapier"], ["Worn Bow", "Bundle of Arrows", "Short Sword"]],
-        [
-          ["Adventuring Gear"],
-          ["Bandages"],
-          ["Halfling Pipeleaf"],
-          ["3x Coins"]
-        ]
+        {
+          "multiplicity": 1,
+          "options": [
+            ["Father's Mandolin"],
+            ["Fine Lute"],
+            ["Lover's Pipes"],
+            ["Stolen Horn"],
+            ["Fiddle"],
+            ["Songbook"]
+          ]
+        },
+        {
+          "multiplicity": 1,
+          "options": [["Leather Armour"], ["Ostentatious Clothes"]]
+        },
+        {
+          "multiplicity": 1,
+          "options": [
+            ["Dueling Rapier"],
+            ["Worn Bow", "Bundle of Arrows", "Short Sword"]
+          ]
+        },
+        {
+          "multiplicity": 1,
+          "options": [
+            ["Adventuring Gear"],
+            ["Bandages"],
+            ["Halfling Pipeleaf"],
+            ["3x Coins"]
+          ]
+        }
       ],
       "starting_moves": [
         "Arcane Art",
@@ -174,9 +192,18 @@
       "starting_gear_details": "<p>Your load is 10+Str. You carry dungeon rations (5 uses, 1 weight) and some symbol of the divine, describe it (0 weight).</p>",
       "starting_gear": ["Dungeon Rations", "Symbol of the Divine"],
       "starting_gear_options": [
-        [["Chainmail"], ["Shield"]],
-        [["Warhammer"], ["Mace"], ["Staff", "Bandages"]],
-        [["Adventuring Gear", "Dungeon Rations"], ["Healing Potion"]]
+        { "multiplicity": 1, "options": [["Chainmail"], ["Shield"]] },
+        {
+          "multiplicity": 1,
+          "options": [["Warhammer"], ["Mace"], ["Staff", "Bandages"]]
+        },
+        {
+          "multiplicity": 1,
+          "options": [
+            ["Adventuring Gear", "Dungeon Rations"],
+            ["Healing Potion"]
+          ]
+        }
       ],
       "starting_moves": [
         "Deity",
@@ -253,14 +280,20 @@
       "starting_gear_details": "<p>Your load is 6+Str. You carry some token of your land, describe it.</p>",
       "starting_gear": ["Token"],
       "starting_gear_options": [
-        [["Hide Armour"], ["Wooden Shield"]],
-        [["Shillelagh"], ["Staff"], ["Spear"]],
-        [
-          ["Adventuring Gear"],
-          ["Poultices and Herbs"],
-          ["Halfling Pipeleaf"],
-          ["3x Antitoxin"]
-        ]
+        { "multiplicity": 1, "options": [["Hide Armour"], ["Wooden Shield"]] },
+        {
+          "multiplicity": 1,
+          "options": [["Shillelagh"], ["Staff"], ["Spear"]]
+        },
+        {
+          "multiplicity": 1,
+          "options": [
+            ["Adventuring Gear"],
+            ["Poultices and Herbs"],
+            ["Halfling Pipeleaf"],
+            ["3x Antitoxin"]
+          ]
+        }
       ],
       "starting_moves": [
         "Born of the Soil",
@@ -340,16 +373,22 @@
         "_______________ is soft, but I will make them hard like me."
       ],
       "starting_funds": 0,
-      "starting_gear_details": "<p>Your load is 12+Str. You carry your signature weapon and dungeon rations (5 uses, 1 weight).</p><p>Choose two:</p><ul><li>2 Healing potions (0 weight)</li><li>Shield (+1 armour, 2 weight)</li><li>Antitoxin (0 weight), dungeon rations (1 weight), and poultices and herbs (1 weight)</li><li>22 coins</li></ul>",
+      "starting_gear_details": "<p>Your load is 12+Str. You carry your signature weapon and dungeon rations (5 uses, 1 weight).</p>",
       "starting_gear": ["Dungeon Rations", "Signature Weapon"],
       "starting_gear_options": [
-        [["Chainmail", "Adventuring Gear"], ["Scale Mail"]],
-        [
-          ["2x Healing Potion"],
-          ["Shield"],
-          ["Antitoxin", "Dungeon Rations", "Poultices and Herbs"],
-          ["22x Coins"]
-        ]
+        {
+          "multiplicity": 1,
+          "options": [["Chainmail", "Adventuring Gear"], ["Scale Mail"]]
+        },
+        {
+          "multiplicity": 2,
+          "options": [
+            ["2x Healing Potion"],
+            ["Shield"],
+            ["Antitoxin", "Dungeon Rations", "Poultices and Herbs"],
+            ["22x Coins"]
+          ]
+        }
       ],
       "starting_moves": [
         "Bend Bars, Lift Gates",
@@ -423,8 +462,17 @@
       "starting_gear_details": "<p>Your load is 12+Str. You start with dungeon rations (5 uses, 1 weight), scale mail (2 armour, 3 weight), and some mark of faith, describe it (0 weight).</p>",
       "starting_gear": ["Dungeon Rations", "Scale Mail", "Mark of Faith"],
       "starting_gear_options": [
-        [["Halberd"], ["Long Sword", "Shield"]],
-        [["Adventuring Gear"], ["Dungeon Rations", "Healing Potion"]]
+        {
+          "multiplicity": 1,
+          "options": [["Halberd"], ["Long Sword", "Shield"]]
+        },
+        {
+          "multiplicity": 1,
+          "options": [
+            ["Adventuring Gear"],
+            ["Dungeon Rations", "Healing Potion"]
+          ]
+        }
       ],
       "starting_moves": [
         "Lay on Hands (Cha)",
@@ -495,14 +543,20 @@
         "Bundle of Arrows"
       ],
       "starting_gear_options": [
-        [
-          ["Hunter's Bow", "Short Sword"],
-          ["Hunter's Bow", "Spear"]
-        ],
-        [
-          ["Adventuring Gear", "Dungeon Rations"],
-          ["Adventuring Gear", "Bundle of Arrows"]
-        ]
+        {
+          "multiplicity": 1,
+          "options": [
+            ["Hunter's Bow", "Short Sword"],
+            ["Hunter's Bow", "Spear"]
+          ]
+        },
+        {
+          "multiplicity": 1,
+          "options": [
+            ["Adventuring Gear", "Dungeon Rations"],
+            ["Adventuring Gear", "Bundle of Arrows"]
+          ]
+        }
       ],
       "starting_moves": [
         "Hunt and Track (Wis)",
@@ -577,15 +631,30 @@
       "starting_gear_details": "<p>Your load is 9+Str. You start with dungeon rations (5 uses, 1 weight), leather armour (1 armour, 1 weight), 3 uses of your chosen poison, and 10 coins.</p>",
       "starting_gear": ["Dungeon Rations", "Leather Armour"],
       "starting_gear_options": [
-        [
-          ["3x Oil of Tagit"],
-          ["3x Bloodweed"],
-          ["3x Goldenroot"],
-          ["3x Serpent’s Tears"]
-        ],
-        [["Dagger", "Short Sword"], ["Rapier"]],
-        [["3x Throwing Dagger"], ["Ragged Bow", "Bundle of Arrows"]],
-        [["Adventuring Gear"], ["Healing Potion"]]
+        {
+          "multiplicity": 1,
+          "options": [
+            ["3x Oil of Tagit"],
+            ["3x Bloodweed"],
+            ["3x Goldenroot"],
+            ["3x Serpent’s Tears"]
+          ]
+        },
+        {
+          "multiplicity": 1,
+          "options": [["Dagger", "Short Sword"], ["Rapier"]]
+        },
+        {
+          "multiplicity": 1,
+          "options": [
+            ["3x Throwing Dagger"],
+            ["Ragged Bow", "Bundle of Arrows"]
+          ]
+        },
+        {
+          "multiplicity": 1,
+          "options": [["Adventuring Gear"], ["Healing Potion"]]
+        }
       ],
       "starting_moves": [
         "Trap Expert",
@@ -659,9 +728,12 @@
       "starting_gear_details": "<p>Your load is 7+Str. You start with your spellbook (1 weight) and dungeon rations (5 uses, 1 weight).</p>",
       "starting_gear": ["Spellbook", "Dungeon Rations"],
       "starting_gear_options": [
-        [["Leather Armour"], ["Bag of Books", "3x Healing Potion"]],
-        [["Dagger"], ["Staff"]],
-        [["Healing Potion"], ["3x Antitoxin"]]
+        {
+          "multiplicity": 1,
+          "options": [["Leather Armour"], ["Bag of Books", "3x Healing Potion"]]
+        },
+        { "multiplicity": 1, "options": [["Dagger"], ["Staff"]] },
+        { "multiplicity": 1, "options": [["Healing Potion"], ["3x Antitoxin"]] }
       ],
       "starting_moves": [
         "Spellbook",

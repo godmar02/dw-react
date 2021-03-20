@@ -28,6 +28,7 @@ import { class_details } from 'data/classDetails';
 import { dw_classes } from 'data/dwClasses';
 import { items } from 'data/items';
 import { class_moves } from 'data/classMoves';
+import { KeyboardReturnRounded } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -189,25 +190,34 @@ export default function CampaignDetails() {
   }
 
   function addCharaGearOptions(choice, index) {
-    let newGear = [...charaGearOptions];
+    const newGear = [...charaGearOptions];
     newGear[index] = choice;
     setCharaGearOptions(newGear);
   }
 
+  function addCharaGearCheckedOptions(checked, index) {
+    console.log('choice', checked);
+    console.log('index', index);
+    const newGear = [...charaGearOptions];
+    const newGearMultiOption = newGear[index];
+    newGear[index] = [index];
+    //setCharaGearOptions(newGear);
+  }
+
   const gearOptions = () => {
-    const gear = class_details[charaClass].starting_gear_details;
     const gearChoices = class_details[charaClass].starting_gear_options;
+    //const error = [gilad, jason, antoine].filter((v) => v).length !== 2;
+    const error = true;
     if (gearChoices.length > 0) {
-      return (
-        <>
-          <p dangerouslySetInnerHTML={{ __html: gear }} />
-          {gearChoices.map((gearChoice, index) => {
-            return (
+      const output = gearChoices.map((gearChoice, index) => {
+        return (
+          <>
+            {gearChoice.multiplicity === 1 ? (
               <FormControl
                 key={'group' + index}
                 component='fieldset'
                 className={classes.formControl}>
-                <FormLabel component='legend'>Choose One:</FormLabel>
+                <FormLabel component='legend'>Choose 1:</FormLabel>
                 <RadioGroup
                   aria-label='starting gear choice'
                   name='starting gear choice'
@@ -215,7 +225,7 @@ export default function CampaignDetails() {
                   onChange={(event) => {
                     addCharaGearOptions(event.target.value, index);
                   }}>
-                  {gearChoice.map((gear, index) => {
+                  {gearChoice.options.map((gear, index) => {
                     return (
                       <FormControlLabel
                         key={'option' + index}
@@ -227,14 +237,68 @@ export default function CampaignDetails() {
                   })}
                 </RadioGroup>
               </FormControl>
-            );
-          })}
-        </>
-      );
+            ) : (
+              <FormControl
+                key={'group' + index}
+                error={error}
+                component='fieldset'
+                className={classes.formControl}>
+                <FormLabel component='legend'>
+                  Choose {gearChoice.multiplicity}:
+                </FormLabel>
+                <FormGroup>
+                  {gearChoice.options.map((gear, index) => {
+                    return (
+                      <FormControlLabel
+                        key={'option' + index}
+                        control={
+                          <Checkbox
+                            checked={charaGearOptions[index] || false}
+                            onChange={(event) => {
+                              addCharaGearCheckedOptions(
+                                event.target.checked,
+                                index
+                              );
+                            }}
+                          />
+                        }
+                        label={gearDescription(gear)}
+                      />
+                    );
+                  })}
+                </FormGroup>
+              </FormControl>
+            )}
+          </>
+        );
+      });
+      return output;
     } else {
       return <p>No move choices to make</p>;
     }
   };
+
+  function gearNext() {
+    if (
+      charaGearOptions &&
+      charaGearOptions.length ===
+        class_details[charaClass].starting_gear_options.length &&
+      !charaGearOptions.includes(null) &&
+      !charaGearOptions.includes(undefined)
+    ) {
+      return (
+        <Button variant='contained' color='primary' onClick={handleNext}>
+          Next
+        </Button>
+      );
+    } else {
+      return (
+        <Button disabled variant='contained' color='primary'>
+          Next
+        </Button>
+      );
+    }
+  }
 
   function moveDescription(move) {
     const description = class_moves.find((x) => x.name === move).description;
@@ -289,28 +353,6 @@ export default function CampaignDetails() {
     }
   }
 
-  function gearNext() {
-    if (
-      charaGearOptions &&
-      charaGearOptions.length ===
-        class_details[charaClass].starting_gear_options.length &&
-      !charaGearOptions.includes(null) &&
-      !charaGearOptions.includes(undefined)
-    ) {
-      return (
-        <Button variant='contained' color='primary' onClick={handleNext}>
-          Next
-        </Button>
-      );
-    } else {
-      return (
-        <Button disabled variant='contained' color='primary'>
-          Next
-        </Button>
-      );
-    }
-  }
-
   const saveCharacter = () => {
     if (
       campaignURL &&
@@ -332,13 +374,13 @@ export default function CampaignDetails() {
         return class_moves.find((x) => x.name === move);
       });
 
-      //TODO CHOOSE TWO (FIGHTER)
-
       // STARTING GEAR
       let startingGear = class_details[charaClass].starting_gear;
       let gearChoices = charaGearOptions.map((choice, index) => {
         // Lookup gear choices
-        return class_details[charaClass].starting_gear_options[index][choice];
+        return class_details[charaClass].starting_gear_options[index].options[
+          choice
+        ];
       });
       // Flatten array of choices and add to starting Gear
       startingGear = startingGear.concat(gearChoices.flat());
@@ -604,6 +646,11 @@ export default function CampaignDetails() {
           <div>
             <div>
               <Typography component={'span'} className={classes.instructions}>
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: class_details[charaClass].starting_gear_details,
+                  }}
+                />
                 {gearOptions()}
               </Typography>
             </div>
