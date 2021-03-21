@@ -1,5 +1,5 @@
 - FUNCTIONAL WORK
-    - CreateCharacter - Fighter add two items (validate if 2 choices made, save multiple choices)
+    - CreateCharacter - Fighter add two items (save multiple choices)
     - CreateCharacter - Make separate page
     - CreateCharacter - Add/remove Spells?
     - CharacterSheet - Edit moves description

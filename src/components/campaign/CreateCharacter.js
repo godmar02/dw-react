@@ -73,6 +73,7 @@ export default function CampaignDetails() {
   const [charaGearOptions, setCharaGearOptions] = useState([]);
   const [charaBonds, setCharaBonds] = useState([]);
   const [activeStep, setActiveStep] = useState(0);
+  const [error, setError] = useState(true);
   const steps = getSteps();
 
   const handleNext = () => {
@@ -197,19 +198,27 @@ export default function CampaignDetails() {
 
   function addCharaGearMultiOptions(checked, option, index) {
     let newGear = [...charaGearOptions];
+
     if (!newGear[index]) {
       newGear[index] = [];
     }
     newGear[index][option] = checked;
     setCharaGearOptions(newGear); // set array back
+    if (
+      charaGearOptions[index] &&
+      charaGearOptions[index].filter((v) => v === true).length ===
+        class_details[charaClass].starting_gear_options[index].multiplicity
+    ) {
+      setError(false);
+    } else {
+      setError(true);
+    }
   }
 
   const gearOptions = () => {
     const gearChoices = class_details[charaClass].starting_gear_options;
     if (gearChoices.length > 0) {
       const output = gearChoices.map((gearChoice, index) => {
-        //const error = charaGearOptions[index].filter((v) => v).length !== 2;
-        const error = true;
         const choiceGroup = index;
         if (gearChoice.multiplicity === 1) {
           return (
@@ -246,7 +255,6 @@ export default function CampaignDetails() {
             <React.Fragment key={choiceGroup}>
               <FormControl
                 key={'gearChoiceGroup' + choiceGroup}
-                error={error}
                 component='fieldset'
                 className={classes.formControl}>
                 <FormLabel component='legend'>
@@ -296,7 +304,8 @@ export default function CampaignDetails() {
       charaGearOptions.length ===
         class_details[charaClass].starting_gear_options.length &&
       !charaGearOptions.includes(null) &&
-      !charaGearOptions.includes(undefined)
+      !charaGearOptions.includes(undefined) &&
+      !error
     ) {
       return (
         <Button variant='contained' color='primary' onClick={handleNext}>
