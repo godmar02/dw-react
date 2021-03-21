@@ -201,7 +201,6 @@ export default function CampaignDetails() {
       newGear[index] = [];
     }
     newGear[index][option] = checked;
-    console.log('addCharaGearMultiOptions - newGear', newGear);
     setCharaGearOptions(newGear); // set array back
   }
 
