@@ -189,47 +189,50 @@ export default function CampaignDetails() {
     return description;
   }
 
-  function addCharaGearOptions(choice, index) {
+  function addCharaGearOptions(option, index) {
     const newGear = [...charaGearOptions];
-    newGear[index] = choice;
+    newGear[index] = option;
     setCharaGearOptions(newGear);
   }
 
-  function addCharaGearCheckedOptions(checked, index) {
-    console.log('choice', checked);
-    console.log('index', index);
-    const newGear = [...charaGearOptions];
-    const newGearMultiOption = newGear[index];
-    newGear[index] = [index];
-    //setCharaGearOptions(newGear);
+  function addCharaGearMultiOptions(checked, option, index) {
+    let newGear = [...charaGearOptions];
+    if (!newGear[index]) {
+      newGear[index] = [];
+    }
+    newGear[index][option] = checked;
+    console.log('addCharaGearMultiOptions - newGear', newGear);
+    setCharaGearOptions(newGear); // set array back
   }
 
   const gearOptions = () => {
     const gearChoices = class_details[charaClass].starting_gear_options;
-    //const error = [gilad, jason, antoine].filter((v) => v).length !== 2;
-    const error = true;
     if (gearChoices.length > 0) {
       const output = gearChoices.map((gearChoice, index) => {
-        return (
-          <>
-            {gearChoice.multiplicity === 1 ? (
+        //const error = charaGearOptions[index].filter((v) => v).length !== 2;
+        const error = true;
+        const choiceGroup = index;
+        if (gearChoice.multiplicity === 1) {
+          return (
+            <React.Fragment key={choiceGroup}>
               <FormControl
-                key={'group' + index}
+                key={'gearChoiceGroup' + choiceGroup}
                 component='fieldset'
                 className={classes.formControl}>
                 <FormLabel component='legend'>Choose 1:</FormLabel>
                 <RadioGroup
                   aria-label='starting gear choice'
                   name='starting gear choice'
-                  value={charaGearOptions[index] || null}
+                  value={charaGearOptions[choiceGroup] || null}
                   onChange={(event) => {
-                    addCharaGearOptions(event.target.value, index);
+                    addCharaGearOptions(event.target.value, choiceGroup);
                   }}>
                   {gearChoice.options.map((gear, index) => {
+                    const option = index;
                     return (
                       <FormControlLabel
-                        key={'option' + index}
-                        value={index.toString()}
+                        key={'option' + option}
+                        value={option.toString()}
                         control={<Radio />}
                         label={gearDescription(gear)}
                       />
@@ -237,9 +240,13 @@ export default function CampaignDetails() {
                   })}
                 </RadioGroup>
               </FormControl>
-            ) : (
+            </React.Fragment>
+          );
+        } else {
+          return (
+            <React.Fragment key={choiceGroup}>
               <FormControl
-                key={'group' + index}
+                key={'gearChoiceGroup' + choiceGroup}
                 error={error}
                 component='fieldset'
                 className={classes.formControl}>
@@ -248,16 +255,22 @@ export default function CampaignDetails() {
                 </FormLabel>
                 <FormGroup>
                   {gearChoice.options.map((gear, index) => {
+                    const option = index;
                     return (
                       <FormControlLabel
-                        key={'option' + index}
+                        key={'checkbox' + option}
                         control={
                           <Checkbox
-                            checked={charaGearOptions[index] || false}
+                            checked={
+                              charaGearOptions[choiceGroup]
+                                ? !!charaGearOptions[choiceGroup][option]
+                                : false
+                            }
                             onChange={(event) => {
-                              addCharaGearCheckedOptions(
+                              addCharaGearMultiOptions(
                                 event.target.checked,
-                                index
+                                option,
+                                choiceGroup
                               );
                             }}
                           />
@@ -268,9 +281,9 @@ export default function CampaignDetails() {
                   })}
                 </FormGroup>
               </FormControl>
-            )}
-          </>
-        );
+            </React.Fragment>
+          );
+        }
       });
       return output;
     } else {
