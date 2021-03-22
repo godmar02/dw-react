@@ -6,6 +6,7 @@ import Homepage from 'components/homepage/Homepage';
 import AppHeader from 'components/AppHeader';
 import CharacterSheet from 'components/character/CharacterSheet';
 import Campaign from 'components/campaign/Campaign';
+import CreateCharacter from 'components/character/CreateCharacter';
 import '@fontsource/roboto';
 
 export default function App() {
@@ -15,17 +16,22 @@ export default function App() {
         <Router>
           <AppHeader />
           <Switch>
-            <Route
-              exact={true}
-              path='/dw-react/:campaignURL/:characterURL'
-              component={CharacterSheet}
-            />
+            <Route exact={true} path='/dw-react' component={Homepage} />
             <Route
               exact={true}
               path='/dw-react/:campaignURL'
               component={Campaign}
             />
-            <Route exact={true} path='/dw-react' component={Homepage} />
+            <Route
+              exact={true}
+              path='/dw-react/:campaignURL/create-character'
+              component={CreateCharacter}
+            />
+            <Route
+              exact={true}
+              path='/dw-react/:campaignURL/:characterURL'
+              component={CharacterSheet}
+            />
             <Route component={ErrorPage} />
           </Switch>
         </Router>

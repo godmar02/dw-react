@@ -1,13 +1,11 @@
 import React, { useContext, useState } from 'react';
 import { useParams } from 'react-router';
+import { useHistory } from 'react-router-dom';
 import * as FirebaseService from 'services/firebase';
 import AuthState from 'components/contexts/AuthState';
-import CreateCharacterState from 'components/contexts/CreateCharacterState';
 import {
   Button,
   Checkbox,
-  Dialog,
-  DialogContent,
   FormControl,
   FormControlLabel,
   FormGroup,
@@ -28,7 +26,6 @@ import { class_details } from 'data/classDetails';
 import { dw_classes } from 'data/dwClasses';
 import { items } from 'data/items';
 import { class_moves } from 'data/classMoves';
-import { KeyboardReturnRounded } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -37,6 +34,12 @@ const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(1),
     minWidth: 120,
+  },
+  resetButton: {
+    marginRight: theme.spacing(1),
+  },
+  cancelButton: {
+    marginRight: theme.spacing(1),
   },
   backButton: {
     marginRight: theme.spacing(1),
@@ -60,7 +63,7 @@ function getSteps() {
 
 export default function CampaignDetails() {
   const classes = useStyles();
-  const { open, setOpen } = useContext(CreateCharacterState);
+  const history = useHistory();
   const { currentUser } = useContext(AuthState);
   const { campaignURL } = useParams();
   const [charaName, setCharaName] = useState('');
@@ -73,7 +76,7 @@ export default function CampaignDetails() {
   const [charaGearOptions, setCharaGearOptions] = useState([]);
   const [charaBonds, setCharaBonds] = useState([]);
   const [activeStep, setActiveStep] = useState(0);
-  const [error, setError] = useState(true);
+  const [error, setError] = useState(false);
   const steps = getSteps();
 
   const handleNext = () => {
@@ -101,7 +104,7 @@ export default function CampaignDetails() {
     }
   };
 
-  const handleCancel = () => {
+  const clearAttributes = () => {
     setCharaName('');
     setCharaClass('');
     setCharaRace('');
@@ -112,12 +115,18 @@ export default function CampaignDetails() {
     setCharaGearOptions([]);
     setCharaFullName('');
     setActiveStep(0);
-    setOpen(false);
+  };
+
+  const handleReset = () => {
+    clearAttributes();
+  };
+
+  const handleCancel = () => {
+    history.push('/dw-react/' + campaignURL);
   };
 
   const handleSave = () => {
     saveCharacter();
-    handleCancel();
   };
 
   const alignmentAttribute = () => {
@@ -197,8 +206,8 @@ export default function CampaignDetails() {
   }
 
   function addCharaGearMultiOptions(checked, option, index) {
+    setError(true);
     let newGear = [...charaGearOptions];
-
     if (!newGear[index]) {
       newGear[index] = [];
     }
@@ -420,7 +429,6 @@ export default function CampaignDetails() {
       });
       // Flatten array of choices and add to starting Gear
       startingGear = startingGear.concat(gearChoices.flat());
-      console.log('startingGear', startingGear);
       // Converting gear into actual items and adding checkboxes
       startingGear = startingGear.map((item) => {
         // Stripping leading number and spaces for multiple items
@@ -491,6 +499,7 @@ export default function CampaignDetails() {
       })
         .then(() => {
           console.info('Created Character:', charaName);
+          history.push('/dw-react/' + campaignURL + '/' + charaName);
         })
         .catch((error) => {
           alert('Failed to create character, see console error');
@@ -557,6 +566,12 @@ export default function CampaignDetails() {
                 </FormControl>
               </Typography>
             </div>
+            <Button onClick={handleCancel} className={classes.cancelButton}>
+              Cancel
+            </Button>
+            <Button onClick={handleReset} className={classes.resetButton}>
+              Reset
+            </Button>
             <Button
               disabled={activeStep === 0}
               onClick={handleBack}
@@ -603,6 +618,12 @@ export default function CampaignDetails() {
                 <p dangerouslySetInnerHTML={{ __html: suggestedNames() }} />
               </Typography>
             </div>
+            <Button onClick={handleCancel} className={classes.cancelButton}>
+              Cancel
+            </Button>
+            <Button onClick={handleReset} className={classes.resetButton}>
+              Reset
+            </Button>
             <Button
               disabled={activeStep === 0}
               onClick={handleBack}
@@ -661,6 +682,12 @@ export default function CampaignDetails() {
                 </FormControl>
               </Typography>
             </div>
+            <Button onClick={handleCancel} className={classes.cancelButton}>
+              Cancel
+            </Button>
+            <Button onClick={handleReset} className={classes.resetButton}>
+              Reset
+            </Button>
             <Button
               disabled={activeStep === 0}
               onClick={handleBack}
@@ -691,6 +718,12 @@ export default function CampaignDetails() {
                 {gearOptions()}
               </Typography>
             </div>
+            <Button onClick={handleCancel} className={classes.cancelButton}>
+              Cancel
+            </Button>
+            <Button onClick={handleReset} className={classes.resetButton}>
+              Reset
+            </Button>
             <Button
               disabled={activeStep === 0}
               onClick={handleBack}
@@ -708,6 +741,12 @@ export default function CampaignDetails() {
                 {moveOptions()}
               </Typography>
             </div>
+            <Button onClick={handleCancel} className={classes.cancelButton}>
+              Cancel
+            </Button>
+            <Button onClick={handleReset} className={classes.resetButton}>
+              Reset
+            </Button>
             <Button
               disabled={activeStep === 0}
               onClick={handleBack}
@@ -755,6 +794,12 @@ export default function CampaignDetails() {
                 </div>
               </Typography>
             </div>
+            <Button onClick={handleCancel} className={classes.cancelButton}>
+              Cancel
+            </Button>
+            <Button onClick={handleReset} className={classes.resetButton}>
+              Reset
+            </Button>
             <Button
               disabled={activeStep === 0}
               onClick={handleBack}
@@ -782,19 +827,15 @@ export default function CampaignDetails() {
   }
 
   return (
-    <Dialog open={open} onClose={handleCancel}>
-      <DialogContent>
-        <div className={classes.root}>
-          <Stepper activeStep={activeStep} alternativeLabel>
-            {steps.map((label) => (
-              <Step key={label}>
-                <StepLabel>{label}</StepLabel>
-              </Step>
-            ))}
-          </Stepper>
-          <div>{getStepContent(activeStep)}</div>
-        </div>
-      </DialogContent>
-    </Dialog>
+    <div className={classes.root}>
+      <Stepper activeStep={activeStep} alternativeLabel>
+        {steps.map((label) => (
+          <Step key={label}>
+            <StepLabel>{label}</StepLabel>
+          </Step>
+        ))}
+      </Stepper>
+      <div>{getStepContent(activeStep)}</div>
+    </div>
   );
 }
