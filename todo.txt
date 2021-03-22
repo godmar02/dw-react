@@ -8,6 +8,7 @@
     - CharacterSheet - Remove class moves
     - CreateCharacter - Add/remove Spells?
     - CharacterSheet - Add/remove Spells?
+    - Session Notes
     - GM view with abilties?
 
 - MINOR UI FIXES

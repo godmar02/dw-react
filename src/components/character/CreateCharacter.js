@@ -10,11 +10,11 @@ import {
   CardContent,
   CardHeader,
   Checkbox,
-  Container,
   FormControl,
   FormControlLabel,
   FormGroup,
   FormLabel,
+  Grid,
   InputLabel,
   MenuItem,
   Radio,
@@ -862,7 +862,16 @@ export default function CampaignDetails() {
           </Step>
         ))}
       </Stepper>
-      <Container>{getStepContent(activeStep)}</Container>
+      <Grid
+        container
+        spacing={0}
+        direction='column'
+        alignItems='center'
+        justify='center'>
+        <Grid item xs={12}>
+          {getStepContent(activeStep)}
+        </Grid>
+      </Grid>
     </div>
   );
 }
