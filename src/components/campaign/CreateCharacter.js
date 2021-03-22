@@ -398,18 +398,29 @@ export default function CampaignDetails() {
       // STARTING GEAR
       let startingGear = class_details[charaClass].starting_gear;
       let gearChoices = charaGearOptions.map((choice, index) => {
+        const choiceGroup = index;
+        let item = '';
         // Lookup gear choices
         if (Array.isArray(choice)) {
-          // TODO if array cycle lookup array with true and false
-          choice.map((option, index) => {});
+          // For multi-choice options cycle through and for true vals pick option
+          choice.map((option, index) => {
+            if (option) {
+              item =
+                class_details[charaClass].starting_gear_options[choiceGroup]
+                  .options[index];
+            }
+            return item;
+          });
         } else {
-          return class_details[charaClass].starting_gear_options[index].options[
-            choice
-          ];
+          item =
+            class_details[charaClass].starting_gear_options[choiceGroup]
+              .options[choice];
         }
+        return item;
       });
       // Flatten array of choices and add to starting Gear
       startingGear = startingGear.concat(gearChoices.flat());
+      console.log('startingGear', startingGear);
       // Converting gear into actual items and adding checkboxes
       startingGear = startingGear.map((item) => {
         // Stripping leading number and spaces for multiple items
