@@ -399,9 +399,14 @@ export default function CampaignDetails() {
       let startingGear = class_details[charaClass].starting_gear;
       let gearChoices = charaGearOptions.map((choice, index) => {
         // Lookup gear choices
-        return class_details[charaClass].starting_gear_options[index].options[
-          choice
-        ];
+        if (Array.isArray(choice)) {
+          // TODO if array cycle lookup array with true and false
+          choice.map((option, index) => {});
+        } else {
+          return class_details[charaClass].starting_gear_options[index].options[
+            choice
+          ];
+        }
       });
       // Flatten array of choices and add to starting Gear
       startingGear = startingGear.concat(gearChoices.flat());
