@@ -12,9 +12,9 @@ import '@fontsource/roboto';
 export default function App() {
   return (
     <Typography component={'span'}>
+      <AppHeader />
       <Container>
         <Router>
-          <AppHeader />
           <Switch>
             <Route exact={true} path='/dw-react' component={Homepage} />
             <Route

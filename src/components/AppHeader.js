@@ -30,7 +30,7 @@ export default function AppHeader() {
             <Menu />
           </IconButton>
           <Typography component={'span'} variant='h6' className={classes.title}>
-            Dungeon World Character Sheet (v0.10.0 by Godmar02)
+            Dungeon World Character Sheet (by Godmar02)
           </Typography>
           <UserProfile />
         </Toolbar>

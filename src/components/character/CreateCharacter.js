@@ -594,7 +594,6 @@ export default function CampaignDetails() {
             {charaClass ? (
               <>
                 <br />
-
                 <Card className={classes.card}>
                   <CardHeader title='Race & Race Move' />
                   <CardContent>
@@ -646,9 +645,7 @@ export default function CampaignDetails() {
                     </Typography>
                   </CardContent>
                 </Card>
-
                 <br />
-
                 <Card className={classes.card}>
                   <CardHeader title='Name' />
                   <CardContent>
@@ -689,7 +686,6 @@ export default function CampaignDetails() {
               </>
             ) : null}
             <br />
-
             <Button onClick={handleCancel} className={classes.cancelButton}>
               Cancel
             </Button>
@@ -733,9 +729,7 @@ export default function CampaignDetails() {
                 </Typography>
               </CardContent>
             </Card>
-
             <br />
-
             <Button onClick={handleCancel} className={classes.cancelButton}>
               Cancel
             </Button>
@@ -762,9 +756,7 @@ export default function CampaignDetails() {
                 </Typography>
               </CardContent>
             </Card>
-
             <br />
-
             <Button onClick={handleCancel} className={classes.cancelButton}>
               Cancel
             </Button>
@@ -820,9 +812,7 @@ export default function CampaignDetails() {
                 </Typography>
               </CardContent>
             </Card>
-
             <br />
-
             <Button onClick={handleCancel} className={classes.cancelButton}>
               Cancel
             </Button>
