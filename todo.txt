@@ -4,8 +4,8 @@
     - CharacterSheet - Remove class moves
     - CreateCharacter - Add/remove Spells?
     - CharacterSheet - Add/remove Spells?
+    - GM view with abilties?
 
 - MINOR UI FIXES
-    - Add character sizing
-    - Look placeholder HTML
+    - Add character card sizing
     - Centre the Class add move
