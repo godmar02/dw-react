@@ -1,10 +1,11 @@
 import React, { useContext, useState } from 'react';
 import { useParams } from 'react-router';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import * as FirebaseService from 'services/firebase';
 import AuthState from 'components/contexts/AuthState';
 import {
   Button,
+  Breadcrumbs,
   Card,
   CardContent,
   CardHeader,
@@ -847,6 +848,13 @@ export default function CampaignDetails() {
 
   return (
     <div className={classes.root}>
+      <div>
+        <Breadcrumbs aria-label='breadcrumb'>
+          <Link to='/dw-react'>Home</Link>
+          <Link to={'/dw-react/' + campaignURL}>{campaignURL}</Link>
+          <p>Create Character</p>
+        </Breadcrumbs>
+      </div>
       <Stepper activeStep={activeStep} alternativeLabel>
         {steps.map((label) => (
           <Step key={label}>
