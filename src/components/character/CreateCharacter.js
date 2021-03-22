@@ -5,7 +5,11 @@ import * as FirebaseService from 'services/firebase';
 import AuthState from 'components/contexts/AuthState';
 import {
   Button,
+  Card,
+  CardContent,
+  CardHeader,
   Checkbox,
+  Container,
   FormControl,
   FormControlLabel,
   FormGroup,
@@ -31,6 +35,10 @@ const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
   },
+  card: {
+    minWidth: 275,
+    maxWidth: 700,
+  },
   formControl: {
     margin: theme.spacing(1),
     minWidth: 120,
@@ -52,9 +60,7 @@ const useStyles = makeStyles((theme) => ({
 
 function getSteps() {
   return [
-    'Choose Class & Alignment',
-    'Create Name',
-    'Choose Race & Move',
+    'Choose Basic Details',
     'Select Gear',
     'Select Class Moves',
     'Add Bonds',
@@ -236,7 +242,7 @@ export default function CampaignDetails() {
                 key={'gearChoiceGroup' + choiceGroup}
                 component='fieldset'
                 className={classes.formControl}>
-                <FormLabel component='legend'>Choose 1:</FormLabel>
+                <FormLabel component='legend'>Choose from:</FormLabel>
                 <RadioGroup
                   aria-label='starting gear choice'
                   name='starting gear choice'
@@ -257,6 +263,8 @@ export default function CampaignDetails() {
                   })}
                 </RadioGroup>
               </FormControl>
+              <br />
+              <br />
             </React.Fragment>
           );
         } else {
@@ -297,6 +305,8 @@ export default function CampaignDetails() {
                   })}
                 </FormGroup>
               </FormControl>
+              <br />
+              <br />
             </React.Fragment>
           );
         }
@@ -514,58 +524,172 @@ export default function CampaignDetails() {
     switch (stepIndex) {
       case 0:
         return (
-          <div>
-            <div>
-              <Typography component={'span'} className={classes.instructions}>
-                <FormControl variant='outlined' className={classes.formControl}>
-                  <InputLabel>Class</InputLabel>
-                  <Select
-                    label='Class'
-                    value={charaClass}
-                    name='class'
-                    onChange={(event) => {
-                      setCharaAlignment('');
-                      setCharaMoveOption([]);
-                      setCharaBonds([]);
-                      setCharaGearOptions([]);
-                      setCharaRaceMove('');
-                      setCharaClass(event.target.value);
-                    }}>
-                    {dw_classes.map((data, index) => {
-                      return (
-                        <MenuItem value={data} key={index}>
-                          {data}
-                        </MenuItem>
-                      );
-                    })}
-                  </Select>
-                  <p dangerouslySetInnerHTML={{ __html: classDescription() }} />
-                </FormControl>
+          <>
+            <Card className={classes.card}>
+              <CardHeader title='Class & Alignment' />
+              <CardContent>
+                <Typography component={'span'} className={classes.instructions}>
+                  <FormControl
+                    variant='outlined'
+                    className={classes.formControl}>
+                    <InputLabel>Class</InputLabel>
+                    <Select
+                      label='Class'
+                      value={charaClass}
+                      name='class'
+                      onChange={(event) => {
+                        setCharaAlignment('');
+                        setCharaMoveOption([]);
+                        setCharaBonds([]);
+                        setCharaGearOptions([]);
+                        setCharaRaceMove('');
+                        setCharaClass(event.target.value);
+                      }}>
+                      {dw_classes.map((data, index) => {
+                        return (
+                          <MenuItem value={data} key={index}>
+                            {data}
+                          </MenuItem>
+                        );
+                      })}
+                    </Select>
+                    <p
+                      dangerouslySetInnerHTML={{
+                        __html: classDescription(),
+                      }}
+                    />
+                  </FormControl>
+                  <br />
+                  <FormControl
+                    variant='outlined'
+                    className={classes.formControl}>
+                    <InputLabel>Alignment</InputLabel>
+                    <Select
+                      label='Alignment'
+                      value={charaAlignment}
+                      name='alignment'
+                      onChange={(event) =>
+                        setCharaAlignment(event.target.value)
+                      }>
+                      {charaClass &&
+                        class_details[charaClass].alignments.map(
+                          (data, index) => {
+                            return (
+                              <MenuItem value={data.alignment} key={index}>
+                                {data.alignment}
+                              </MenuItem>
+                            );
+                          }
+                        )}
+                    </Select>
+                    <p
+                      dangerouslySetInnerHTML={{
+                        __html: alignmentAttribute(),
+                      }}
+                    />
+                  </FormControl>
+                </Typography>
+              </CardContent>
+            </Card>
+            {charaClass ? (
+              <>
                 <br />
-                <FormControl variant='outlined' className={classes.formControl}>
-                  <InputLabel>Alignment</InputLabel>
-                  <Select
-                    label='Alignment'
-                    value={charaAlignment}
-                    name='alignment'
-                    onChange={(event) => setCharaAlignment(event.target.value)}>
-                    {charaClass &&
-                      class_details[charaClass].alignments.map(
-                        (data, index) => {
-                          return (
-                            <MenuItem value={data.alignment} key={index}>
-                              {data.alignment}
-                            </MenuItem>
-                          );
+
+                <Card className={classes.card}>
+                  <CardHeader title='Race & Race Move' />
+                  <CardContent>
+                    <Typography
+                      component={'span'}
+                      className={classes.instructions}>
+                      <TextField
+                        autoFocus={true}
+                        margin='dense'
+                        id='race'
+                        label='Race'
+                        value={charaRace}
+                        placeholder='e.g. Dwarf, Elf, Goblin, Halfling, Human'
+                        fullWidth
+                        onChange={(event) => setCharaRace(event.target.value)}
+                      />
+                      <br />
+                      <br />
+                      <FormControl
+                        component='fieldset'
+                        className={classes.formControl}>
+                        <RadioGroup
+                          aria-label='race move'
+                          name='race move'
+                          value={charaRaceMove}
+                          onChange={(event) =>
+                            setCharaRaceMove(event.target.value)
+                          }>
+                          {charaClass &&
+                            class_details[charaClass].race_moves.map(
+                              (data, index) => {
+                                return (
+                                  <FormControlLabel
+                                    key={index}
+                                    value={data.move}
+                                    control={<Radio />}
+                                    label={
+                                      data.move +
+                                      '\n(usually used with ' +
+                                      data.race +
+                                      ')'
+                                    }
+                                  />
+                                );
+                              }
+                            )}
+                        </RadioGroup>
+                      </FormControl>
+                    </Typography>
+                  </CardContent>
+                </Card>
+
+                <br />
+
+                <Card className={classes.card}>
+                  <CardHeader title='Name' />
+                  <CardContent>
+                    <Typography
+                      component={'span'}
+                      className={classes.instructions}>
+                      <TextField
+                        autoFocus={true}
+                        margin='dense'
+                        id='full name'
+                        label='Character Name'
+                        placeholder="Your character's full name, titles and all"
+                        value={charaFullName}
+                        fullWidth
+                        onChange={(event) =>
+                          setCharaFullName(event.target.value)
                         }
-                      )}
-                  </Select>
-                  <p
-                    dangerouslySetInnerHTML={{ __html: alignmentAttribute() }}
-                  />
-                </FormControl>
-              </Typography>
-            </div>
+                      />
+                      <TextField
+                        autoFocus={false}
+                        margin='dense'
+                        id='name'
+                        label='Short Character Name'
+                        placeholder="Your character's preferred name"
+                        value={charaName}
+                        fullWidth
+                        onChange={(event) => setCharaName(event.target.value)}
+                      />
+                      <p>Suggested Names: </p>
+                      <p
+                        dangerouslySetInnerHTML={{
+                          __html: suggestedNames(),
+                        }}
+                      />
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </>
+            ) : null}
+            <br />
+
             <Button onClick={handleCancel} className={classes.cancelButton}>
               Cancel
             </Button>
@@ -573,12 +697,16 @@ export default function CampaignDetails() {
               Reset
             </Button>
             <Button
-              disabled={activeStep === 0}
+              disabled
               onClick={handleBack}
               className={classes.backButton}>
               Back
             </Button>
-            {charaClass && charaAlignment ? (
+            {charaRace &&
+            charaAlignment &&
+            charaRaceMove &&
+            charaName &&
+            charaFullName ? (
               <Button variant='contained' color='primary' onClick={handleNext}>
                 Next
               </Button>
@@ -587,137 +715,27 @@ export default function CampaignDetails() {
                 Next
               </Button>
             )}
-          </div>
+          </>
         );
       case 1:
         return (
-          <div>
-            <div>
-              <Typography component={'span'} className={classes.instructions}>
-                <TextField
-                  autoFocus={true}
-                  margin='dense'
-                  id='full name'
-                  label='Character Name'
-                  placeholder="Your character's full name, titles and all"
-                  value={charaFullName}
-                  fullWidth
-                  onChange={(event) => setCharaFullName(event.target.value)}
-                />
-                <TextField
-                  autoFocus={false}
-                  margin='dense'
-                  id='name'
-                  label='Short Character Name'
-                  placeholder="Your character's preferred name"
-                  value={charaName}
-                  fullWidth
-                  onChange={(event) => setCharaName(event.target.value)}
-                />
-                <p>Suggested Names: </p>
-                <p dangerouslySetInnerHTML={{ __html: suggestedNames() }} />
-              </Typography>
-            </div>
-            <Button onClick={handleCancel} className={classes.cancelButton}>
-              Cancel
-            </Button>
-            <Button onClick={handleReset} className={classes.resetButton}>
-              Reset
-            </Button>
-            <Button
-              disabled={activeStep === 0}
-              onClick={handleBack}
-              className={classes.backButton}>
-              Back
-            </Button>
-            {charaName && charaFullName ? (
-              <Button variant='contained' color='primary' onClick={handleNext}>
-                Next
-              </Button>
-            ) : (
-              <Button disabled variant='contained' color='primary'>
-                Next
-              </Button>
-            )}
-          </div>
-        );
-      case 2:
-        return (
-          <div>
-            <div>
-              <Typography component={'span'} className={classes.instructions}>
-                <TextField
-                  autoFocus={true}
-                  margin='dense'
-                  id='race'
-                  label='Race'
-                  value={charaRace}
-                  placeholder='e.g. Dwarf, Elf, Goblin, Halfling, Human'
-                  fullWidth
-                  onChange={(event) => setCharaRace(event.target.value)}
-                />
-                <br />
-                <FormControl
-                  component='fieldset'
-                  className={classes.formControl}>
-                  <RadioGroup
-                    aria-label='race move'
-                    name='race move'
-                    value={charaRaceMove}
-                    onChange={(event) => setCharaRaceMove(event.target.value)}>
-                    {charaClass &&
-                      class_details[charaClass].race_moves.map(
-                        (data, index) => {
-                          return (
-                            <FormControlLabel
-                              key={index}
-                              value={data.move}
-                              control={<Radio />}
-                              label={data.move + ' (' + data.race + ')'}
-                            />
-                          );
-                        }
-                      )}
-                  </RadioGroup>
-                </FormControl>
-              </Typography>
-            </div>
-            <Button onClick={handleCancel} className={classes.cancelButton}>
-              Cancel
-            </Button>
-            <Button onClick={handleReset} className={classes.resetButton}>
-              Reset
-            </Button>
-            <Button
-              disabled={activeStep === 0}
-              onClick={handleBack}
-              className={classes.backButton}>
-              Back
-            </Button>
-            {charaRace && charaRaceMove ? (
-              <Button variant='contained' color='primary' onClick={handleNext}>
-                Next
-              </Button>
-            ) : (
-              <Button disabled variant='contained' color='primary'>
-                Next
-              </Button>
-            )}
-          </div>
-        );
-      case 3:
-        return (
-          <div>
-            <div>
-              <Typography component={'span'} className={classes.instructions}>
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: class_details[charaClass].starting_gear_details,
-                  }}
-                />
-                {gearOptions()}
-              </Typography>
-            </div>
+          <>
+            <Card className={classes.card}>
+              <CardHeader title='Gear' />
+              <CardContent>
+                <Typography component={'span'} className={classes.instructions}>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: class_details[charaClass].starting_gear_details,
+                    }}
+                  />
+                  {gearOptions()}
+                </Typography>
+              </CardContent>
+            </Card>
+
+            <br />
+
             <Button onClick={handleCancel} className={classes.cancelButton}>
               Cancel
             </Button>
@@ -731,16 +749,22 @@ export default function CampaignDetails() {
               Back
             </Button>
             {gearNext()}
-          </div>
+          </>
         );
-      case 4:
+      case 2:
         return (
-          <div>
-            <div>
-              <Typography component={'span'} className={classes.instructions}>
-                {moveOptions()}
-              </Typography>
-            </div>
+          <>
+            <Card className={classes.card}>
+              <CardHeader title='Class Moves' />
+              <CardContent>
+                <Typography component={'span'} className={classes.instructions}>
+                  {moveOptions()}
+                </Typography>
+              </CardContent>
+            </Card>
+
+            <br />
+
             <Button onClick={handleCancel} className={classes.cancelButton}>
               Cancel
             </Button>
@@ -754,14 +778,15 @@ export default function CampaignDetails() {
               Back
             </Button>
             {moveNext()}
-          </div>
+          </>
         );
-      case 5:
+      case 3:
         return (
-          <div>
-            <div>
-              <Typography component={'span'} className={classes.instructions}>
-                <div className={classes.root}>
+          <>
+            <Card className={classes.card}>
+              <CardHeader title='Bonds' />
+              <CardContent>
+                <Typography component={'span'} className={classes.instructions}>
                   <FormControl
                     component='fieldset'
                     className={classes.formControl}>
@@ -769,6 +794,7 @@ export default function CampaignDetails() {
                       Choose some optionally suggested bonds or you can create
                       your own!
                     </FormLabel>
+                    <br />
                     <FormGroup>
                       {charaClass &&
                         class_details[charaClass].suggested_bonds.map(
@@ -791,9 +817,12 @@ export default function CampaignDetails() {
                         )}
                     </FormGroup>
                   </FormControl>
-                </div>
-              </Typography>
-            </div>
+                </Typography>
+              </CardContent>
+            </Card>
+
+            <br />
+
             <Button onClick={handleCancel} className={classes.cancelButton}>
               Cancel
             </Button>
@@ -819,7 +848,7 @@ export default function CampaignDetails() {
                 Create Character
               </Button>
             )}
-          </div>
+          </>
         );
       default:
         return 'Unknown stepIndex';
@@ -835,7 +864,7 @@ export default function CampaignDetails() {
           </Step>
         ))}
       </Stepper>
-      <div>{getStepContent(activeStep)}</div>
+      <Container>{getStepContent(activeStep)}</Container>
     </div>
   );
 }
