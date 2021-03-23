@@ -27,6 +27,7 @@ import {
   Typography,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import Markdown from 'react-markdown';
 import { class_details } from 'data/classDetails';
 import { dw_classes } from 'data/dwClasses';
 import { items } from 'data/items';
@@ -42,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
   },
   formControl: {
     margin: theme.spacing(1),
-    minWidth: 120,
+    minWidth: '100%',
   },
   resetButton: {
     marginRight: theme.spacing(1),
@@ -146,9 +147,9 @@ export default function CampaignDetails() {
     }
   };
 
-  const classDescription = () => {
+  const classIntro = () => {
     if (charaClass) {
-      return class_details[charaClass].description;
+      return class_details[charaClass].intro;
     } else {
       return '';
     }
@@ -554,11 +555,7 @@ export default function CampaignDetails() {
                         );
                       })}
                     </Select>
-                    <p
-                      dangerouslySetInnerHTML={{
-                        __html: classDescription(),
-                      }}
-                    />
+                    <Markdown source={classIntro()} />
                   </FormControl>
                   <br />
                   <FormControl
@@ -583,11 +580,7 @@ export default function CampaignDetails() {
                           }
                         )}
                     </Select>
-                    <p
-                      dangerouslySetInnerHTML={{
-                        __html: alignmentAttribute(),
-                      }}
-                    />
+                    <Markdown source={alignmentAttribute()} />
                   </FormControl>
                 </Typography>
               </CardContent>
@@ -676,11 +669,7 @@ export default function CampaignDetails() {
                         onChange={(event) => setCharaName(event.target.value)}
                       />
                       <p>Suggested Names: </p>
-                      <p
-                        dangerouslySetInnerHTML={{
-                          __html: suggestedNames(),
-                        }}
-                      />
+                      <Markdown source={suggestedNames()} />
                     </Typography>
                   </CardContent>
                 </Card>
@@ -721,10 +710,8 @@ export default function CampaignDetails() {
               <CardHeader title='Gear' />
               <CardContent>
                 <Typography component={'span'} className={classes.instructions}>
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: class_details[charaClass].starting_gear_details,
-                    }}
+                  <Markdown
+                    source={class_details[charaClass].starting_gear_details}
                   />
                   {gearOptions()}
                 </Typography>

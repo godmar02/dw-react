@@ -10,6 +10,7 @@ import {
   IconButton,
 } from '@material-ui/core';
 import { Add, Delete, ExpandMore } from '@material-ui/icons';
+import Markdown from 'react-markdown';
 
 export default function CharacterClassStartingMoves() {
   const { character, setCharacter } = useContext(CharacterState);
@@ -43,10 +44,7 @@ export default function CharacterClassStartingMoves() {
               {data.name} ({data.level})
             </AccordionSummary>
             <AccordionDetails>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: data.description,
-                }}></p>
+              <Markdown source={data.description} />
             </AccordionDetails>
           </Accordion>
         );

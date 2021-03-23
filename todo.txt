@@ -1,7 +1,5 @@
 - FUNCTIONAL WORK
     - CreateCharacter
-        - Merge first three steps into one
-        - Only show class based selections upon selecting class
         - Add ability selection step (+set starting HP)
     - CharacterSheet - Edit Class move descriptions
     - CharacterSheet - Add class moves    
@@ -10,6 +8,7 @@
     - CharacterSheet - Add/remove Spells?
     - Session Notes
     - GM view with abilties?
+    - Character status
 
 - MINOR UI FIXES
     - Add character card sizing

@@ -2,1314 +2,1314 @@
   "class_moves": [
     {
       "name": "Full Plate and Packing Steel",
-      "description": "<p>You ignore the clumsy tag on armour you wear.</p>",
+      "description": "You ignore the clumsy tag on armour you wear.",
       "level": "starting",
       "class": "Barbarian"
     },
     {
       "name": "Unencumbered, Unharmed",
-      "description": "<p>So long as you are below your Load and neither wear armour nor carry a shield, take +1 armour.</p>",
+      "description": "So long as you are below your Load and neither wear armour nor carry a shield, take +1 armour.",
       "level": "starting",
       "class": "Barbarian"
     },
     {
       "name": "Herculean Appetites",
-      "description": "<p>Others may content themselves with just a taste of wine, or dominion over a servant or two, but you want more. Choose two appetites. While pursuing one of your appetites if you would roll for a move, instead of rolling 2d6 you roll 1d6+1d8. If the d6 is the higher die of the pair, the GM will also introduce a complication or danger that comes about due to your heedless pursuits.</p><ul>Pure destruction<li>Power over others</li><li>Mortal pleasures</li><li>Conquest</li><li>Riches and property</li><li>Fame and glory</li></ul>",
+      "description": "Others may content themselves with just a taste of wine, or dominion over a servant or two, but you want more. Choose two appetites. While pursuing one of your appetites if you would roll for a move, instead of rolling 2d6 you roll 1d6+1d8. If the d6 is the higher die of the pair, the GM will also introduce a complication or danger that comes about due to your heedless pursuits.\n\n*   Pure destruction\n*   Power over others\n*   Mortal pleasures\n*   Conquest\n*   Riches and property\n*   Fame and glory",
       "level": "starting",
       "class": "Barbarian"
     },
     {
       "name": "The Upper Hand",
-      "description": "<p>You take +1 ongoing to last breath rolls. When you take your last breath, on a 7–9 you make an offer to Death in return for your life. If Death accepts he will return you to life. If not, you die.</p>",
+      "description": "You take +1 ongoing to last breath rolls. When you take your last breath, on a 7–9 you make an offer to Death in return for your life. If Death accepts he will return you to life. If not, you die.",
       "level": "starting",
       "class": "Barbarian"
     },
     {
       "name": "Musclebound",
-      "description": "<p>While you wield a weapon it gains the forceful and messy tags.</p>",
+      "description": "While you wield a weapon it gains the forceful and messy tags.",
       "level": "starting",
       "class": "Barbarian"
     },
     {
       "name": "What Are You Waiting For?",
-      "description": "<p>When you cry out a challenge to your enemies, roll+CON.</p><ul><li>On a 10+ they treat you as the most obvious threat to be dealt with and ignore your companions, take +2 damage ongoing against them.</li><li>On a 7–9 only a few (the weakest or most foolhardy among them) fall prey to your taunting.</li></ul>",
+      "description": "When you cry out a challenge to your enemies, roll+CON.\n\n*   \n*   On a 10+ they treat you as the most obvious threat to be dealt with and ignore your companions, take +2 damage ongoing against them.\n*   On a 7–9 only a few (the weakest or most foolhardy among them) fall prey to your taunting.",
       "level": "starting",
       "class": "Barbarian"
     },
     {
       "name": "Still Hungry",
-      "description": "<p>Choose an additional appetite.</p>",
+      "description": "Choose an additional appetite.",
       "level": "2to5",
       "class": "Barbarian"
     },
     {
       "name": "Appetite for Destruction",
-      "description": "<p>Take a move from the fighter, bard or thief class list. You may not take multiclass moves from those classes.</p>",
+      "description": "Take a move from the fighter, bard or thief class list. You may not take multiclass moves from those classes.",
       "level": "2to5",
       "class": "Barbarian"
     },
     {
       "name": "My Love For You Is Like a Truck",
-      "description": "<p>When you perform a feat of strength, name someone present who you have impressed and take +1 forward to parley with them.</p>",
+      "description": "When you perform a feat of strength, name someone present who you have impressed and take +1 forward to parley with them.",
       "level": "2to5",
       "class": "Barbarian"
     },
     {
       "name": "What Is Best In Life",
-      "description": "<p>At the end of a session, if during this session you have crushed your enemies, seen them driven before you, or have heard the lamentations of their kinfolk mark XP.</p>",
+      "description": "At the end of a session, if during this session you have crushed your enemies, seen them driven before you, or have heard the lamentations of their kinfolk mark XP.",
       "level": "2to5",
       "class": "Barbarian"
     },
     {
       "name": "Wide-Wanderer",
-      "description": "<p>You’ve travelled the wide world over. When you arrive someplace ask the GM about any important traditions, rituals, and so on, they’ll tell you what you need to know.</p>",
+      "description": "You’ve travelled the wide world over. When you arrive someplace ask the GM about any important traditions, rituals, and so on, they’ll tell you what you need to know.",
       "level": "2to5",
       "class": "Barbarian"
     },
     {
       "name": "Usurper",
-      "description": "<p>When you prove yourself superior to a person in power, take +1 forward with their followers, underlings, and hangers on.</p>",
+      "description": "When you prove yourself superior to a person in power, take +1 forward with their followers, underlings, and hangers on.",
       "level": "2to5",
       "class": "Barbarian"
     },
     {
       "name": "Khan of Khans",
-      "description": "<p>Your hirelings always accept the gratuitous fulfillment of one of your appetites as payment.</p>",
+      "description": "Your hirelings always accept the gratuitous fulfillment of one of your appetites as payment.",
       "level": "2to5",
       "class": "Barbarian"
     },
     {
       "name": "Samson",
-      "description": "<p>You may take a debility to immediately break free of any physical or mental restraint.</p>",
+      "description": "You may take a debility to immediately break free of any physical or mental restraint.",
       "level": "2to5",
       "class": "Barbarian"
     },
     {
       "name": "Smash!",
-      "description": "<p>When you <strong>hack and slash</strong>, on a 12+ deal your damage and choose something physical your target has (a weapon, their position, a limb): they lose it.</p>",
+      "description": "When you **hack and slash**, on a 12+ deal your damage and choose something physical your target has (a weapon, their position, a limb): they lose it.",
       "level": "2to5",
       "class": "Barbarian"
     },
     {
       "name": "Indestructible Hunger",
-      "description": "<p>When you take damage you can choose to take -1 ongoing until you sate one of your appetites instead of taking the damage. If you already have this penalty you cannot choose this option.</p>",
+      "description": "When you take damage you can choose to take -1 ongoing until you sate one of your appetites instead of taking the damage. If you already have this penalty you cannot choose this option.",
       "level": "2to5",
       "class": "Barbarian"
     },
     {
       "name": "Eye for Weakness",
-      "description": "<p>When you <strong>Discern Realities</strong> add \"What here is weak or vulnerable?\" to the list of questions you can ask.</p>",
+      "description": "When you **Discern Realities** add \"What here is weak or vulnerable?\" to the list of questions you can ask.",
       "level": "2to5",
       "class": "Barbarian"
     },
     {
       "name": "On the Move",
-      "description": "<p>When you <strong>defy a danger caused by movement</strong> (maybe falling off a narrow bridge or rushing past an armed guard) take +1.</p>",
+      "description": "When you **defy a danger caused by movement** (maybe falling off a narrow bridge or rushing past an armed guard) take +1.",
       "level": "2to5",
       "class": "Barbarian"
     },
     {
       "name": "A Good Day to Die",
-      "description": "<p>As long as you have less than your <strong>CON</strong> in current HP (or 1, whichever is higher) take +1 ongoing.</p>",
+      "description": "As long as you have less than your **CON** in current HP (or 1, whichever is higher) take +1 ongoing.",
       "level": "6to10",
       "class": "Barbarian"
     },
     {
       "name": "Kill 'em All",
-      "description": "<p><em>Requires: Appetite for Destruction</em></p><p>Take another move from the Fighter, Bard or Thief class list. You may not take multiclass moves from those classes.</p>",
+      "description": "_Requires: Appetite for Destruction_\n\nTake another move from the Fighter, Bard or Thief class list. You may not take multiclass moves from those classes.",
       "level": "6to10",
       "class": "Barbarian"
     },
     {
       "name": "War Cry",
-      "description": "<p>When you enter battle with a show of force (a shout, a rallying cry, a battle dance) roll+CHA. ✴On a 10+ both, ✴on a 7–9 one or the other.</p><ul><li>Your allies are rallied and take +1 forward</li><li>Your enemies feel fear and act accordingly (avoiding you, hiding, attacking with fear-driven abandon)</li></ul>",
+      "description": "When you enter battle with a show of force (a shout, a rallying cry, a battle dance) roll+CHA. ✴On a 10+ both, ✴on a 7–9 one or the other.\n\n*   \n*   Your allies are rallied and take +1 forward\n*   Your enemies feel fear and act accordingly (avoiding you, hiding, attacking with fear-driven abandon)",
       "level": "6to10",
       "class": "Barbarian"
     },
     {
       "name": "Mark of Might",
-      "description": "<p>When you take this move and spend some time uninterrupted, reflecting on your past glories you may mark yourself with a symbol of your power (a long braid tied with bells, ritual scars or tattoos, etc). Any intelligent mortal creature who sees this symbol knows instinctively that you are a force to be reckoned with and treats you appropriately.</p>",
+      "description": "When you take this move and spend some time uninterrupted, reflecting on your past glories you may mark yourself with a symbol of your power (a long braid tied with bells, ritual scars or tattoos, etc). Any intelligent mortal creature who sees this symbol knows instinctively that you are a force to be reckoned with and treats you appropriately.",
       "level": "6to10",
       "class": "Barbarian"
     },
     {
       "name": "More! Always More!",
-      "description": "<p>When you satisfy an appetite to the extreme (destroying something unique and significant, gaining enormous fame, riches, power, etc) you may choose to resolve it. Cross it off the list and mark XP. While you may pursue that appetite again, you no longer feel the burning desire you once did. In its place, choose a new appetite from the list or write your own.</p>",
+      "description": "When you satisfy an appetite to the extreme (destroying something unique and significant, gaining enormous fame, riches, power, etc) you may choose to resolve it. Cross it off the list and mark XP. While you may pursue that appetite again, you no longer feel the burning desire you once did. In its place, choose a new appetite from the list or write your own.",
       "level": "6to10",
       "class": "Barbarian"
     },
     {
       "name": "The One Who Knocks",
-      "description": "<p>When you defy danger, on a 12+ you turn the danger back on itself, the GM will describe how.</p>",
+      "description": "When you defy danger, on a 12+ you turn the danger back on itself, the GM will describe how.",
       "level": "6to10",
       "class": "Barbarian"
     },
     {
       "name": "Healthy Distrust",
-      "description": "<p>Whenever the unclean magic wielded by mortal men causes you to <strong>Defy Danger</strong>, treat any result of 6- as a 7–9.</p>",
+      "description": "Whenever the unclean magic wielded by mortal men causes you to **Defy Danger**, treat any result of 6- as a 7–9.",
       "level": "6to10",
       "class": "Barbarian"
     },
     {
       "name": "For The Blood God",
-      "description": "<p>You are initiated in the old ways, the ways of sacrifice. Choose something your gods (or the ancestor spirits, or your totem, etc) value—gold, blood, bones or the like. When you <strong>sacrifice those things as per your rites and rituals</strong>, roll+WIS. • On a 10+ the GM will grant you insight into your current trouble or a boon to help you. • On a 7-9 the sacrifice is not enough and your gods take of your flesh as well, but still grant you some insight or boon. • On a miss, you earn the ire of the fickle spirits.</p>",
+      "description": "You are initiated in the old ways, the ways of sacrifice. Choose something your gods (or the ancestor spirits, or your totem, etc) value—gold, blood, bones or the like. When you **sacrifice those things as per your rites and rituals**, roll+WIS. • On a 10+ the GM will grant you insight into your current trouble or a boon to help you. • On a 7-9 the sacrifice is not enough and your gods take of your flesh as well, but still grant you some insight or boon. • On a miss, you earn the ire of the fickle spirits.",
       "level": "6to10",
       "class": "Barbarian"
     },
     {
       "name": "Arcane Art",
-      "description": "<p>When you <strong>weave a performance into a basic spell</strong>, choose an ally and an effect:</p><ul><li>Heal 1d8 damage</li><li>+1d4 forward to damage</li><li>Their mind is shaken clear of one enchantment</li><li>The next time someone successfully assists the target with aid, they get +2 instead of +1</li></ul><p>Then roll+Cha. &#10036;On a 10+, the ally gets the selected effect. &#10036;On a 7-9, your spell still works, but you draw unwanted attention or your magic reverberates to other targets affecting them as well, GM&#8217;s choice.</p>",
+      "description": "When you **weave a performance into a basic spell**, choose an ally and an effect:\n\n*   \n*   Heal 1d8 damage\n*   +1d4 forward to damage\n*   Their mind is shaken clear of one enchantment\n*   The next time someone successfully assists the target with aid, they get +2 instead of +1\n\nThen roll+Cha. ✴On a 10+, the ally gets the selected effect. ✴On a 7-9, your spell still works, but you draw unwanted attention or your magic reverberates to other targets affecting them as well, GM's choice.",
       "level": "starting",
       "class": "Bard"
     },
     {
       "name": "Bardic Lore",
-      "description": "<p>Choose an area of expertise:</p><ul><li>Spells and Magicks</li><li>The Dead and Undead</li><li>Grand Histories of the Known World</li><li>A Bestiary of Creatures Unusual</li><li>The Planar Spheres</li><li>Legends of Heroes Past</li><li>Gods and Their Servants</li></ul><p>When you <strong>first encounter an important creature, location, or item (your call) covered by your bardic lore</strong> you can ask the GM any one question about it; the GM will answer truthfully. The GM may then ask you what tale, song, or legend you heard that information in.</p>",
+      "description": "Choose an area of expertise:\n\n*   \n*   Spells and Magicks\n*   The Dead and Undead\n*   Grand Histories of the Known World\n*   A Bestiary of Creatures Unusual\n*   The Planar Spheres\n*   Legends of Heroes Past\n*   Gods and Their Servants\n\nWhen you **first encounter an important creature, location, or item (your call) covered by your bardic lore** you can ask the GM any one question about it; the GM will answer truthfully. The GM may then ask you what tale, song, or legend you heard that information in.",
       "level": "starting",
       "class": "Bard"
     },
     {
       "name": "Charming and Open",
-      "description": "<p>When you <strong>speak frankly with someone</strong>, you can ask their player a question from the list below. They must answer it truthfully, then they may ask you a question from the list (which you must answer truthfully).</p><ul><li>Whom do you serve?</li><li>What do you wish I would do?</li><li>How can I get you to ______?</li><li>What are you really feeling right now?</li><li>What do you most desire?</li></ul>",
+      "description": "When you **speak frankly with someone**, you can ask their player a question from the list below. They must answer it truthfully, then they may ask you a question from the list (which you must answer truthfully).\n\n*   \n*   Whom do you serve?\n*   What do you wish I would do?\n*   How can I get you to ______?\n*   What are you really feeling right now?\n*   What do you most desire?",
       "level": "starting",
       "class": "Bard"
     },
     {
       "name": "A Port in the Storm",
-      "description": "<p>When you <strong>return to a civilized settlement you&#8217;ve visited before</strong>, tell the GM when you were last here. They&#8217;ll tell you how it&#8217;s changed since then.</p>",
+      "description": "When you **return to a civilized settlement you've visited before**, tell the GM when you were last here. They'll tell you how it's changed since then.",
       "level": "starting",
       "class": "Bard"
     },
     {
       "name": "Healing Song",
-      "description": "<p>When you <strong>heal with arcane art</strong>, you heal +1d8 damage.</p>",
+      "description": "When you **heal with arcane art**, you heal +1d8 damage.",
       "level": "2to5",
       "class": "Bard"
     },
     {
       "name": "Vicious Cacophony",
-      "description": "<p>When you <strong>grant bonus damage with arcane art</strong>, you grant an extra +1d4 damage.</p>",
+      "description": "When you **grant bonus damage with arcane art**, you grant an extra +1d4 damage.",
       "level": "2to5",
       "class": "Bard"
     },
     {
       "name": "It Goes To Eleven",
-      "description": "<p>When you <strong>unleash a crazed performance</strong> (a righteous lute solo or mighty brass blast, maybe) choose a target who can hear you and roll+Cha. &#10036;On a 10+ the target attacks their nearest ally in range. &#10036;On a 7&#8211;9 they attack their nearest ally, but you also draw their attention and ire.</p>",
+      "description": "When you **unleash a crazed performance** (a righteous lute solo or mighty brass blast, maybe) choose a target who can hear you and roll+Cha. ✴On a 10+ the target attacks their nearest ally in range. ✴On a 7–9 they attack their nearest ally, but you also draw their attention and ire.",
       "level": "2to5",
       "class": "Bard"
     },
     {
       "name": "Metal Hurlant",
-      "description": "<p>When you <strong>shout with great force or play a shattering note</strong> choose a target and roll+Con. &#10036;On a 10+ the target takes 1d10 damage and is deafened for a few minutes. &#10036;On a 7&#8211;9 you still damage your target, but it&#8217;s out of control: the GM will choose an additional target nearby.</p>",
+      "description": "When you **shout with great force or play a shattering note** choose a target and roll+Con. ✴On a 10+ the target takes 1d10 damage and is deafened for a few minutes. ✴On a 7–9 you still damage your target, but it's out of control: the GM will choose an additional target nearby.",
       "level": "2to5",
       "class": "Bard"
     },
     {
       "name": "A Little Help From My Friends",
-      "description": "<p>When you <strong>successfully aid someone</strong> you take +1 forward as well.</p>",
+      "description": "When you **successfully aid someone** you take +1 forward as well.",
       "level": "2to5",
       "class": "Bard"
     },
     {
       "name": "Eldritch Tones",
-      "description": "<p>Your arcane art is strong, allowing you to choose two effects instead of one.</p>",
+      "description": "Your arcane art is strong, allowing you to choose two effects instead of one.",
       "level": "2to5",
       "class": "Bard"
     },
     {
       "name": "Duelist's Parry",
-      "description": "<p>When you hack and slash, you take +1 armour forward.</p>",
+      "description": "When you hack and slash, you take +1 armour forward.",
       "level": "2to5",
       "class": "Bard"
     },
     {
       "name": "Bamboozle",
-      "description": "<p>When you <strong>parley with someone</strong>, on a 7+ you also take +1 forward with them.</p>",
+      "description": "When you **parley with someone**, on a 7+ you also take +1 forward with them.",
       "level": "2to5",
       "class": "Bard"
     },
     {
       "name": "Multiclass Dabbler",
-      "description": "<p>Get one move from another class. Treat your level as one lower for choosing the move.</p>",
+      "description": "Get one move from another class. Treat your level as one lower for choosing the move.",
       "level": "2to5",
       "class": "Bard"
     },
     {
       "name": "Multiclass Initiate",
-      "description": "<p>Requires: Multiclass Dabbler</p><p>Get one move from another class. Treat your level as one lower for choosing the move.</p>",
+      "description": "Requires: Multiclass Dabbler\n\nGet one move from another class. Treat your level as one lower for choosing the move.",
       "level": "6to10",
       "class": "Bard"
     },
     {
       "name": "Healing Chorus",
-      "description": "<p>Replaces: Healing Song</p><p>When you <strong>heal with arcane art</strong>, you heal +2d8 damage.</p>",
+      "description": "Replaces: Healing Song\n\nWhen you **heal with arcane art**, you heal +2d8 damage.",
       "level": "6to10",
       "class": "Bard"
     },
     {
       "name": "Vicious Blast",
-      "description": "<p>Replaces: Vicious Cacophony</p><p>When you <strong>grant bonus damage with arcane art</strong>, you grant an extra +2d4 damage.</p>",
+      "description": "Replaces: Vicious Cacophony\n\nWhen you **grant bonus damage with arcane art**, you grant an extra +2d4 damage.",
       "level": "6to10",
       "class": "Bard"
     },
     {
       "name": "Unforgettable Face",
-      "description": "<p>When you <strong>meet someone you&#8217;ve met before</strong> (your call) after some time apart you take +1 forward against them.</p>",
+      "description": "When you **meet someone you've met before** (your call) after some time apart you take +1 forward against them.",
       "level": "6to10",
       "class": "Bard"
     },
     {
       "name": "Reputation",
-      "description": "<p>When you <strong>first meet someone who&#8217;s heard songs about you</strong>, roll+Cha. &#10036;On a 10+, tell the GM two things they&#8217;ve heard about you. &#10036;On a 7-9, tell the GM one thing they&#8217;ve heard, and the GM tells you one thing.</p>",
+      "description": "When you **first meet someone who's heard songs about you**, roll+Cha. ✴On a 10+, tell the GM two things they've heard about you. ✴On a 7-9, tell the GM one thing they've heard, and the GM tells you one thing.",
       "level": "6to10",
       "class": "Bard"
     },
     {
       "name": "Eldritch Chord",
-      "description": "<p>Replaces: Eldritch Tones</p><p>When you use arcane art, you choose two effects. You also get to choose one of those effects to double.</p>",
+      "description": "Replaces: Eldritch Tones\n\nWhen you use arcane art, you choose two effects. You also get to choose one of those effects to double.",
       "level": "6to10",
       "class": "Bard"
     },
     {
       "name": "An Ear For Magic",
-      "description": "<p>When you <strong>hear an enemy cast a spell</strong> the GM will tell you the name of the spell and its effects. Take +1 forward when acting on the answers.</p>",
+      "description": "When you **hear an enemy cast a spell** the GM will tell you the name of the spell and its effects. Take +1 forward when acting on the answers.",
       "level": "6to10",
       "class": "Bard"
     },
     {
       "name": "Devious",
-      "description": "<p>When you use charming and open you may also ask &#8220;How are you vulnerable to me?&#8221; Your subject may not ask this question of you.</p>",
+      "description": "When you use charming and open you may also ask “How are you vulnerable to me?” Your subject may not ask this question of you.",
       "level": "6to10",
       "class": "Bard"
     },
     {
       "name": "Duelist's Block",
-      "description": "<p>Replaces: Duelist&#8217;s Parry</p><p>When you hack and slash, you take +2 armour forward.</p>",
+      "description": "Replaces: Duelist's Parry\n\nWhen you hack and slash, you take +2 armour forward.",
       "level": "6to10",
       "class": "Bard"
     },
     {
       "name": "Con",
-      "description": "<p>Replaces: Bamboozle</p><p>When you <strong>parley with someone</strong>, on a 7+ you also take +1 forward with them and get to ask their player one question which they must answer truthfully.</p>",
+      "description": "Replaces: Bamboozle\nWhen you **parley with someone**, on a 7+ you also take +1 forward with them and get to ask their player one question which they must answer truthfully.",
       "level": "6to10",
       "class": "Bard"
     },
     {
       "name": "Multiclass Master",
-      "description": "<p>Requires: Multiclass Initiate</p><p>Get one move from another class. Treat your level as one lower for choosing the move.</p>",
+      "description": "Requires: Multiclass Initiate\n\nGet one move from another class. Treat your level as one lower for choosing the move.",
       "level": "6to10",
       "class": "Bard"
     },
     {
       "name": "Deity",
-      "description": "<p>You serve and worship some deity or power which grants you spells. Give your god a name (maybe Helferth, Sucellus, Zorica or Krugon the Bleak) and choose your deity&#8217;s domain:</p><ul><li>Healing and Restoration</li><li>Bloody Conquest</li><li>Civilization</li><li>Knowledge and Hidden Things</li><li>The Downtrodden and Forgotten</li><li>What Lies Beneath</li></ul><p>Choose one precept of your religion:</p><ul><li>Your religion preaches the sanctity of suffering, add Petition: Suffering</li><li>Your religion is cultish and insular, add Petition: Gaining Secrets</li><li>Your religion has important sacrificial rites, add Petition: Offering</li><li>Your religion believes in trial by combat, add Petition: Personal Victory</li></ul>",
+      "description": "You serve and worship some deity or power which grants you spells. Give your god a name (maybe Helferth, Sucellus, Zorica or Krugon the Bleak) and choose your deity's domain:\n\n*   \n*   Healing and Restoration\n*   Bloody Conquest\n*   Civilization\n*   Knowledge and Hidden Things\n*   The Downtrodden and Forgotten\n*   What Lies Beneath\n\nChoose one precept of your religion:\n\n*   \n*   Your religion preaches the sanctity of suffering, add Petition: Suffering\n*   Your religion is cultish and insular, add Petition: Gaining Secrets\n*   Your religion has important sacrificial rites, add Petition: Offering\n*   Your religion believes in trial by combat, add Petition: Personal Victory",
       "level": "starting",
       "class": "Cleric"
     },
     {
       "name": "Divine Guidance",
-      "description": "<p>When you <strong>petition your deity according to the precept of your religion</strong>, you are granted some useful knowledge or boon related to your deity&#8217;s domain. The GM will tell you what.</p>",
+      "description": "When you **petition your deity according to the precept of your religion**, you are granted some useful knowledge or boon related to your deity's domain. The GM will tell you what.",
       "level": "starting",
       "class": "Cleric"
     },
     {
       "name": "Turn Undead",
-      "description": "<p>When you <strong>hold your holy symbol aloft and call on your deity for protection</strong>, roll+Wis. &#10036;On a 7+, so long as you continue to pray and brandish your holy symbol, no undead may come within reach of you. &#10036;On a 10+, you also momentarily daze intelligent undead and cause mindless undead to flee. Aggression breaks the effects and they are able to act as normal. Intelligent undead may still find ways to harry you from afar. They&#8217;re clever like that.</p>",
+      "description": "When you **hold your holy symbol aloft and call on your deity for protection**, roll+Wis. ✴On a 7+, so long as you continue to pray and brandish your holy symbol, no undead may come within reach of you. ✴On a 10+, you also momentarily daze intelligent undead and cause mindless undead to flee. Aggression breaks the effects and they are able to act as normal. Intelligent undead may still find ways to harry you from afar. They're clever like that.",
       "level": "starting",
       "class": "Cleric"
     },
     {
       "name": "Commune",
-      "description": "<p>When you <strong>spend uninterrupted time (an hour or so) in quiet communion with your deity</strong>, you:</p><ul><li>Lose any spells already granted to you.</li><li>Are granted new spells of your choice whose total levels don&#8217;t exceed your own level+1, and none of which is a higher level than your own level.</li><li>Prepare all of your rotes, which never count against your limit.</li></ul>",
+      "description": "When you **spend uninterrupted time (an hour or so) in quiet communion with your deity**, you:\n\n*   \n*   Lose any spells already granted to you.\n*   Are granted new spells of your choice whose total levels don't exceed your own level+1, and none of which is a higher level than your own level.\n*   Prepare all of your rotes, which never count against your limit.",
       "level": "starting",
       "class": "Cleric"
     },
     {
       "name": "Cast a Spell",
-      "description": "<p>When you <strong>unleash a spell granted to you by your deity</strong>, roll+Wis. &#10036;On a 10+, the spell is successfully cast and your deity does not revoke the spell, so you may cast it again. &#10036;On a 7&#8211;9, the spell is cast, but choose one:</p><ul><li>You draw unwelcome attention or put yourself in a spot. The GM will tell you how.</li><li>Your casting distances you from your deity&#8212;take -1 ongoing to cast a spell until the next time you commune.</li><li>After you cast it, the spell is revoked by your deity. You cannot cast the spell again until you commune and have it granted to you.</li></ul><p>Note that maintaining spells with ongoing effects will sometimes cause a penalty to your roll to cast a spell.</p>",
+      "description": "When you **unleash a spell granted to you by your deity**, roll+Wis. ✴On a 10+, the spell is successfully cast and your deity does not revoke the spell, so you may cast it again. ✴On a 7–9, the spell is cast, but choose one:\n\n*   \n*   You draw unwelcome attention or put yourself in a spot. The GM will tell you how.\n*   Your casting distances you from your deity—take -1 ongoing to cast a spell until the next time you commune.\n*   After you cast it, the spell is revoked by your deity. You cannot cast the spell again until you commune and have it granted to you.\n\nNote that maintaining spells with ongoing effects will sometimes cause a penalty to your roll to cast a spell.",
       "level": "starting",
       "class": "Cleric"
     },
     {
       "name": "Chosen One",
-      "description": "<p>Choose one spell. You are granted that spell as if it was one level lower.</p>",
+      "description": "Choose one spell. You are granted that spell as if it was one level lower.",
       "level": "2to5",
       "class": "Cleric"
     },
     {
       "name": "Invigorate",
-      "description": "<p>When you <strong>heal someone</strong> they take +2 forward to their damage.</p>",
+      "description": "When you **heal someone** they take +2 forward to their damage.",
       "level": "2to5",
       "class": "Cleric"
     },
     {
       "name": "The Scales of Life and Death",
-      "description": "<p>When <strong>someone takes their last breath in your presence</strong>, they take +1 to the roll.</p>",
+      "description": "When **someone takes their last breath in your presence**, they take +1 to the roll.",
       "level": "2to5",
       "class": "Cleric"
     },
     {
       "name": "Serenity",
-      "description": "<p>When you cast a spell you ignore the first -1 penalty from ongoing spells.</p>",
+      "description": "When you cast a spell you ignore the first -1 penalty from ongoing spells.",
       "level": "2to5",
       "class": "Cleric"
     },
     {
       "name": "First Aid",
-      "description": "<p>Cure Light Wounds is a rote for you, and therefore doesn&#8217;t count against your limit of granted spells.</p>",
+      "description": "Cure Light Wounds is a rote for you, and therefore doesn't count against your limit of granted spells.",
       "level": "2to5",
       "class": "Cleric"
     },
     {
       "name": "Divine Intervention",
-      "description": "<p>When you commune you get 1 hold and lose any hold you already had. Spend that hold when you or an ally takes damage to call on your deity, they intervene with an appropriate manifestation (a sudden gust of wind, a lucky slip, a burst of light) and negate the damage.</p>",
+      "description": "When you commune you get 1 hold and lose any hold you already had. Spend that hold when you or an ally takes damage to call on your deity, they intervene with an appropriate manifestation (a sudden gust of wind, a lucky slip, a burst of light) and negate the damage.",
       "level": "2to5",
       "class": "Cleric"
     },
     {
       "name": "Penitent",
-      "description": "<p>When you <strong>take damage and embrace the pain</strong>, you may take +1d4 damage (ignoring armour). If you do, take +1 forward to cast a spell.</p>",
+      "description": "When you **take damage and embrace the pain**, you may take +1d4 damage (ignoring armour). If you do, take +1 forward to cast a spell.",
       "level": "2to5",
       "class": "Cleric"
     },
     {
       "name": "Empower",
-      "description": "<p>When you cast a spell, on a 10+ you have the option of choosing from the 7&#8211;9 list. If you do, you may choose one of these effects as well:</p><ul><li>The spell&#8217;s effects are doubled</li><li>The spell&#8217;s targets are doubled</li></ul>",
+      "description": "When you cast a spell, on a 10+ you have the option of choosing from the 7–9 list. If you do, you may choose one of these effects as well:\n\n*   \n*   The spell's effects are doubled\n*   The spell's targets are doubled",
       "level": "2to5",
       "class": "Cleric"
     },
     {
       "name": "Orison for Guidance",
-      "description": "<p>When you <strong>sacrifice something of value to your deity and pray for guidance</strong>, your deity tells you what it would have you do. If you do it, mark experience.</p>",
+      "description": "When you **sacrifice something of value to your deity and pray for guidance**, your deity tells you what it would have you do. If you do it, mark experience.",
       "level": "2to5",
       "class": "Cleric"
     },
     {
       "name": "Divine Protection",
-      "description": "<p>When you wear no armour or shield you get 2 armour.</p>",
+      "description": "When you wear no armour or shield you get 2 armour.",
       "level": "2to5",
       "class": "Cleric"
     },
     {
       "name": "Devoted Healer",
-      "description": "<p>When you heal someone else of damage, add your level to the amount of damage healed.</p>",
+      "description": "When you heal someone else of damage, add your level to the amount of damage healed.",
       "level": "6to10",
       "class": "Cleric"
     },
     {
       "name": "Anointed",
-      "description": "<p>Requires: Chosen One</p><p>Choose one spell in addition to the one you picked for chosen one. You are granted that spell as if it was one level lower.</p>",
+      "description": "Requires: Chosen One\n\nChoose one spell in addition to the one you picked for chosen one. You are granted that spell as if it was one level lower.",
       "level": "6to10",
       "class": "Cleric"
     },
     {
       "name": "Apotheosis",
-      "description": "<p>The first time you <strong>spend time in prayer as appropriate to your god</strong> after taking this move, choose a feature associated with your deity (rending claws, wings of sapphire feathers, an all-seeing third eye, etc.). When you emerge from prayer, you permanently gain that physical feature.</p>",
+      "description": "The first time you **spend time in prayer as appropriate to your god** after taking this move, choose a feature associated with your deity (rending claws, wings of sapphire feathers, an all-seeing third eye, etc.). When you emerge from prayer, you permanently gain that physical feature.",
       "level": "6to10",
       "class": "Cleric"
     },
     {
       "name": "Reaper",
-      "description": "<p>When you <strong>take time after a conflict to dedicate your victory to your deity and deal with the dead</strong>, take +1 forward.</p>",
+      "description": "When you **take time after a conflict to dedicate your victory to your deity and deal with the dead**, take +1 forward.",
       "level": "6to10",
       "class": "Cleric"
     },
     {
       "name": "Providence",
-      "description": "<p>Replaces: Serenity</p><p>You ignore the -1 penalty from two spells you maintain.</p>",
+      "description": "Replaces: Serenity\n\nYou ignore the -1 penalty from two spells you maintain.",
       "level": "6to10",
       "class": "Cleric"
     },
     {
       "name": "Greater First Aid",
-      "description": "<p>Requires: First Aid</p><p>Cure Moderate Wounds is a rote for you, and therefore doesn&#8217;t count against your limit of granted spells.</p>",
+      "description": "Requires: First Aid\n\nCure Moderate Wounds is a rote for you, and therefore doesn't count against your limit of granted spells.",
       "level": "6to10",
       "class": "Cleric"
     },
     {
       "name": "Divine Invincibility",
-      "description": "<p>Replaces: Divine Intervention</p><p>When you commune you gain 2 hold and lose any hold you already had. Spend that hold when you or an ally takes damage to call on your deity, who intervenes with an appropriate manifestation (a sudden gust of wind, a lucky slip, a burst of light) and negates the damage.</p>",
+      "description": "Replaces: Divine Intervention\n\nWhen you commune you gain 2 hold and lose any hold you already had. Spend that hold when you or an ally takes damage to call on your deity, who intervenes with an appropriate manifestation (a sudden gust of wind, a lucky slip, a burst of light) and negates the damage.",
       "level": "6to10",
       "class": "Cleric"
     },
     {
       "name": "Martyr",
-      "description": "<p>Replaces: Penitent</p><p>When you <strong>take damage and embrace the pain</strong>, you may take +1d4 damage (ignoring armour). If you do, take +1 forward to cast a spell and add your level to any damage done or healed by the spell.</p>",
+      "description": "Replaces: Penitent\n\nWhen you **take damage and embrace the pain**, you may take +1d4 damage (ignoring armour). If you do, take +1 forward to cast a spell and add your level to any damage done or healed by the spell.",
       "level": "6to10",
       "class": "Cleric"
     },
     {
       "name": "Divine Armour",
-      "description": "<p>Replaces: Divine Protection</p><p>When you wear no armour or shield you get 3 armour.</p>",
+      "description": "Replaces: Divine Protection\n\nWhen you wear no armour or shield you get 3 armour.",
       "level": "6to10",
       "class": "Cleric"
     },
     {
       "name": "Greater Empower",
-      "description": "<p>Replaces: Empower</p><p>When you cast a spell, on a 10&#8211;11 you have the option of choosing from the 7&#8211;9 list. If you do, you may choose one of these effects as well. On a 12+ you get to choose one of these effects for free.</p><ul><li>The spell&#8217;s effects are doubled</li><li>The spell&#8217;s targets are doubled</li></ul>",
+      "description": "Replaces: Empower\n\nWhen you cast a spell, on a 10–11 you have the option of choosing from the 7–9 list. If you do, you may choose one of these effects as well. On a 12+ you get to choose one of these effects for free.\n\n*   \n*   The spell's effects are doubled\n*   The spell's targets are doubled",
       "level": "6to10",
       "class": "Cleric"
     },
     {
       "name": "Multiclass Dabbler",
-      "description": "<p>Get one move from another class. Treat your level as one lower for choosing the move.</p>",
+      "description": "Get one move from another class. Treat your level as one lower for choosing the move.",
       "level": "6to10",
       "class": "Cleric"
     },
 
     {
       "name": "Born of the Soil",
-      "description": "<p>You learned your magic in a place whose spirits are strong and ancient and they&#8217;ve marked you as one of their own. No matter where you go, they live within you and allow you to take their shape. Choose one of the following. It is the land to which you are attuned&#8212;when shapeshifting you may take the shape of any animal who might live in your Land.</p><ul><li>The Great Forests</li><li>The Whispering Plains</li><li>The Vast Desert</li><li>The Stinking Mire</li><li>The River Delta</li><li>The Depths of the Earth</li><li>The Sapphire Islands</li><li>The Open Sea</li><li>The Towering Mountains</li><li>The Frozen North</li><li>The Blasted Wasteland</li></ul><p>Chose a tell&#8212;a physical attribute that marks you as born of the soil&#8212;that reflects the spirit of your land. It may be an animal feature like antlers or leopard&#8217;s spots or something more general: hair like leaves or eyes of glittering crystal. Your tell remains no matter what shape you take.</p>",
+      "description": "You learned your magic in a place whose spirits are strong and ancient and they've marked you as one of their own. No matter where you go, they live within you and allow you to take their shape. Choose one of the following. It is the land to which you are attuned—when shapeshifting you may take the shape of any animal who might live in your Land.\n\n*   \n*   The Great Forests\n*   The Whispering Plains\n*   The Vast Desert\n*   The Stinking Mire\n*   The River Delta\n*   The Depths of the Earth\n*   The Sapphire Islands\n*   The Open Sea\n*   The Towering Mountains\n*   The Frozen North\n*   The Blasted Wasteland\n\nChose a tell—a physical attribute that marks you as born of the soil—that reflects the spirit of your land. It may be an animal feature like antlers or leopard's spots or something more general: hair like leaves or eyes of glittering crystal. Your tell remains no matter what shape you take.",
       "level": "starting",
       "class": "Druid"
     },
     {
       "name": "By Nature Sustained",
-      "description": "<p>You don&#8217;t need to eat or drink. If a move tells you to mark off a ration just ignore it.</p>",
+      "description": "You don't need to eat or drink. If a move tells you to mark off a ration just ignore it.",
       "level": "starting",
       "class": "Druid"
     },
     {
       "name": "Spirit Tongue",
-      "description": "<p>The grunts, barks, chirps, and calls of the creatures of the wild are as language to you. You can understand any animal native to your land or akin to one whose essence you have studied.</p>",
+      "description": "The grunts, barks, chirps, and calls of the creatures of the wild are as language to you. You can understand any animal native to your land or akin to one whose essence you have studied.",
       "level": "starting",
       "class": "Druid"
     },
     {
       "name": "Shapeshifter",
-      "description": "<p>When you call upon the spirits to change your shape, roll+Wis. &#10036;On a 10+ hold 3. &#10036;On a 7&#8211;9 hold 2. &#10036;On a miss hold 1 in addition to whatever the GM says.</p><p>You may take on the physical form of any species whose essence you have studied or who lives in your land: you and your possessions meld into a perfect copy of the species&#8217; form. You have any innate abilities and weaknesses of the form: claws, wings, gills, breathing water instead of air. You still use your normal stats but some moves may be harder to trigger&#8212;a housecat will find it hard to do battle with an ogre. The GM will also tell you one or more moves associated with your new form. Spend 1 hold to make that move. Once you&#8217;re out of hold, you return to your natural form. At any time, you may spend all your hold and revert to your natural form.</p>",
+      "description": "When you call upon the spirits to change your shape, roll+Wis. ✴On a 10+ hold 3. ✴On a 7–9 hold 2. ✴On a miss hold 1 in addition to whatever the GM says.\n\nYou may take on the physical form of any species whose essence you have studied or who lives in your land: you and your possessions meld into a perfect copy of the species' form. You have any innate abilities and weaknesses of the form: claws, wings, gills, breathing water instead of air. You still use your normal stats but some moves may be harder to trigger—a housecat will find it hard to do battle with an ogre. The GM will also tell you one or more moves associated with your new form. Spend 1 hold to make that move. Once you're out of hold, you return to your natural form. At any time, you may spend all your hold and revert to your natural form.",
       "level": "starting",
       "class": "Druid"
     },
     {
       "name": "Studied Essence",
-      "description": "<p>When you <strong>spend time in contemplation of an animal spirit</strong>, you may add its species to those you can assume using shapeshifting.</p>",
+      "description": "When you **spend time in contemplation of an animal spirit**, you may add its species to those you can assume using shapeshifting.",
       "level": "starting",
       "class": "Druid"
     },
     {
       "name": "Hunter's Brother",
-      "description": "<p>Choose one move from the ranger class list.</p>",
+      "description": "Choose one move from the ranger class list.",
       "level": "2to5",
       "class": "Druid"
     },
     {
       "name": "Red of Tooth and Claw",
-      "description": "<p>When you <strong>are in an appropriate animal form</strong> (something dangerous) increase your damage to d8.</p>",
+      "description": "When you **are in an appropriate animal form** (something dangerous) increase your damage to d8.",
       "level": "2to5",
       "class": "Druid"
     },
     {
       "name": "Communion of Whispers",
-      "description": "<p>When <strong>you spend time in a place, making note of its resident spirits and calling on the spirits of the land</strong>, roll+Wis. You will be granted a vision of significance to you, your allies, and the spirits around you. &#10036;On a 10+ the vision will be clear and helpful to you. &#10036;On a 7&#8211;9 the vision is unclear, its meaning murky. &#10036;On a miss, the vision is upsetting, frightening, or traumatizing. The GM will describe it. Take -1 forward.</p>",
+      "description": "When **you spend time in a place, making note of its resident spirits and calling on the spirits of the land**, roll+Wis. You will be granted a vision of significance to you, your allies, and the spirits around you. ✴On a 10+ the vision will be clear and helpful to you. ✴On a 7–9 the vision is unclear, its meaning murky. ✴On a miss, the vision is upsetting, frightening, or traumatizing. The GM will describe it. Take -1 forward.",
       "level": "2to5",
       "class": "Druid"
     },
     {
       "name": "Barkskin",
-      "description": "<p>So long as your feet touch the ground you have +1 armour.</p>",
+      "description": "So long as your feet touch the ground you have +1 armour.",
       "level": "2to5",
       "class": "Druid"
     },
     {
       "name": "Eyes of the Tiger",
-      "description": "<p>When you mark an animal (with mud, dirt, or blood) you can see through that animal&#8217;s eyes as if they were your own, no matter what distance separates you. Only one animal at a time may be marked in this way.</p>",
+      "description": "When you mark an animal (with mud, dirt, or blood) you can see through that animal's eyes as if they were your own, no matter what distance separates you. Only one animal at a time may be marked in this way.",
       "level": "2to5",
       "class": "Druid"
     },
     {
       "name": "Shed",
-      "description": "<p>When you <strong>take damage while shapeshifted</strong> you may choose to revert to your natural form to negate the damage.</p>",
+      "description": "When you **take damage while shapeshifted** you may choose to revert to your natural form to negate the damage.",
       "level": "2to5",
       "class": "Druid"
     },
     {
       "name": "Thing-Talker",
-      "description": "<p>You see the spirits in the sand, the sea and the stone. You may now apply your spirit tongue, shapeshifting and studied essence to inanimate natural objects (plants and rocks) or creatures made thereof, as well as animals. Thing-talker forms can be exact copies or can be mobile vaguely humanoid-shaped entities.</p>",
+      "description": "You see the spirits in the sand, the sea and the stone. You may now apply your spirit tongue, shapeshifting and studied essence to inanimate natural objects (plants and rocks) or creatures made thereof, as well as animals. Thing-talker forms can be exact copies or can be mobile vaguely humanoid-shaped entities.",
       "level": "2to5",
       "class": "Druid"
     },
     {
       "name": "Formcrafter",
-      "description": "<p>When you shapeshift choose a stat: you take +1 ongoing to rolls using that stat while shifted. The GM will choose a stat, too: you take -1 ongoing to rolls using that stat while shifted.</p>",
+      "description": "When you shapeshift choose a stat: you take +1 ongoing to rolls using that stat while shifted. The GM will choose a stat, too: you take -1 ongoing to rolls using that stat while shifted.",
       "level": "2to5",
       "class": "Druid"
     },
     {
       "name": "Elemental Mastery",
-      "description": "<p>When you <strong>call on the primal spirits of fire, water, earth or air to perform a task for you</strong> roll+Wis. &#10036;On a 10+ choose two. &#10036;On a 7&#8211;9 choose one. &#10036;On a miss, some catastrophe occurs as a result of your calling.</p><ul><li>The effect you desire comes to pass</li><li>You avoid paying nature&#8217;s price </li><li>You retain control</li></ul>",
+      "description": "When you **call on the primal spirits of fire, water, earth or air to perform a task for you** roll+Wis. ✴On a 10+ choose two. ✴On a 7–9 choose one. ✴On a miss, some catastrophe occurs as a result of your calling.\n\n*   \n*   The effect you desire comes to pass\n*   You avoid paying nature's price \n*   You retain control",
       "level": "2to5",
       "class": "Druid"
     },
     {
       "name": "Balance",
-      "description": "<p>When you <strong>deal damage</strong>, take 1 balance. When you touch someone and channel the spirits of life you may spend balance. For each balance spent, heal 1d4 HP.</p>",
+      "description": "When you **deal damage**, take 1 balance. When you touch someone and channel the spirits of life you may spend balance. For each balance spent, heal 1d4 HP.",
       "level": "6to10",
       "class": "Druid"
     },
     {
       "name": "Embracing No Form",
-      "description": "<p>When you shapeshift, roll 1d4 and add that total to your hold.</p>",
+      "description": "When you shapeshift, roll 1d4 and add that total to your hold.",
       "level": "6to10",
       "class": "Druid"
     },
     {
       "name": "Doppelg\u00e4nger's Dance",
-      "description": "<p>You are able to study the essence of specific individuals to take their exact form, including men, elves, or the like. Suppressing your tell is possible, but if you do, take -1 ongoing until you return to your own form.</p>",
+      "description": "You are able to study the essence of specific individuals to take their exact form, including men, elves, or the like. Suppressing your tell is possible, but if you do, take -1 ongoing until you return to your own form.",
       "level": "6to10",
       "class": "Druid"
     },
     {
       "name": "Blood and Thunder",
-      "description": "<p>Replaces: Red of Tooth and Claw</p><p>When you <strong>are in an appropriate animal form</strong> (something dangerous) increase your damage to d10.</p>",
+      "description": "Replaces: Red of Tooth and Claw\n\nWhen you **are in an appropriate animal form** (something dangerous) increase your damage to d10.",
       "level": "6to10",
       "class": "Druid"
     },
     {
       "name": "The Druid Sleep",
-      "description": "<p>When you take this move, the next opportunity that you have safety and time to spend in an appropriate location, you may attune yourself to a new land. This effect occurs only once and the GM will tell you how long it will take and what cost you must pay. From then on, you are considered to be born of the soil in both lands.</p>",
+      "description": "When you take this move, the next opportunity that you have safety and time to spend in an appropriate location, you may attune yourself to a new land. This effect occurs only once and the GM will tell you how long it will take and what cost you must pay. From then on, you are considered to be born of the soil in both lands.",
       "level": "6to10",
       "class": "Druid"
     },
     {
       "name": "World-Talker",
-      "description": "<p>Requires: Thing-Talker</p><p>You see the patterns that make up the fabric of the world. You may now apply your spirit tongue, shapeshifter and studied essence moves to pure elements&#8212;fire, water, air and earth.</p>",
+      "description": "Requires: Thing-Talker\n\nYou see the patterns that make up the fabric of the world. You may now apply your spirit tongue, shapeshifter and studied essence moves to pure elements—fire, water, air and earth.",
       "level": "6to10",
       "class": "Druid"
     },
     {
       "name": "Stalker's Sister",
-      "description": "<p>Requires: Hunter&#8217;s Brother</p><p>Choose one move from the ranger class list.</p>",
+      "description": "Requires: Hunter's Brother\n\nChoose one move from the ranger class list.",
       "level": "6to10",
       "class": "Druid"
     },
     {
       "name": "Formshaper",
-      "description": "<p>Requires: Formcrafter</p><p>You may increase your armour by 1 or deal an additional +1d4 damage while in an animal form. Choose which when you shapeshift.</p>",
+      "description": "Requires: Formcrafter\n\nYou may increase your armour by 1 or deal an additional +1d4 damage while in an animal form. Choose which when you shapeshift.",
       "level": "6to10",
       "class": "Druid"
     },
     {
       "name": "Chimera",
-      "description": "<p>When you shapeshift, you may create a merged form of up to three different shapes. You may be a bear with the wings of an eagle and the head of a ram, for example. Each feature will grant you a different move to make. Your chimera form follows the same rules as shapeshifter otherwise. </p>",
+      "description": "When you shapeshift, you may create a merged form of up to three different shapes. You may be a bear with the wings of an eagle and the head of a ram, for example. Each feature will grant you a different move to make. Your chimera form follows the same rules as shapeshifter otherwise. ",
       "level": "6to10",
       "class": "Druid"
     },
     {
       "name": "Weather Weaver",
-      "description": "<p>When you are under open skies when the sun rises the GM will ask you what the weather will be that day. Tell them whatever you like, it comes to pass.</p>",
+      "description": "When you are under open skies when the sun rises the GM will ask you what the weather will be that day. Tell them whatever you like, it comes to pass.",
       "level": "6to10",
       "class": "Druid"
     },
 
     {
       "name": "Bend Bars, Lift Gates",
-      "description": "<p>When you <strong>use pure strength to destroy an inanimate obstacle</strong>, roll+Str. &#10036;On a 10+, choose 3. &#10036;On a 7-9 choose 2.</p><ul><li>It doesn&#8217;t take a very long time</li><li>Nothing of value is damaged</li><li>It doesn&#8217;t make an inordinate amount of noise</li><li>You can fix the thing again without a lot of effort</li></ul>",
+      "description": "When you **use pure strength to destroy an inanimate obstacle**, roll+Str. ✴On a 10+, choose 3. ✴On a 7-9 choose 2.\n\n*   \n*   It doesn't take a very long time\n*   Nothing of value is damaged\n*   It doesn't make an inordinate amount of noise\n*   You can fix the thing again without a lot of effort",
       "level": "starting",
       "class": "Fighter"
     },
     {
       "name": "Armoured",
-      "description": "<p>You ignore the clumsy tag on armour you wear.</p>",
+      "description": "You ignore the clumsy tag on armour you wear.",
       "level": "starting",
       "class": "Fighter"
     },
     {
       "name": "Signature Weapon",
-      "description": "<p>This is your weapon. There are many like it, but this one is yours. Your weapon is your best friend. It is your life. You master it as you master your life. Your weapon, without you, is useless. Without your weapon, you are useless. You must wield your weapon true.</p><p>Choose a base description, all are 2 weight:</p><ul><li>Sword</li><li>Axe</li><li>Hammer</li><li>Spear</li><li>Flail</li><li>Fists</li></ul><p>Choose the range that best fits your weapon:</p><ul><li>Hand</li><li>Close</li><li>Reach</li></ul><p>Choose two enhancements:</p><ul><li>Hooks and spikes. +1 damage, but +1 weight.</li><li>Sharp. +2 piercing.</li><li>Perfectly weighted. Add precise.</li><li>Serrated edges. +1 damage.</li><li>Glows in the presence of one type of creature, your choice.</li><li>Huge. Add messy and forceful.</li><li>Versatile. Choose an additional range.</li><li>Well-crafted. -1 weight.</li></ul><p>Choose a look:</p><ul><li>Ancient</li><li>Unblemished</li><li>Ornate</li><li>Blood-stained</li><li>Sinister</li></ul>",
+      "description": "This is your weapon. There are many like it, but this one is yours. Your weapon is your best friend. It is your life. You master it as you master your life. Your weapon, without you, is useless. Without your weapon, you are useless. You must wield your weapon true.\n\nChoose a base description, all are 2 weight:\n\n*   \n*   Sword\n*   Axe\n*   Hammer\n*   Spear\n*   Flail\n*   Fists\n\nChoose the range that best fits your weapon:\n\n*   \n*   Hand\n*   Close\n*   Reach\n\nChoose two enhancements:\n\n*   \n*   Hooks and spikes. +1 damage, but +1 weight.\n*   Sharp. +2 piercing.\n*   Perfectly weighted. Add precise.\n*   Serrated edges. +1 damage.\n*   Glows in the presence of one type of creature, your choice.\n*   Huge. Add messy and forceful.\n*   Versatile. Choose an additional range.\n*   Well-crafted. -1 weight.\n\nChoose a look:\n\n*   \n*   Ancient\n*   Unblemished\n*   Ornate\n*   Blood-stained\n*   Sinister",
       "level": "starting",
       "class": "Fighter"
     },
     {
       "name": "Merciless",
-      "description": "<p>When you deal damage, deal +1d4 damage.</p>",
+      "description": "When you deal damage, deal +1d4 damage.",
       "level": "2to5",
       "class": "Fighter"
     },
     {
       "name": "Heirloom",
-      "description": "<p>When you <strong>consult the spirits that reside within your signature weapon</strong>, they will give you an insight relating to the current situation, and might ask you some questions in return, roll+CHA. &#10036;On a 10+, the GM will give you good detail. &#10036;On a 7-9, the GM will give you an impression.</p>",
+      "description": "When you **consult the spirits that reside within your signature weapon**, they will give you an insight relating to the current situation, and might ask you some questions in return, roll+CHA. ✴On a 10+, the GM will give you good detail. ✴On a 7-9, the GM will give you an impression.",
       "level": "2to5",
       "class": "Fighter"
     },
     {
       "name": "Armour Mastery",
-      "description": "<p>When you <strong>make your armour take the brunt of damage dealt to you</strong>, the damage is negated but you must reduce the armour value of your armour or shield (your choice) by 1. The value is reduced each time you make this choice. If the reduction leaves the item with 0 armour it is destroyed.</p>",
+      "description": "When you **make your armour take the brunt of damage dealt to you**, the damage is negated but you must reduce the armour value of your armour or shield (your choice) by 1. The value is reduced each time you make this choice. If the reduction leaves the item with 0 armour it is destroyed.",
       "level": "2to5",
       "class": "Fighter"
     },
     {
       "name": "Improved Weapon",
-      "description": "<p>Choose one extra enhancement for your signature weapon.</p>",
+      "description": "Choose one extra enhancement for your signature weapon.",
       "level": "2to5",
       "class": "Fighter"
     },
     {
       "name": "Seeing Red",
-      "description": "<p>When you discern realities during combat, you take +1.</p>",
+      "description": "When you discern realities during combat, you take +1.",
       "level": "2to5",
       "class": "Fighter"
     },
     {
       "name": "Interrogator",
-      "description": "<p>When you <strong>parley using threats of impending violence as leverage</strong>, you may use STR instead of CHA.</p>",
+      "description": "When you **parley using threats of impending violence as leverage**, you may use STR instead of CHA.",
       "level": "2to5",
       "class": "Fighter"
     },
     {
       "name": "Scent of Blood",
-      "description": "<p>When you hack and slash an enemy, your next attack against that same foe deals +1d4 damage.</p>",
+      "description": "When you hack and slash an enemy, your next attack against that same foe deals +1d4 damage.",
       "level": "2to5",
       "class": "Fighter"
     },
     {
       "name": "Multiclass Dabbler",
-      "description": "<p>Get one move from another class. Treat your level as one lower for choosing the move.</p>",
+      "description": "Get one move from another class. Treat your level as one lower for choosing the move.",
       "level": "2to5",
       "class": "Fighter"
     },
     {
       "name": "Iron Hide",
-      "description": "<p>You gain +1 armour.</p>",
+      "description": "You gain +1 armour.",
       "level": "2to5",
       "class": "Fighter"
     },
     {
       "name": "Blacksmith",
-      "description": "<p>When you have access to a forge you can graft the magical powers of a weapon onto your signature weapon. This process destroys the magical weapon. Your signature weapon gains the magical powers of the destroyed weapon.</p>",
+      "description": "When you have access to a forge you can graft the magical powers of a weapon onto your signature weapon. This process destroys the magical weapon. Your signature weapon gains the magical powers of the destroyed weapon.",
       "level": "6to10",
       "class": "Fighter"
     },
     {
       "name": "Bloodthirsty",
-      "description": "<p>Replaces: Merciless</p><p>When you deal damage, deal +1d8 damage.</p>",
+      "description": "Replaces: Merciless\n\nWhen you deal damage, deal +1d8 damage.",
       "level": "6to10",
       "class": "Fighter"
     },
     {
       "name": "Armoured Perfection",
-      "description": "<p>Replaces: Armour Mastery</p><p>When you <strong>choose to let your armour take the brunt of damage dealt to you</strong>, the damage is negated and you take +1 forward against the attacker, but you must reduce the armour value of your armour or shield (your choice) by 1. The value is reduced each time you make this choice. If the reduction leaves the item with 0 armour it is destroyed.</p>",
+      "description": "Replaces: Armour Mastery\n\nWhen you **choose to let your armour take the brunt of damage dealt to you**, the damage is negated and you take +1 forward against the attacker, but you must reduce the armour value of your armour or shield (your choice) by 1. The value is reduced each time you make this choice. If the reduction leaves the item with 0 armour it is destroyed.",
       "level": "6to10",
       "class": "Fighter"
     },
     {
       "name": "Evil Eye",
-      "description": "<p>Requires: Seeing Red</p><p>When you <strong>enter combat</strong>, roll+CHA. &#10036;On a 10+, hold 2. &#10036;On a 7-9, hold 1. Spend your hold to make eye contact with an NPC present, who freezes or flinches and can&#8217;t act until you break it off. &#10036;On a 6-, your enemies immediately identify you as their biggest threat.</p>",
+      "description": "Requires: Seeing Red\n\nWhen you **enter combat**, roll+CHA. ✴On a 10+, hold 2. ✴On a 7-9, hold 1. Spend your hold to make eye contact with an NPC present, who freezes or flinches and can't act until you break it off. ✴On a 6-, your enemies immediately identify you as their biggest threat.",
       "level": "6to10",
       "class": "Fighter"
     },
     {
       "name": "Taste of Blood",
-      "description": "<p>Replaces: Scent of Blood</p><p>When you hack and slash an enemy, your next attack against that same foe deals +1d8 damage.</p>",
+      "description": "Replaces: Scent of Blood\n\nWhen you hack and slash an enemy, your next attack against that same foe deals +1d8 damage.",
       "level": "6to10",
       "class": "Fighter"
     },
     {
       "name": "Multiclass Initiate",
-      "description": "<p>Requires: Multiclass Dabbler</p><p>Get one move from another class. Treat your level as one lower for choosing the move.</p>",
+      "description": "Requires: Multiclass Dabbler\n\nGet one move from another class. Treat your level as one lower for choosing the move.",
       "level": "6to10",
       "class": "Fighter"
     },
     {
       "name": "Steel Hide",
-      "description": "<p>Replaces: Iron Hide</p><p>You gain +2 armour.</p>",
+      "description": "Replaces: Iron Hide\n\nYou gain +2 armour.",
       "level": "6to10",
       "class": "Fighter"
     },
     {
       "name": "Through Death's Eyes",
-      "description": "<p>When you <strong>go into battle</strong>, roll+WIS. &#10036;On a 10+, name someone who will live <strong>and</strong> someone who will die. &#10036;On a 7-9, name someone who will live <strong>or</strong> someone who will die. Name NPCs, not player characters. The GM will make your vision come true, if it&#8217;s even remotely possible. &#10036;On a 6- you see your own death and consequently take -1 ongoing throughout the battle.</p>",
+      "description": "When you **go into battle**, roll+WIS. ✴On a 10+, name someone who will live **and** someone who will die. ✴On a 7-9, name someone who will live **or** someone who will die. Name NPCs, not player characters. The GM will make your vision come true, if it's even remotely possible. ✴On a 6- you see your own death and consequently take -1 ongoing throughout the battle.",
       "level": "6to10",
       "class": "Fighter"
     },
     {
       "name": "Eye for Weaponry",
-      "description": "<p>When you look over an enemy&#8217;s weaponry, ask the GM how much damage they do.</p>",
+      "description": "When you look over an enemy's weaponry, ask the GM how much damage they do.",
       "level": "6to10",
       "class": "Fighter"
     },
     {
       "name": "Superior Warrior",
-      "description": "<p>When you hack and slash on a 12+ you deal your damage, avoid their attack, and impress, dismay, or frighten your enemy.</p>",
+      "description": "When you hack and slash on a 12+ you deal your damage, avoid their attack, and impress, dismay, or frighten your enemy.",
       "level": "6to10",
       "class": "Fighter"
     },
 
     {
       "name": "Lay on Hands (Cha)",
-      "description": "<p>When you <strong>touch someone, skin to skin, and pray for their well-being </strong>, roll+CHA. &#10036;On a 10+ you heal 1d8 damage or remove one disease. &#10036;On a 7&#8211;9, they are healed, but the damage or disease is transferred to you.</p>",
+      "description": "When you **touch someone, skin to skin, and pray for their well-being **, roll+CHA. ✴On a 10+ you heal 1d8 damage or remove one disease. ✴On a 7–9, they are healed, but the damage or disease is transferred to you.",
       "level": "starting",
       "class": "Paladin"
     },
     {
       "name": "Armoured",
-      "description": "<p>You ignore the clumsy tag on armour you wear.</p>",
+      "description": "You ignore the clumsy tag on armour you wear.",
       "level": "starting",
       "class": "Paladin"
     },
     {
       "name": "I Am the Law",
-      "description": "<p>When you <strong>give an NPC an order based on your divine authority</strong>, roll+Cha. &#10036;On a 7+, they choose one:</p><ul><li>Do what you say</li><li>Back away cautiously, then flee</li><li>Attack you</li></ul><p>&#10036;On a 10+, you also take +1 forward against them. &#10036;On a miss, they do as they please and you take -1 forward against them.</p>",
+      "description": "When you **give an NPC an order based on your divine authority**, roll+Cha. ✴On a 7+, they choose one:\n\n*   \n*   Do what you say\n*   Back away cautiously, then flee\n*   Attack you\n\n✴On a 10+, you also take +1 forward against them. ✴On a miss, they do as they please and you take -1 forward against them.",
       "level": "starting",
       "class": "Paladin"
     },
     {
       "name": "Quest",
-      "description": "<p>When you <strong>dedicate yourself to a mission through prayer and ritual cleansing</strong>, state what you set out to do:</p><ul><li>Slay _______, a great blight on the land</li><li>Defend _______ from the iniquities that beset them</li><li>Discover the truth of _______</li></ul><p>Then choose up to two boons:</p><ul><li>An unwavering sense of direction to _______.</li><li>Invulnerability to _______ (e.g., edged weapons, fire, enchantment, etc.)</li><li>A mark of divine authority</li><li>Senses that pierce lies</li><li>A voice that transcends language</li><li>A freedom from hunger, thirst, and sleep</li></ul><p>The GM will then tell you what vow or vows is required of you to maintain your blessing:</p><ul><li>Honor (forbidden: cowardly tactics and tricks)</li><li>Temperance (forbidden: gluttony in food, drink, and pleasure of the flesh)</li><li>Piety (required: observance of daily holy services)</li><li>Valor (forbidden: suffering an evil creature to live)</li><li>Truth (forbidden: lies)</li><li>Hospitality (required: comfort to those in need, no matter who they are)</li></ul>",
+      "description": "When you **dedicate yourself to a mission through prayer and ritual cleansing**, state what you set out to do:\n\n*   \n*   Slay _______, a great blight on the land\n*   Defend _______ from the iniquities that beset them\n*   Discover the truth of _______\n\nThen choose up to two boons:\n\n*   \n*   An unwavering sense of direction to _______.\n*   Invulnerability to _______ (e.g., edged weapons, fire, enchantment, etc.)\n*   A mark of divine authority\n*   Senses that pierce lies\n*   A voice that transcends language\n*   A freedom from hunger, thirst, and sleep\n\nThe GM will then tell you what vow or vows is required of you to maintain your blessing:\n\n*   \n*   Honor (forbidden: cowardly tactics and tricks)\n*   Temperance (forbidden: gluttony in food, drink, and pleasure of the flesh)\n*   Piety (required: observance of daily holy services)\n*   Valor (forbidden: suffering an evil creature to live)\n*   Truth (forbidden: lies)\n*   Hospitality (required: comfort to those in need, no matter who they are)",
       "level": "starting",
       "class": "Paladin"
     },
     {
       "name": "Divine Favor",
-      "description": "<p>Dedicate yourself to a deity (name a new one or choose one that&#8217;s already been established). You gain the commune and cast a spell cleric moves. When you select this move, treat yourself as a cleric of level 1 for using spells. Every time you gain a level thereafter, increase your effective cleric level by 1.</p>",
+      "description": "Dedicate yourself to a deity (name a new one or choose one that's already been established). You gain the commune and cast a spell cleric moves. When you select this move, treat yourself as a cleric of level 1 for using spells. Every time you gain a level thereafter, increase your effective cleric level by 1.",
       "level": "2to5",
       "class": "Paladin"
     },
     {
       "name": "Bloody Aegis",
-      "description": "<p>When you take damage you can grit your teeth and accept the blow. If you do you take no damage but instead suffer a debility of your choice. If you already have all six debilities you can&#8217;t use this move.</p>",
+      "description": "When you take damage you can grit your teeth and accept the blow. If you do you take no damage but instead suffer a debility of your choice. If you already have all six debilities you can't use this move.",
       "level": "2to5",
       "class": "Paladin"
     },
     {
       "name": "Smite",
-      "description": "<p>While on a quest you deal +1d4 damage.</p>",
+      "description": "While on a quest you deal +1d4 damage.",
       "level": "2to5",
       "class": "Paladin"
     },
     {
       "name": "Exterminatus",
-      "description": "<p>When you <strong>speak aloud your promise to defeat an enemy</strong>, you deal +2d4 damage against that enemy and -4 damage against anyone else. This effect lasts until the enemy is defeated. If you fail to defeat the enemy or give up the fight, you can admit your failure, but the effect continues until you find a way to redeem yourself.</p>",
+      "description": "When you **speak aloud your promise to defeat an enemy**, you deal +2d4 damage against that enemy and -4 damage against anyone else. This effect lasts until the enemy is defeated. If you fail to defeat the enemy or give up the fight, you can admit your failure, but the effect continues until you find a way to redeem yourself.",
       "level": "2to5",
       "class": "Paladin"
     },
     {
       "name": "Charge!",
-      "description": "<p>When you <strong>lead the charge into combat</strong>, those you lead take +1 forward.</p>",
+      "description": "When you **lead the charge into combat**, those you lead take +1 forward.",
       "level": "2to5",
       "class": "Paladin"
     },
     {
       "name": "Staunch Defender",
-      "description": "<p>When you defend you always get +1 hold, even on a 6-.</p>",
+      "description": "When you defend you always get +1 hold, even on a 6-.",
       "level": "2to5",
       "class": "Paladin"
     },
     {
       "name": "Setup Strike",
-      "description": "<p>When you hack and slash, choose an ally. Their next attack against your target does +1d4 damage.</p>",
+      "description": "When you hack and slash, choose an ally. Their next attack against your target does +1d4 damage.",
       "level": "2to5",
       "class": "Paladin"
     },
     {
       "name": "Holy Protection",
-      "description": "<p>You get +1 armour while on a quest.</p>",
+      "description": "You get +1 armour while on a quest.",
       "level": "2to5",
       "class": "Paladin"
     },
     {
       "name": "Voice of Authority",
-      "description": "<p>Take +1 to order hirelings.</p>",
+      "description": "Take +1 to order hirelings.",
       "level": "2to5",
       "class": "Paladin"
     },
     {
       "name": "Hospitaller",
-      "description": "<p>When you heal an ally, you heal +1d8 damage.</p>",
+      "description": "When you heal an ally, you heal +1d8 damage.",
       "level": "6to10",
       "class": "Paladin"
     },
     {
       "name": "Evidence of Faith",
-      "description": "<p>Requires: Divine Favor</p><p>When you <strong>see divine magic as it happens</strong>, you can ask the GM which deity granted the spell and its effects. Take +1 when acting on the answers.</p>",
+      "description": "Requires: Divine Favor\n\nWhen you **see divine magic as it happens**, you can ask the GM which deity granted the spell and its effects. Take +1 when acting on the answers.",
       "level": "6to10",
       "class": "Paladin"
     },
     {
       "name": "Holy Smite",
-      "description": "<p>Replaces: Smite</p><p>While on a quest you deal +1d8 damage.</p>",
+      "description": "Replaces: Smite\n\nWhile on a quest you deal +1d8 damage.",
       "level": "6to10",
       "class": "Paladin"
     },
     {
       "name": "Ever Onward",
-      "description": "<p>Replaces: Charge!</p><p>When you lead the charge into combat, those you lead take +1 forward and +2 armour forward.</p>",
+      "description": "Replaces: Charge!\n\nWhen you lead the charge into combat, those you lead take +1 forward and +2 armour forward.",
       "level": "6to10",
       "class": "Paladin"
     },
     {
       "name": "Impervious Defender",
-      "description": "<p>Replaces: Staunch Defender</p><p>When you defend you always get +1 hold, even on a 6-. When you get a 12+ to defend instead of getting hold the nearest attacking creature is stymied giving you a clear advantage, the GM will describe it.</p>",
+      "description": "Replaces: Staunch Defender\n\nWhen you defend you always get +1 hold, even on a 6-. When you get a 12+ to defend instead of getting hold the nearest attacking creature is stymied giving you a clear advantage, the GM will describe it.",
       "level": "6to10",
       "class": "Paladin"
     },
     {
       "name": "Tandem Strike",
-      "description": "<p>Replaces: Setup Strike</p><p>When you hack and slash, choose an ally. Their next attack against your target does +1d4 damage and they take +1 forward against them.</p>",
+      "description": "Replaces: Setup Strike\n\nWhen you hack and slash, choose an ally. Their next attack against your target does +1d4 damage and they take +1 forward against them.",
       "level": "6to10",
       "class": "Paladin"
     },
     {
       "name": "Divine Protection",
-      "description": "<p>Replaces: Holy Protection</p><p>You get +2 armour while on a quest.</p>",
+      "description": "Replaces: Holy Protection\n\nYou get +2 armour while on a quest.",
       "level": "6to10",
       "class": "Paladin"
     },
     {
       "name": "Divine Authority",
-      "description": "<p>Replaces: Voice of Authority</p><p>Take +1 to order hirelings. When you roll a 12+ the hireling transcends their moment of fear and doubt and carries out your order with particular effectiveness or efficiency.</p>",
+      "description": "Replaces: Voice of Authority\n\nTake +1 to order hirelings. When you roll a 12+ the hireling transcends their moment of fear and doubt and carries out your order with particular effectiveness or efficiency.",
       "level": "6to10",
       "class": "Paladin"
     },
     {
       "name": "Perfect Hospitaller",
-      "description": "<p>Replaces: Hospitaller</p><p>When you heal an ally, you heal +2d8 damage.</p>",
+      "description": "Replaces: Hospitaller\n\nWhen you heal an ally, you heal +2d8 damage.",
       "level": "6to10",
       "class": "Paladin"
     },
     {
       "name": "Indomitable",
-      "description": "<p>When you suffer a debility (even through Bloody Aegis) take +1 forward against whatever caused it.</p>",
+      "description": "When you suffer a debility (even through Bloody Aegis) take +1 forward against whatever caused it.",
       "level": "6to10",
       "class": "Paladin"
     },
     {
       "name": "Perfect Knight",
-      "description": "<p>When you quest you choose three boons instead of two.</p>",
+      "description": "When you quest you choose three boons instead of two.",
       "level": "6to10",
       "class": "Paladin"
     },
 
     {
       "name": "Hunt and Track (Wis)",
-      "description": "<p>When you <strong>follow a trail of clues left behind by passing creatures</strong>, roll+WIS. &#10036;On a 7+, you follow the creature&#8217;s trail until there&#8217;s a significant change in its direction or mode of travel. &#10036;On a 10+, you also choose 1:</p><ul><li>Gain a useful bit of information about your quarry, the GM will tell you what</li><li>Determine what caused the trail to end</li></ul>",
+      "description": "When you **follow a trail of clues left behind by passing creatures**, roll+WIS. ✴On a 7+, you follow the creature's trail until there's a significant change in its direction or mode of travel. ✴On a 10+, you also choose 1:\n\n*   \n*   Gain a useful bit of information about your quarry, the GM will tell you what\n*   Determine what caused the trail to end",
       "level": "starting",
       "class": "Ranger"
     },
     {
       "name": "Called Shot",
-      "description": "<p>When you <strong>attack a defenseless or surprised enemy at range</strong>, you can choose to deal your damage or name your target and roll+DEX.</p><ul><li>Head &#10036;10+: As 7&#8211;9, plus your damage &#10036;7-9: They do nothing but stand and drool for a few moments.</li><li>Arms &#10036;10+: As 7-9, plus your damage &#10036;7-9: They drop anything they&#8217;re holding.</li><li>Legs &#10036;10+: As 7-9, plus your damage &#10036;7-9: They&#8217;re hobbled and slow moving.</li></ul>",
+      "description": "When you **attack a defenseless or surprised enemy at range**, you can choose to deal your damage or name your target and roll+DEX.\n\n*   \n*   Head ✴10+: As 7–9, plus your damage ✴7-9: They do nothing but stand and drool for a few moments.\n*   Arms ✴10+: As 7-9, plus your damage ✴7-9: They drop anything they're holding.\n*   Legs ✴10+: As 7-9, plus your damage ✴7-9: They're hobbled and slow moving.",
       "level": "starting",
       "class": "Ranger"
     },
     {
       "name": "Animal Companion",
-      "description": "<p>You have a supernatural connection with a loyal animal. You can&#8217;t talk to it per se but it always acts as you wish it to. Name your animal companion and choose a species:</p><p ns0:pstyle=\"Example\">Wolf, cougar, bear, eagle, dog, hawk, cat, owl, pigeon, rat, mule</p><p>Choose a base:</p><ul><li>Ferocity +2, Cunning +1, 1 Armour, Instinct +1</li><li>Ferocity +2, Cunning +2, 0 Armour, Instinct +1</li><li>Ferocity +1, Cunning +2, 1 Armour, Instinct +1</li><li>Ferocity +3, Cunning +1, 1 Armour, Instinct +2</li></ul><p>Choose as many strengths as its ferocity:</p><p ns0:pstyle=\"Example\">Fast, burly, huge, calm, adaptable, quick reflexes, tireless, camouflage, ferocious, intimidating, keen senses, stealthy</p><p>Your animal companion is trained to fight humanoids. Choose as many additional trainings as its cunning:</p><p ns0:pstyle=\"Example\">Hunt, search, scout, guard, fight monsters, perform, labor, travel</p><p>Choose as many weaknesses as its instinct:</p><p ns0:pstyle=\"Example\">Flighty, savage, slow, broken, frightening, forgetful, stubborn, lame</p>",
+      "description": "You have a supernatural connection with a loyal animal. You can’t talk to it per se but it always acts as you wish it to. Name your animal companion and choose a species:\n\nWolf, cougar, bear, eagle, dog, hawk, cat, owl, pigeon, rat, mule\n\nChoose a base:\n\n*   Ferocity +2, Cunning +1, 1 Armor, Instinct +1\n*   Ferocity +2, Cunning +2, 0 Armor, Instinct +1\n*   Ferocity +1, Cunning +2, 1 Armor, Instinct +1\n*   Ferocity +3, Cunning +1, 1 Armor, Instinct +2\n\nChoose as many strengths as its ferocity:\n\nFast, burly, huge, calm, adaptable, quick reflexes, tireless, camouflage, ferocious, intimidating, keen senses, stealthy\n\nYour animal companion is trained to fight humanoids. Choose as many additional trainings as its cunning:\n\nHunt, search, scout, guard, fight monsters, perform, labor, travel\n\nChoose as many weaknesses as its instinct:\n\nFlighty, savage, slow, broken, frightening, forgetful, stubborn, lame",
       "level": "starting",
       "class": "Ranger"
     },
     {
       "name": "Command",
-      "description": "<p>When you work with your animal companion on something it&#8217;s trained in&#8230;</p><ul><li>&#8230;and you attack the same target, add its ferocity to your damage</li><li>&#8230;and you track, add its cunning to your roll</li><li>&#8230;and you take damage, add its armour to your armour</li><li>&#8230;and you discern realities, add its cunning to your roll</li><li>&#8230;and you parley, add its cunning to your roll</li><li>&#8230;and someone interferes with you, add its instinct to their roll</li></ul>",
+      "description": "When you work with your animal companion on something it's trained in…\n\n*   \n*   …and you attack the same target, add its ferocity to your damage\n*   …and you track, add its cunning to your roll\n*   …and you take damage, add its armour to your armour\n*   …and you discern realities, add its cunning to your roll\n*   …and you parley, add its cunning to your roll\n*   …and someone interferes with you, add its instinct to their roll",
       "level": "starting",
       "class": "Ranger"
     },
     {
       "name": "Half-Elven",
-      "description": "<p>Somewhere in your lineage lies mixed blood and it begins to show its presence. You gain the elf starting move if you took the human one at character creation or vice versa.</p>",
+      "description": "Somewhere in your lineage lies mixed blood and it begins to show its presence. You gain the elf starting move if you took the human one at character creation or vice versa.",
       "level": "2to5",
       "class": "Ranger"
     },
     {
       "name": "Wild Empathy",
-      "description": "<p>You can speak with and understand animals.</p>",
+      "description": "You can speak with and understand animals.",
       "level": "2to5",
       "class": "Ranger"
     },
     {
       "name": "Familiar Prey",
-      "description": "<p>When you spout lore about a monster you use WIS instead of INT.</p>",
+      "description": "When you spout lore about a monster you use WIS instead of INT.",
       "level": "2to5",
       "class": "Ranger"
     },
     {
       "name": "Viper's Strike",
-      "description": "<p>When you strike an enemy with two weapons at once, add an extra 1d4 damage for your off-hand strike.</p>",
+      "description": "When you strike an enemy with two weapons at once, add an extra 1d4 damage for your off-hand strike.",
       "level": "2to5",
       "class": "Ranger"
     },
     {
       "name": "Camouflage",
-      "description": "<p>When you <strong>keep still in natural surroundings</strong>, enemies never spot you until you make a movement.</p>",
+      "description": "When you **keep still in natural surroundings**, enemies never spot you until you make a movement.",
       "level": "2to5",
       "class": "Ranger"
     },
     {
       "name": "Man's Best Friend",
-      "description": "<p>When you <strong>allow your animal companion to take a blow that was meant for you</strong>, the damage is negated and your animal companion&#8217;s ferocity becomes 0. If its ferocity is already 0 you can&#8217;t use this ability. When you have a few hours of rest with your animal companion its ferocity returns to normal.</p>",
+      "description": "When you **allow your animal companion to take a blow that was meant for you**, the damage is negated and your animal companion's ferocity becomes 0. If its ferocity is already 0 you can't use this ability. When you have a few hours of rest with your animal companion its ferocity returns to normal.",
       "level": "2to5",
       "class": "Ranger"
     },
     {
       "name": "Blot Out the Sun",
-      "description": "<p>When you volley you may spend extra ammo before rolling. For each point of ammo spent you may choose an extra target. Roll once and apply damage to all targets.</p>",
+      "description": "When you volley you may spend extra ammo before rolling. For each point of ammo spent you may choose an extra target. Roll once and apply damage to all targets.",
       "level": "2to5",
       "class": "Ranger"
     },
     {
       "name": "Well-Trained",
-      "description": "<p>Choose another training for your animal companion.</p>",
+      "description": "Choose another training for your animal companion.",
       "level": "2to5",
       "class": "Ranger"
     },
     {
       "name": "God Amidst the Wastes",
-      "description": "<p>Dedicate yourself to a deity (name a new one or choose one that&#8217;s already been established). You gain the commune and cast a spell cleric moves. When you select this move, treat yourself as a cleric of level 1 for using spells. Every time you gain a level thereafter, increase your effective cleric level by 1.</p>",
+      "description": "Dedicate yourself to a deity (name a new one or choose one that's already been established). You gain the commune and cast a spell cleric moves. When you select this move, treat yourself as a cleric of level 1 for using spells. Every time you gain a level thereafter, increase your effective cleric level by 1.",
       "level": "2to5",
       "class": "Ranger"
     },
     {
       "name": "Follow Me",
-      "description": "<p>When you undertake a perilous journey you can take two roles. You make a separate roll for each.</p>",
+      "description": "When you undertake a perilous journey you can take two roles. You make a separate roll for each.",
       "level": "2to5",
       "class": "Ranger"
     },
     {
       "name": "A Safe Place",
-      "description": "<p>When you <strong>set the watch for the night</strong>, everyone takes +1 to take watch.</p>",
+      "description": "When you **set the watch for the night**, everyone takes +1 to take watch.",
       "level": "6to10",
       "class": "Ranger"
     },
     {
       "name": "Wild Speech",
-      "description": "<p>Replaces: Wild Empathy</p><p>You can speak with and understand any non-magical, non-planar creature.</p>",
+      "description": "Replaces: Wild Empathy\n\nYou can speak with and understand any non-magical, non-planar creature.",
       "level": "6to10",
       "class": "Ranger"
     },
     {
       "name": "Hunter's Prey",
-      "description": "<p>Replaces: Familiar Prey</p><p>When you spout lore about a monster you use WIS instead of INT. On a 12+, in addition to the normal effects, you get to ask the GM any one question about the subject.</p>",
+      "description": "Replaces: Familiar Prey\n\nWhen you spout lore about a monster you use WIS instead of INT. On a 12+, in addition to the normal effects, you get to ask the GM any one question about the subject.",
       "level": "6to10",
       "class": "Ranger"
     },
     {
       "name": "Viper's Fangs",
-      "description": "<p>Replaces: Viper&#8217;s Strike</p><p>When you strike an enemy with two weapons at once, add an extra 1d8 damage for your off-hand strike.</p>",
+      "description": "Replaces: Viper's Strike\n\nWhen you strike an enemy with two weapons at once, add an extra 1d8 damage for your off-hand strike.",
       "level": "6to10",
       "class": "Ranger"
     },
     {
       "name": "Smaug's Belly",
-      "description": "<p>When you know your target&#8217;s weakest point your arrows have 2 piercing.</p>",
+      "description": "When you know your target's weakest point your arrows have 2 piercing.",
       "level": "6to10",
       "class": "Ranger"
     },
     {
       "name": "Strider",
-      "description": "<p>Replaces: Follow Me</p><p>When you undertake a perilous journey you can take two roles. Roll twice and use the better result for both roles.</p>",
+      "description": "Replaces: Follow Me\n\nWhen you undertake a perilous journey you can take two roles. Roll twice and use the better result for both roles.",
       "level": "6to10",
       "class": "Ranger"
     },
     {
       "name": "A Safer Place",
-      "description": "<p>Replaces: A Safe Place</p><p>When you set the watch for the night everyone takes +1 to take watch. After a night in camp when you set the watch everyone takes +1 forward.</p>",
+      "description": "Replaces: A Safe Place\n\nWhen you set the watch for the night everyone takes +1 to take watch. After a night in camp when you set the watch everyone takes +1 forward.",
       "level": "6to10",
       "class": "Ranger"
     },
     {
       "name": "Observant",
-      "description": "<p>When you hunt and track, on a hit you may also ask one question about the creature you are tracking from the discern realities list for free.</p>",
+      "description": "When you hunt and track, on a hit you may also ask one question about the creature you are tracking from the discern realities list for free.",
       "level": "6to10",
       "class": "Ranger"
     },
     {
       "name": "Special Trick",
-      "description": "<p>Choose a move from another class. So long as you are working with your animal companion you have access to that move.</p>",
+      "description": "Choose a move from another class. So long as you are working with your animal companion you have access to that move.",
       "level": "6to10",
       "class": "Ranger"
     },
     {
       "name": "Unnatural Ally",
-      "description": "<p>Your animal companion is a monster, not an animal. Describe it. Give it +2 ferocity and +1 instinct, plus a new training.</p>",
+      "description": "Your animal companion is a monster, not an animal. Describe it. Give it +2 ferocity and +1 instinct, plus a new training.",
       "level": "6to10",
       "class": "Ranger"
     },
     {
       "name": "Trap Expert",
-      "description": "<p>When you <strong>spend a moment to survey a dangerous area</strong>, roll+DEX. &#10036;On a 10+, hold 3. &#10036;On a 7&#8211;9, hold 1. Spend your hold as you walk through the area to ask these questions:</p><ul><li>Is there a trap here and if so, what activates it?</li><li>What does the trap do when activated?</li><li>What else is hidden here?</li></ul>",
+      "description": "When you **spend a moment to survey a dangerous area**, roll+DEX. ✴On a 10+, hold 3. ✴On a 7–9, hold 1. Spend your hold as you walk through the area to ask these questions:\n\n*   \n*   Is there a trap here and if so, what activates it?\n*   What does the trap do when activated?\n*   What else is hidden here?",
       "level": "starting",
       "class": "Thief"
     },
     {
       "name": "Tricks of the Trade",
-      "description": "<p>When you <strong>pick locks or pockets or disable traps</strong>, roll+DEX. &#10036;On a 10+, you do it, no problem. &#10036;On a 7&#8211;9, you still do it, but the GM will offer you two options between suspicion, danger, or cost.</p>",
+      "description": "When you **pick locks or pockets or disable traps**, roll+DEX. ✴On a 10+, you do it, no problem. ✴On a 7–9, you still do it, but the GM will offer you two options between suspicion, danger, or cost.",
       "level": "starting",
       "class": "Thief"
     },
     {
       "name": "Backstab",
-      "description": "<p>When you <strong>attack a surprised or defenseless enemy with a melee weapon</strong>, you can choose to deal your damage or roll+DEX. &#10036;On a 10+ choose two. &#10036;On a 7&#8211;9 choose one.</p><ul><li>You don&#8217;t get into melee with them</li><li>You deal your damage+1d6</li><li>You create an advantage, +1 forward to you or an ally acting on it</li><li>Reduce their armour by 1 until they repair it</li></ul>",
+      "description": "When you **attack a surprised or defenseless enemy with a melee weapon**, you can choose to deal your damage or roll+DEX. ✴On a 10+ choose two. ✴On a 7–9 choose one.\n\n*   \n*   You don't get into melee with them\n*   You deal your damage+1d6\n*   You create an advantage, +1 forward to you or an ally acting on it\n*   Reduce their armour by 1 until they repair it",
       "level": "starting",
       "class": "Thief"
     },
     {
       "name": "Flexible Morals",
-      "description": "<p>When someone tries to detect your alignment you can tell them any alignment you like.</p>",
+      "description": "When someone tries to detect your alignment you can tell them any alignment you like.",
       "level": "starting",
       "class": "Thief"
     },
     {
       "name": "Poisoner",
-      "description": "<p>You&#8217;ve mastered the care and use of a poison. Choose a poison from the list below; that poison is no longer dangerous for you to use. You also start with three uses of the poison you choose. Whenever you have time to gather materials and a safe place to brew you can make three uses of the poison you choose for free. Note that some poisons are applied, meaning you have to carefully apply it to the target or something they eat or drink. Touch poisons just need to touch the target, they can even be used on the blade of a weapon.</p><ul><li>Oil of Tagit (applied): The target falls into a light sleep</li><li>Bloodweed (touch): The target deals -1d4 damage ongoing until cured</li><li>Goldenroot (applied): The target treats the next creature they see as a trusted ally, until proved otherwise</li><li>Serpent&#8217;s Tears (touch): Anyone dealing damage to the target rolls twice and takes the better result.</li></ul>",
+      "description": "You've mastered the care and use of a poison. Choose a poison from the list below; that poison is no longer dangerous for you to use. You also start with three uses of the poison you choose. Whenever you have time to gather materials and a safe place to brew you can make three uses of the poison you choose for free. Note that some poisons are applied, meaning you have to carefully apply it to the target or something they eat or drink. Touch poisons just need to touch the target, they can even be used on the blade of a weapon.\n\n*   \n*   Oil of Tagit (applied): The target falls into a light sleep\n*   Bloodweed (touch): The target deals -1d4 damage ongoing until cured\n*   Goldenroot (applied): The target treats the next creature they see as a trusted ally, until proved otherwise\n*   Serpent's Tears (touch): Anyone dealing damage to the target rolls twice and takes the better result.",
       "level": "starting",
       "class": "Thief"
     },
     {
       "name": "Cheap Shot",
-      "description": "<p>When using a precise or hand weapon, your backstab deals an extra +1d6 damage.</p>",
+      "description": "When using a precise or hand weapon, your backstab deals an extra +1d6 damage.",
       "level": "2to5",
       "class": "Thief"
     },
     {
       "name": "Cautious",
-      "description": "<p>When you use trap expert you always get +1 hold, even on a 6-.</p>",
+      "description": "When you use trap expert you always get +1 hold, even on a 6-.",
       "level": "2to5",
       "class": "Thief"
     },
     {
       "name": "Wealth and Taste",
-      "description": "<p>When you <strong>make a show of flashing around your most valuable possession</strong>, choose someone present. They will do anything they can to obtain your item or one like it.</p>",
+      "description": "When you **make a show of flashing around your most valuable possession**, choose someone present. They will do anything they can to obtain your item or one like it.",
       "level": "2to5",
       "class": "Thief"
     },
     {
       "name": "Shoot First",
-      "description": "<p>You&#8217;re never caught by surprise. When an enemy would get the drop on you, you get to act first instead.</p>",
+      "description": "You're never caught by surprise. When an enemy would get the drop on you, you get to act first instead.",
       "level": "2to5",
       "class": "Thief"
     },
     {
       "name": "Poison Master",
-      "description": "<p>After you&#8217;ve used a poison once it&#8217;s no longer dangerous for you to use.</p>",
+      "description": "After you've used a poison once it's no longer dangerous for you to use.",
       "level": "2to5",
       "class": "Thief"
     },
     {
       "name": "Envenom",
-      "description": "<p>You can apply even complex poisons with a pinprick. When you apply a poison that&#8217;s not dangerous for you to use to your weapon it&#8217;s touch instead of applied.</p>",
+      "description": "You can apply even complex poisons with a pinprick. When you apply a poison that's not dangerous for you to use to your weapon it's touch instead of applied.",
       "level": "2to5",
       "class": "Thief"
     },
     {
       "name": "Brewer",
-      "description": "<p>When you have time to gather materials and a safe place to brew you can create three doses of any one poison you&#8217;ve used before.</p>",
+      "description": "When you have time to gather materials and a safe place to brew you can create three doses of any one poison you've used before.",
       "level": "2to5",
       "class": "Thief"
     },
     {
       "name": "Underdog",
-      "description": "<p>When you&#8217;re outnumbered, you have +1 armour.</p>",
+      "description": "When you're outnumbered, you have +1 armour.",
       "level": "2to5",
       "class": "Thief"
     },
     {
       "name": "Connections",
-      "description": "<p>When you put out word to the criminal underbelly about something you want or need, roll+CHA. &#10036;On a 10+, someone has it, just for you. &#10036;On a 7&#8211;9, you&#8217;ll have to settle for something close or it comes with strings attached, your call.</p>",
+      "description": "When you put out word to the criminal underbelly about something you want or need, roll+CHA. ✴On a 10+, someone has it, just for you. ✴On a 7–9, you'll have to settle for something close or it comes with strings attached, your call.",
       "level": "6to10",
       "class": "Thief"
     },
     {
       "name": "Dirty Fighter",
-      "description": "<p>Replaces: Cheap Shot</p><p>When using a precise or hand weapon, your backstab deals an extra +1d8 damage and all other attacks deal +1d4 damage.</p>",
+      "description": "Replaces: Cheap Shot\n\nWhen using a precise or hand weapon, your backstab deals an extra +1d8 damage and all other attacks deal +1d4 damage.",
       "level": "6to10",
       "class": "Thief"
     },
     {
       "name": "Extremely Cautious",
-      "description": "<p>Replaces: Cautious</p><p>When you use trap expert you always get +1 hold, even on a 6-. On a 12+ you get 3 hold and the next time you come near a trap the GM will immediately tell you what it does, what triggers it, who set it, and how you can use it to your advantage.</p>",
+      "description": "Replaces: Cautious\n\nWhen you use trap expert you always get +1 hold, even on a 6-. On a 12+ you get 3 hold and the next time you come near a trap the GM will immediately tell you what it does, what triggers it, who set it, and how you can use it to your advantage.",
       "level": "6to10",
       "class": "Thief"
     },
     {
       "name": "Alchemist",
-      "description": "<p>Replaces: Brewer</p><p>When you have you have time to gather materials and a safe place to brew you can create three doses of any poison you&#8217;ve used before. Alternately you can describe the effects of a poison you&#8217;d like to create. The GM will tell you that you can create it, but with one or more caveats:</p><ul><li>It will only work under specific circumstances</li><li>The best you can manage is a weaker version</li><li>It&#8217;ll take a while to take effect</li><li>It&#8217;ll have obvious side effects</li></ul>",
+      "description": "Replaces: Brewer\n\nWhen you have you have time to gather materials and a safe place to brew you can create three doses of any poison you've used before. Alternately you can describe the effects of a poison you'd like to create. The GM will tell you that you can create it, but with one or more caveats:\n\n*   \n*   It will only work under specific circumstances\n*   The best you can manage is a weaker version\n*   It'll take a while to take effect\n*   It'll have obvious side effects",
       "level": "6to10",
       "class": "Thief"
     },
     {
       "name": "Serious Underdog",
-      "description": "<p>Replaces: Underdog</p><p>You have +1 armour. When you&#8217;re outnumbered, you have +2 armour instead.</p>",
+      "description": "Replaces: Underdog\n\nYou have +1 armour. When you're outnumbered, you have +2 armour instead.",
       "level": "6to10",
       "class": "Thief"
     },
     {
       "name": "Evasion",
-      "description": "<p>When you defy danger on a 12+, you transcend the danger. You not only do what you set out to, but the GM will offer you a better outcome, true beauty, or a moment of grace.</p>",
+      "description": "When you defy danger on a 12+, you transcend the danger. You not only do what you set out to, but the GM will offer you a better outcome, true beauty, or a moment of grace.",
       "level": "6to10",
       "class": "Thief"
     },
     {
       "name": "Strong Arm, True Aim",
-      "description": "<p>You can throw any melee weapon, using it to volley. A thrown melee weapon is gone; you can never choose to reduce ammo on a 7&#8211;9.</p>",
+      "description": "You can throw any melee weapon, using it to volley. A thrown melee weapon is gone; you can never choose to reduce ammo on a 7–9.",
       "level": "6to10",
       "class": "Thief"
     },
     {
       "name": "Escape Route",
-      "description": "<p>When you&#8217;re in too deep and need a way out, name your escape route and roll+DEX. &#10036;On a 10+ you&#8217;re gone. &#10036;On a 7&#8211;9 you can stay or go, but if you go it costs you: leave something behind or take something with you, the GM will tell you what.</p>",
+      "description": "When you're in too deep and need a way out, name your escape route and roll+DEX. ✴On a 10+ you're gone. ✴On a 7–9 you can stay or go, but if you go it costs you: leave something behind or take something with you, the GM will tell you what.",
       "level": "6to10",
       "class": "Thief"
     },
     {
       "name": "Disguise",
-      "description": "<p>When you have time and materials you can create a disguise that will fool anyone into thinking you&#8217;re another creature of about the same size and shape. Your actions can give you away but your appearance won&#8217;t.</p>",
+      "description": "When you have time and materials you can create a disguise that will fool anyone into thinking you're another creature of about the same size and shape. Your actions can give you away but your appearance won't.",
       "level": "6to10",
       "class": "Thief"
     },
     {
       "name": "Heist",
-      "description": "<p>When you take time to make a plan to steal something, name the thing you want to steal and ask the GM these questions. When acting on the answers you and your allies take +1 forward.</p><ul><li>Who will notice it&#8217;s missing?</li><li>What&#8217;s its most powerful defense?</li><li>Who will come after it?</li><li>Who else wants it?</li></ul>",
+      "description": "When you take time to make a plan to steal something, name the thing you want to steal and ask the GM these questions. When acting on the answers you and your allies take +1 forward.\n\n*   \n*   Who will notice it's missing?\n*   What's its most powerful defense?\n*   Who will come after it?\n*   Who else wants it?",
       "level": "6to10",
       "class": "Thief"
     },
 
     {
       "name": "Spellbook",
-      "description": "<p>You have mastered several spells and inscribed them in your spellbook. You start out with three first level spells in your spellbook as well as the cantrips. Whenever you gain a level, you add a new spell of your level or lower to your spellbook. You spellbook is 1 weight.</p>",
+      "description": "You have mastered several spells and inscribed them in your spellbook. You start out with three first level spells in your spellbook as well as the cantrips. Whenever you gain a level, you add a new spell of your level or lower to your spellbook. You spellbook is 1 weight.",
       "level": "starting",
       "class": "Wizard"
     },
     {
       "name": "Prepare Spells",
-      "description": "<p>When you <strong>spend uninterrupted time (an hour or so) in quiet contemplation of your spellbook</strong>, you:</p><ul><li>Lose any spells you already have prepared</li><li>Prepare new spells of your choice from your spellbook whose total levels don&#8217;t exceed your own level+1.</li><li>Prepare your cantrips which never count against your limit.</li></ul>",
+      "description": "When you **spend uninterrupted time (an hour or so) in quiet contemplation of your spellbook**, you:\n\n*   \n*   Lose any spells you already have prepared\n*   Prepare new spells of your choice from your spellbook whose total levels don't exceed your own level+1.\n*   Prepare your cantrips which never count against your limit.",
       "level": "starting",
       "class": "Wizard"
     },
     {
       "name": "Cast a Spell (Int)",
-      "description": "<p>When you <strong>release a spell you&#8217;ve prepared</strong>, roll+Int. &#10036;On a 10+, the spell is successfully cast and you do not forget the spell&#8212;you may cast it again later. &#10036;On a 7-9, the spell is cast, but choose one:</p><ul><li>You draw unwelcome attention or put yourself in a spot. The GM will tell you how.</li><li>The spell disturbs the fabric of reality as it is cast&#8212;take -1 ongoing to cast a spell until the next time you Prepare Spells.</li><li>After it is cast, the spell is forgotten. You cannot cast the spell again until you prepare spells.</li></ul><p>Note that maintaining spells with ongoing effects will sometimes cause a penalty to your roll to cast a spell.</p>",
+      "description": "When you **release a spell you've prepared**, roll+Int. ✴On a 10+, the spell is successfully cast and you do not forget the spell—you may cast it again later. ✴On a 7-9, the spell is cast, but choose one:\n\n*   \n*   You draw unwelcome attention or put yourself in a spot. The GM will tell you how.\n*   The spell disturbs the fabric of reality as it is cast—take -1 ongoing to cast a spell until the next time you Prepare Spells.\n*   After it is cast, the spell is forgotten. You cannot cast the spell again until you prepare spells.\n\nNote that maintaining spells with ongoing effects will sometimes cause a penalty to your roll to cast a spell.",
       "level": "starting",
       "class": "Wizard"
     },
     {
       "name": "Spell Defense",
-      "description": "<p>You may end any ongoing spell immediately and use the energy of its dissipation to deflect an oncoming attack. The spell ends and you subtract its level from the damage done to you.</p>",
+      "description": "You may end any ongoing spell immediately and use the energy of its dissipation to deflect an oncoming attack. The spell ends and you subtract its level from the damage done to you.",
       "level": "starting",
       "class": "Wizard"
     },
     {
       "name": "Ritual",
-      "description": "<p>When you <strong>draw on a place of power to create a magical effect</strong>, tell the GM what you&#8217;re trying to achieve. Ritual effects are always possible, but the GM will give you one to four of the following conditions:</p><ul><li>It&#8217;s going to take days/weeks/months</li><li>First you must ____</li><li>You&#8217;ll need help from ____</li><li>It will require a lot of money</li><li>The best you can do is a lesser version, unreliable and limited</li><li>You and your allies will risk danger from ____</li><li>You&#8217;ll have to disenchant ____ to do it</li></ul>",
+      "description": "When you **draw on a place of power to create a magical effect**, tell the GM what you're trying to achieve. Ritual effects are always possible, but the GM will give you one to four of the following conditions:\n\n*   \n*   It's going to take days/weeks/months\n*   First you must ____\n*   You'll need help from ____\n*   It will require a lot of money\n*   The best you can do is a lesser version, unreliable and limited\n*   You and your allies will risk danger from ____\n*   You'll have to disenchant ____ to do it",
       "level": "starting",
       "class": "Wizard"
     },
     {
       "name": "Prodigy",
-      "description": "<p>Choose a spell. You prepare that spell as if it were one level lower.</p>",
+      "description": "Choose a spell. You prepare that spell as if it were one level lower.",
       "level": "2to5",
       "class": "Wizard"
     },
     {
       "name": "Empowered Magic",
-      "description": "<p>When you cast a spell, on a 10+ you have the option of choosing from the 7-9 list. If you do, you may choose one of these as well:</p><ul><li>The spell&#8217;s effects are maximized</li><li>The spell&#8217;s targets are doubled</li></ul>",
+      "description": "When you cast a spell, on a 10+ you have the option of choosing from the 7-9 list. If you do, you may choose one of these as well:\n\n*   \n*   The spell's effects are maximized\n*   The spell's targets are doubled",
       "level": "2to5",
       "class": "Wizard"
     },
     {
       "name": "Fount of Knowledge",
-      "description": "<p>When you <strong>spout lore about something no one else has any clue about</strong>, take +1.</p>",
+      "description": "When you **spout lore about something no one else has any clue about**, take +1.",
       "level": "2to5",
       "class": "Wizard"
     },
     {
       "name": "Know-It-All",
-      "description": "<p>When <strong>another player&#8217;s character comes to you for advice and you tell them what you think is best</strong>, they get +1 forward when following your advice and you mark experience if they do.</p>",
+      "description": "When **another player's character comes to you for advice and you tell them what you think is best**, they get +1 forward when following your advice and you mark experience if they do.",
       "level": "2to5",
       "class": "Wizard"
     },
     {
       "name": "Expanded Spellbook",
-      "description": "<p>Add a new spell from the spell list of any class to your spellbook.</p>",
+      "description": "Add a new spell from the spell list of any class to your spellbook.",
       "level": "2to5",
       "class": "Wizard"
     },
     {
       "name": "Enchanter",
-      "description": "<p>When you have time and safety with a magic item you may ask the GM what it does, the GM will answer you truthfully.</p>",
+      "description": "When you have time and safety with a magic item you may ask the GM what it does, the GM will answer you truthfully.",
       "level": "2to5",
       "class": "Wizard"
     },
     {
       "name": "Logical",
-      "description": "<p>When you <strong>use strict deduction to analyze your surroundings</strong>, you can discern realities with INT instead of WIS.</p>",
+      "description": "When you **use strict deduction to analyze your surroundings**, you can discern realities with INT instead of WIS.",
       "level": "2to5",
       "class": "Wizard"
     },
     {
       "name": "Arcane Ward",
-      "description": "<p>As long as you have at least one prepared spell of first level or higher, you have +2 armour.</p>",
+      "description": "As long as you have at least one prepared spell of first level or higher, you have +2 armour.",
       "level": "2to5",
       "class": "Wizard"
     },
     {
       "name": "Counterspell",
-      "description": "<p>When you <strong>attempt to counter an arcane spell that will otherwise affect you</strong>, stake one of your prepared spells on the defense and roll+Int. &#10036;On a 10+, the spell is countered and has no effect on you. &#10036;On a 7-9, the spell is countered and you forget the spell you staked. Your counterspell protects only you; if the countered spell has other targets they get its effects.</p>",
+      "description": "When you **attempt to counter an arcane spell that will otherwise affect you**, stake one of your prepared spells on the defense and roll+Int. ✴On a 10+, the spell is countered and has no effect on you. ✴On a 7-9, the spell is countered and you forget the spell you staked. Your counterspell protects only you; if the countered spell has other targets they get its effects.",
       "level": "2to5",
       "class": "Wizard"
     },
     {
       "name": "Quick Study",
-      "description": "<p>When you <strong>see the effects of an arcane spell</strong>, ask the GM the name of the spell and its effects. You take +1 when acting on the answers.</p>",
+      "description": "When you **see the effects of an arcane spell**, ask the GM the name of the spell and its effects. You take +1 when acting on the answers.",
       "level": "6to10",
       "class": "Wizard"
     },
     {
       "name": "Master",
-      "description": "<p>Requires: Prodigy</p><p>Choose one spell in addition to the one you picked for prodigy. You prepare that spell as if it were one level lower.</p>",
+      "description": "Requires: Prodigy\n\nChoose one spell in addition to the one you picked for prodigy. You prepare that spell as if it were one level lower.",
       "level": "6to10",
       "class": "Wizard"
     },
     {
       "name": "Greater Empowered Magic",
-      "description": "<p>Replaces: Empowered Magic</p><p>When you cast a spell, on a 10-11 you have the option of choosing from the 7-9 list. If you do, you may choose one of these effects as well. On a 12+ you get to choose one of these effects for free:</p><ul><li>The spell&#8217;s effects are doubled</li><li>The spell&#8217;s targets are doubled</li></ul>",
+      "description": "Replaces: Empowered Magic\n\nWhen you cast a spell, on a 10-11 you have the option of choosing from the 7-9 list. If you do, you may choose one of these effects as well. On a 12+ you get to choose one of these effects for free:\n\n*   \n*   The spell's effects are doubled\n*   The spell's targets are doubled",
       "level": "6to10",
       "class": "Wizard"
     },
     {
       "name": "Enchanter's Soul",
-      "description": "<p>Requires: Enchanter</p><p>When you have time and safety with a magic item in a place of power you can empower that item so that the next time you use it its effects are amplified, the GM will tell you exactly how.</p>",
+      "description": "Requires: Enchanter\n\nWhen you have time and safety with a magic item in a place of power you can empower that item so that the next time you use it its effects are amplified, the GM will tell you exactly how.",
       "level": "6to10",
       "class": "Wizard"
     },
     {
       "name": "Highly Logical",
-      "description": "<p>Replaces: Logical</p><p>When you <strong>use strict deduction to analyze your surroundings</strong>, you can discern realities with Int instead of Wis. On a 12+ you get to ask the GM any three questions, not limited by the list.</p>",
+      "description": "Replaces: Logical\n\nWhen you **use strict deduction to analyze your surroundings**, you can discern realities with Int instead of Wis. On a 12+ you get to ask the GM any three questions, not limited by the list.",
       "level": "6to10",
       "class": "Wizard"
     },
     {
       "name": "Arcane Armour",
-      "description": "<p>Replaces: Arcane Ward</p><p>As long as you have at least one prepared spell of first level or higher, you have +4 armour.</p>",
+      "description": "Replaces: Arcane Ward\n\nAs long as you have at least one prepared spell of first level or higher, you have +4 armour.",
       "level": "6to10",
       "class": "Wizard"
     },
     {
       "name": "Protective Counter",
-      "description": "<p>Requires: Counterspell</p><p>When an ally within sight of you is affected by an arcane spell, you can counter it as if it affected you. If the spell affects multiple allies you must counter for each ally separately.</p>",
+      "description": "Requires: Counterspell\n\nWhen an ally within sight of you is affected by an arcane spell, you can counter it as if it affected you. If the spell affects multiple allies you must counter for each ally separately.",
       "level": "6to10",
       "class": "Wizard"
     },
     {
       "name": "Ethereal Tether",
-      "description": "<p>When you have time with a willing or helpless subject you can craft an ethereal tether with them. You perceive what they perceive and can discern realities about someone tethered to you or their surroundings no matter the distance. Someone willingly tethered to you can communicate with you over the tether as if you were in the room with them.</p>",
+      "description": "When you have time with a willing or helpless subject you can craft an ethereal tether with them. You perceive what they perceive and can discern realities about someone tethered to you or their surroundings no matter the distance. Someone willingly tethered to you can communicate with you over the tether as if you were in the room with them.",
       "level": "6to10",
       "class": "Wizard"
     },
     {
       "name": "Mystical Puppet Strings",
-      "description": "<p>When you <strong>use magic to control a person&#8217;s actions</strong> they have no memory of what you had them do and bear you no ill will.</p>",
+      "description": "When you **use magic to control a person's actions** they have no memory of what you had them do and bear you no ill will.",
       "level": "6to10",
       "class": "Wizard"
     },
     {
       "name": "Spell Augmentation",
-      "description": "<p>When you <strong>deal damage to a creature</strong> you can shunt a spell&#8217;s energy into them&#8212;end one of your ongoing spells and add the spell&#8217;s level to the damage dealt.</p>",
+      "description": "When you **deal damage to a creature** you can shunt a spell's energy into them—end one of your ongoing spells and add the spell's level to the damage dealt.",
       "level": "6to10",
       "class": "Wizard"
     },
     {
       "name": "Self-Powered",
-      "description": "<p>When you have time, arcane materials, and a safe space, you can create your own place of power. Describe to the GM what kind of power it is and how you&#8217;re binding it to this place, the GM will tell you one kind of creature that will have an interest in your workings.</p>",
+      "description": "When you have time, arcane materials, and a safe space, you can create your own place of power. Describe to the GM what kind of power it is and how you're binding it to this place, the GM will tell you one kind of creature that will have an interest in your workings.",
       "level": "6to10",
       "class": "Wizard"
     }
