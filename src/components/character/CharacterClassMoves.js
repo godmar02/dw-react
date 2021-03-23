@@ -2,7 +2,7 @@ import React, { useContext, useMemo, useState } from 'react';
 import CharacterState from 'components/contexts/CharacterState';
 import AddMoveState from 'components/contexts/AddMoveState';
 import AddMove from 'components/character/AddMove';
-import { class_moves } from 'data/classMoves';
+import { class_details } from 'data/classDetails';
 import {
   Accordion,
   AccordionSummary,

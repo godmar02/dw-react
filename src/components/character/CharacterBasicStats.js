@@ -18,7 +18,7 @@ export default function CharacterBasicStats() {
   const classes = useStyles();
 
   return (
-    <Grid className={classes.root} spacing={2}>
+    <Grid className={classes.root}>
       <Grid item xs={12}>
         <Grid container justify='center' spacing={1}>
           <Grid item>

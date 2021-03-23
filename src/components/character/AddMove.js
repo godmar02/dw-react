@@ -52,9 +52,9 @@ export default function AddMove() {
         <Autocomplete
           freeSolo
           onChange={(event, value) => setMove(value)}
-          options={class_details[dwc].starting_moves.map(
-            (option) => option.name
-          )}
+          options={class_details[dwc].moves
+            .filter((x) => x.level !== 'starting')
+            .map((option) => option.name)}
           renderInput={(params) => (
             <TextField
               {...params}

@@ -31,7 +31,6 @@ import ReactMarkdown from 'react-markdown';
 import { class_details } from 'data/classDetails';
 import { dw_classes } from 'data/dwClasses';
 import { items } from 'data/items';
-import { class_moves } from 'data/classMoves';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -80,7 +79,7 @@ export default function CampaignDetails() {
   const [charaRace, setCharaRace] = useState('');
   const [charaAlignment, setCharaAlignment] = useState('');
   const [charaRaceMove, setCharaRaceMove] = useState('');
-  const [charaMoveOption, setCharaMoveOption] = useState([]);
+  const [charaMoveOption, setCharaMoveOption] = useState('');
   const [charaGearOptions, setCharaGearOptions] = useState([]);
   const [charaBonds, setCharaBonds] = useState([]);
   const [activeStep, setActiveStep] = useState(0);
@@ -119,7 +118,7 @@ export default function CampaignDetails() {
     setCharaAlignment('');
     setCharaRaceMove('');
     setCharaBonds([]);
-    setCharaMoveOption([]);
+    setCharaMoveOption('');
     setCharaGearOptions([]);
     setCharaFullName('');
     setActiveStep(0);
@@ -342,13 +341,10 @@ export default function CampaignDetails() {
     }
   }
 
-  function moveDescription(move) {
-    const description = class_moves.find((x) => x.name === move).description;
-    return description;
-  }
-
   const moveOptions = () => {
-    const moveChoices = class_details[charaClass].starting_move_options;
+    const moveChoices = class_details[charaClass].moves.filter(
+      (x) => x.level === 'starting' && x.selected === false
+    );
     if (moveChoices.length > 0) {
       return (
         <FormControl component='fieldset' className={classes.formControl}>
@@ -361,9 +357,9 @@ export default function CampaignDetails() {
               return (
                 <FormControlLabel
                   key={index}
-                  value={move}
+                  value={move.name}
                   control={<Radio />}
-                  label={move + ' - ' + moveDescription(move)}
+                  label={move.name + ' - ' + move.description}
                 />
               );
             })}
@@ -376,7 +372,9 @@ export default function CampaignDetails() {
   };
 
   function moveNext() {
-    const moveChoices = class_details[charaClass].starting_move_options;
+    const moveChoices = class_details[charaClass].moves.filter(
+      (x) => x.level === 'starting' && x.selected === false
+    );
     if (
       (moveChoices.length > 0 && charaMoveOption.length > 0) ||
       moveChoices.length === 0
@@ -408,13 +406,15 @@ export default function CampaignDetails() {
       let startingFunds = String(class_details[charaClass].starting_funds);
 
       // STARTING MOVES
-      let startingMoves = class_details[charaClass].starting_moves;
+      let startingMoves = class_details[charaClass].moves.filter(
+        (x) => x.level === 'starting' && x.selected === true
+      );
       if (charaMoveOption.length > 0) {
-        startingMoves = [...startingMoves, charaMoveOption];
+        const newMoves = class_details[charaClass].moves.filter(
+          (x) => x.name === charaMoveOption
+        );
+        startingMoves = startingMoves.concat(newMoves);
       }
-      startingMoves = startingMoves.map((move) => {
-        return class_moves.find((x) => x.name === move);
-      });
 
       // STARTING GEAR
       let startingGear = class_details[charaClass].starting_gear;
@@ -476,10 +476,6 @@ export default function CampaignDetails() {
           }
         }
       });
-
-      //console.log('startingFunds:', startingFunds);
-      //console.log('startingMoves:', startingMoves);
-      //console.log('startingGear:', startingGear);
 
       // SAVE FUNCTION
       FirebaseService.saveCharacter(campaignURL, charaName, {
