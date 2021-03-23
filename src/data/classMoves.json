@@ -32,7 +32,7 @@
     },
     {
       "name": "What Are You Waiting For?",
-      "description": "When you cry out a challenge to your enemies, roll+CON.\n\n*   \n*   On a 10+ they treat you as the most obvious threat to be dealt with and ignore your companions, take +2 damage ongoing against them.\n*   On a 7–9 only a few (the weakest or most foolhardy among them) fall prey to your taunting.",
+      "description": "When you cry out a challenge to your enemies, roll+CON.\n\n*   On a 10+ they treat you as the most obvious threat to be dealt with and ignore your companions, take +2 damage ongoing against them.\n*   On a 7–9 only a few (the weakest or most foolhardy among them) fall prey to your taunting.",
       "level": "starting",
       "class": "Barbarian"
     },
@@ -122,7 +122,7 @@
     },
     {
       "name": "War Cry",
-      "description": "When you enter battle with a show of force (a shout, a rallying cry, a battle dance) roll+CHA. ✴On a 10+ both, ✴on a 7–9 one or the other.\n\n*   \n*   Your allies are rallied and take +1 forward\n*   Your enemies feel fear and act accordingly (avoiding you, hiding, attacking with fear-driven abandon)",
+      "description": "When you enter battle with a show of force (a shout, a rallying cry, a battle dance) roll+CHA. ✴On a 10+ both, ✴on a 7–9 one or the other.\n\n*   Your allies are rallied and take +1 forward\n*   Your enemies feel fear and act accordingly (avoiding you, hiding, attacking with fear-driven abandon)",
       "level": "6to10",
       "class": "Barbarian"
     },
@@ -158,19 +158,19 @@
     },
     {
       "name": "Arcane Art",
-      "description": "When you **weave a performance into a basic spell**, choose an ally and an effect:\n\n*   \n*   Heal 1d8 damage\n*   +1d4 forward to damage\n*   Their mind is shaken clear of one enchantment\n*   The next time someone successfully assists the target with aid, they get +2 instead of +1\n\nThen roll+Cha. ✴On a 10+, the ally gets the selected effect. ✴On a 7-9, your spell still works, but you draw unwanted attention or your magic reverberates to other targets affecting them as well, GM's choice.",
+      "description": "When you **weave a performance into a basic spell**, choose an ally and an effect:\n\n*   Heal 1d8 damage\n*   +1d4 forward to damage\n*   Their mind is shaken clear of one enchantment\n*   The next time someone successfully assists the target with aid, they get +2 instead of +1\n\nThen roll+Cha. ✴On a 10+, the ally gets the selected effect. ✴On a 7-9, your spell still works, but you draw unwanted attention or your magic reverberates to other targets affecting them as well, GM's choice.",
       "level": "starting",
       "class": "Bard"
     },
     {
       "name": "Bardic Lore",
-      "description": "Choose an area of expertise:\n\n*   \n*   Spells and Magicks\n*   The Dead and Undead\n*   Grand Histories of the Known World\n*   A Bestiary of Creatures Unusual\n*   The Planar Spheres\n*   Legends of Heroes Past\n*   Gods and Their Servants\n\nWhen you **first encounter an important creature, location, or item (your call) covered by your bardic lore** you can ask the GM any one question about it; the GM will answer truthfully. The GM may then ask you what tale, song, or legend you heard that information in.",
+      "description": "Choose an area of expertise:\n\n*   Spells and Magicks\n*   The Dead and Undead\n*   Grand Histories of the Known World\n*   A Bestiary of Creatures Unusual\n*   The Planar Spheres\n*   Legends of Heroes Past\n*   Gods and Their Servants\n\nWhen you **first encounter an important creature, location, or item (your call) covered by your bardic lore** you can ask the GM any one question about it; the GM will answer truthfully. The GM may then ask you what tale, song, or legend you heard that information in.",
       "level": "starting",
       "class": "Bard"
     },
     {
       "name": "Charming and Open",
-      "description": "When you **speak frankly with someone**, you can ask their player a question from the list below. They must answer it truthfully, then they may ask you a question from the list (which you must answer truthfully).\n\n*   \n*   Whom do you serve?\n*   What do you wish I would do?\n*   How can I get you to ______?\n*   What are you really feeling right now?\n*   What do you most desire?",
+      "description": "When you **speak frankly with someone**, you can ask their player a question from the list below. They must answer it truthfully, then they may ask you a question from the list (which you must answer truthfully).\n\n*   Whom do you serve?\n*   What do you wish I would do?\n*   How can I get you to ______?\n*   What are you really feeling right now?\n*   What do you most desire?",
       "level": "starting",
       "class": "Bard"
     },
@@ -302,7 +302,7 @@
     },
     {
       "name": "Deity",
-      "description": "You serve and worship some deity or power which grants you spells. Give your god a name (maybe Helferth, Sucellus, Zorica or Krugon the Bleak) and choose your deity's domain:\n\n*   \n*   Healing and Restoration\n*   Bloody Conquest\n*   Civilization\n*   Knowledge and Hidden Things\n*   The Downtrodden and Forgotten\n*   What Lies Beneath\n\nChoose one precept of your religion:\n\n*   \n*   Your religion preaches the sanctity of suffering, add Petition: Suffering\n*   Your religion is cultish and insular, add Petition: Gaining Secrets\n*   Your religion has important sacrificial rites, add Petition: Offering\n*   Your religion believes in trial by combat, add Petition: Personal Victory",
+      "description": "You serve and worship some deity or power which grants you spells. Give your god a name (maybe Helferth, Sucellus, Zorica or Krugon the Bleak) and choose your deity's domain:\n\n*   Healing and Restoration\n*   Bloody Conquest\n*   Civilization\n*   Knowledge and Hidden Things\n*   The Downtrodden and Forgotten\n*   What Lies Beneath\n\nChoose one precept of your religion:\n\n*   Your religion preaches the sanctity of suffering, add Petition: Suffering\n*   Your religion is cultish and insular, add Petition: Gaining Secrets\n*   Your religion has important sacrificial rites, add Petition: Offering\n*   Your religion believes in trial by combat, add Petition: Personal Victory",
       "level": "starting",
       "class": "Cleric"
     },
@@ -320,13 +320,13 @@
     },
     {
       "name": "Commune",
-      "description": "When you **spend uninterrupted time (an hour or so) in quiet communion with your deity**, you:\n\n*   \n*   Lose any spells already granted to you.\n*   Are granted new spells of your choice whose total levels don't exceed your own level+1, and none of which is a higher level than your own level.\n*   Prepare all of your rotes, which never count against your limit.",
+      "description": "When you **spend uninterrupted time (an hour or so) in quiet communion with your deity**, you:\n\n*   Lose any spells already granted to you.\n*   Are granted new spells of your choice whose total levels don't exceed your own level+1, and none of which is a higher level than your own level.\n*   Prepare all of your rotes, which never count against your limit.",
       "level": "starting",
       "class": "Cleric"
     },
     {
       "name": "Cast a Spell",
-      "description": "When you **unleash a spell granted to you by your deity**, roll+Wis. ✴On a 10+, the spell is successfully cast and your deity does not revoke the spell, so you may cast it again. ✴On a 7–9, the spell is cast, but choose one:\n\n*   \n*   You draw unwelcome attention or put yourself in a spot. The GM will tell you how.\n*   Your casting distances you from your deity—take -1 ongoing to cast a spell until the next time you commune.\n*   After you cast it, the spell is revoked by your deity. You cannot cast the spell again until you commune and have it granted to you.\n\nNote that maintaining spells with ongoing effects will sometimes cause a penalty to your roll to cast a spell.",
+      "description": "When you **unleash a spell granted to you by your deity**, roll+Wis. ✴On a 10+, the spell is successfully cast and your deity does not revoke the spell, so you may cast it again. ✴On a 7–9, the spell is cast, but choose one:\n\n*   You draw unwelcome attention or put yourself in a spot. The GM will tell you how.\n*   Your casting distances you from your deity—take -1 ongoing to cast a spell until the next time you commune.\n*   After you cast it, the spell is revoked by your deity. You cannot cast the spell again until you commune and have it granted to you.\n\nNote that maintaining spells with ongoing effects will sometimes cause a penalty to your roll to cast a spell.",
       "level": "starting",
       "class": "Cleric"
     },
@@ -374,7 +374,7 @@
     },
     {
       "name": "Empower",
-      "description": "When you cast a spell, on a 10+ you have the option of choosing from the 7–9 list. If you do, you may choose one of these effects as well:\n\n*   \n*   The spell's effects are doubled\n*   The spell's targets are doubled",
+      "description": "When you cast a spell, on a 10+ you have the option of choosing from the 7–9 list. If you do, you may choose one of these effects as well:\n\n*   The spell's effects are doubled\n*   The spell's targets are doubled",
       "level": "2to5",
       "class": "Cleric"
     },
@@ -446,7 +446,7 @@
     },
     {
       "name": "Greater Empower",
-      "description": "Replaces: Empower\n\nWhen you cast a spell, on a 10–11 you have the option of choosing from the 7–9 list. If you do, you may choose one of these effects as well. On a 12+ you get to choose one of these effects for free.\n\n*   \n*   The spell's effects are doubled\n*   The spell's targets are doubled",
+      "description": "Replaces: Empower\n\nWhen you cast a spell, on a 10–11 you have the option of choosing from the 7–9 list. If you do, you may choose one of these effects as well. On a 12+ you get to choose one of these effects for free.\n\n*   The spell's effects are doubled\n*   The spell's targets are doubled",
       "level": "6to10",
       "class": "Cleric"
     },
@@ -459,7 +459,7 @@
 
     {
       "name": "Born of the Soil",
-      "description": "You learned your magic in a place whose spirits are strong and ancient and they've marked you as one of their own. No matter where you go, they live within you and allow you to take their shape. Choose one of the following. It is the land to which you are attuned—when shapeshifting you may take the shape of any animal who might live in your Land.\n\n*   \n*   The Great Forests\n*   The Whispering Plains\n*   The Vast Desert\n*   The Stinking Mire\n*   The River Delta\n*   The Depths of the Earth\n*   The Sapphire Islands\n*   The Open Sea\n*   The Towering Mountains\n*   The Frozen North\n*   The Blasted Wasteland\n\nChose a tell—a physical attribute that marks you as born of the soil—that reflects the spirit of your land. It may be an animal feature like antlers or leopard's spots or something more general: hair like leaves or eyes of glittering crystal. Your tell remains no matter what shape you take.",
+      "description": "You learned your magic in a place whose spirits are strong and ancient and they've marked you as one of their own. No matter where you go, they live within you and allow you to take their shape. Choose one of the following. It is the land to which you are attuned—when shapeshifting you may take the shape of any animal who might live in your Land.\n\n*   The Great Forests\n*   The Whispering Plains\n*   The Vast Desert\n*   The Stinking Mire\n*   The River Delta\n*   The Depths of the Earth\n*   The Sapphire Islands\n*   The Open Sea\n*   The Towering Mountains\n*   The Frozen North\n*   The Blasted Wasteland\n\nChose a tell—a physical attribute that marks you as born of the soil—that reflects the spirit of your land. It may be an animal feature like antlers or leopard's spots or something more general: hair like leaves or eyes of glittering crystal. Your tell remains no matter what shape you take.",
       "level": "starting",
       "class": "Druid"
     },
@@ -537,7 +537,7 @@
     },
     {
       "name": "Elemental Mastery",
-      "description": "When you **call on the primal spirits of fire, water, earth or air to perform a task for you** roll+Wis. ✴On a 10+ choose two. ✴On a 7–9 choose one. ✴On a miss, some catastrophe occurs as a result of your calling.\n\n*   \n*   The effect you desire comes to pass\n*   You avoid paying nature's price \n*   You retain control",
+      "description": "When you **call on the primal spirits of fire, water, earth or air to perform a task for you** roll+Wis. ✴On a 10+ choose two. ✴On a 7–9 choose one. ✴On a miss, some catastrophe occurs as a result of your calling.\n\n*   The effect you desire comes to pass\n*   You avoid paying nature's price \n*   You retain control",
       "level": "2to5",
       "class": "Druid"
     },
@@ -604,7 +604,7 @@
 
     {
       "name": "Bend Bars, Lift Gates",
-      "description": "When you **use pure strength to destroy an inanimate obstacle**, roll+Str. ✴On a 10+, choose 3. ✴On a 7-9 choose 2.\n\n*   \n*   It doesn't take a very long time\n*   Nothing of value is damaged\n*   It doesn't make an inordinate amount of noise\n*   You can fix the thing again without a lot of effort",
+      "description": "When you **use pure strength to destroy an inanimate obstacle**, roll+Str. ✴On a 10+, choose 3. ✴On a 7-9 choose 2.\n\n*   It doesn't take a very long time\n*   Nothing of value is damaged\n*   It doesn't make an inordinate amount of noise\n*   You can fix the thing again without a lot of effort",
       "level": "starting",
       "class": "Fighter"
     },
@@ -616,7 +616,7 @@
     },
     {
       "name": "Signature Weapon",
-      "description": "This is your weapon. There are many like it, but this one is yours. Your weapon is your best friend. It is your life. You master it as you master your life. Your weapon, without you, is useless. Without your weapon, you are useless. You must wield your weapon true.\n\nChoose a base description, all are 2 weight:\n\n*   \n*   Sword\n*   Axe\n*   Hammer\n*   Spear\n*   Flail\n*   Fists\n\nChoose the range that best fits your weapon:\n\n*   \n*   Hand\n*   Close\n*   Reach\n\nChoose two enhancements:\n\n*   \n*   Hooks and spikes. +1 damage, but +1 weight.\n*   Sharp. +2 piercing.\n*   Perfectly weighted. Add precise.\n*   Serrated edges. +1 damage.\n*   Glows in the presence of one type of creature, your choice.\n*   Huge. Add messy and forceful.\n*   Versatile. Choose an additional range.\n*   Well-crafted. -1 weight.\n\nChoose a look:\n\n*   \n*   Ancient\n*   Unblemished\n*   Ornate\n*   Blood-stained\n*   Sinister",
+      "description": "This is your weapon. There are many like it, but this one is yours. Your weapon is your best friend. It is your life. You master it as you master your life. Your weapon, without you, is useless. Without your weapon, you are useless. You must wield your weapon true.\n\nChoose a base description, all are 2 weight:\n\n*   Sword\n*   Axe\n*   Hammer\n*   Spear\n*   Flail\n*   Fists\n\nChoose the range that best fits your weapon:\n\n*   Hand\n*   Close\n*   Reach\n\nChoose two enhancements:\n\n*   Hooks and spikes. +1 damage, but +1 weight.\n*   Sharp. +2 piercing.\n*   Perfectly weighted. Add precise.\n*   Serrated edges. +1 damage.\n*   Glows in the presence of one type of creature, your choice.\n*   Huge. Add messy and forceful.\n*   Versatile. Choose an additional range.\n*   Well-crafted. -1 weight.\n\nChoose a look:\n\n*   Ancient\n*   Unblemished\n*   Ornate\n*   Blood-stained\n*   Sinister",
       "level": "starting",
       "class": "Fighter"
     },
@@ -749,13 +749,13 @@
     },
     {
       "name": "I Am the Law",
-      "description": "When you **give an NPC an order based on your divine authority**, roll+Cha. ✴On a 7+, they choose one:\n\n*   \n*   Do what you say\n*   Back away cautiously, then flee\n*   Attack you\n\n✴On a 10+, you also take +1 forward against them. ✴On a miss, they do as they please and you take -1 forward against them.",
+      "description": "When you **give an NPC an order based on your divine authority**, roll+Cha. ✴On a 7+, they choose one:\n\n*   Do what you say\n*   Back away cautiously, then flee\n*   Attack you\n\n✴On a 10+, you also take +1 forward against them. ✴On a miss, they do as they please and you take -1 forward against them.",
       "level": "starting",
       "class": "Paladin"
     },
     {
       "name": "Quest",
-      "description": "When you **dedicate yourself to a mission through prayer and ritual cleansing**, state what you set out to do:\n\n*   \n*   Slay _______, a great blight on the land\n*   Defend _______ from the iniquities that beset them\n*   Discover the truth of _______\n\nThen choose up to two boons:\n\n*   \n*   An unwavering sense of direction to _______.\n*   Invulnerability to _______ (e.g., edged weapons, fire, enchantment, etc.)\n*   A mark of divine authority\n*   Senses that pierce lies\n*   A voice that transcends language\n*   A freedom from hunger, thirst, and sleep\n\nThe GM will then tell you what vow or vows is required of you to maintain your blessing:\n\n*   \n*   Honor (forbidden: cowardly tactics and tricks)\n*   Temperance (forbidden: gluttony in food, drink, and pleasure of the flesh)\n*   Piety (required: observance of daily holy services)\n*   Valor (forbidden: suffering an evil creature to live)\n*   Truth (forbidden: lies)\n*   Hospitality (required: comfort to those in need, no matter who they are)",
+      "description": "When you **dedicate yourself to a mission through prayer and ritual cleansing**, state what you set out to do:\n\n*   Slay _______, a great blight on the land\n*   Defend _______ from the iniquities that beset them\n*   Discover the truth of _______\n\nThen choose up to two boons:\n\n*   An unwavering sense of direction to _______.\n*   Invulnerability to _______ (e.g., edged weapons, fire, enchantment, etc.)\n*   A mark of divine authority\n*   Senses that pierce lies\n*   A voice that transcends language\n*   A freedom from hunger, thirst, and sleep\n\nThe GM will then tell you what vow or vows is required of you to maintain your blessing:\n\n*   Honor (forbidden: cowardly tactics and tricks)\n*   Temperance (forbidden: gluttony in food, drink, and pleasure of the flesh)\n*   Piety (required: observance of daily holy services)\n*   Valor (forbidden: suffering an evil creature to live)\n*   Truth (forbidden: lies)\n*   Hospitality (required: comfort to those in need, no matter who they are)",
       "level": "starting",
       "class": "Paladin"
     },
@@ -882,13 +882,13 @@
 
     {
       "name": "Hunt and Track (Wis)",
-      "description": "When you **follow a trail of clues left behind by passing creatures**, roll+WIS. ✴On a 7+, you follow the creature's trail until there's a significant change in its direction or mode of travel. ✴On a 10+, you also choose 1:\n\n*   \n*   Gain a useful bit of information about your quarry, the GM will tell you what\n*   Determine what caused the trail to end",
+      "description": "When you **follow a trail of clues left behind by passing creatures**, roll+WIS. ✴On a 7+, you follow the creature's trail until there's a significant change in its direction or mode of travel. ✴On a 10+, you also choose 1:\n\n*   Gain a useful bit of information about your quarry, the GM will tell you what\n*   Determine what caused the trail to end",
       "level": "starting",
       "class": "Ranger"
     },
     {
       "name": "Called Shot",
-      "description": "When you **attack a defenseless or surprised enemy at range**, you can choose to deal your damage or name your target and roll+DEX.\n\n*   \n*   Head ✴10+: As 7–9, plus your damage ✴7-9: They do nothing but stand and drool for a few moments.\n*   Arms ✴10+: As 7-9, plus your damage ✴7-9: They drop anything they're holding.\n*   Legs ✴10+: As 7-9, plus your damage ✴7-9: They're hobbled and slow moving.",
+      "description": "When you **attack a defenseless or surprised enemy at range**, you can choose to deal your damage or name your target and roll+DEX.\n\n*   Head ✴10+: As 7–9, plus your damage ✴7-9: They do nothing but stand and drool for a few moments.\n*   Arms ✴10+: As 7-9, plus your damage ✴7-9: They drop anything they're holding.\n*   Legs ✴10+: As 7-9, plus your damage ✴7-9: They're hobbled and slow moving.",
       "level": "starting",
       "class": "Ranger"
     },
@@ -900,7 +900,7 @@
     },
     {
       "name": "Command",
-      "description": "When you work with your animal companion on something it's trained in…\n\n*   \n*   …and you attack the same target, add its ferocity to your damage\n*   …and you track, add its cunning to your roll\n*   …and you take damage, add its armour to your armour\n*   …and you discern realities, add its cunning to your roll\n*   …and you parley, add its cunning to your roll\n*   …and someone interferes with you, add its instinct to their roll",
+      "description": "When you work with your animal companion on something it's trained in…\n\n*   …and you attack the same target, add its ferocity to your damage\n*   …and you track, add its cunning to your roll\n*   …and you take damage, add its armour to your armour\n*   …and you discern realities, add its cunning to your roll\n*   …and you parley, add its cunning to your roll\n*   …and someone interferes with you, add its instinct to their roll",
       "level": "starting",
       "class": "Ranger"
     },
@@ -1026,7 +1026,7 @@
     },
     {
       "name": "Trap Expert",
-      "description": "When you **spend a moment to survey a dangerous area**, roll+DEX. ✴On a 10+, hold 3. ✴On a 7–9, hold 1. Spend your hold as you walk through the area to ask these questions:\n\n*   \n*   Is there a trap here and if so, what activates it?\n*   What does the trap do when activated?\n*   What else is hidden here?",
+      "description": "When you **spend a moment to survey a dangerous area**, roll+DEX. ✴On a 10+, hold 3. ✴On a 7–9, hold 1. Spend your hold as you walk through the area to ask these questions:\n\n*   Is there a trap here and if so, what activates it?\n*   What does the trap do when activated?\n*   What else is hidden here?",
       "level": "starting",
       "class": "Thief"
     },
@@ -1038,7 +1038,7 @@
     },
     {
       "name": "Backstab",
-      "description": "When you **attack a surprised or defenseless enemy with a melee weapon**, you can choose to deal your damage or roll+DEX. ✴On a 10+ choose two. ✴On a 7–9 choose one.\n\n*   \n*   You don't get into melee with them\n*   You deal your damage+1d6\n*   You create an advantage, +1 forward to you or an ally acting on it\n*   Reduce their armour by 1 until they repair it",
+      "description": "When you **attack a surprised or defenseless enemy with a melee weapon**, you can choose to deal your damage or roll+DEX. ✴On a 10+ choose two. ✴On a 7–9 choose one.\n\n*   You don't get into melee with them\n*   You deal your damage+1d6\n*   You create an advantage, +1 forward to you or an ally acting on it\n*   Reduce their armour by 1 until they repair it",
       "level": "starting",
       "class": "Thief"
     },
@@ -1050,7 +1050,7 @@
     },
     {
       "name": "Poisoner",
-      "description": "You've mastered the care and use of a poison. Choose a poison from the list below; that poison is no longer dangerous for you to use. You also start with three uses of the poison you choose. Whenever you have time to gather materials and a safe place to brew you can make three uses of the poison you choose for free. Note that some poisons are applied, meaning you have to carefully apply it to the target or something they eat or drink. Touch poisons just need to touch the target, they can even be used on the blade of a weapon.\n\n*   \n*   Oil of Tagit (applied): The target falls into a light sleep\n*   Bloodweed (touch): The target deals -1d4 damage ongoing until cured\n*   Goldenroot (applied): The target treats the next creature they see as a trusted ally, until proved otherwise\n*   Serpent's Tears (touch): Anyone dealing damage to the target rolls twice and takes the better result.",
+      "description": "You've mastered the care and use of a poison. Choose a poison from the list below; that poison is no longer dangerous for you to use. You also start with three uses of the poison you choose. Whenever you have time to gather materials and a safe place to brew you can make three uses of the poison you choose for free. Note that some poisons are applied, meaning you have to carefully apply it to the target or something they eat or drink. Touch poisons just need to touch the target, they can even be used on the blade of a weapon.\n\n*   Oil of Tagit (applied): The target falls into a light sleep\n*   Bloodweed (touch): The target deals -1d4 damage ongoing until cured\n*   Goldenroot (applied): The target treats the next creature they see as a trusted ally, until proved otherwise\n*   Serpent's Tears (touch): Anyone dealing damage to the target rolls twice and takes the better result.",
       "level": "starting",
       "class": "Thief"
     },
@@ -1122,7 +1122,7 @@
     },
     {
       "name": "Alchemist",
-      "description": "Replaces: Brewer\n\nWhen you have you have time to gather materials and a safe place to brew you can create three doses of any poison you've used before. Alternately you can describe the effects of a poison you'd like to create. The GM will tell you that you can create it, but with one or more caveats:\n\n*   \n*   It will only work under specific circumstances\n*   The best you can manage is a weaker version\n*   It'll take a while to take effect\n*   It'll have obvious side effects",
+      "description": "Replaces: Brewer\n\nWhen you have you have time to gather materials and a safe place to brew you can create three doses of any poison you've used before. Alternately you can describe the effects of a poison you'd like to create. The GM will tell you that you can create it, but with one or more caveats:\n\n*   It will only work under specific circumstances\n*   The best you can manage is a weaker version\n*   It'll take a while to take effect\n*   It'll have obvious side effects",
       "level": "6to10",
       "class": "Thief"
     },
@@ -1158,7 +1158,7 @@
     },
     {
       "name": "Heist",
-      "description": "When you take time to make a plan to steal something, name the thing you want to steal and ask the GM these questions. When acting on the answers you and your allies take +1 forward.\n\n*   \n*   Who will notice it's missing?\n*   What's its most powerful defense?\n*   Who will come after it?\n*   Who else wants it?",
+      "description": "When you take time to make a plan to steal something, name the thing you want to steal and ask the GM these questions. When acting on the answers you and your allies take +1 forward.\n\n*   Who will notice it's missing?\n*   What's its most powerful defense?\n*   Who will come after it?\n*   Who else wants it?",
       "level": "6to10",
       "class": "Thief"
     },
@@ -1171,13 +1171,13 @@
     },
     {
       "name": "Prepare Spells",
-      "description": "When you **spend uninterrupted time (an hour or so) in quiet contemplation of your spellbook**, you:\n\n*   \n*   Lose any spells you already have prepared\n*   Prepare new spells of your choice from your spellbook whose total levels don't exceed your own level+1.\n*   Prepare your cantrips which never count against your limit.",
+      "description": "When you **spend uninterrupted time (an hour or so) in quiet contemplation of your spellbook**, you:\n\n*   Lose any spells you already have prepared\n*   Prepare new spells of your choice from your spellbook whose total levels don't exceed your own level+1.\n*   Prepare your cantrips which never count against your limit.",
       "level": "starting",
       "class": "Wizard"
     },
     {
       "name": "Cast a Spell (Int)",
-      "description": "When you **release a spell you've prepared**, roll+Int. ✴On a 10+, the spell is successfully cast and you do not forget the spell—you may cast it again later. ✴On a 7-9, the spell is cast, but choose one:\n\n*   \n*   You draw unwelcome attention or put yourself in a spot. The GM will tell you how.\n*   The spell disturbs the fabric of reality as it is cast—take -1 ongoing to cast a spell until the next time you Prepare Spells.\n*   After it is cast, the spell is forgotten. You cannot cast the spell again until you prepare spells.\n\nNote that maintaining spells with ongoing effects will sometimes cause a penalty to your roll to cast a spell.",
+      "description": "When you **release a spell you've prepared**, roll+Int. ✴On a 10+, the spell is successfully cast and you do not forget the spell—you may cast it again later. ✴On a 7-9, the spell is cast, but choose one:\n\n*   You draw unwelcome attention or put yourself in a spot. The GM will tell you how.\n*   The spell disturbs the fabric of reality as it is cast—take -1 ongoing to cast a spell until the next time you Prepare Spells.\n*   After it is cast, the spell is forgotten. You cannot cast the spell again until you prepare spells.\n\nNote that maintaining spells with ongoing effects will sometimes cause a penalty to your roll to cast a spell.",
       "level": "starting",
       "class": "Wizard"
     },
@@ -1189,7 +1189,7 @@
     },
     {
       "name": "Ritual",
-      "description": "When you **draw on a place of power to create a magical effect**, tell the GM what you're trying to achieve. Ritual effects are always possible, but the GM will give you one to four of the following conditions:\n\n*   \n*   It's going to take days/weeks/months\n*   First you must ____\n*   You'll need help from ____\n*   It will require a lot of money\n*   The best you can do is a lesser version, unreliable and limited\n*   You and your allies will risk danger from ____\n*   You'll have to disenchant ____ to do it",
+      "description": "When you **draw on a place of power to create a magical effect**, tell the GM what you're trying to achieve. Ritual effects are always possible, but the GM will give you one to four of the following conditions:\n\n*   It's going to take days/weeks/months\n*   First you must ____\n*   You'll need help from ____\n*   It will require a lot of money\n*   The best you can do is a lesser version, unreliable and limited\n*   You and your allies will risk danger from ____\n*   You'll have to disenchant ____ to do it",
       "level": "starting",
       "class": "Wizard"
     },
@@ -1201,7 +1201,7 @@
     },
     {
       "name": "Empowered Magic",
-      "description": "When you cast a spell, on a 10+ you have the option of choosing from the 7-9 list. If you do, you may choose one of these as well:\n\n*   \n*   The spell's effects are maximized\n*   The spell's targets are doubled",
+      "description": "When you cast a spell, on a 10+ you have the option of choosing from the 7-9 list. If you do, you may choose one of these as well:\n\n*   The spell's effects are maximized\n*   The spell's targets are doubled",
       "level": "2to5",
       "class": "Wizard"
     },
@@ -1261,7 +1261,7 @@
     },
     {
       "name": "Greater Empowered Magic",
-      "description": "Replaces: Empowered Magic\n\nWhen you cast a spell, on a 10-11 you have the option of choosing from the 7-9 list. If you do, you may choose one of these effects as well. On a 12+ you get to choose one of these effects for free:\n\n*   \n*   The spell's effects are doubled\n*   The spell's targets are doubled",
+      "description": "Replaces: Empowered Magic\n\nWhen you cast a spell, on a 10-11 you have the option of choosing from the 7-9 list. If you do, you may choose one of these effects as well. On a 12+ you get to choose one of these effects for free:\n\n*   The spell's effects are doubled\n*   The spell's targets are doubled",
       "level": "6to10",
       "class": "Wizard"
     },
