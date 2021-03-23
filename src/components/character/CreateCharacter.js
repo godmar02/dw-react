@@ -27,7 +27,7 @@ import {
   Typography,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import Markdown from 'react-markdown';
+import ReactMarkdown from 'react-markdown';
 import { class_details } from 'data/classDetails';
 import { dw_classes } from 'data/dwClasses';
 import { items } from 'data/items';
@@ -555,7 +555,7 @@ export default function CampaignDetails() {
                         );
                       })}
                     </Select>
-                    <Markdown source={classIntro()} />
+                    <ReactMarkdown source={classIntro()} />
                   </FormControl>
                   <br />
                   <FormControl
@@ -580,7 +580,7 @@ export default function CampaignDetails() {
                           }
                         )}
                     </Select>
-                    <Markdown source={alignmentAttribute()} />
+                    <ReactMarkdown source={alignmentAttribute()} />
                   </FormControl>
                 </Typography>
               </CardContent>
@@ -669,7 +669,7 @@ export default function CampaignDetails() {
                         onChange={(event) => setCharaName(event.target.value)}
                       />
                       <p>Suggested Names: </p>
-                      <Markdown source={suggestedNames()} />
+                      <ReactMarkdown source={suggestedNames()} />
                     </Typography>
                   </CardContent>
                 </Card>
@@ -710,7 +710,7 @@ export default function CampaignDetails() {
               <CardHeader title='Gear' />
               <CardContent>
                 <Typography component={'span'} className={classes.instructions}>
-                  <Markdown
+                  <ReactMarkdown
                     source={class_details[charaClass].starting_gear_details}
                   />
                   {gearOptions()}
