@@ -1,5 +1,12 @@
-import React from 'react';
-import { AppBar, IconButton, Toolbar, Typography } from '@material-ui/core';
+import React, { useContext } from 'react';
+import DarkState from 'components/contexts/DarkState';
+import {
+  AppBar,
+  IconButton,
+  Toolbar,
+  Typography,
+  Switch,
+} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { Menu } from '@material-ui/icons';
 import UserProfile from 'components/profile/UserProfile';
@@ -18,6 +25,10 @@ const useStyles = makeStyles((theme) => ({
 
 export default function AppHeader() {
   const classes = useStyles();
+  const { darkState, setDarkState } = useContext(DarkState);
+  const handleThemeChange = () => {
+    setDarkState(!darkState);
+  };
   return (
     <div className={classes.root}>
       <AppBar position='static'>
@@ -30,8 +41,9 @@ export default function AppHeader() {
             <Menu />
           </IconButton>
           <Typography component={'span'} variant='h6' className={classes.title}>
-            Dungeon World Character Sheet (by Godmar02)
+            Dungeon World Character Sheet (v0.10.0 by Godmar02)
           </Typography>
+          <Switch checked={darkState} onChange={handleThemeChange} />
           <UserProfile />
         </Toolbar>
       </AppBar>

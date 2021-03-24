@@ -5,7 +5,6 @@ import {
   Button,
   Card,
   CardContent,
-  CardHeader,
   Grid,
   TextField,
   Typography,
@@ -13,25 +12,20 @@ import {
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
-  card: {
-    margin: 0,
-    padding: 0,
-    width: 109,
+  cardContent: {
+    paddingTop: 5,
+    '&:last-child': {
+      paddingBottom: 0,
+    },
   },
   title: {
-    margin: 0,
-    padding: 0,
     textAlign: 'center',
     fontWeight: 'bold',
   },
   textField: {
-    margin: 0,
-    padding: 0,
     width: 85,
   },
   button: {
-    margin: 0,
-    padding: 0,
     width: 85,
     fontSize: 11,
     fontWeight: 'bold',
@@ -140,8 +134,8 @@ export default function CharacterAbilities() {
             character.abilities.map((abilities, index) => {
               return (
                 <Grid item key={index}>
-                  <Card className={classes.card}>
-                    <CardContent>
+                  <Card>
+                    <CardContent className={classes.cardContent}>
                       <Typography className={classes.title}>
                         {abilities.category}
                       </Typography>
@@ -161,6 +155,7 @@ export default function CharacterAbilities() {
                         }}
                         onChange={updateAbilityScore(index)}
                       />
+                      <br />
                       <TextField
                         variant='outlined'
                         name={abilities.category + 'Modifier'}
@@ -178,6 +173,7 @@ export default function CharacterAbilities() {
                         }}
                         className={classes.textField}
                       />
+                      <br />
                       <Button
                         onClick={() => updateAbilityAfflicted(index)}
                         className={classes.button}>
