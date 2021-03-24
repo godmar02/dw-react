@@ -1,10 +1,10 @@
 {
   "ability_afflictions": {
-    "STR": ["Unafflicted", "Weak"],
-    "DEX": ["Unafflicted", "Shaky"],
-    "CON": ["Unafflicted", "Sick"],
-    "INT": ["Unafflicted", "Stunned"],
-    "WIS": ["Unafflicted", "Confused"],
-    "CHA": ["Unafflicted", "Scarred"]
+    "STR": "Weak",
+    "DEX": "Shaky",
+    "CON": "Sick",
+    "INT": "Stunned",
+    "WIS": "Confused",
+    "CHA": "Scarred"
   }
 }

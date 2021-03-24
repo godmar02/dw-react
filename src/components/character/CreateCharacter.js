@@ -480,12 +480,12 @@ export default function CampaignDetails() {
       // SAVE FUNCTION
       FirebaseService.saveCharacter(campaignURL, charaName, {
         abilities: [
-          { category: 'STR', score: '1', affliction: 'Unafflicted' },
-          { category: 'DEX', score: '1', affliction: 'Unafflicted' },
-          { category: 'CON', score: '1', affliction: 'Unafflicted' },
-          { category: 'INT', score: '1', affliction: 'Unafflicted' },
-          { category: 'WIS', score: '1', affliction: 'Unafflicted' },
-          { category: 'CHA', score: '1', affliction: 'Unafflicted' },
+          { category: 'STR', score: '1', afflicted: false },
+          { category: 'DEX', score: '1', afflicted: false },
+          { category: 'CON', score: '1', afflicted: false },
+          { category: 'INT', score: '1', afflicted: false },
+          { category: 'WIS', score: '1', afflicted: false },
+          { category: 'CHA', score: '1', afflicted: false },
         ],
         alignment: charaAlignment,
         armour: '0',

@@ -1,7 +1,8 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import CharacterState from 'components/contexts/CharacterState';
 import { ability_afflictions } from 'data/abilityAfflictions';
 import {
+  Button,
   Card,
   CardContent,
   CardHeader,
@@ -15,7 +16,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   card: {
-    width: 160,
+    width: 150,
     padding: 0,
   },
   cardHeader: {
@@ -47,11 +48,22 @@ export default function CharacterAbilities() {
     })); // set array back
   };
 
-  const updateAbilityAffliction = (index) => (e) => {
+  const afflictedValue = (ability, afflicted) => {
+    console.log('ability', ability);
+    console.log('afflicted', afflicted);
+    if (afflicted) {
+      return ability_afflictions[ability];
+    } else {
+      return 'Unafflicted';
+    }
+  };
+
+  const updateAbilityAfflicted = (index) => {
+    const newAffliction = !character.abilities[index].afflicted; //switching boolean
     let newAbilities = [...character.abilities]; // copying the old array
     newAbilities[index] = {
       ...character.abilities[index],
-      affliction: e.target.value,
+      afflicted: newAffliction,
     }; // replace value
     setCharacter((character) => ({
       ...character,
@@ -60,7 +72,7 @@ export default function CharacterAbilities() {
   };
 
   const abilityModifier = (abilityScore, abilityAffliction) => {
-    if (abilityScore && abilityAffliction) {
+    if (abilityScore) {
       let baseModifier;
       let afflicted;
 
@@ -83,18 +95,18 @@ export default function CharacterAbilities() {
       }
 
       /* -1 if afflicted */
-      if (abilityAffliction === 'Unafflicted') {
-        afflicted = 0;
-      } else {
+      if (abilityAffliction) {
         afflicted = 1;
+      } else {
+        afflicted = 0;
       }
 
       let modifier = baseModifier - afflicted;
 
       if (modifier > 0) {
-        return '[+' + modifier + ']';
+        return '+' + modifier;
       } else {
-        return '[' + modifier + ']';
+        return modifier;
       }
     } else {
       return '';
@@ -115,7 +127,7 @@ export default function CharacterAbilities() {
   };
 
   return (
-    <Grid className={classes.root} spacing={2}>
+    <Grid className={classes.root}>
       <Grid item xs={12}>
         <Grid container justify='center' spacing={1}>
           {character.abilities &&
@@ -150,7 +162,7 @@ export default function CharacterAbilities() {
                         name={abilities.category + 'Modifier'}
                         value={abilityModifier(
                           abilities.score,
-                          abilities.affliction
+                          abilities.afflicted
                         )}
                         InputProps={{ readOnly: true }}
                         inputProps={{
@@ -162,24 +174,9 @@ export default function CharacterAbilities() {
                         }}
                         className={classes.textField}
                       />
-                      <FormControl
-                        variant='outlined'
-                        size='small'
-                        className={classes.formControl}>
-                        <Select
-                          tabIndex={-1}
-                          value={abilities.affliction || 'null'}
-                          name={abilities.category + 'Affliction'}
-                          onChange={updateAbilityAffliction(index)}>
-                          {ability_afflictions[ab].map((data, index) => {
-                            return (
-                              <MenuItem value={data} key={index}>
-                                {data}
-                              </MenuItem>
-                            );
-                          })}
-                        </Select>
-                      </FormControl>
+                      <Button onClick={() => updateAbilityAfflicted(index)}>
+                        {afflictedValue(abilities.name, abilities.afflicted)}
+                      </Button>
                     </CardContent>
                   </Card>
                 </Grid>
