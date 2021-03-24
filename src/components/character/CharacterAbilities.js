@@ -6,29 +6,35 @@ import {
   Card,
   CardContent,
   CardHeader,
-  FormControl,
   Grid,
-  MenuItem,
-  Select,
   TextField,
+  Typography,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   card: {
-    width: 150,
-    padding: 0,
-  },
-  cardHeader: {
-    textAlign: 'center',
-  },
-  formControl: {
     margin: 0,
-    width: 126,
+    padding: 0,
+    width: 109,
+  },
+  title: {
+    margin: 0,
+    padding: 0,
     textAlign: 'center',
+    fontWeight: 'bold',
   },
   textField: {
-    width: 126,
+    margin: 0,
+    padding: 0,
+    width: 85,
+  },
+  button: {
+    margin: 0,
+    padding: 0,
+    width: 85,
+    fontSize: 11,
+    fontWeight: 'bold',
   },
 }));
 
@@ -132,15 +138,13 @@ export default function CharacterAbilities() {
         <Grid container justify='center' spacing={1}>
           {character.abilities &&
             character.abilities.map((abilities, index) => {
-              const ab = abilities.category;
               return (
                 <Grid item key={index}>
                   <Card className={classes.card}>
-                    <CardHeader
-                      title={abilities.category}
-                      className={classes.cardHeader}
-                    />
                     <CardContent>
+                      <Typography className={classes.title}>
+                        {abilities.category}
+                      </Typography>
                       <TextField
                         type='number'
                         variant='outlined'
@@ -174,8 +178,13 @@ export default function CharacterAbilities() {
                         }}
                         className={classes.textField}
                       />
-                      <Button onClick={() => updateAbilityAfflicted(index)}>
-                        {afflictedValue(abilities.name, abilities.afflicted)}
+                      <Button
+                        onClick={() => updateAbilityAfflicted(index)}
+                        className={classes.button}>
+                        {afflictedValue(
+                          abilities.category,
+                          abilities.afflicted
+                        )}
                       </Button>
                     </CardContent>
                   </Card>
