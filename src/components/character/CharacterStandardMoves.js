@@ -6,6 +6,7 @@ import {
 } from '@material-ui/core';
 import { ExpandMore } from '@material-ui/icons';
 import { standard_moves } from 'data/standardMoves';
+import ReactMarkdown from 'react-markdown';
 
 export default function CharacterStandardMoves() {
   return (
@@ -17,7 +18,7 @@ export default function CharacterStandardMoves() {
               {data.name}
             </AccordionSummary>
             <AccordionDetails>
-              <p dangerouslySetInnerHTML={{ __html: data.description }}></p>
+              <ReactMarkdown escapeHtml={false} source={data.description} />
             </AccordionDetails>
           </Accordion>
         );

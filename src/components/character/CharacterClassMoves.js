@@ -49,7 +49,7 @@ export default function CharacterClassStartingMoves() {
               )}
             </AccordionSummary>
             <AccordionDetails>
-              <ReactMarkdown source={data.description} />
+              <ReactMarkdown escapeHtml={false} source={data.description} />
             </AccordionDetails>
           </Accordion>
         );
