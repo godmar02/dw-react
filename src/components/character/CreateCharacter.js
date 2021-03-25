@@ -40,8 +40,14 @@ const useStyles = makeStyles((theme) => ({
     minWidth: 275,
     maxWidth: 700,
   },
+  cardContent: {
+    '&:last-child': {
+      paddingBottom: 5,
+    },
+  },
   formControl: {
-    margin: theme.spacing(1),
+    marginTop: 5,
+    marginBottom: 5,
     minWidth: '100%',
   },
   resetButton: {
@@ -525,7 +531,7 @@ export default function CampaignDetails() {
           <>
             <Card className={classes.card}>
               <CardHeader title='Class & Alignment' />
-              <CardContent>
+              <CardContent className={classes.cardContent}>
                 <Typography component={'span'} className={classes.instructions}>
                   <FormControl
                     variant='outlined'

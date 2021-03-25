@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { useParams } from 'react-router';
 import { Breadcrumbs } from '@material-ui/core';
 import CharacterState from 'components/contexts/CharacterState';
-import { class_details } from 'data/classDetails';
 
 export default function CharacterSheetHeader() {
   const { campaignURL, characterURL } = useParams();
