@@ -263,7 +263,7 @@ export default function CampaignDetails() {
                       <FormControlLabel
                         key={'option' + option}
                         value={option.toString()}
-                        control={<Radio />}
+                        control={<Radio color='primary' />}
                         label={gearDescription(gear)}
                       />
                     );
@@ -292,6 +292,7 @@ export default function CampaignDetails() {
                         key={'checkbox' + option}
                         control={
                           <Checkbox
+                            color='primary'
                             checked={
                               charaGearOptions[choiceGroup]
                                 ? !!charaGearOptions[choiceGroup][option]
@@ -364,7 +365,7 @@ export default function CampaignDetails() {
                 <FormControlLabel
                   key={index}
                   value={move.name}
-                  control={<Radio />}
+                  control={<Radio color='primary' />}
                   label={move.name + ' - ' + move.description}
                 />
               );
@@ -625,7 +626,7 @@ export default function CampaignDetails() {
                                   <FormControlLabel
                                     key={index}
                                     value={data.move}
-                                    control={<Radio />}
+                                    control={<Radio color='primary' />}
                                     label={
                                       data.move +
                                       '\n(usually used with ' +
