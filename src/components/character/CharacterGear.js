@@ -284,33 +284,32 @@ export default function CharacterGear() {
   const maxLoad = () => {
     if (
       character.dw_class &&
-      character.abilities.find((x) => x.category === 'STR').score &&
-      character.abilities.find((x) => x.category === 'STR').affliction
+      character.abilities.find((x) => x.category === 'STR').score
     ) {
       let str = character.abilities.find((x) => x.category === 'STR');
       let baseModifier;
-      let abilityAffliction = str.affliction;
-      let abilityScore = parseInt(str.score, 10);
+      let strAfflicted = str.afflicted;
+      let strScore = parseInt(str.score, 10);
       let afflicted;
 
-      if ([1, 2, 3].indexOf(abilityScore) > -1) {
+      if ([1, 2, 3].indexOf(strScore) > -1) {
         baseModifier = -3;
-      } else if ([4, 5].indexOf(abilityScore) > -1) {
+      } else if ([4, 5].indexOf(strScore) > -1) {
         baseModifier = -2;
-      } else if ([6, 7, 8].indexOf(abilityScore) > -1) {
+      } else if ([6, 7, 8].indexOf(strScore) > -1) {
         baseModifier = -1;
-      } else if ([9, 10, 11, 12].indexOf(abilityScore) > -1) {
+      } else if ([9, 10, 11, 12].indexOf(strScore) > -1) {
         baseModifier = 0;
-      } else if ([13, 14, 15].indexOf(abilityScore) > -1) {
+      } else if ([13, 14, 15].indexOf(strScore) > -1) {
         baseModifier = 1;
-      } else if ([16, 17].indexOf(abilityScore) > -1) {
+      } else if ([16, 17].indexOf(strScore) > -1) {
         baseModifier = 2;
-      } else if (abilityScore === 18) {
+      } else if (strScore === 18) {
         baseModifier = 3;
       }
 
       /*-1 if afflicted*/
-      if (abilityAffliction === 'Unafflicted') {
+      if (strAfflicted === false) {
         afflicted = 0;
       } else {
         afflicted = 1;
@@ -356,7 +355,7 @@ export default function CharacterGear() {
               <TableCell align='center' style={{ width: 180 }}>
                 TAGS
               </TableCell>
-              <TableCell align='center' style={{ width: 100 }}>
+              <TableCell align='center' style={{ width: 80 }}>
                 WEIGHT
               </TableCell>
               <TableCell style={{ width: 40 }}>
