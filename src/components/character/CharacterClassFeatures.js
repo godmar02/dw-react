@@ -81,7 +81,7 @@ export default function CharacterClassFeatures() {
             character.class_features.map((class_features, index) => {
               return (
                 <TableRow key={index}>
-                  <TableCell>
+                  <TableCell style={{ width: 20 }}>
                     <Checkbox
                       name={'class_feature_checkbox' + index}
                       checked={!!class_features.checkbox}
@@ -101,7 +101,7 @@ export default function CharacterClassFeatures() {
                       onChange={updateFeature(index)}
                     />
                   </TableCell>
-                  <TableCell>
+                  <TableCell style={{ width: 40 }}>
                     <IconButton
                       aria-label='delete'
                       onClick={() => deleteFeatureRow(index)}>

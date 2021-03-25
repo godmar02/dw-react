@@ -58,7 +58,9 @@ export default function CharacterBasicDetails() {
         <Table className={classes.table} size='small' aria-label='simple table'>
           <TableBody>
             <TableRow>
-              <TableCell>FULL NAME</TableCell>
+              <TableCell style={{ width: 110, fontWeight: 'bold' }}>
+                FULL NAME
+              </TableCell>
               <TableCell>
                 <TextField
                   multiline
@@ -73,13 +75,12 @@ export default function CharacterBasicDetails() {
               </TableCell>
             </TableRow>
             <TableRow>
-              <TableCell>BACKSTORY</TableCell>
+              <TableCell style={{ fontWeight: 'bold' }}>BACKSTORY</TableCell>
               <TableCell>
                 <TextField
                   multiline
                   fullWidth
                   variant='outlined'
-                  aria-label='empty textarea'
                   placeholder="Describe your character's backstory and anything else about your characters identity here"
                   value={character.backstory}
                   name='backstory'
@@ -88,13 +89,12 @@ export default function CharacterBasicDetails() {
               </TableCell>
             </TableRow>
             <TableRow>
-              <TableCell>LOOK</TableCell>
+              <TableCell style={{ fontWeight: 'bold' }}>LOOK</TableCell>
               <TableCell>
                 <TextField
                   multiline
                   fullWidth
                   variant='outlined'
-                  aria-label='empty textarea'
                   placeholder={suggestedLook()}
                   name='look'
                   value={character.look}
@@ -110,13 +110,12 @@ export default function CharacterBasicDetails() {
         <Table className={classes.table} size='small' aria-label='simple table'>
           <TableBody>
             <TableRow>
-              <TableCell>CLASS</TableCell>
+              <TableCell style={{ fontWeight: 'bold' }}>CLASS</TableCell>
               <TableCell>
                 <TextField
                   multiline
                   fullWidth
                   readOnly
-                  className={classes.smallTextField}
                   variant='outlined'
                   name='dwClass'
                   value={character.dw_class}
@@ -125,13 +124,14 @@ export default function CharacterBasicDetails() {
               <TableCell></TableCell>
             </TableRow>
             <TableRow>
-              <TableCell>RACE</TableCell>
-              <TableCell>
+              <TableCell style={{ width: 110, fontWeight: 'bold' }}>
+                RACE
+              </TableCell>
+              <TableCell style={{ width: 110 }}>
                 <TextField
                   multiline
                   fullWidth
                   readOnly
-                  className={classes.smallTextField}
                   variant='outlined'
                   name='race'
                   value={character.race}
@@ -149,13 +149,12 @@ export default function CharacterBasicDetails() {
               </TableCell>
             </TableRow>
             <TableRow>
-              <TableCell>ALIGNMENT</TableCell>
+              <TableCell style={{ fontWeight: 'bold' }}>ALIGNMENT</TableCell>
               <TableCell>
                 <TextField
                   multiline
                   fullWidth
                   readOnly
-                  className={classes.smallTextField}
                   variant='outlined'
                   name='alignment'
                   value={character.alignment}

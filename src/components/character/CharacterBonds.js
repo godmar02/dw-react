@@ -69,7 +69,7 @@ export default function CharacterBonds() {
                         onChange={updateBond(index)}
                       />
                     </TableCell>
-                    <TableCell>
+                    <TableCell style={{ width: 40 }}>
                       <IconButton
                         aria-label='delete'
                         onClick={() => deleteBond(index)}>

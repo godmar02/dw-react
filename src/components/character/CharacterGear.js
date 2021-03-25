@@ -48,9 +48,6 @@ const useStyles = makeStyles((theme) => ({
   table: {
     minWidth: 650,
   },
-  textField: {
-    width: 120,
-  },
   root: {
     '& > *': {
       borderBottom: 'unset',
@@ -139,7 +136,6 @@ function Row(props) {
             fullWidth
             size='small'
             variant='outlined'
-            className={classes.textField}
             inputProps={{
               style: { textAlign: 'center' },
               min: 0,
@@ -150,7 +146,7 @@ function Row(props) {
           />
         </TableCell>
         <TableCell>
-          <FormControl className={classes.formControl}>
+          <FormControl className={classes.formControl} fullWidth>
             <Select
               multiple
               value={item.tags}
@@ -179,7 +175,6 @@ function Row(props) {
             fullWidth
             size='small'
             variant='outlined'
-            className={classes.textField}
             inputProps={{
               style: { textAlign: 'center' },
               min: 0,
@@ -202,9 +197,13 @@ function Row(props) {
               <Table size='small' aria-label='purchases'>
                 <TableHead>
                   <TableRow>
-                    <TableCell align='center'>TYPE</TableCell>
+                    <TableCell align='center' style={{ width: 40 }}>
+                      TYPE
+                    </TableCell>
                     <TableCell>DESCRIPTION</TableCell>
-                    <TableCell align='center'>COST</TableCell>
+                    <TableCell align='center' style={{ width: 65 }}>
+                      COST
+                    </TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
@@ -244,7 +243,6 @@ function Row(props) {
                       fullWidth
                       size='small'
                       variant='outlined'
-                      className={classes.textField}
                       inputProps={{
                         style: { textAlign: 'center' },
                         min: 0,
@@ -347,13 +345,21 @@ export default function CharacterGear() {
         <Table className={classes.table} aria-label='simple table'>
           <TableHead>
             <TableRow>
-              <TableCell></TableCell>
-              <TableCell align='center'>EQUIPPED</TableCell>
+              <TableCell style={{ width: 20 }}></TableCell>
+              <TableCell align='center' style={{ width: 40 }}>
+                EQUIPPED
+              </TableCell>
               <TableCell align='center'>NAME</TableCell>
-              <TableCell align='center'>USES</TableCell>
-              <TableCell align='center'>TAGS</TableCell>
-              <TableCell align='center'>WEIGHT</TableCell>
-              <TableCell>
+              <TableCell align='center' style={{ width: 65 }}>
+                USES
+              </TableCell>
+              <TableCell align='center' style={{ width: 180 }}>
+                TAGS
+              </TableCell>
+              <TableCell align='center' style={{ width: 100 }}>
+                WEIGHT
+              </TableCell>
+              <TableCell style={{ width: 40 }}>
                 <IconButton aria-label='add' onClick={handleClickOpen}>
                   <Add />
                 </IconButton>
@@ -376,7 +382,6 @@ export default function CharacterGear() {
                   size='small'
                   variant='outlined'
                   name='totalLoad'
-                  className={classes.textField}
                   InputProps={{
                     readOnly: true,
                   }}
