@@ -1,14 +1,7 @@
 import React, { useContext } from 'react';
 import CharacterState from 'components/contexts/CharacterState';
 import { ability_afflictions } from 'data/abilityAfflictions';
-import {
-  Button,
-  Card,
-  CardContent,
-  Grid,
-  TextField,
-  Typography,
-} from '@material-ui/core';
+import { Button, Card, CardContent, Grid, TextField } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -133,9 +126,7 @@ export default function CharacterAbilities() {
                 <Grid item key={index}>
                   <Card>
                     <CardContent className={classes.cardContent}>
-                      <Typography className={classes.title}>
-                        {abilities.category}
-                      </Typography>
+                      <p className={classes.title}>{abilities.category}</p>
                       <TextField
                         type='number'
                         variant='outlined'

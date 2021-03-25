@@ -24,7 +24,6 @@ import {
   Stepper,
   StepLabel,
   TextField,
-  Typography,
 } from '@material-ui/core';
 import { Save } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/core/styles';
@@ -42,6 +41,10 @@ const useStyles = makeStyles((theme) => ({
     minWidth: 275,
     maxWidth: 700,
   },
+  abCard: {
+    minWidth: 275,
+    maxWidth: 800,
+  },
   cardHeader: {
     paddingBottom: 0,
   },
@@ -57,10 +60,6 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     marginRight: theme.spacing(1),
-  },
-  instructions: {
-    marginTop: theme.spacing(1),
-    marginBottom: theme.spacing(1),
   },
   abCardContent: {
     paddingTop: 5,
@@ -450,26 +449,26 @@ export default function CampaignDetails() {
     }
   }
 
-  const updateAbilityScore = (index) => (e) => {
-    let newAbilities = charaAbilities; // copying the old array
+  function updateAbilityScore(index, abScore) {
+    let newAbilities = [...charaAbilities]; // copying the old array
     newAbilities[index] = {
       ...charaAbilities[index],
-      score: e.target.value,
+      score: abScore,
     }; // replace value
     setCharaAbilities(newAbilities); // set array back
     console.log('charaAbilities', charaAbilities);
-  };
+  }
 
-  const updateAbilityAfflicted = (index) => {
+  function updateAbilityAfflicted(index) {
     const newAffliction = !charaAbilities[index].afflicted; //switching boolean
-    let newAbilities = charaAbilities; // copying the old array
+    let newAbilities = [...charaAbilities]; // copying the old array
     newAbilities[index] = {
       ...charaAbilities[index],
       afflicted: newAffliction,
     }; // replace value
     setCharaAbilities(newAbilities); // set array back
     console.log('charaAbilities', charaAbilities);
-  };
+  }
 
   const afflictedValue = (ability, afflicted) => {
     if (afflicted) {
@@ -477,6 +476,13 @@ export default function CampaignDetails() {
     } else {
       return 'Unafflicted';
     }
+  };
+
+  const maxHp = () => {
+    return (
+      class_details[charaClass].base_hp +
+      parseInt(charaAbilities.find((x) => x.category === 'CON').score, 10)
+    );
   };
 
   const abilityModifier = (abilityScore, abilityAffliction) => {
@@ -617,6 +623,9 @@ export default function CampaignDetails() {
         }
       });
 
+      //MaxHP
+      const maxHP = maxHp();
+
       // SAVE FUNCTION
       FirebaseService.saveCharacter(campaignURL, charaName, {
         abilities: charaAbilities,
@@ -628,7 +637,7 @@ export default function CampaignDetails() {
         dw_class: charaClass,
         full_name: charaFullName,
         funds: startingFunds,
-        hp: '',
+        hp: maxHP,
         items: startingGear,
         level: '1',
         look: '',
@@ -662,59 +671,51 @@ export default function CampaignDetails() {
                 title='Class & Alignment'
               />
               <CardContent className={classes.cardContent}>
-                <Typography component={'span'} className={classes.instructions}>
-                  <FormControl
-                    variant='outlined'
-                    className={classes.formControl}>
-                    <InputLabel>Class</InputLabel>
-                    <Select
-                      label='Class'
-                      value={charaClass}
-                      name='class'
-                      onChange={(event) => {
-                        setCharaAlignment('');
-                        setCharaMoveOption([]);
-                        setCharaBonds([]);
-                        setCharaGearOptions([]);
-                        setCharaRaceMove('');
-                        setCharaClass(event.target.value);
-                      }}>
-                      {dw_classes.map((data, index) => {
-                        return (
-                          <MenuItem value={data} key={index}>
-                            {data}
-                          </MenuItem>
-                        );
-                      })}
-                    </Select>
-                    <ReactMarkdown source={classIntro()} />
-                  </FormControl>
-                  <br />
-                  <FormControl
-                    variant='outlined'
-                    className={classes.formControl}>
-                    <InputLabel>Alignment</InputLabel>
-                    <Select
-                      label='Alignment'
-                      value={charaAlignment}
-                      name='alignment'
-                      onChange={(event) =>
-                        setCharaAlignment(event.target.value)
-                      }>
-                      {charaClass &&
-                        class_details[charaClass].alignments.map(
-                          (data, index) => {
-                            return (
-                              <MenuItem value={data.alignment} key={index}>
-                                {data.alignment}
-                              </MenuItem>
-                            );
-                          }
-                        )}
-                    </Select>
-                    <ReactMarkdown source={alignmentAttribute()} />
-                  </FormControl>
-                </Typography>
+                <FormControl variant='outlined' className={classes.formControl}>
+                  <InputLabel>Class</InputLabel>
+                  <Select
+                    label='Class'
+                    value={charaClass}
+                    name='class'
+                    onChange={(event) => {
+                      setCharaAlignment('');
+                      setCharaMoveOption([]);
+                      setCharaBonds([]);
+                      setCharaGearOptions([]);
+                      setCharaRaceMove('');
+                      setCharaClass(event.target.value);
+                    }}>
+                    {dw_classes.map((data, index) => {
+                      return (
+                        <MenuItem value={data} key={index}>
+                          {data}
+                        </MenuItem>
+                      );
+                    })}
+                  </Select>
+                  <ReactMarkdown source={classIntro()} />
+                </FormControl>
+                <br />
+                <FormControl variant='outlined' className={classes.formControl}>
+                  <InputLabel>Alignment</InputLabel>
+                  <Select
+                    label='Alignment'
+                    value={charaAlignment}
+                    name='alignment'
+                    onChange={(event) => setCharaAlignment(event.target.value)}>
+                    {charaClass &&
+                      class_details[charaClass].alignments.map(
+                        (data, index) => {
+                          return (
+                            <MenuItem value={data.alignment} key={index}>
+                              {data.alignment}
+                            </MenuItem>
+                          );
+                        }
+                      )}
+                  </Select>
+                  <ReactMarkdown source={alignmentAttribute()} />
+                </FormControl>
               </CardContent>
             </Card>
             {charaClass ? (
@@ -726,86 +727,76 @@ export default function CampaignDetails() {
                     title='Race & Race Move'
                   />
                   <CardContent>
-                    <Typography
-                      component={'span'}
-                      className={classes.instructions}>
-                      <TextField
-                        autoFocus={true}
-                        margin='dense'
-                        id='race'
-                        label='Race'
-                        value={charaRace}
-                        placeholder='e.g. Dwarf, Elf, Goblin, Halfling, Human'
-                        fullWidth
-                        onChange={(event) => setCharaRace(event.target.value)}
-                      />
-                      <br />
-                      <br />
-                      <FormControl
-                        component='fieldset'
-                        className={classes.formControl}>
-                        <RadioGroup
-                          aria-label='race move'
-                          name='race move'
-                          value={charaRaceMove}
-                          onChange={(event) =>
-                            setCharaRaceMove(event.target.value)
-                          }>
-                          {charaClass &&
-                            class_details[charaClass].race_moves.map(
-                              (data, index) => {
-                                return (
-                                  <FormControlLabel
-                                    key={index}
-                                    value={data.move}
-                                    control={<Radio color='primary' />}
-                                    label={
-                                      data.move +
-                                      '\n(usually used with ' +
-                                      data.race +
-                                      ')'
-                                    }
-                                  />
-                                );
-                              }
-                            )}
-                        </RadioGroup>
-                      </FormControl>
-                    </Typography>
+                    <TextField
+                      autoFocus={true}
+                      margin='dense'
+                      id='race'
+                      label='Race'
+                      value={charaRace}
+                      placeholder='e.g. Dwarf, Elf, Goblin, Halfling, Human'
+                      fullWidth
+                      onChange={(event) => setCharaRace(event.target.value)}
+                    />
+                    <br />
+                    <br />
+                    <FormControl
+                      component='fieldset'
+                      className={classes.formControl}>
+                      <RadioGroup
+                        aria-label='race move'
+                        name='race move'
+                        value={charaRaceMove}
+                        onChange={(event) =>
+                          setCharaRaceMove(event.target.value)
+                        }>
+                        {charaClass &&
+                          class_details[charaClass].race_moves.map(
+                            (data, index) => {
+                              return (
+                                <FormControlLabel
+                                  key={index}
+                                  value={data.move}
+                                  control={<Radio color='primary' />}
+                                  label={
+                                    data.move +
+                                    '\n(usually used with ' +
+                                    data.race +
+                                    ')'
+                                  }
+                                />
+                              );
+                            }
+                          )}
+                      </RadioGroup>
+                    </FormControl>
                   </CardContent>
                 </Card>
                 <br />
                 <Card className={classes.card}>
                   <CardHeader className={classes.cardHeader} title='Name' />
                   <CardContent>
-                    <Typography
-                      component={'span'}
-                      className={classes.instructions}>
-                      <TextField
-                        autoFocus={true}
-                        margin='dense'
-                        id='full name'
-                        label='Character Name'
-                        placeholder="Your character's full name, titles and all"
-                        value={charaFullName}
-                        fullWidth
-                        onChange={(event) =>
-                          setCharaFullName(event.target.value)
-                        }
-                      />
-                      <TextField
-                        autoFocus={false}
-                        margin='dense'
-                        id='name'
-                        label='Short Character Name'
-                        placeholder="Your character's preferred name"
-                        value={charaName}
-                        fullWidth
-                        onChange={(event) => setCharaName(event.target.value)}
-                      />
-                      <p>Suggested Names: </p>
-                      <ReactMarkdown source={suggestedNames()} />
-                    </Typography>
+                    <TextField
+                      autoFocus={true}
+                      margin='dense'
+                      id='full name'
+                      label='Character Name'
+                      placeholder="Your character's full name, titles and all"
+                      value={charaFullName}
+                      fullWidth
+                      onChange={(event) => setCharaFullName(event.target.value)}
+                    />
+                    <TextField
+                      autoFocus={false}
+                      margin='dense'
+                      id='name'
+                      label='Short Character Name'
+                      placeholder="Your character's preferred name"
+                      value={charaName}
+                      fullWidth
+                      onChange={(event) => setCharaName(event.target.value)}
+                    />
+                    <p>Suggested Names: </p>
+                    <ReactMarkdown source={suggestedNames()} />
                   </CardContent>
                 </Card>
               </>
@@ -862,12 +853,10 @@ export default function CampaignDetails() {
             <Card className={classes.card}>
               <CardHeader className={classes.cardHeader} title='Gear' />
               <CardContent>
-                <Typography component={'span'} className={classes.instructions}>
-                  <ReactMarkdown
-                    source={class_details[charaClass].starting_gear_details}
-                  />
-                  {gearOptions()}
-                </Typography>
+                <ReactMarkdown
+                  source={class_details[charaClass].starting_gear_details}
+                />
+                {gearOptions()}
               </CardContent>
             </Card>
             <br />
@@ -901,11 +890,7 @@ export default function CampaignDetails() {
           <>
             <Card className={classes.card}>
               <CardHeader className={classes.cardHeader} title='Class Moves' />
-              <CardContent>
-                <Typography component={'span'} className={classes.instructions}>
-                  {moveOptions()}
-                </Typography>
-              </CardContent>
+              <CardContent>{moveOptions()}</CardContent>
             </Card>
             <br />
             <Button
@@ -936,70 +921,81 @@ export default function CampaignDetails() {
       case 3:
         return (
           <>
-            <Grid className={classes.root}>
-              <Grid item xs={12}>
-                <Grid container justify='center' spacing={1}>
-                  {charaAbilities.map((ability, index) => {
-                    return (
-                      <Grid item key={index}>
-                        <Card>
-                          <CardContent className={classes.abCardContent}>
-                            <Typography className={classes.abTitle}>
-                              {ability.category}
-                            </Typography>
-                            <TextField
-                              type='number'
-                              variant='outlined'
-                              error={validateScore()}
-                              size='small'
-                              margin='none'
-                              name={ability.category + 'Score'}
-                              value={ability.score}
-                              className={classes.abTextField}
-                              inputProps={{
-                                style: { textAlign: 'center' },
-                                min: 1,
-                                max: 18,
-                              }}
-                              onChange={updateAbilityScore(index)}
-                            />
-                            <br />
-                            <TextField
-                              variant='outlined'
-                              name={ability.category + 'Modifier'}
-                              value={abilityModifier(
-                                ability.score,
-                                ability.afflicted
-                              )}
-                              InputProps={{ readOnly: true }}
-                              inputProps={{
-                                style: {
-                                  textAlign: 'center',
-                                  fontWeight: 'bold',
-                                  fontSize: 25,
-                                },
-                              }}
-                              className={classes.abTextField}
-                            />
-                            <br />
-                            <Button
-                              onClick={() => {
-                                updateAbilityAfflicted(index);
-                              }}
-                              className={classes.abButton}>
-                              {afflictedValue(
-                                ability.category,
-                                ability.afflicted
-                              )}
-                            </Button>
-                          </CardContent>
-                        </Card>
-                      </Grid>
-                    );
-                  })}
+            <Card className={classes.abCard}>
+              <CardHeader
+                className={classes.cardHeader}
+                title='Character Abilities'
+              />
+              <CardContent>
+                <p>Assign ability scores: 16, 15, 13, 12, 9, 8</p>
+                <Grid className={classes.root}>
+                  <Grid item xs={12}>
+                    <Grid container justify='center' spacing={1}>
+                      {charaAbilities.map((ability, index) => {
+                        return (
+                          <Grid item key={index}>
+                            <Card>
+                              <CardContent className={classes.abCardContent}>
+                                <p className={classes.abTitle}>
+                                  {ability.category}
+                                </p>
+                                <TextField
+                                  type='number'
+                                  variant='outlined'
+                                  error={validateScore()}
+                                  size='small'
+                                  margin='none'
+                                  name={ability.category + 'Score'}
+                                  value={ability.score}
+                                  className={classes.abTextField}
+                                  inputProps={{
+                                    style: { textAlign: 'center' },
+                                    min: 1,
+                                    max: 18,
+                                  }}
+                                  onChange={(e) =>
+                                    updateAbilityScore(index, e.target.value)
+                                  }
+                                />
+                                <br />
+                                <TextField
+                                  variant='outlined'
+                                  name={ability.category + 'Modifier'}
+                                  value={abilityModifier(
+                                    ability.score,
+                                    ability.afflicted
+                                  )}
+                                  InputProps={{ readOnly: true }}
+                                  inputProps={{
+                                    style: {
+                                      textAlign: 'center',
+                                      fontWeight: 'bold',
+                                      fontSize: 25,
+                                    },
+                                  }}
+                                  className={classes.abTextField}
+                                />
+                                <br />
+                                <Button
+                                  onClick={() => {
+                                    updateAbilityAfflicted(index);
+                                  }}
+                                  className={classes.abButton}>
+                                  {afflictedValue(
+                                    ability.category,
+                                    ability.afflicted
+                                  )}
+                                </Button>
+                              </CardContent>
+                            </Card>
+                          </Grid>
+                        );
+                      })}
+                    </Grid>
+                  </Grid>
                 </Grid>
-              </Grid>
-            </Grid>
+              </CardContent>
+            </Card>
             <br />
             <Button
               onClick={handleCancel}
@@ -1027,6 +1023,7 @@ export default function CampaignDetails() {
               disabled={validateScore()}
               className={classes.button}
               variant='contained'
+              onClick={handleNext}
               color='primary'>
               Next
             </Button>
@@ -1038,38 +1035,36 @@ export default function CampaignDetails() {
             <Card className={classes.card}>
               <CardHeader className={classes.cardHeader} title='Bonds' />
               <CardContent>
-                <Typography component={'span'} className={classes.instructions}>
-                  <FormControl
-                    component='fieldset'
-                    className={classes.formControl}>
-                    <FormLabel component='legend'>
-                      Choose some optionally suggested bonds or you can create
-                      your own!
-                    </FormLabel>
-                    <br />
-                    <FormGroup>
-                      {charaClass &&
-                        class_details[charaClass].suggested_bonds.map(
-                          (data, index) => {
-                            return (
-                              <FormControlLabel
-                                key={index}
-                                control={
-                                  <Checkbox
-                                    key={index}
-                                    onChange={handleBondChange}
-                                    color='primary'
-                                    name={data}
-                                  />
-                                }
-                                label={data}
-                              />
-                            );
-                          }
-                        )}
-                    </FormGroup>
-                  </FormControl>
-                </Typography>
+                <FormControl
+                  component='fieldset'
+                  className={classes.formControl}>
+                  <FormLabel component='legend'>
+                    Choose some optionally suggested bonds or you can create
+                    your own!
+                  </FormLabel>
+                  <br />
+                  <FormGroup>
+                    {charaClass &&
+                      class_details[charaClass].suggested_bonds.map(
+                        (data, index) => {
+                          return (
+                            <FormControlLabel
+                              key={index}
+                              control={
+                                <Checkbox
+                                  key={index}
+                                  onChange={handleBondChange}
+                                  color='primary'
+                                  name={data}
+                                />
+                              }
+                              label={data}
+                            />
+                          );
+                        }
+                      )}
+                  </FormGroup>
+                </FormControl>
               </CardContent>
             </Card>
             <br />
