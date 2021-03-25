@@ -1,6 +1,4 @@
 - FUNCTIONAL WORK
-    - CreateCharacter
-        - Add ability selection step (+set starting HP)
     - CharacterSheet - Edit Class move descriptions
     - CharacterSheet - Add class moves
     - CharacterSheet - Remove class moves

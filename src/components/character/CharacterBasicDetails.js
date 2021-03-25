@@ -66,7 +66,6 @@ export default function CharacterBasicDetails() {
                   multiline
                   fullWidth
                   variant='outlined'
-                  aria-label='empty textarea'
                   placeholder="Your character's full name, titles and all"
                   value={character.full_name}
                   name='full_name'

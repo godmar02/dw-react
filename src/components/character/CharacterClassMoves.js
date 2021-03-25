@@ -2,12 +2,12 @@ import React, { useContext, useMemo, useState } from 'react';
 import CharacterState from 'components/contexts/CharacterState';
 import AddMoveState from 'components/contexts/AddMoveState';
 import AddMove from 'components/character/AddMove';
-import { class_details } from 'data/classDetails';
 import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
   IconButton,
+  TextField,
 } from '@material-ui/core';
 import { Add, Delete, ExpandMore } from '@material-ui/icons';
 import ReactMarkdown from 'react-markdown';
