@@ -40,6 +40,9 @@ const useStyles = makeStyles((theme) => ({
     minWidth: 275,
     maxWidth: 700,
   },
+  cardHeader: {
+    paddingBottom: 0,
+  },
   cardContent: {
     '&:last-child': {
       paddingBottom: 5,
@@ -531,7 +534,10 @@ export default function CampaignDetails() {
         return (
           <>
             <Card className={classes.card}>
-              <CardHeader title='Class & Alignment' />
+              <CardHeader
+                className={classes.cardHeader}
+                title='Class & Alignment'
+              />
               <CardContent className={classes.cardContent}>
                 <Typography component={'span'} className={classes.instructions}>
                   <FormControl
@@ -592,7 +598,10 @@ export default function CampaignDetails() {
               <>
                 <br />
                 <Card className={classes.card}>
-                  <CardHeader title='Race & Race Move' />
+                  <CardHeader
+                    className={classes.cardHeader}
+                    title='Race & Race Move'
+                  />
                   <CardContent>
                     <Typography
                       component={'span'}
@@ -644,7 +653,7 @@ export default function CampaignDetails() {
                 </Card>
                 <br />
                 <Card className={classes.card}>
-                  <CardHeader title='Name' />
+                  <CardHeader className={classes.cardHeader} title='Name' />
                   <CardContent>
                     <Typography
                       component={'span'}
@@ -710,7 +719,7 @@ export default function CampaignDetails() {
         return (
           <>
             <Card className={classes.card}>
-              <CardHeader title='Gear' />
+              <CardHeader className={classes.cardHeader} title='Gear' />
               <CardContent>
                 <Typography component={'span'} className={classes.instructions}>
                   <ReactMarkdown
@@ -740,7 +749,7 @@ export default function CampaignDetails() {
         return (
           <>
             <Card className={classes.card}>
-              <CardHeader title='Class Moves' />
+              <CardHeader className={classes.cardHeader} title='Class Moves' />
               <CardContent>
                 <Typography component={'span'} className={classes.instructions}>
                   {moveOptions()}
@@ -767,7 +776,7 @@ export default function CampaignDetails() {
         return (
           <>
             <Card className={classes.card}>
-              <CardHeader title='Bonds' />
+              <CardHeader className={classes.cardHeader} title='Bonds' />
               <CardContent>
                 <Typography component={'span'} className={classes.instructions}>
                   <FormControl

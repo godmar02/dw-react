@@ -113,7 +113,6 @@ export default function CharacterAbilities() {
     }
   };
 
-  // Validate Score
   const validateScore = () => {
     const totalScore = character.abilities.reduce(
       (totalScore, data) => totalScore + parseInt(data.score || 0, 10),

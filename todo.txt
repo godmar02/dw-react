@@ -11,5 +11,6 @@
     - Character status
 
 - MINOR UI FIXES
+    - Dark Mode
     - Add character card sizing
     - Centre the Class add move
