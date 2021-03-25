@@ -24,7 +24,6 @@ import { class_details } from 'data/classDetails';
 export default function AddMove() {
   const { open, setOpen } = useContext(AddMoveState);
   const { character, setCharacter } = useContext(CharacterState);
-  const [starting, setStarting] = useState(false);
   const [twoToFive, setTwoToFive] = useState(false);
   const [sixToTen, setSixToTen] = useState(false);
   const dwc = character.dw_class;
@@ -35,7 +34,6 @@ export default function AddMove() {
 
   const handleSave = (move) => {
     addMove(move);
-    setStarting(false);
     setTwoToFive(false);
     setSixToTen(false);
     setOpen(false);
@@ -51,9 +49,7 @@ export default function AddMove() {
   };
 
   function level(input) {
-    if (input === 'starting' && starting) {
-      return input;
-    } else if (input === '2to5' && twoToFive) {
+    if (input === '2to5' && twoToFive) {
       return input;
     } else if (input === '6to10' && sixToTen) {
       return input;
@@ -69,16 +65,6 @@ export default function AddMove() {
         <FormControl component='fieldset'>
           <FormLabel component='legend'>Filter Moves:</FormLabel>
           <FormGroup row>
-            <FormControlLabel
-              control={
-                <Checkbox
-                  color='primary'
-                  name='starting'
-                  onChange={() => setStarting(!starting)}
-                />
-              }
-              label='Starting'
-            />
             <FormControlLabel
               control={
                 <Checkbox
@@ -103,12 +89,8 @@ export default function AddMove() {
         </FormControl>
         {class_details[dwc].moves
           .filter(
-            (x) =>
-              x.level === level('starting') ||
-              x.level === level('2to5') ||
-              x.level === level('6to10')
+            (x) => x.level === level('2to5') || x.level === level('6to10')
             //TODO EXCLUDE ALREADY SELECTED MOVES
-            //TODO ONLY ALLOW ADDING ONE MOVE OF 2to5 and 6to10
           )
           .map((data, index) => {
             return (
