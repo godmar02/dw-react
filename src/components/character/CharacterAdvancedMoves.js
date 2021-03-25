@@ -18,7 +18,9 @@ export default function CharacterAdvancedMoves() {
               {data.name}
             </AccordionSummary>
             <AccordionDetails>
-              <ReactMarkdown escapeHtml={false} source={data.description} />
+              <div>
+                <ReactMarkdown escapeHtml={false} source={data.description} />
+              </div>
             </AccordionDetails>
           </Accordion>
         );

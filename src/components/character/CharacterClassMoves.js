@@ -11,7 +11,7 @@ import {
 import { Add, Delete, ExpandMore } from '@material-ui/icons';
 import ReactMarkdown from 'react-markdown';
 
-export default function CharacterClassStartingMoves() {
+export default function CharacterClassMoves() {
   const { character, setCharacter } = useContext(CharacterState);
   const [open, setOpen] = useState(false);
   const ctx = useMemo(() => ({ open, setOpen }), [open]);
@@ -49,12 +49,14 @@ export default function CharacterClassStartingMoves() {
               )}
             </AccordionSummary>
             <AccordionDetails>
-              <ReactMarkdown escapeHtml={false} source={data.description} />
+              <div>
+                <ReactMarkdown escapeHtml={false} source={data.description} />
+              </div>
             </AccordionDetails>
           </Accordion>
         );
       })}
-      <Accordion textAlign='center'>
+      <Accordion>
         <AccordionSummary>
           <IconButton aria-label='add' onClick={handleClickOpen}>
             <Add />
