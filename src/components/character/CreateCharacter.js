@@ -32,6 +32,7 @@ import ReactMarkdown from 'react-markdown';
 import { class_details } from 'data/classDetails';
 import { dw_classes } from 'data/dwClasses';
 import { items } from 'data/items';
+import { ability_afflictions } from 'data/abilityAfflictions';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -61,6 +62,24 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(1),
     marginBottom: theme.spacing(1),
   },
+  abCardContent: {
+    paddingTop: 5,
+    '&:last-child': {
+      paddingBottom: 0,
+    },
+  },
+  abTitle: {
+    textAlign: 'center',
+    fontWeight: 'bold',
+  },
+  abTextField: {
+    width: 85,
+  },
+  abButton: {
+    width: 85,
+    fontSize: 11,
+    fontWeight: 'bold',
+  },
 }));
 
 function getSteps() {
@@ -68,6 +87,7 @@ function getSteps() {
     'Choose Basic Details',
     'Select Gear',
     'Select Class Moves',
+    'Add Abilities',
     'Add Bonds',
   ];
 }
@@ -84,6 +104,14 @@ export default function CampaignDetails() {
   const [charaAlignment, setCharaAlignment] = useState('');
   const [charaRaceMove, setCharaRaceMove] = useState('');
   const [charaMoveOption, setCharaMoveOption] = useState('');
+  const [charaAbilities, setCharaAbilities] = useState([
+    { category: 'STR', score: '1', afflicted: false },
+    { category: 'DEX', score: '1', afflicted: false },
+    { category: 'CON', score: '1', afflicted: false },
+    { category: 'INT', score: '1', afflicted: false },
+    { category: 'WIS', score: '1', afflicted: false },
+    { category: 'CHA', score: '1', afflicted: false },
+  ]);
   const [charaGearOptions, setCharaGearOptions] = useState([]);
   const [charaBonds, setCharaBonds] = useState([]);
   const [activeStep, setActiveStep] = useState(0);
@@ -124,6 +152,14 @@ export default function CampaignDetails() {
     setCharaBonds([]);
     setCharaMoveOption('');
     setCharaGearOptions([]);
+    setCharaAbilities([
+      { category: 'STR', score: '1', afflicted: false },
+      { category: 'DEX', score: '1', afflicted: false },
+      { category: 'CON', score: '1', afflicted: false },
+      { category: 'INT', score: '1', afflicted: false },
+      { category: 'WIS', score: '1', afflicted: false },
+      { category: 'CHA', score: '1', afflicted: false },
+    ]);
     setCharaFullName('');
     setActiveStep(0);
   };
@@ -414,6 +450,89 @@ export default function CampaignDetails() {
     }
   }
 
+  const updateAbilityScore = (index) => (e) => {
+    let newAbilities = charaAbilities; // copying the old array
+    newAbilities[index] = {
+      ...charaAbilities[index],
+      score: e.target.value,
+    }; // replace value
+    setCharaAbilities(newAbilities); // set array back
+    console.log('charaAbilities', charaAbilities);
+  };
+
+  const updateAbilityAfflicted = (index) => {
+    const newAffliction = !charaAbilities[index].afflicted; //switching boolean
+    let newAbilities = charaAbilities; // copying the old array
+    newAbilities[index] = {
+      ...charaAbilities[index],
+      afflicted: newAffliction,
+    }; // replace value
+    setCharaAbilities(newAbilities); // set array back
+    console.log('charaAbilities', charaAbilities);
+  };
+
+  const afflictedValue = (ability, afflicted) => {
+    if (afflicted) {
+      return ability_afflictions[ability];
+    } else {
+      return 'Unafflicted';
+    }
+  };
+
+  const abilityModifier = (abilityScore, abilityAffliction) => {
+    if (abilityScore) {
+      let baseModifier;
+      let afflicted;
+
+      abilityScore = parseInt(abilityScore, 10);
+
+      if ([1, 2, 3].indexOf(abilityScore) > -1) {
+        baseModifier = -3;
+      } else if ([4, 5].indexOf(abilityScore) > -1) {
+        baseModifier = -2;
+      } else if ([6, 7, 8].indexOf(abilityScore) > -1) {
+        baseModifier = -1;
+      } else if ([9, 10, 11, 12].indexOf(abilityScore) > -1) {
+        baseModifier = 0;
+      } else if ([13, 14, 15].indexOf(abilityScore) > -1) {
+        baseModifier = 1;
+      } else if ([16, 17].indexOf(abilityScore) > -1) {
+        baseModifier = 2;
+      } else if (abilityScore === 18) {
+        baseModifier = 3;
+      }
+
+      /* -1 if afflicted */
+      if (abilityAffliction) {
+        afflicted = 1;
+      } else {
+        afflicted = 0;
+      }
+
+      let modifier = baseModifier - afflicted;
+
+      if (modifier > 0) {
+        return '+' + modifier;
+      } else {
+        return modifier;
+      }
+    } else {
+      return '';
+    }
+  };
+
+  const validateScore = () => {
+    const totalScore = charaAbilities.reduce(
+      (totalScore, data) => totalScore + parseInt(data.score || 0, 10),
+      0
+    );
+    if (totalScore !== 73) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
   const saveCharacter = () => {
     if (
       campaignURL &&
@@ -500,14 +619,7 @@ export default function CampaignDetails() {
 
       // SAVE FUNCTION
       FirebaseService.saveCharacter(campaignURL, charaName, {
-        abilities: [
-          { category: 'STR', score: '1', afflicted: false },
-          { category: 'DEX', score: '1', afflicted: false },
-          { category: 'CON', score: '1', afflicted: false },
-          { category: 'INT', score: '1', afflicted: false },
-          { category: 'WIS', score: '1', afflicted: false },
-          { category: 'CHA', score: '1', afflicted: false },
-        ],
+        abilities: charaAbilities,
         alignment: charaAlignment,
         armour: '0',
         backstory: '',
@@ -822,6 +934,105 @@ export default function CampaignDetails() {
           </>
         );
       case 3:
+        return (
+          <>
+            <Grid className={classes.root}>
+              <Grid item xs={12}>
+                <Grid container justify='center' spacing={1}>
+                  {charaAbilities.map((ability, index) => {
+                    return (
+                      <Grid item key={index}>
+                        <Card>
+                          <CardContent className={classes.abCardContent}>
+                            <Typography className={classes.abTitle}>
+                              {ability.category}
+                            </Typography>
+                            <TextField
+                              type='number'
+                              variant='outlined'
+                              error={validateScore()}
+                              size='small'
+                              margin='none'
+                              name={ability.category + 'Score'}
+                              value={ability.score}
+                              className={classes.abTextField}
+                              inputProps={{
+                                style: { textAlign: 'center' },
+                                min: 1,
+                                max: 18,
+                              }}
+                              onChange={updateAbilityScore(index)}
+                            />
+                            <br />
+                            <TextField
+                              variant='outlined'
+                              name={ability.category + 'Modifier'}
+                              value={abilityModifier(
+                                ability.score,
+                                ability.afflicted
+                              )}
+                              InputProps={{ readOnly: true }}
+                              inputProps={{
+                                style: {
+                                  textAlign: 'center',
+                                  fontWeight: 'bold',
+                                  fontSize: 25,
+                                },
+                              }}
+                              className={classes.abTextField}
+                            />
+                            <br />
+                            <Button
+                              onClick={() => {
+                                updateAbilityAfflicted(index);
+                              }}
+                              className={classes.abButton}>
+                              {afflictedValue(
+                                ability.category,
+                                ability.afflicted
+                              )}
+                            </Button>
+                          </CardContent>
+                        </Card>
+                      </Grid>
+                    );
+                  })}
+                </Grid>
+              </Grid>
+            </Grid>
+            <br />
+            <Button
+              onClick={handleCancel}
+              className={classes.button}
+              variant='contained'
+              color='primary'>
+              Cancel
+            </Button>
+            <Button
+              onClick={handleReset}
+              className={classes.button}
+              variant='contained'
+              color='primary'>
+              Reset
+            </Button>
+            <Button
+              disabled={activeStep === 0}
+              onClick={handleBack}
+              className={classes.button}
+              variant='contained'
+              color='primary'>
+              Back
+            </Button>
+            <Button
+              disabled={validateScore()}
+              className={classes.button}
+              variant='contained'
+              color='primary'>
+              Next
+            </Button>
+          </>
+        );
+      case 4:
         return (
           <>
             <Card className={classes.card}>

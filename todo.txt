@@ -2,7 +2,7 @@
     - CreateCharacter
         - Add ability selection step (+set starting HP)
     - CharacterSheet - Edit Class move descriptions
-    - CharacterSheet - Add class moves    
+    - CharacterSheet - Add class moves
     - CharacterSheet - Remove class moves
     - CreateCharacter - Add/remove Spells?
     - CharacterSheet - Add/remove Spells?

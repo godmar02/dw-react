@@ -48,16 +48,6 @@ export default function CharacterAbilities() {
     })); // set array back
   };
 
-  const afflictedValue = (ability, afflicted) => {
-    console.log('ability', ability);
-    console.log('afflicted', afflicted);
-    if (afflicted) {
-      return ability_afflictions[ability];
-    } else {
-      return 'Unafflicted';
-    }
-  };
-
   const updateAbilityAfflicted = (index) => {
     const newAffliction = !character.abilities[index].afflicted; //switching boolean
     let newAbilities = [...character.abilities]; // copying the old array
@@ -69,6 +59,14 @@ export default function CharacterAbilities() {
       ...character,
       abilities: newAbilities,
     })); // set array back
+  };
+
+  const afflictedValue = (ability, afflicted) => {
+    if (afflicted) {
+      return ability_afflictions[ability];
+    } else {
+      return 'Unafflicted';
+    }
   };
 
   const abilityModifier = (abilityScore, abilityAffliction) => {
