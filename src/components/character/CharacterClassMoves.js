@@ -7,7 +7,6 @@ import {
   AccordionSummary,
   AccordionDetails,
   IconButton,
-  TextField,
 } from '@material-ui/core';
 import { Add, Delete, ExpandMore } from '@material-ui/icons';
 import ReactMarkdown from 'react-markdown';
@@ -19,8 +18,7 @@ export default function CharacterClassStartingMoves() {
 
   const deleteMove = (index) => {
     const newMoves = [...character.moves]; // copying the old array
-    if (character.moves.length !== 1) {
-      //TODO don't delete if starting move
+    if (character.moves[index].level !== 'starting') {
       newMoves.splice(index, 1); // remove item from array
       setCharacter((character) => ({ ...character, moves: newMoves })); // set array back
     } else {
@@ -42,6 +40,13 @@ export default function CharacterClassStartingMoves() {
           <Accordion key={index}>
             <AccordionSummary expandIcon={<ExpandMore />}>
               {data.name} ({data.level})
+              {data.level === 'starting' ? null : (
+                <IconButton
+                  aria-label='delete'
+                  onClick={() => deleteMove(index)}>
+                  <Delete />
+                </IconButton>
+              )}
             </AccordionSummary>
             <AccordionDetails>
               <ReactMarkdown source={data.description} />

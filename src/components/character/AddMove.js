@@ -58,6 +58,14 @@ export default function AddMove() {
     }
   }
 
+  function isChosen(move) {
+    if (character.moves.filter((x) => x.name === move).length > 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   return (
     <Dialog open={open} onClose={handleCancel}>
       <DialogTitle id='form-dialog-title'>Add new move</DialogTitle>{' '}
@@ -89,8 +97,9 @@ export default function AddMove() {
         </FormControl>
         {class_details[dwc].moves
           .filter(
-            (x) => x.level === level('2to5') || x.level === level('6to10')
-            //TODO EXCLUDE ALREADY SELECTED MOVES
+            (x) =>
+              (x.level === level('2to5') || x.level === level('6to10')) &&
+              isChosen(x.name) !== true
           )
           .map((data, index) => {
             return (

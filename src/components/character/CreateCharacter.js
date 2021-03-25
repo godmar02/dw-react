@@ -456,7 +456,6 @@ export default function CampaignDetails() {
       score: abScore,
     }; // replace value
     setCharaAbilities(newAbilities); // set array back
-    console.log('charaAbilities', charaAbilities);
   }
 
   function updateAbilityAfflicted(index) {
@@ -467,7 +466,6 @@ export default function CampaignDetails() {
       afflicted: newAffliction,
     }; // replace value
     setCharaAbilities(newAbilities); // set array back
-    console.log('charaAbilities', charaAbilities);
   }
 
   const afflictedValue = (ability, afflicted) => {

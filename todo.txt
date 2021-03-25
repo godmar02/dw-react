@@ -1,7 +1,5 @@
 - FUNCTIONAL WORK
     - CharacterSheet - Edit Class move descriptions
-    - CharacterSheet - Add class moves
-    - CharacterSheet - Remove class moves
     - CreateCharacter - Add/remove Spells?
     - CharacterSheet - Add/remove Spells?
     - Session Notes
@@ -9,6 +7,8 @@
     - Character status
 
 - MINOR UI FIXES
+    - CharacterSheet - move descriptions
+    - CharacterSheet - Add move button placement
     - Dark Mode
     - Add character card sizing
     - Centre the Class add move
