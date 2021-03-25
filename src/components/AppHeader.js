@@ -8,7 +8,7 @@ import {
   Switch,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import { Menu } from '@material-ui/icons';
+import { Brightness4, Menu } from '@material-ui/icons';
 import UserProfile from 'components/profile/UserProfile';
 
 const useStyles = makeStyles((theme) => ({
@@ -43,6 +43,7 @@ export default function AppHeader() {
           <Typography component={'span'} variant='h6' className={classes.title}>
             Dungeon World Character Sheet (by Godmar02)
           </Typography>
+          <Brightness4 />
           <Switch checked={darkState} onChange={handleThemeChange} />
           <UserProfile />
         </Toolbar>
