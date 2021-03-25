@@ -26,6 +26,7 @@ import {
   TextField,
   Typography,
 } from '@material-ui/core';
+import { Save } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/core/styles';
 import ReactMarkdown from 'react-markdown';
 import { class_details } from 'data/classDetails';
@@ -53,13 +54,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 5,
     minWidth: '100%',
   },
-  resetButton: {
-    marginRight: theme.spacing(1),
-  },
-  cancelButton: {
-    marginRight: theme.spacing(1),
-  },
-  backButton: {
+  button: {
     marginRight: theme.spacing(1),
   },
   instructions: {
@@ -338,13 +333,21 @@ export default function CampaignDetails() {
       !error
     ) {
       return (
-        <Button variant='contained' color='primary' onClick={handleNext}>
+        <Button
+          className={classes.button}
+          variant='contained'
+          color='primary'
+          onClick={handleNext}>
           Next
         </Button>
       );
     } else {
       return (
-        <Button disabled variant='contained' color='primary'>
+        <Button
+          disabled
+          className={classes.button}
+          variant='contained'
+          color='primary'>
           Next
         </Button>
       );
@@ -390,13 +393,21 @@ export default function CampaignDetails() {
       moveChoices.length === 0
     ) {
       return (
-        <Button variant='contained' color='primary' onClick={handleNext}>
+        <Button
+          className={classes.button}
+          variant='contained'
+          color='primary'
+          onClick={handleNext}>
           Next
         </Button>
       );
     } else {
       return (
-        <Button disabled variant='contained' color='primary'>
+        <Button
+          disabled
+          className={classes.button}
+          variant='contained'
+          color='primary'>
           Next
         </Button>
       );
@@ -688,16 +699,26 @@ export default function CampaignDetails() {
               </>
             ) : null}
             <br />
-            <Button onClick={handleCancel} className={classes.cancelButton}>
+            <Button
+              onClick={handleCancel}
+              className={classes.button}
+              variant='contained'
+              color='primary'>
               Cancel
             </Button>
-            <Button onClick={handleReset} className={classes.resetButton}>
+            <Button
+              onClick={handleReset}
+              className={classes.button}
+              variant='contained'
+              color='primary'>
               Reset
             </Button>
             <Button
               disabled
               onClick={handleBack}
-              className={classes.backButton}>
+              className={classes.button}
+              variant='contained'
+              color='primary'>
               Back
             </Button>
             {charaRace &&
@@ -705,11 +726,19 @@ export default function CampaignDetails() {
             charaRaceMove &&
             charaName &&
             charaFullName ? (
-              <Button variant='contained' color='primary' onClick={handleNext}>
+              <Button
+                className={classes.button}
+                variant='contained'
+                color='primary'
+                onClick={handleNext}>
                 Next
               </Button>
             ) : (
-              <Button disabled variant='contained' color='primary'>
+              <Button
+                disabled
+                className={classes.button}
+                variant='contained'
+                color='primary'>
                 Next
               </Button>
             )}
@@ -730,16 +759,26 @@ export default function CampaignDetails() {
               </CardContent>
             </Card>
             <br />
-            <Button onClick={handleCancel} className={classes.cancelButton}>
+            <Button
+              onClick={handleCancel}
+              className={classes.button}
+              variant='contained'
+              color='primary'>
               Cancel
             </Button>
-            <Button onClick={handleReset} className={classes.resetButton}>
+            <Button
+              onClick={handleReset}
+              className={classes.button}
+              variant='contained'
+              color='primary'>
               Reset
             </Button>
             <Button
               disabled={activeStep === 0}
               onClick={handleBack}
-              className={classes.backButton}>
+              className={classes.button}
+              variant='contained'
+              color='primary'>
               Back
             </Button>
             {gearNext()}
@@ -757,16 +796,26 @@ export default function CampaignDetails() {
               </CardContent>
             </Card>
             <br />
-            <Button onClick={handleCancel} className={classes.cancelButton}>
+            <Button
+              onClick={handleCancel}
+              className={classes.button}
+              variant='contained'
+              color='primary'>
               Cancel
             </Button>
-            <Button onClick={handleReset} className={classes.resetButton}>
+            <Button
+              onClick={handleReset}
+              className={classes.button}
+              variant='contained'
+              color='primary'>
               Reset
             </Button>
             <Button
               disabled={activeStep === 0}
               onClick={handleBack}
-              className={classes.backButton}>
+              className={classes.button}
+              variant='contained'
+              color='primary'>
               Back
             </Button>
             {moveNext()}
@@ -813,20 +862,35 @@ export default function CampaignDetails() {
               </CardContent>
             </Card>
             <br />
-            <Button onClick={handleCancel} className={classes.cancelButton}>
+            <Button
+              onClick={handleCancel}
+              className={classes.button}
+              variant='contained'
+              color='primary'>
               Cancel
             </Button>
-            <Button onClick={handleReset} className={classes.resetButton}>
+            <Button
+              onClick={handleReset}
+              className={classes.button}
+              variant='contained'
+              color='primary'>
               Reset
             </Button>
             <Button
               disabled={activeStep === 0}
               onClick={handleBack}
-              className={classes.backButton}>
+              className={classes.button}
+              variant='contained'
+              color='primary'>
               Back
             </Button>
             {campaignURL ? (
-              <Button variant='contained' color='primary' onClick={handleSave}>
+              <Button
+                className={classes.button}
+                variant='contained'
+                color='primary'
+                onClick={handleSave}
+                startIcon={<Save />}>
                 Create Character
               </Button>
             ) : (
@@ -834,7 +898,8 @@ export default function CampaignDetails() {
                 disabled
                 variant='contained'
                 color='primary'
-                onClick={handleSave}>
+                onClick={handleSave}
+                startIcon={<Save />}>
                 Create Character
               </Button>
             )}

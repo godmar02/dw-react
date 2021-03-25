@@ -51,7 +51,7 @@ export default function CharacterBonds() {
         <AddBond />
       </AddBondState.Provider>
       <TableContainer component={Paper}>
-        <Table className={classes.table} aria-label='simple table'>
+        <Table className={classes.table} size='small'>
           <TableBody>
             {character.bonds &&
               character.bonds.map((bond, index) => {

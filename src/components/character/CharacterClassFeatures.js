@@ -75,7 +75,7 @@ export default function CharacterClassFeatures() {
 
   return (
     <TableContainer component={Paper}>
-      <Table className={classes.table} aria-label='simple table'>
+      <Table className={classes.table} size='small'>
         <TableBody>
           {character.class_features &&
             character.class_features.map((class_features, index) => {
