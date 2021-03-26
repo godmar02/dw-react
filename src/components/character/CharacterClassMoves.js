@@ -7,6 +7,7 @@ import {
   AccordionSummary,
   AccordionDetails,
   IconButton,
+  Tooltip,
 } from '@material-ui/core';
 import { Add, Delete, ExpandMore } from '@material-ui/icons';
 import ReactMarkdown from 'react-markdown';
@@ -41,11 +42,13 @@ export default function CharacterClassMoves() {
             <AccordionSummary expandIcon={<ExpandMore />}>
               {data.name} ({data.level})
               {data.level === 'starting' ? null : (
-                <IconButton
-                  aria-label='delete'
-                  onClick={() => deleteMove(index)}>
-                  <Delete />
-                </IconButton>
+                <Tooltip title='Delete'>
+                  <IconButton
+                    aria-label='delete'
+                    onClick={() => deleteMove(index)}>
+                    <Delete />
+                  </IconButton>
+                </Tooltip>
               )}
             </AccordionSummary>
             <AccordionDetails>
@@ -58,9 +61,11 @@ export default function CharacterClassMoves() {
       })}
       <Accordion>
         <AccordionSummary>
-          <IconButton aria-label='add' onClick={handleClickOpen}>
-            <Add />
-          </IconButton>
+          <Tooltip title='Add Move'>
+            <IconButton aria-label='add' onClick={handleClickOpen}>
+              <Add />
+            </IconButton>
+          </Tooltip>
         </AccordionSummary>
       </Accordion>
     </>

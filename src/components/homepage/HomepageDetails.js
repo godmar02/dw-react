@@ -20,6 +20,7 @@ import {
   TableHead,
   TableRow,
   TextField,
+  Tooltip,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -92,9 +93,11 @@ export default function HomepageDetails() {
               <TableCell>Campaign</TableCell>
               <TableCell>Owner</TableCell>
               <TableCell>
-                <IconButton aria-label='add' onClick={handleClickOpen}>
-                  <Add />
-                </IconButton>
+                <Tooltip title='Add Campaign'>
+                  <IconButton aria-label='add' onClick={handleClickOpen}>
+                    <Add />
+                  </IconButton>
+                </Tooltip>
               </TableCell>
             </TableRow>
           </TableHead>
@@ -108,11 +111,13 @@ export default function HomepageDetails() {
                     </TableCell>
                     <TableCell>{campaign.owner}</TableCell>
                     <TableCell>
-                      <IconButton
-                        aria-label='delete'
-                        onClick={() => deleteCampaign(campaign.id)}>
-                        <Delete />
-                      </IconButton>
+                      <Tooltip title='Delete'>
+                        <IconButton
+                          aria-label='delete'
+                          onClick={() => deleteCampaign(campaign.id)}>
+                          <Delete />
+                        </IconButton>
+                      </Tooltip>
                     </TableCell>
                   </TableRow>
                 );

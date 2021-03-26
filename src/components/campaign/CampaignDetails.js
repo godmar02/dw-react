@@ -10,6 +10,7 @@ import {
   CardHeader,
   Grid,
   IconButton,
+  Tooltip,
   Typography,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
@@ -53,13 +54,15 @@ export default function CampaignDetails() {
                   <Card className={classes.root}>
                     <CardHeader
                       action={
-                        <IconButton
-                          aria-label='delete'
-                          onClick={() =>
-                            deleteCharacter(campaignURL, campaign.character)
-                          }>
-                          <Delete />
-                        </IconButton>
+                        <Tooltip title='Delete'>
+                          <IconButton
+                            aria-label='delete'
+                            onClick={() =>
+                              deleteCharacter(campaignURL, campaign.character)
+                            }>
+                            <Delete />
+                          </IconButton>
+                        </Tooltip>
                       }
                       title={
                         <Link
@@ -107,9 +110,11 @@ export default function CampaignDetails() {
               <CardHeader title='Add Character' />
               <CardContent>
                 <Link to={'/dw-react/' + campaignURL + '/create-character'}>
-                  <IconButton aria-label='add'>
-                    <Add />
-                  </IconButton>
+                  <Tooltip title='Add Character'>
+                    <IconButton aria-label='add'>
+                      <Add />
+                    </IconButton>
+                  </Tooltip>
                 </Link>
               </CardContent>
             </Card>

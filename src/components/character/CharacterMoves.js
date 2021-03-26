@@ -52,7 +52,12 @@ export default function CharacterMoves() {
   return (
     <div className={classes.root}>
       <AppBar position='static'>
-        <Tabs value={value} onChange={handleTabChange}>
+        <Tabs
+          value={value}
+          onChange={handleTabChange}
+          variant='scrollable'
+          centered
+          scrollButtons='auto'>
           <Tab label='Standard' {...a11yProps(0)} />
           <Tab label='Advanced' {...a11yProps(1)} />
           <Tab label='Class' {...a11yProps(2)} />

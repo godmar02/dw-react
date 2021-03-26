@@ -9,9 +9,9 @@ import {
   TableBody,
   TableCell,
   TableContainer,
-  TableHead,
   TableRow,
   TextField,
+  Tooltip,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { Add, Delete } from '@material-ui/icons';
@@ -70,20 +70,24 @@ export default function CharacterBonds() {
                       />
                     </TableCell>
                     <TableCell style={{ width: 40 }}>
-                      <IconButton
-                        aria-label='delete'
-                        onClick={() => deleteBond(index)}>
-                        <Delete />
-                      </IconButton>
+                      <Tooltip title='Delete'>
+                        <IconButton
+                          aria-label='delete'
+                          onClick={() => deleteBond(index)}>
+                          <Delete />
+                        </IconButton>
+                      </Tooltip>
                     </TableCell>
                   </TableRow>
                 );
               })}
             <TableRow>
               <TableCell align='center' colSpan='2'>
-                <IconButton aria-label='add' onClick={handleClickOpen}>
-                  <Add />
-                </IconButton>
+                <Tooltip title='Add Bond'>
+                  <IconButton aria-label='add' onClick={handleClickOpen}>
+                    <Add />
+                  </IconButton>
+                </Tooltip>
               </TableCell>
             </TableRow>
           </TableBody>

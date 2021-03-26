@@ -23,6 +23,7 @@ import {
   TableHead,
   TableRow,
   TextField,
+  Tooltip,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import {
@@ -185,9 +186,11 @@ function Row(props) {
           />
         </TableCell>
         <TableCell>
-          <IconButton aria-label='delete' onClick={() => deleteItem(index)}>
-            <Delete />
-          </IconButton>
+          <Tooltip title='Delete'>
+            <IconButton aria-label='delete' onClick={() => deleteItem(index)}>
+              <Delete />
+            </IconButton>
+          </Tooltip>
         </TableCell>
       </TableRow>
       <TableRow>
@@ -359,9 +362,11 @@ export default function CharacterGear() {
                 WEIGHT
               </TableCell>
               <TableCell style={{ width: 40 }}>
-                <IconButton aria-label='add' onClick={handleClickOpen}>
-                  <Add />
-                </IconButton>
+                <Tooltip title='Add Gear'>
+                  <IconButton aria-label='add' onClick={handleClickOpen}>
+                    <Add />
+                  </IconButton>
+                </Tooltip>
               </TableCell>
             </TableRow>
           </TableHead>

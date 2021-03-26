@@ -139,7 +139,12 @@ export default function CharacterSheet() {
         <CharacterAbilities />
         <br />
         <AppBar position='static'>
-          <Tabs value={value} onChange={handleTabChange}>
+          <Tabs
+            value={value}
+            onChange={handleTabChange}
+            variant='scrollable'
+            centered
+            scrollButtons='auto'>
             <Tab label='About' {...a11yProps(0)} />
             <Tab label='Bonds' {...a11yProps(1)} />
             <Tab label='Features' {...a11yProps(2)} />

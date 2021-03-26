@@ -11,9 +11,9 @@ import {
   TableBody,
   TableCell,
   TableContainer,
-  TableHead,
   TableRow,
   TextField,
+  Tooltip,
 } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
@@ -102,20 +102,24 @@ export default function CharacterClassFeatures() {
                     />
                   </TableCell>
                   <TableCell style={{ width: 40 }}>
-                    <IconButton
-                      aria-label='delete'
-                      onClick={() => deleteFeatureRow(index)}>
-                      <Delete />
-                    </IconButton>
+                    <Tooltip title='Delete'>
+                      <IconButton
+                        aria-label='delete'
+                        onClick={() => deleteFeatureRow(index)}>
+                        <Delete />
+                      </IconButton>
+                    </Tooltip>
                   </TableCell>
                 </TableRow>
               );
             })}
           <TableRow>
             <TableCell colSpan='3' align='center'>
-              <IconButton aria-label='add' onClick={() => addFeatureRow()}>
-                <Add />
-              </IconButton>
+              <Tooltip title='Add Feature'>
+                <IconButton aria-label='add' onClick={() => addFeatureRow()}>
+                  <Add />
+                </IconButton>
+              </Tooltip>
             </TableCell>
           </TableRow>
         </TableBody>

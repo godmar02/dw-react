@@ -7,7 +7,6 @@
     - Character status
 
 - MINOR UI FIXES
-    - CharacterSheet - move descriptions
     - CharacterSheet - Add move button placement
     - Dark Mode
     - Add character card sizing
