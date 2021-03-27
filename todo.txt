@@ -1,5 +1,4 @@
 - FUNCTIONAL WORK
-    - CharacterSheet - Edit Class move descriptions
     - CreateCharacter - Add/remove Spells?
     - CharacterSheet - Add/remove Spells?
     - Session Notes
