@@ -26,7 +26,7 @@ export default function CharacterClassMoves() {
   const [open, setOpen] = useState(false);
   const ctx = useMemo(() => ({ open, setOpen }), [open]);
   const [editing, setEditing] = useState([]);
-  const [moveDesc, setMoveDesc] = useState([]);
+  const [moves, setMoves] = useState(character.moves);
   const dwc = character.dw_class;
 
   function deleteMove(index) {
@@ -40,32 +40,31 @@ export default function CharacterClassMoves() {
   }
 
   function editMove(index) {
-    const newEdit = editing;
+    const newEdit = [...editing];
     newEdit[index] = !editing[index];
     setEditing(newEdit);
-    //FOR SOME REASON THIS DOES NOT RE-EVALUATE CONDITIONAL RENDER BELOW
   }
 
   function refreshMove(index) {
-    const newMoveDesc = [...moveDesc];
-    newMoveDesc[index] = class_details[dwc].moves.find(
+    const newMoves = [...moves];
+    newMoves[index].description = class_details[dwc].moves.find(
       (move) => move.name === character.moves[index].name
     ).description;
-    setMoveDesc(newMoveDesc, console.log('moveDesc', moveDesc));
-    //FOR SOME REASON THIS DOES NOT RE-RENDER
+    setMoves(newMoves, saveMove(index));
+    editMove(index);
   }
 
   function handleDescChange(event, index) {
-    const newMoveDesc = [...moveDesc];
-    newMoveDesc[index] = event.target.value;
-    setMoveDesc(newMoveDesc);
+    const newMoves = [...moves];
+    newMoves[index].description = event.target.value;
+    setMoves(newMoves);
   }
 
   function saveMove(index) {
-    const newMoves = [...character.moves]; // copying the old array
-    newMoves[index].description = moveDesc[index];
-    setCharacter((character) => ({ ...character, moves: newMoves })); // set array back
-    editMove(index); //Close
+    const newMoves = [...moves];
+    newMoves[index].description = moves[index].description;
+    setCharacter((character) => ({ ...character, moves: newMoves }));
+    editMove(index);
   }
 
   function handleClickOpen() {
@@ -77,7 +76,7 @@ export default function CharacterClassMoves() {
       <AddMoveState.Provider value={ctx}>
         <AddMove />
       </AddMoveState.Provider>
-      {character.moves.map((data, index) => {
+      {moves.map((data, index) => {
         return (
           <Accordion key={index}>
             <AccordionSummary expandIcon={<ExpandMore />}>
