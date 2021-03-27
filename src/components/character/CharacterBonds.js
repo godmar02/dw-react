@@ -41,9 +41,9 @@ export default function CharacterBonds() {
     setCharacter((character) => ({ ...character, bonds: newBonds })); // set array back
   };
 
-  const handleClickOpen = () => {
+  function handleClickOpen() {
     setOpen(true);
-  };
+  }
 
   return (
     <>

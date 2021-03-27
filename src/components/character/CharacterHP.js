@@ -15,7 +15,7 @@ export default function CharacterHP() {
   const dwc = character.dw_class;
   const classes = useStyles();
 
-  const maxHp = () => {
+  function maxHp() {
     if (character.dw_class && character.abilities) {
       return (
         class_details[dwc].base_hp +
@@ -27,16 +27,16 @@ export default function CharacterHP() {
     } else {
       return '';
     }
-  };
+  }
 
   // Validate XP
-  const validateHp = () => {
+  function validateHp() {
     if (parseInt(character.hp, 10) > maxHp()) {
       return true;
     } else {
       return false;
     }
-  };
+  }
 
   const handleCharacterChange = (event) => {
     const target = event.target;

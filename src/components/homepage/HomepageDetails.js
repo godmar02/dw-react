@@ -37,21 +37,21 @@ export default function HomepageDetails() {
   const [campaignName, setCampaignName] = useState('');
   const { campaigns } = useContext(HomepageState);
 
-  const handleClickOpen = () => {
+  function handleClickOpen() {
     setOpen(true);
-  };
+  }
 
-  const handleCancel = () => {
+  function handleCancel() {
     setOpen(false);
-  };
+  }
 
-  const handleSave = () => {
+  function handleSave() {
     setOpen(false);
     saveCampaign();
-  };
+  }
 
   // Create New Campaign
-  const saveCampaign = () => {
+  function saveCampaign() {
     if (campaignName) {
       //don't save unless details present
       FirebaseService.createCampaign(campaignName, currentUser.email)
@@ -65,7 +65,7 @@ export default function HomepageDetails() {
     } else {
       alert('Cannot save blank campaign');
     }
-  };
+  }
 
   // Delete Campaign
   const deleteCampaign = (campaignName) => {

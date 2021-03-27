@@ -30,21 +30,21 @@ export default function AddBond() {
   const [bond, setBond] = useState('');
   const dwc = character.dw_class;
 
-  const handleCancel = () => {
+  function handleCancel() {
     setBond('');
     setOpen(false);
-  };
+  }
 
-  const handleSave = () => {
+  function handleSave() {
     addBond();
     setBond('');
     setOpen(false);
-  };
+  }
 
-  const addBond = () => {
+  function addBond() {
     const newBonds = [...character.bonds, bond]; // copying the old array and adding new bond depending upon selection
     setCharacter((character) => ({ ...character, bonds: newBonds })); // set array back
-  };
+  }
 
   return (
     <Dialog

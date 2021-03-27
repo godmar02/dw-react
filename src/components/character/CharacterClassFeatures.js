@@ -62,7 +62,7 @@ export default function CharacterClassFeatures() {
   };
 
   // Add rows in the table
-  const addFeatureRow = () => {
+  function addFeatureRow() {
     const newFeatures = [
       ...character.class_features,
       { feature: '', checkbox: false },
@@ -71,7 +71,7 @@ export default function CharacterClassFeatures() {
       ...character,
       class_features: newFeatures,
     })); // set array back
-  };
+  }
 
   return (
     <TableContainer component={Paper}>

@@ -27,30 +27,30 @@ export default function CharacterBasicDetails() {
 
   const dwc = character.dw_class;
   const alig = character.alignment;
-  const alignmentAttribute = () => {
+  function alignmentAttribute() {
     if (character.dw_class && character.alignment) {
       return class_details[dwc].alignments.find((x) => x.alignment === alig)
         .attribute;
     } else {
       return '';
     }
-  };
+  }
 
-  const handleCharacterChange = (event) => {
+  function handleCharacterChange(event) {
     const target = event.target;
     const value = target.value;
     const name = target.name;
     setCharacter((character) => ({ ...character, [name]: value }));
-  };
+  }
 
-  const suggestedLook = () => {
+  function suggestedLook() {
     if (character.dw_class) {
       let dwc = character.dw_class;
       return class_details[dwc].suggested_look;
     } else {
       return '';
     }
-  };
+  }
 
   return (
     <>

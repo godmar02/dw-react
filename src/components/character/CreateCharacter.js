@@ -117,15 +117,15 @@ export default function CampaignDetails() {
   const [error, setError] = useState(false);
   const steps = getSteps();
 
-  const handleNext = () => {
+  function handleNext() {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
-  };
+  }
 
-  const handleBack = () => {
+  function handleBack() {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
+  }
 
-  const handleBondChange = (event) => {
+  function handleBondChange(event) {
     let target = event.target;
     if (target.checked) {
       // Add to array
@@ -140,9 +140,9 @@ export default function CampaignDetails() {
       // Set array back
       setCharaBonds(newBonds);
     }
-  };
+  }
 
-  const clearAttributes = () => {
+  function clearAttributes() {
     setCharaName('');
     setCharaClass('');
     setCharaRace('');
@@ -161,21 +161,21 @@ export default function CampaignDetails() {
     ]);
     setCharaFullName('');
     setActiveStep(0);
-  };
+  }
 
-  const handleReset = () => {
+  function handleReset() {
     clearAttributes();
-  };
+  }
 
-  const handleCancel = () => {
+  function handleCancel() {
     history.push('/dw-react/' + campaignURL);
-  };
+  }
 
-  const handleSave = () => {
+  function handleSave() {
     saveCharacter();
-  };
+  }
 
-  const alignmentAttribute = () => {
+  function alignmentAttribute() {
     if (charaClass && charaAlignment) {
       return class_details[charaClass].alignments.find(
         (x) => x.alignment === charaAlignment
@@ -183,19 +183,19 @@ export default function CampaignDetails() {
     } else {
       return '';
     }
-  };
+  }
 
-  const classIntro = () => {
+  function classIntro() {
     if (charaClass) {
       return class_details[charaClass].intro;
     } else {
       return '';
     }
-  };
+  }
 
-  const suggestedNames = () => {
+  function suggestedNames() {
     return class_details[charaClass].suggested_names;
-  };
+  }
 
   function gearDescription(gear) {
     let description = '';
@@ -270,7 +270,7 @@ export default function CampaignDetails() {
     }
   }
 
-  const gearOptions = () => {
+  function gearOptions() {
     const gearChoices = class_details[charaClass].starting_gear_options;
     if (gearChoices.length > 0) {
       const output = gearChoices.map((gearChoice, index) => {
@@ -356,7 +356,7 @@ export default function CampaignDetails() {
     } else {
       return <p>No move choices to make</p>;
     }
-  };
+  }
 
   function gearNext() {
     if (
@@ -389,7 +389,7 @@ export default function CampaignDetails() {
     }
   }
 
-  const moveOptions = () => {
+  function moveOptions() {
     const moveChoices = class_details[charaClass].moves.filter(
       (x) => x.level === 'starting' && x.selected === false
     );
@@ -417,7 +417,7 @@ export default function CampaignDetails() {
     } else {
       return <p>No move choices to make</p>;
     }
-  };
+  }
 
   function moveNext() {
     const moveChoices = class_details[charaClass].moves.filter(
@@ -468,22 +468,22 @@ export default function CampaignDetails() {
     setCharaAbilities(newAbilities); // set array back
   }
 
-  const afflictedValue = (ability, afflicted) => {
+  function afflictedValue(ability, afflicted) {
     if (afflicted) {
       return ability_afflictions[ability];
     } else {
       return 'Unafflicted';
     }
-  };
+  }
 
-  const maxHp = () => {
+  function maxHp() {
     return (
       class_details[charaClass].base_hp +
       parseInt(charaAbilities.find((x) => x.category === 'CON').score, 10)
     );
-  };
+  }
 
-  const abilityModifier = (abilityScore, abilityAffliction) => {
+  function abilityModifier(abilityScore, abilityAffliction) {
     if (abilityScore) {
       let baseModifier;
       let afflicted;
@@ -523,9 +523,9 @@ export default function CampaignDetails() {
     } else {
       return '';
     }
-  };
+  }
 
-  const validateScore = () => {
+  function validateScore() {
     const totalScore = charaAbilities.reduce(
       (totalScore, data) => totalScore + parseInt(data.score || 0, 10),
       0
@@ -535,9 +535,9 @@ export default function CampaignDetails() {
     } else {
       return false;
     }
-  };
+  }
 
-  const saveCharacter = () => {
+  function saveCharacter() {
     if (
       campaignURL &&
       charaName &&
@@ -656,7 +656,7 @@ export default function CampaignDetails() {
     } else {
       alert('Cannot save blank character');
     }
-  };
+  }
 
   function getStepContent(stepIndex) {
     switch (stepIndex) {

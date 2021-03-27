@@ -104,7 +104,7 @@ export default function CharacterAbilities() {
     }
   };
 
-  const validateScore = () => {
+  function validateScore() {
     const totalScore = character.abilities.reduce(
       (totalScore, data) => totalScore + parseInt(data.score || 0, 10),
       0
@@ -114,7 +114,7 @@ export default function CharacterAbilities() {
     } else {
       return false;
     }
-  };
+  }
 
   return (
     <Grid className={classes.root}>

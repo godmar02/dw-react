@@ -18,13 +18,13 @@ export default function CharacterDamage() {
   const dwc = character.dw_class;
   const classes = useStyles();
 
-  const damage = () => {
+  function damage() {
     if (character.dw_class) {
       return class_details[dwc].damage;
     } else {
       return '';
     }
-  };
+  }
 
   return (
     <TextField

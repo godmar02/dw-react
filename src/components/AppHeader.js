@@ -26,9 +26,9 @@ const useStyles = makeStyles((theme) => ({
 export default function AppHeader() {
   const classes = useStyles();
   const { darkState, setDarkState } = useContext(DarkState);
-  const handleThemeChange = () => {
+  function handleThemeChange() {
     setDarkState(!darkState);
-  };
+  }
   return (
     <div className={classes.root}>
       <AppBar position='static'>

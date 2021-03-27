@@ -28,16 +28,16 @@ export default function AddMove() {
   const [sixToTen, setSixToTen] = useState(false);
   const dwc = character.dw_class;
 
-  const handleCancel = () => {
+  function handleCancel() {
     setOpen(false);
-  };
+  }
 
-  const handleSave = (move) => {
+  function handleSave(move) {
     addMove(move);
     setTwoToFive(false);
     setSixToTen(false);
     setOpen(false);
-  };
+  }
 
   const addMove = (move) => {
     const newMove = class_details[dwc].moves.find((x) => x.name === move);

@@ -56,7 +56,6 @@ export default function CharacterMoves() {
           value={value}
           onChange={handleTabChange}
           variant='scrollable'
-          centered
           scrollButtons='auto'>
           <Tab label='Standard' {...a11yProps(0)} />
           <Tab label='Advanced' {...a11yProps(1)} />

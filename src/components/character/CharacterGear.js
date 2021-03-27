@@ -29,6 +29,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import {
   Add,
   Delete,
+  FunctionsOutlined,
   KeyboardArrowDown,
   KeyboardArrowUp,
 } from '@material-ui/icons';
@@ -273,7 +274,7 @@ export default function CharacterGear() {
 
   const ctx = useMemo(() => ({ open, setOpen }), [open]);
 
-  const totalLoad = () => {
+  function totalLoad() {
     if (character.items) {
       return character.items.reduce(
         (totalLoad, data) => totalLoad + parseInt(data.weight || 0, 10),
@@ -282,9 +283,9 @@ export default function CharacterGear() {
     } else {
       return '';
     }
-  };
+  }
 
-  const maxLoad = () => {
+  function maxLoad() {
     if (
       character.dw_class &&
       character.abilities.find((x) => x.category === 'STR').score
@@ -324,19 +325,19 @@ export default function CharacterGear() {
     } else {
       return '';
     }
-  };
+  }
 
-  const validateLoad = () => {
+  function validateLoad() {
     if (totalLoad() > maxLoad()) {
       return true;
     } else {
       return false;
     }
-  };
+  }
 
-  const handleClickOpen = () => {
+  function handleClickOpen() {
     setOpen(true);
-  };
+  }
 
   return (
     <>
