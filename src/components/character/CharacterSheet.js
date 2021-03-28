@@ -18,7 +18,7 @@ import CharacterBasicStats from 'components/character/CharacterBasicStats';
 import CharacterAbilities from 'components/character/CharacterAbilities';
 import CharacterBonds from 'components/character/CharacterBonds';
 import CharacterGear from 'components/character/CharacterGear';
-import CharacterClassFeatures from 'components/character/CharacterClassFeatures';
+import CharacterSpells from 'components/character/CharacterSpells';
 import CharacterMoves from 'components/character/CharacterMoves';
 import DiceRoller from 'components/other/DiceRoller';
 
@@ -146,7 +146,7 @@ export default function CharacterSheet() {
             scrollButtons='auto'>
             <Tab label='About' {...a11yProps(0)} />
             <Tab label='Bonds' {...a11yProps(1)} />
-            <Tab label='Features' {...a11yProps(2)} />
+            <Tab label='Spells' {...a11yProps(2)} />
             <Tab label='Gear' {...a11yProps(3)} />
             <Tab label='Moves' {...a11yProps(4)} />
             <Tab label='Dice Roller' {...a11yProps(5)} />
@@ -159,7 +159,7 @@ export default function CharacterSheet() {
           <CharacterBonds />
         </TabPanel>
         <TabPanel value={value} index={2}>
-          <CharacterClassFeatures />
+          <CharacterSpells />
         </TabPanel>
         <TabPanel value={value} index={3}>
           <CharacterGear />

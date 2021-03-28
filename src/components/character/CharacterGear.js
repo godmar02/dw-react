@@ -29,7 +29,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import {
   Add,
   Delete,
-  FunctionsOutlined,
   KeyboardArrowDown,
   KeyboardArrowUp,
 } from '@material-ui/icons';
@@ -271,7 +270,6 @@ export default function CharacterGear() {
   const { character } = useContext(CharacterState);
   const dwc = character.dw_class;
   const [open, setOpen] = useState(false);
-
   const ctx = useMemo(() => ({ open, setOpen }), [open]);
 
   function totalLoad() {

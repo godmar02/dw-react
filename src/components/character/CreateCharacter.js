@@ -83,10 +83,10 @@ const useStyles = makeStyles((theme) => ({
 
 function getSteps() {
   return [
-    'Choose Basic Details',
+    'Set Basic Details',
     'Select Gear',
-    'Select Class Moves',
-    'Add Abilities',
+    'Select Moves/Spells',
+    'Choose Abilities',
     'Add Bonds',
   ];
 }
@@ -103,6 +103,7 @@ export default function CampaignDetails() {
   const [charaAlignment, setCharaAlignment] = useState('');
   const [charaRaceMove, setCharaRaceMove] = useState('');
   const [charaMoveOption, setCharaMoveOption] = useState('');
+  const [charaSpellOption, setCharaSpellOption] = useState('');
   const [charaAbilities, setCharaAbilities] = useState([
     { category: 'STR', score: '1', afflicted: false },
     { category: 'DEX', score: '1', afflicted: false },
@@ -560,6 +561,22 @@ export default function CampaignDetails() {
         startingMoves = startingMoves.concat(newMoves);
       }
 
+      // STARTING SPELLS
+      let startingSpells = class_details[charaClass].spells.filter(
+        (x) => x.level === 0
+      );
+      if (charaSpellOption.length > 0) {
+        const newSpells = class_details[charaClass].spells.filter(
+          (x) => x.name === charaSpellOption
+        );
+        startingSpells = startingSpells.concat(newSpells);
+      }
+      if (startingSpells.length > 0) {
+        startingSpells = startingSpells.map((x) =>
+          Object.assign({}, x, { prepared: true })
+        );
+      }
+
       // STARTING GEAR
       let startingGear = class_details[charaClass].starting_gear;
       let gearChoices = charaGearOptions.map((choice, index) => {
@@ -631,7 +648,6 @@ export default function CampaignDetails() {
         armour: '0',
         backstory: '',
         bonds: charaBonds,
-        class_features: [],
         dw_class: charaClass,
         full_name: charaFullName,
         funds: startingFunds,
@@ -643,6 +659,7 @@ export default function CampaignDetails() {
         owner: currentUser.email,
         race: charaRace,
         race_move: charaRaceMove,
+        spells: startingSpells,
         xp: '0',
       })
         .then(() => {
