@@ -1,6 +1,19 @@
 - FUNCTIONAL WORK
-    - CreateCharacter - Add/remove Spells? (ROTE + CHOICE OF LEVEL 1) The wizard will need to choose spells for their spellbook. Both the cleric and the wizard will need to choose which spells they have prepared to start with.
+    - CreateCharacter
+    
+- The cleric knows all cleric spells of their level or lower,
+including their rotes. 
+
+- The wizard starts knowing their cantrips and
+three 1st level spells. When the wizard gains a level they learn a new
+spell. The wizard stores their known spells in their spellbook.
+
+- the spellcaster may choose known spells whose total levels are less than or equal to the
+caster’s level plus 1 to prepare.
+
+
     - CharacterSheet - Add/remove Spells?
+    - Character Notes
     - Session Notes
     - GM view with abilties?
     - Character status
