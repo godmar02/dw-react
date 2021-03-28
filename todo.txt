@@ -1,5 +1,5 @@
 - FUNCTIONAL WORK
-    - CreateCharacter - Add/remove Spells?
+    - CreateCharacter - Add/remove Spells? (ROTE + CHOICE OF LEVEL 1) The wizard will need to choose spells for their spellbook. Both the cleric and the wizard will need to choose which spells they have prepared to start with.
     - CharacterSheet - Add/remove Spells?
     - Session Notes
     - GM view with abilties?
