@@ -54,31 +54,32 @@ export default function AddSpell() {
     setOpen(false);
   }
 
-  function handleSave(move) {
-    addSpell(move);
+  function handleSave(spell) {
+    addSpell(spell);
     handleCancel();
   }
 
+  //TODO PREPARED = FALSE
   const addSpell = (spell) => {
     const newSpell = class_details[charaClass].spells.find(
       (x) => x.name === spell
     );
     if (newSpell) {
-      const newSpells = [...character.moves, newSpell]; // copying the old array and adding new move depending upon selection
+      const newSpells = [...character.spells, newSpell]; // copying the old array and adding new spell depending upon selection
       setCharacter((character) => ({ ...character, spells: newSpells })); // set array back
     }
   };
 
   function level(input) {
-    if (input === '1' && levelOne) {
+    if (input === 1 && levelOne) {
       return input;
-    } else if (input === '3' && levelThree) {
+    } else if (input === 3 && levelThree) {
       return input;
-    } else if (input === '5' && levelFive) {
+    } else if (input === 5 && levelFive) {
       return input;
-    } else if (input === '7' && levelSeven) {
+    } else if (input === 7 && levelSeven) {
       return input;
-    } else if (input === '9' && levelNine) {
+    } else if (input === 9 && levelNine) {
       return input;
     } else {
       return null;
@@ -176,11 +177,11 @@ export default function AddSpell() {
             class_details[charaClass].spells
               .filter(
                 (x) =>
-                  (x.level === level('1') ||
-                    x.level === level('3') ||
-                    x.level === level('5') ||
-                    x.level === level('7') ||
-                    x.level === level('9')) &&
+                  (x.level === level(1) ||
+                    x.level === level(3) ||
+                    x.level === level(5) ||
+                    x.level === level(7) ||
+                    x.level === level(9)) &&
                   isChosen(x.name) !== true
               )
               .map((data, index) => {

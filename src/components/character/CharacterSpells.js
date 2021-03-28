@@ -15,7 +15,7 @@ import {
   TextField,
   Tooltip,
 } from '@material-ui/core';
-import AddSpellState from 'components/contexts/AddMoveState';
+import AddSpellState from 'components/contexts/AddSpellState';
 import AddSpell from 'components/character/AddSpell';
 
 const useStyles = makeStyles((theme) => ({
