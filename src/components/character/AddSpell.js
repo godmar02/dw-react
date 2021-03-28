@@ -193,6 +193,7 @@ export default function AddSpell() {
                       </AccordionSummary>
                       <AccordionDetails>
                         <div>
+                          <p>Ongoing: {data.ongoing || false}</p>
                           <ReactMarkdown source={data.description} />
                         </div>
                         <br />

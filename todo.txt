@@ -1,5 +1,7 @@
 - FUNCTIONAL WORK
-    - CreateCharacter
+    - Disabled text fields / Checkboxes
+    - Add spell ongoing into add spell
+    - Can't delete zero level spell
     
 - The cleric knows all cleric spells of their level or lower,
 including their rotes. 

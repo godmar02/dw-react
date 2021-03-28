@@ -106,13 +106,13 @@ export default function CharacterSpells() {
               <TableCell align='center' style={{ width: 40 }}>
                 PREPARED
               </TableCell>
-              <TableCell align='center' style={{ width: 40 }}>
-                ONGOING
-              </TableCell>
               <TableCell align='center' style={{ width: 140 }}>
                 NAME
               </TableCell>
               <TableCell align='center'>DESCRIPTION</TableCell>
+              <TableCell align='center' style={{ width: 40 }}>
+                ONGOING
+              </TableCell>
               <TableCell align='center' style={{ width: 65 }}>
                 LEVEL
               </TableCell>
@@ -134,15 +134,7 @@ export default function CharacterSpells() {
                       <Checkbox
                         name='prepared'
                         checked={!!spell.prepared}
-                        onChange={(event) => updateSpellCheckbox(index)}
-                        color='primary'
-                      />
-                    </TableCell>
-                    <TableCell style={{ width: 20 }}>
-                      <Checkbox
-                        name='ongoing'
-                        checked={!!spell.ongoing}
-                        onChange={(event) => updateSpellCheckbox(index)}
+                        onChange={(event) => updateSpellCheckbox(event, index)}
                         color='primary'
                       />
                     </TableCell>
@@ -154,7 +146,8 @@ export default function CharacterSpells() {
                         variant='outlined'
                         value={spell.name}
                         name='name'
-                        onChange={(event) => updateSpell(event, index)}
+                        readOnly
+                        //onChange={(event) => updateSpell(event, index)}
                       />
                     </TableCell>
                     <TableCell>
@@ -166,12 +159,22 @@ export default function CharacterSpells() {
                         placeholder='Add spells details here'
                         value={spell.description}
                         name='description'
-                        onChange={(event) => updateSpell(event, index)}
+                        readOnly
+                        //onChange={(event) => updateSpell(event, index)}
+                      />
+                    </TableCell>
+                    <TableCell style={{ width: 20 }}>
+                      <Checkbox
+                        name='ongoing'
+                        checked={!!spell.ongoing}
+                        //onChange={(event) => updateSpellCheckbox(index)}
+                        color='primary'
+                        readOnly
                       />
                     </TableCell>
                     <TableCell>
                       <TextField
-                        type='number'
+                        //type='number'
                         fullWidth
                         size='small'
                         variant='outlined'
@@ -181,7 +184,8 @@ export default function CharacterSpells() {
                         }}
                         value={spell.level}
                         name='level'
-                        onChange={(event) => updateSpell(event, index)}
+                        readOnly
+                        //onChange={(event) => updateSpell(event, index)}
                       />
                     </TableCell>
                     <TableCell style={{ width: 40 }}>
