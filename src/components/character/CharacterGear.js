@@ -112,7 +112,7 @@ function Row(props) {
             {openRow ? <KeyboardArrowUp /> : <KeyboardArrowDown />}
           </IconButton>
         </TableCell>
-        <TableCell>
+        <TableCell align='center'>
           <Checkbox
             name={'item_checkbox' + index}
             checked={!!item.checkbox}

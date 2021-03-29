@@ -1,19 +1,13 @@
 - FUNCTIONAL WORK
-    - Disabled text fields / Checkboxes
-    - Add spell ongoing into add spell
-    - Can't delete zero level spell
-    
-- The cleric knows all cleric spells of their level or lower,
+    - Add spell ongoing into add spell    
+
+    - The cleric knows all cleric spells of their level or lower,
 including their rotes. 
-
-- The wizard starts knowing their cantrips and
+    - The wizard starts knowing their cantrips and
 three 1st level spells. When the wizard gains a level they learn a new
-spell. The wizard stores their known spells in their spellbook.
+spell. 
 
-- the spellcaster may choose known spells whose total levels are less than or equal to the
-caster’s level plus 1 to prepare.
-
-
+    - Character Creation - Add spells
     - CharacterSheet - Add/remove Spells?
     - Character Notes
     - Session Notes
@@ -21,6 +15,7 @@ caster’s level plus 1 to prepare.
     - Character status
 
 - MINOR UI FIXES
+    - Disabled text fields which are read-only (ABOUT)
     - CharacterSheet - Add move button placement
     - Dark Mode
     - Add character card sizing

@@ -130,7 +130,7 @@ export default function CharacterSpells() {
               character.spells.map((spell, index) => {
                 return (
                   <TableRow key={index}>
-                    <TableCell style={{ width: 20 }}>
+                    <TableCell align='center' style={{ width: 20 }}>
                       <Checkbox
                         name='prepared'
                         checked={!!spell.prepared}
@@ -138,43 +138,23 @@ export default function CharacterSpells() {
                         color='primary'
                       />
                     </TableCell>
-                    <TableCell>
-                      <TextField
-                        multiline
-                        fullWidth
-                        size='small'
-                        variant='outlined'
-                        value={spell.name}
-                        name='name'
-                        readOnly
-                        //onChange={(event) => updateSpell(event, index)}
-                      />
+                    <TableCell align='center'>
+                      <p>{spell.name}</p>
                     </TableCell>
                     <TableCell>
-                      <TextField
-                        multiline
-                        fullWidth
-                        size='small'
-                        variant='outlined'
-                        placeholder='Add spells details here'
-                        value={spell.description}
-                        name='description'
-                        readOnly
-                        //onChange={(event) => updateSpell(event, index)}
-                      />
+                      <p>{spell.description}</p>
                     </TableCell>
-                    <TableCell style={{ width: 20 }}>
+                    <TableCell align='center' style={{ width: 20 }}>
                       <Checkbox
                         name='ongoing'
                         checked={!!spell.ongoing}
                         //onChange={(event) => updateSpellCheckbox(index)}
                         color='primary'
-                        readOnly
+                        disabled
                       />
                     </TableCell>
                     <TableCell>
                       <TextField
-                        //type='number'
                         fullWidth
                         size='small'
                         variant='outlined'
@@ -184,26 +164,27 @@ export default function CharacterSpells() {
                         }}
                         value={spell.level}
                         name='level'
-                        readOnly
+                        disabled
                         //onChange={(event) => updateSpell(event, index)}
                       />
                     </TableCell>
                     <TableCell style={{ width: 40 }}>
-                      <Tooltip title='Delete'>
-                        <IconButton
-                          aria-label='delete'
-                          onClick={() => deleteSpellRow(index)}>
-                          <Delete />
-                        </IconButton>
-                      </Tooltip>
+                      {spell.level === 0 ? null : (
+                        <Tooltip title='Delete'>
+                          <IconButton
+                            aria-label='delete'
+                            onClick={() => deleteSpellRow(index)}>
+                            <Delete />
+                          </IconButton>
+                        </Tooltip>
+                      )}
                     </TableCell>
                   </TableRow>
                 );
               })}
-
             <TableRow>
               <TableCell align='right' colSpan='4'>
-                TOTAL PREPARED SPELL LEVEL
+                PREPARED SPELLS LEVEL
               </TableCell>
               <TableCell>
                 <TextField
