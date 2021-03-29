@@ -4,6 +4,9 @@ import { Link, useHistory } from 'react-router-dom';
 import * as FirebaseService from 'services/firebase';
 import AuthState from 'components/contexts/AuthState';
 import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
   Button,
   Breadcrumbs,
   Card,
@@ -25,7 +28,7 @@ import {
   StepLabel,
   TextField,
 } from '@material-ui/core';
-import { Save } from '@material-ui/icons';
+import { ExpandMore, Save } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/core/styles';
 import ReactMarkdown from 'react-markdown';
 import { class_details } from 'data/classDetails';
@@ -103,7 +106,7 @@ export default function CampaignDetails() {
   const [charaAlignment, setCharaAlignment] = useState('');
   const [charaRaceMove, setCharaRaceMove] = useState('');
   const [charaMoveOption, setCharaMoveOption] = useState('');
-  const [charaSpellOption, setCharaSpellOption] = useState('');
+  const [charaSpellOptions, setCharaSpellOptions] = useState([]);
   const [charaAbilities, setCharaAbilities] = useState([
     { category: 'STR', score: '1', afflicted: false },
     { category: 'DEX', score: '1', afflicted: false },
@@ -115,7 +118,7 @@ export default function CampaignDetails() {
   const [charaGearOptions, setCharaGearOptions] = useState([]);
   const [charaBonds, setCharaBonds] = useState([]);
   const [activeStep, setActiveStep] = useState(0);
-  const [error, setError] = useState(false);
+  const [gearError, setGearError] = useState(false);
   const steps = getSteps();
 
   function handleNext() {
@@ -253,7 +256,7 @@ export default function CampaignDetails() {
   }
 
   function addCharaGearMultiOptions(checked, option, index) {
-    setError(true);
+    setGearError(true);
     let newGear = [...charaGearOptions];
     if (!newGear[index]) {
       newGear[index] = [];
@@ -265,9 +268,9 @@ export default function CampaignDetails() {
       charaGearOptions[index].filter((v) => v === true).length ===
         class_details[charaClass].starting_gear_options[index].multiplicity
     ) {
-      setError(false);
+      setGearError(false);
     } else {
-      setError(true);
+      setGearError(true);
     }
   }
 
@@ -366,7 +369,7 @@ export default function CampaignDetails() {
         class_details[charaClass].starting_gear_options.length &&
       !charaGearOptions.includes(null) &&
       !charaGearOptions.includes(undefined) &&
-      !error
+      !gearError
     ) {
       return (
         <Button
@@ -396,27 +399,31 @@ export default function CampaignDetails() {
     );
     if (moveChoices.length > 0) {
       return (
-        <FormControl component='fieldset' className={classes.formControl}>
-          <RadioGroup
-            aria-label='starting move choice'
-            name='starting move choice'
-            value={charaMoveOption}
-            onChange={(event) => setCharaMoveOption(event.target.value)}>
-            {moveChoices.map((move, index) => {
-              return (
-                <FormControlLabel
-                  key={index}
-                  value={move.name}
-                  control={<Radio color='primary' />}
-                  label={move.name + ' - ' + move.description}
-                />
-              );
-            })}
-          </RadioGroup>
-        </FormControl>
+        <>
+          <br />
+          <FormControl component='fieldset' className={classes.formControl}>
+            <FormLabel component='legend'>Choose an additional move:</FormLabel>
+            <RadioGroup
+              aria-label='starting move choice'
+              name='starting move choice'
+              value={charaMoveOption}
+              onChange={(event) => setCharaMoveOption(event.target.value)}>
+              {moveChoices.map((move, index) => {
+                return (
+                  <FormControlLabel
+                    key={index}
+                    value={move.name}
+                    control={<Radio color='primary' />}
+                    label={move.name + ' - ' + move.description}
+                  />
+                );
+              })}
+            </RadioGroup>
+          </FormControl>
+        </>
       );
     } else {
-      return <p>No move choices to make</p>;
+      return null;
     }
   }
 
@@ -425,8 +432,11 @@ export default function CampaignDetails() {
       (x) => x.level === 'starting' && x.selected === false
     );
     if (
-      (moveChoices.length > 0 && charaMoveOption.length > 0) ||
-      moveChoices.length === 0
+      ((moveChoices.length > 0 && charaMoveOption.length > 0) ||
+        moveChoices.length === 0) &&
+      (charaClass !== 'Wizard' ||
+        (charaClass === 'Wizard' &&
+          charaSpellOptions.filter((v) => v === true).length === 3))
     ) {
       return (
         <Button
@@ -447,6 +457,62 @@ export default function CampaignDetails() {
           Next
         </Button>
       );
+    }
+  }
+
+  function addCharaSpellOptions(checked, index) {
+    let newSpells = [...charaSpellOptions];
+    newSpells[index] = checked;
+    setCharaSpellOptions(newSpells, console.log(charaSpellOptions)); // set array back
+  }
+
+  function spellOptions() {
+    if (charaClass === 'Wizard') {
+      const spellChoices = class_details[charaClass].spells.filter(
+        (x) => x.level === 1
+      );
+      return (
+        <>
+          <br />
+          <FormControl component='fieldset' className={classes.formControl}>
+            <FormLabel component='legend'>
+              Choose three first level spells to learn:
+            </FormLabel>
+            <br />
+            <FormGroup>
+              {spellChoices.map((spell, index) => {
+                let spellOngoing = '';
+                if (spell.ongoing) {
+                  spellOngoing = ' (Ongoing)';
+                }
+                const spellDescr =
+                  spell.name + spellOngoing + ' - ' + spell.description;
+                return (
+                  <FormControlLabel
+                    key={'checkbox' + index}
+                    control={
+                      <Checkbox
+                        color='primary'
+                        checked={
+                          charaSpellOptions[index]
+                            ? !!charaSpellOptions[index]
+                            : false
+                        }
+                        onChange={(event) => {
+                          addCharaSpellOptions(event.target.checked, index);
+                        }}
+                      />
+                    }
+                    label={spellDescr}
+                  />
+                );
+              })}
+            </FormGroup>
+          </FormControl>
+        </>
+      );
+    } else {
+      return null;
     }
   }
 
@@ -562,20 +628,36 @@ export default function CampaignDetails() {
       }
 
       // STARTING SPELLS
-      let startingSpells = class_details[charaClass].spells.filter(
-        (x) => x.level === 0
-      );
-      if (charaSpellOption.length > 0) {
-        const newSpells = class_details[charaClass].spells.filter(
-          (x) => x.name === charaSpellOption
+      let startingSpells = [];
+      if (charaClass === 'Cleric') {
+        // Cleric knows all level 0 and 1 spells
+        startingSpells = class_details[charaClass].spells.filter(
+          (x) => x.level === 0 || x.level === 1
         );
+      } else if (charaClass === 'Wizard') {
+        // Wizard knows all level 0 and three chosen level 1 spells
+        startingSpells = class_details[charaClass].spells.filter(
+          (x) => x.level === 0
+        );
+        const spellChoices = class_details[charaClass].spells.filter(
+          (x) => x.level === 1
+        );
+        let chosenSpell = '';
+        const newSpells = charaSpellOptions.map((option, index) => {
+          if (option) {
+            chosenSpell = spellChoices[index];
+          }
+          return chosenSpell;
+        });
         startingSpells = startingSpells.concat(newSpells);
       }
+
       if (startingSpells.length > 0) {
         startingSpells = startingSpells.map((x) =>
           Object.assign({}, x, { prepared: true })
         );
       }
+      console.log('startingSpells:', startingSpells);
 
       // STARTING GEAR
       let startingGear = class_details[charaClass].starting_gear;
@@ -678,6 +760,7 @@ export default function CampaignDetails() {
   function getStepContent(stepIndex) {
     switch (stepIndex) {
       case 0:
+        //BASIC DETAILS
         return (
           <>
             <Card className={classes.card}>
@@ -863,6 +946,7 @@ export default function CampaignDetails() {
           </>
         );
       case 1:
+        // GEAR
         return (
           <>
             <Card className={classes.card}>
@@ -901,13 +985,88 @@ export default function CampaignDetails() {
           </>
         );
       case 2:
+        //MOVES AND SPELLS
         return (
           <>
             <Card className={classes.card}>
-              <CardHeader className={classes.cardHeader} title='Class Moves' />
-              <CardContent>{moveOptions()}</CardContent>
+              <CardHeader className={classes.cardHeader} title='Moves' />
+              <CardContent>
+                You start with the following moves:
+                {class_details[charaClass].moves
+                  .filter((x) => x.level === 'starting')
+                  .map((move, index) => {
+                    return (
+                      <Accordion key={index}>
+                        <AccordionSummary expandIcon={<ExpandMore />}>
+                          {move.name}
+                        </AccordionSummary>
+                        <AccordionDetails>
+                          <div>
+                            <ReactMarkdown source={move.description} />
+                          </div>
+                        </AccordionDetails>
+                      </Accordion>
+                    );
+                  })}
+                {moveOptions()}
+              </CardContent>
             </Card>
             <br />
+            {charaClass === 'Cleric' || charaClass === 'Wizard' ? (
+              <>
+                <Card className={classes.card}>
+                  <CardHeader className={classes.cardHeader} title='Spells' />
+                  <CardContent>
+                    You start with the following spells:
+                    {class_details[charaClass].spells
+                      .filter((x) => x.level === 0)
+                      .map((spell, index) => {
+                        let spellOngoing = '';
+                        if (spell.ongoing) {
+                          spellOngoing = ' (Ongoing)';
+                        }
+                        return (
+                          <Accordion key={index}>
+                            <AccordionSummary expandIcon={<ExpandMore />}>
+                              {spell.name}
+                              {spellOngoing}
+                            </AccordionSummary>
+                            <AccordionDetails>
+                              <div>
+                                <ReactMarkdown source={spell.description} />
+                              </div>
+                            </AccordionDetails>
+                          </Accordion>
+                        );
+                      })}
+                    {charaClass === 'Cleric' &&
+                      class_details[charaClass].spells
+                        .filter((x) => x.level === 1)
+                        .map((spell, index) => {
+                          let spellOngoing = '';
+                          if (spell.ongoing) {
+                            spellOngoing = ' (Ongoing)';
+                          }
+                          return (
+                            <Accordion key={index}>
+                              <AccordionSummary expandIcon={<ExpandMore />}>
+                                {spell.name}
+                                {spellOngoing}
+                              </AccordionSummary>
+                              <AccordionDetails>
+                                <div>
+                                  <ReactMarkdown source={spell.description} />
+                                </div>
+                              </AccordionDetails>
+                            </Accordion>
+                          );
+                        })}
+                    {spellOptions()}
+                  </CardContent>
+                </Card>
+                <br />
+              </>
+            ) : null}
             <Button
               onClick={handleCancel}
               className={classes.button}

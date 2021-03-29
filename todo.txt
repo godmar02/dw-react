@@ -1,6 +1,5 @@
 - FUNCTIONAL WORK
-    - CREATION - Wizard, select three first level spells
-    - CREATION - Cleric add level one spells by default
+    - CREATION - WHAT SPELLS ARE PREPARED?
     - Character Notes
     - Session Notes
     - GM view with abilties?
