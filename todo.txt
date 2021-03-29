@@ -1,14 +1,7 @@
 - FUNCTIONAL WORK
-    - Add spell ongoing into add spell    
-
-    - The cleric knows all cleric spells of their level or lower,
-including their rotes. 
-    - The wizard starts knowing their cantrips and
-three 1st level spells. When the wizard gains a level they learn a new
-spell. 
-
-    - Character Creation - Add spells
-    - CharacterSheet - Add/remove Spells?
+    - ADD SPELL - spell ongoing
+    - CREATION - Wizard, select three first level spells
+    - CREATION - Cleric add level one spells
     - Character Notes
     - Session Notes
     - GM view with abilties?
@@ -20,3 +13,9 @@ spell.
     - Dark Mode
     - Add character card sizing
     - Centre the Class add move
+
+
+
+SPELL RULES
+- The cleric knows all cleric spells of their level or lower, including their rotes. 
+- The wizard starts knowing their cantrips and three 1st level spells. When the wizard gains a level they learn a new spell. 
