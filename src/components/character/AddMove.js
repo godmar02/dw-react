@@ -109,27 +109,29 @@ export default function AddMove() {
         <br />
         <div>
           <FormControl component='fieldset'>
-            <FormLabel component='legend'>Filter Moves:</FormLabel>
+            <FormLabel component='legend'>Filter by level:</FormLabel>
             <FormGroup row>
               <FormControlLabel
                 control={
                   <Checkbox
                     color='primary'
                     name='2to5'
+                    checked={!!twoToFive}
                     onChange={() => setTwoToFive(!twoToFive)}
                   />
                 }
-                label='Level 2-5'
+                label='2-5'
               />
               <FormControlLabel
                 control={
                   <Checkbox
                     color='primary'
                     name='6to10'
+                    checked={!!sixToTen}
                     onChange={() => setSixToTen(!sixToTen)}
                   />
                 }
-                label='Level 6-10'
+                label='6-10'
               />
             </FormGroup>
           </FormControl>

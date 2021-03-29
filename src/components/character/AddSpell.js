@@ -38,7 +38,7 @@ export default function AddSpell() {
   const { open, setOpen } = useContext(AddSpellState);
   const { character, setCharacter } = useContext(CharacterState);
   const [charaClass, setCharaClass] = useState(character.dw_class);
-  const [levelOne, setLevelOne] = useState(false);
+  const [levelOne, setLevelOne] = useState(true);
   const [levelThree, setLevelThree] = useState(false);
   const [levelFive, setLevelFive] = useState(false);
   const [levelSeven, setLevelSeven] = useState(false);
@@ -123,6 +123,7 @@ export default function AddSpell() {
                   <Checkbox
                     color='primary'
                     name='One'
+                    checked={!!levelOne}
                     onChange={() => setLevelOne(!levelOne)}
                   />
                 }
@@ -133,6 +134,7 @@ export default function AddSpell() {
                   <Checkbox
                     color='primary'
                     name='Three'
+                    checked={!!levelThree}
                     onChange={() => setLevelThree(!levelThree)}
                   />
                 }
@@ -143,6 +145,7 @@ export default function AddSpell() {
                   <Checkbox
                     color='primary'
                     name='Five'
+                    checked={!!levelFive}
                     onChange={() => setLevelOne(!levelFive)}
                   />
                 }
@@ -153,6 +156,7 @@ export default function AddSpell() {
                   <Checkbox
                     color='primary'
                     name='Seven'
+                    checked={!!levelSeven}
                     onChange={() => setLevelSeven(!levelSeven)}
                   />
                 }
@@ -163,6 +167,7 @@ export default function AddSpell() {
                   <Checkbox
                     color='primary'
                     name='Nine'
+                    checked={!!levelNine}
                     onChange={() => setLevelOne(!levelNine)}
                   />
                 }
@@ -190,10 +195,10 @@ export default function AddSpell() {
                     <Accordion>
                       <AccordionSummary expandIcon={<ExpandMore />}>
                         {data.name + ' (level ' + data.level + ')'}
+                        <p>{data.ongoing}</p>
                       </AccordionSummary>
                       <AccordionDetails>
                         <div>
-                          <p>Ongoing: {data.ongoing || false}</p>
                           <ReactMarkdown source={data.description} />
                         </div>
                         <br />
