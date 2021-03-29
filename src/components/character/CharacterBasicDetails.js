@@ -137,14 +137,7 @@ export default function CharacterBasicDetails() {
                 />
               </TableCell>
               <TableCell>
-                <TextField
-                  multiline
-                  fullWidth
-                  readOnly
-                  variant='outlined'
-                  name='race_move'
-                  value={character.race_move}
-                />
+                <p>{character.race_move}</p>
               </TableCell>
             </TableRow>
             <TableRow>
@@ -160,14 +153,7 @@ export default function CharacterBasicDetails() {
                 />
               </TableCell>
               <TableCell>
-                <TextField
-                  multiline
-                  fullWidth
-                  readOnly
-                  variant='outlined'
-                  name='alignment_move'
-                  value={alignmentAttribute()}
-                />
+                <p>{alignmentAttribute()}</p>
               </TableCell>
             </TableRow>
           </TableBody>

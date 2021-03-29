@@ -194,12 +194,12 @@ export default function AddSpell() {
                   <Typography component={'span'} key={index}>
                     <Accordion>
                       <AccordionSummary expandIcon={<ExpandMore />}>
-                        {data.name + ' (level ' + data.level + ')'}
-                        <p>{data.ongoing}</p>
+                        {data.name + ' (lvl ' + data.level + ')'}
                       </AccordionSummary>
                       <AccordionDetails>
                         <div>
                           <ReactMarkdown source={data.description} />
+                          {data.ongoing ? ' (Ongoing)' : null}
                         </div>
                         <br />
                         <div>
