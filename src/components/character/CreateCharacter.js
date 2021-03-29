@@ -463,7 +463,7 @@ export default function CampaignDetails() {
   function addCharaSpellOptions(checked, index) {
     let newSpells = [...charaSpellOptions];
     newSpells[index] = checked;
-    setCharaSpellOptions(newSpells, console.log(charaSpellOptions)); // set array back
+    setCharaSpellOptions(newSpells); // set array back
   }
 
   function spellOptions() {
@@ -605,14 +605,7 @@ export default function CampaignDetails() {
   }
 
   function saveCharacter() {
-    if (
-      campaignURL &&
-      charaName &&
-      charaClass &&
-      charaAlignment &&
-      charaRace &&
-      charaRaceMove
-    ) {
+    if (campaignURL && charaName) {
       // STARTING FUNDS
       let startingFunds = String(class_details[charaClass].starting_funds);
 
@@ -653,11 +646,14 @@ export default function CampaignDetails() {
       }
 
       if (startingSpells.length > 0) {
-        startingSpells = startingSpells.map((x) =>
-          Object.assign({}, x, { prepared: true })
-        );
+        startingSpells = startingSpells.map((x) => {
+          if (x.level === 0) {
+            return Object.assign({}, x, { prepared: true });
+          } else {
+            return Object.assign({}, x, { prepared: false });
+          }
+        });
       }
-      console.log('startingSpells:', startingSpells);
 
       // STARTING GEAR
       let startingGear = class_details[charaClass].starting_gear;
@@ -1093,6 +1089,7 @@ export default function CampaignDetails() {
           </>
         );
       case 3:
+        //ABILITIES
         return (
           <>
             <Card className={classes.abCard}>
@@ -1204,6 +1201,7 @@ export default function CampaignDetails() {
           </>
         );
       case 4:
+        //BONDS
         return (
           <>
             <Card className={classes.card}>

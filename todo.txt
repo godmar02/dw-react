@@ -1,5 +1,5 @@
 - FUNCTIONAL WORK
-    - CREATION - WHAT SPELLS ARE PREPARED?
+    - CREATION - Wizard move errors
     - Character Notes
     - Session Notes
     - GM view with abilties?
