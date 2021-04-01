@@ -428,15 +428,13 @@ export default function CampaignDetails() {
   }
 
   function moveNext() {
-    const moveChoices = class_details[charaClass].moves.filter(
-      (x) => x.level === 'starting' && x.selected === false
-    );
+    const moveChoice = charaMoveOption.length;
+    const spellChoices = charaSpellOptions.filter((v) => v === true).length;
     if (
-      ((moveChoices.length > 0 && charaMoveOption.length > 0) ||
-        moveChoices.length === 0) &&
-      (charaClass !== 'Wizard' ||
-        (charaClass === 'Wizard' &&
-          charaSpellOptions.filter((v) => v === true).length === 3))
+      (charaClass === 'Barbarian' && moveChoice > 0) ||
+      (charaClass === 'Cleric' && spellChoices === 2) ||
+      (charaClass === 'Wizard' && spellChoices === 3) ||
+      !['Wizard', 'Cleric', 'Barbarian'].includes(charaClass)
     ) {
       return (
         <Button
@@ -463,7 +461,7 @@ export default function CampaignDetails() {
   function addCharaSpellOptions(checked, index) {
     let newSpells = [...charaSpellOptions];
     newSpells[index] = checked;
-    setCharaSpellOptions(newSpells); // set array back
+    setCharaSpellOptions(newSpells);
   }
 
   function spellOptions() {
@@ -476,7 +474,59 @@ export default function CampaignDetails() {
           <br />
           <FormControl component='fieldset' className={classes.formControl}>
             <FormLabel component='legend'>
-              Choose three first level spells to learn:
+              Choose three first level spells to add to your spellbook:
+            </FormLabel>
+            <br />
+            <FormGroup>
+              {spellChoices.map((spell, index) => {
+                let spellOngoing = '';
+                if (spell.ongoing) {
+                  spellOngoing = ' (Ongoing)';
+                }
+                let spellSchool = '';
+                if (spell.school) {
+                  spellSchool = ' (School: ' + spell.school + ')';
+                }
+                const spellDescr =
+                  spell.name +
+                  spellOngoing +
+                  spellSchool +
+                  ' - ' +
+                  spell.description;
+                return (
+                  <FormControlLabel
+                    key={'checkbox' + index}
+                    control={
+                      <Checkbox
+                        color='primary'
+                        checked={
+                          charaSpellOptions[index]
+                            ? !!charaSpellOptions[index]
+                            : false
+                        }
+                        onChange={(event) => {
+                          addCharaSpellOptions(event.target.checked, index);
+                        }}
+                      />
+                    }
+                    label={spellDescr}
+                  />
+                );
+              })}
+            </FormGroup>
+          </FormControl>
+        </>
+      );
+    } else if (charaClass === 'Cleric') {
+      const spellChoices = class_details[charaClass].spells.filter(
+        (x) => x.level === 1
+      );
+      return (
+        <>
+          <br />
+          <FormControl component='fieldset' className={classes.formControl}>
+            <FormLabel component='legend'>
+              Choose two first level spell to additionally prepare:
             </FormLabel>
             <br />
             <FormGroup>
@@ -622,13 +672,8 @@ export default function CampaignDetails() {
 
       // STARTING SPELLS
       let startingSpells = [];
-      if (charaClass === 'Cleric') {
-        // Cleric knows all level 0 and 1 spells
-        startingSpells = class_details[charaClass].spells.filter(
-          (x) => x.level === 0 || x.level === 1
-        );
-      } else if (charaClass === 'Wizard') {
-        // Wizard knows all level 0 and three chosen level 1 spells
+      if (charaClass === 'Cleric' || charaClass === 'Wizard') {
+        // You start with all level 0 spells
         startingSpells = class_details[charaClass].spells.filter(
           (x) => x.level === 0
         );
@@ -644,13 +689,18 @@ export default function CampaignDetails() {
         });
         startingSpells = startingSpells.concat(newSpells);
       }
-
-      if (startingSpells.length > 0) {
+      if (charaClass === 'Cleric') {
+        //Adding forgotten
+        startingSpells = startingSpells.map((x) => {
+          return Object.assign({}, x, { forgotten: false });
+        });
+      } else if (charaClass === 'Wizard') {
+        //Adding prepared and forgotten
         startingSpells = startingSpells.map((x) => {
           if (x.level === 0) {
-            return Object.assign({}, x, { prepared: true });
+            return Object.assign({}, x, { prepared: true, forgotten: false });
           } else {
-            return Object.assign({}, x, { prepared: false });
+            return Object.assign({}, x, { prepared: false, forgotten: false });
           }
         });
       }
@@ -1021,11 +1071,16 @@ export default function CampaignDetails() {
                         if (spell.ongoing) {
                           spellOngoing = ' (Ongoing)';
                         }
+                        let spellSchool = '';
+                        if (spell.school) {
+                          spellSchool = ' (School: ' + spell.school + ')';
+                        }
                         return (
                           <Accordion key={index}>
                             <AccordionSummary expandIcon={<ExpandMore />}>
                               {spell.name}
                               {spellOngoing}
+                              {spellSchool}
                             </AccordionSummary>
                             <AccordionDetails>
                               <div>
@@ -1035,28 +1090,6 @@ export default function CampaignDetails() {
                           </Accordion>
                         );
                       })}
-                    {charaClass === 'Cleric' &&
-                      class_details[charaClass].spells
-                        .filter((x) => x.level === 1)
-                        .map((spell, index) => {
-                          let spellOngoing = '';
-                          if (spell.ongoing) {
-                            spellOngoing = ' (Ongoing)';
-                          }
-                          return (
-                            <Accordion key={index}>
-                              <AccordionSummary expandIcon={<ExpandMore />}>
-                                {spell.name}
-                                {spellOngoing}
-                              </AccordionSummary>
-                              <AccordionDetails>
-                                <div>
-                                  <ReactMarkdown source={spell.description} />
-                                </div>
-                              </AccordionDetails>
-                            </Accordion>
-                          );
-                        })}
                     {spellOptions()}
                   </CardContent>
                 </Card>

@@ -38,6 +38,7 @@ export default function AddSpell() {
   const { open, setOpen } = useContext(AddSpellState);
   const { character, setCharacter } = useContext(CharacterState);
   const [charaClass, setCharaClass] = useState(character.dw_class);
+  const [levelZero, setLevelZero] = useState(true);
   const [levelOne, setLevelOne] = useState(true);
   const [levelThree, setLevelThree] = useState(false);
   const [levelFive, setLevelFive] = useState(false);
@@ -45,6 +46,7 @@ export default function AddSpell() {
   const [levelNine, setLevelNine] = useState(false);
 
   function handleCancel() {
+    setLevelZero(false);
     setLevelOne(false);
     setLevelThree(false);
     setLevelFive(false);
@@ -71,7 +73,9 @@ export default function AddSpell() {
   };
 
   function level(input) {
-    if (input === 1 && levelOne) {
+    if (input === 0 && levelZero) {
+      return input;
+    } else if (input === 1 && levelOne) {
       return input;
     } else if (input === 3 && levelThree) {
       return input;
@@ -123,6 +127,17 @@ export default function AddSpell() {
                   <Checkbox
                     color='primary'
                     name='One'
+                    checked={!!levelZero}
+                    onChange={() => setLevelZero(!levelZero)}
+                  />
+                }
+                label='0'
+              />
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    color='primary'
+                    name='One'
                     checked={!!levelOne}
                     onChange={() => setLevelOne(!levelOne)}
                   />
@@ -146,7 +161,7 @@ export default function AddSpell() {
                     color='primary'
                     name='Five'
                     checked={!!levelFive}
-                    onChange={() => setLevelOne(!levelFive)}
+                    onChange={() => setLevelFive(!levelFive)}
                   />
                 }
                 label='5'
@@ -168,7 +183,7 @@ export default function AddSpell() {
                     color='primary'
                     name='Nine'
                     checked={!!levelNine}
-                    onChange={() => setLevelOne(!levelNine)}
+                    onChange={() => setLevelNine(!levelNine)}
                   />
                 }
                 label='9'
@@ -182,7 +197,8 @@ export default function AddSpell() {
             class_details[charaClass].spells
               .filter(
                 (x) =>
-                  (x.level === level(1) ||
+                  (x.level === level(0) ||
+                    x.level === level(1) ||
                     x.level === level(3) ||
                     x.level === level(5) ||
                     x.level === level(7) ||
@@ -194,12 +210,13 @@ export default function AddSpell() {
                   <Typography component={'span'} key={index}>
                     <Accordion>
                       <AccordionSummary expandIcon={<ExpandMore />}>
-                        {data.name + ' (lvl ' + data.level + ')'}
+                        {data.name + ' (lvl ' + data.level + ')'}{' '}
+                        {data.ongoing ? ' (Ongoing)' : null}
+                        {data.school ? ' (' + data.school + ')' : null}
                       </AccordionSummary>
                       <AccordionDetails>
                         <div>
                           <ReactMarkdown source={data.description} />
-                          {data.ongoing ? ' (Ongoing)' : null}
                         </div>
                         <br />
                         <div>

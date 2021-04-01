@@ -3,6 +3,7 @@ import CharacterState from 'components/contexts/CharacterState';
 import { Add, Delete } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/core/styles';
 import {
+  Button,
   Checkbox,
   IconButton,
   Paper,
@@ -17,6 +18,7 @@ import {
 } from '@material-ui/core';
 import AddSpellState from 'components/contexts/AddSpellState';
 import AddSpell from 'components/character/AddSpell';
+import { class_details } from 'data/classDetails';
 
 const useStyles = makeStyles((theme) => ({
   table: {
@@ -29,6 +31,7 @@ export default function CharacterSpells() {
   const { character, setCharacter } = useContext(CharacterState);
   const [open, setOpen] = useState(false);
   const ctx = useMemo(() => ({ open, setOpen }), [open]);
+  const dwc = character.dw_class;
 
   // State manipulation
   const updateSpellCheckbox = (event, index) => {
@@ -67,12 +70,19 @@ export default function CharacterSpells() {
 
   function totalPreparedSpells() {
     if (character.spells) {
-      return character.spells
-        .filter((x) => x.prepared === true)
-        .reduce(
+      if (dwc === 'Cleric') {
+        return character.spells.reduce(
           (totalSpells, data) => totalSpells + parseInt(data.level || 0, 10),
           0
         );
+      } else if (dwc === 'Wizard') {
+        return character.spells
+          .filter((x) => x.prepared === true)
+          .reduce(
+            (totalSpells, data) => totalSpells + parseInt(data.level || 0, 10),
+            0
+          );
+      }
     } else {
       return '';
     }
@@ -90,123 +100,183 @@ export default function CharacterSpells() {
     }
   }
 
+  function commune() {
+    //Delete any non-rotes moves, user can select new moves to add
+    let newSpells = [...character.spells]; // copying the old array
+    newSpells = newSpells.filter((x) => x.level === 0);
+    setCharacter((character) => ({
+      ...character,
+      spells: newSpells,
+    })); // set array back
+  }
+
+  function prepareSpells() {
+    //Unprepare any non-cantrips
+    let newSpells = [...character.spells]; // copying the old array
+    newSpells = newSpells.map((x) => {
+      if (x.level !== 1) {
+        x.prepared = false;
+      }
+    });
+    setCharacter((character) => ({
+      ...character,
+      spells: newSpells,
+    })); // set array back
+  }
+
   function handleClickOpen() {
     setOpen(true);
   }
 
+  //TODO ADD SCHOOL / ONGOING
   return (
     <>
-      <AddSpellState.Provider value={ctx}>
-        <AddSpell />
-      </AddSpellState.Provider>
-      <TableContainer component={Paper}>
-        <Table className={classes.table} size='small'>
-          <TableHead>
-            <TableRow>
-              <TableCell align='center' style={{ width: 40 }}>
-                PREPARED
-              </TableCell>
-              <TableCell align='center' style={{ width: 140 }}>
-                NAME
-              </TableCell>
-              <TableCell align='center'>DESCRIPTION</TableCell>
-              <TableCell align='center' style={{ width: 40 }}>
-                ONGOING
-              </TableCell>
-              <TableCell align='center' style={{ width: 65 }}>
-                LEVEL
-              </TableCell>
-              <TableCell align='center'>
-                <Tooltip title='Add Spell'>
-                  <IconButton aria-label='add' onClick={handleClickOpen}>
-                    <Add />
-                  </IconButton>
-                </Tooltip>
-              </TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {character.spells &&
-              character.spells.map((spell, index) => {
-                return (
-                  <TableRow key={index}>
-                    <TableCell align='center' style={{ width: 20 }}>
-                      <Checkbox
-                        name='prepared'
-                        checked={!!spell.prepared}
-                        onChange={(event) => updateSpellCheckbox(event, index)}
-                        color='primary'
-                      />
+      {dwc === 'Cleric' || dwc === 'Wizard' ? (
+        <>
+          <AddSpellState.Provider value={ctx}>
+            <AddSpell />
+          </AddSpellState.Provider>
+          <TableContainer component={Paper}>
+            <Table className={classes.table} size='small'>
+              <TableHead>
+                <TableRow>
+                  {dwc === 'Wizard' ? (
+                    <TableCell align='center' style={{ width: 40 }}>
+                      PREPARED
                     </TableCell>
-                    <TableCell align='center'>
-                      <p>{spell.name}</p>
+                  ) : null}
+                  <TableCell align='center' style={{ width: 40 }}>
+                    FORGOTTEN
+                  </TableCell>
+                  <TableCell align='center' style={{ width: 140 }}>
+                    NAME
+                  </TableCell>
+                  <TableCell align='center'>DESCRIPTION</TableCell>
+                  <TableCell align='center' style={{ width: 65 }}>
+                    LEVEL
+                  </TableCell>
+                  <TableCell align='center'>
+                    <Tooltip title='Add Spell'>
+                      <IconButton aria-label='add' onClick={handleClickOpen}>
+                        <Add />
+                      </IconButton>
+                    </Tooltip>
+                  </TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {character.spells &&
+                  character.spells.map((spell, index) => {
+                    return (
+                      <TableRow key={index}>
+                        {dwc === 'Wizard' ? (
+                          <TableCell align='center' style={{ width: 20 }}>
+                            <Checkbox
+                              name='prepared'
+                              checked={!!spell.prepared}
+                              onChange={(event) =>
+                                updateSpellCheckbox(event, index)
+                              }
+                              color='primary'
+                              disabled={spell.level === 0}
+                            />
+                          </TableCell>
+                        ) : null}
+                        <TableCell align='center' style={{ width: 20 }}>
+                          <Checkbox
+                            name='forgotten'
+                            checked={!!spell.forgotten}
+                            onChange={(event) =>
+                              updateSpellCheckbox(event, index)
+                            }
+                            color='primary'
+                          />
+                        </TableCell>
+                        <TableCell align='center'>
+                          <p>{spell.name}</p>
+                        </TableCell>
+                        <TableCell>
+                          <p>{spell.description}</p>
+                        </TableCell>
+                        <TableCell>
+                          <TextField
+                            fullWidth
+                            type='number'
+                            size='small'
+                            variant='outlined'
+                            inputProps={{
+                              style: { textAlign: 'center' },
+                              min: 0,
+                            }}
+                            value={spell.level}
+                            name='level'
+                            onChange={(event) => updateSpell(event, index)}
+                          />
+                        </TableCell>
+                        <TableCell style={{ width: 40 }}>
+                          {spell.level !== 0 ? (
+                            <Tooltip title='Delete'>
+                              <IconButton
+                                aria-label='delete'
+                                onClick={() => deleteSpellRow(index)}>
+                                <Delete />
+                              </IconButton>
+                            </Tooltip>
+                          ) : null}
+                        </TableCell>
+                      </TableRow>
+                    );
+                  })}
+                <TableRow>
+                  {dwc === 'Wizard' ? (
+                    <TableCell align='right' colSpan='4'>
+                      PREPARED SPELLS
                     </TableCell>
-                    <TableCell>
-                      <p>{spell.description}</p>
+                  ) : (
+                    <TableCell align='right' colSpan='3'>
+                      PREPARED SPELLS
                     </TableCell>
-                    <TableCell align='center' style={{ width: 20 }}>
-                      <Checkbox
-                        name='ongoing'
-                        checked={!!spell.ongoing}
-                        //onChange={(event) => updateSpellCheckbox(index)}
-                        color='primary'
-                        disabled
-                      />
-                    </TableCell>
-                    <TableCell>
-                      <TextField
-                        fullWidth
-                        size='small'
-                        variant='outlined'
-                        inputProps={{
-                          style: { textAlign: 'center' },
-                          min: 0,
-                        }}
-                        value={spell.level}
-                        name='level'
-                        disabled
-                        //onChange={(event) => updateSpell(event, index)}
-                      />
-                    </TableCell>
-                    <TableCell style={{ width: 40 }}>
-                      {spell.level === 0 ? null : (
-                        <Tooltip title='Delete'>
-                          <IconButton
-                            aria-label='delete'
-                            onClick={() => deleteSpellRow(index)}>
-                            <Delete />
-                          </IconButton>
-                        </Tooltip>
-                      )}
-                    </TableCell>
-                  </TableRow>
-                );
-              })}
-            <TableRow>
-              <TableCell align='right' colSpan='4'>
-                PREPARED SPELLS LEVEL
-              </TableCell>
-              <TableCell>
-                <TextField
-                  fullWidth
-                  error={validatePreparedSpells()}
-                  size='small'
-                  variant='outlined'
-                  name='totalLoad'
-                  InputProps={{
-                    readOnly: true,
-                  }}
-                  inputProps={{
-                    style: { textAlign: 'center' },
-                  }}
-                  value={totalPreparedSpells() + ' / ' + maxSpells()}
-                />
-              </TableCell>
-              <TableCell></TableCell>
-            </TableRow>
-          </TableBody>
-        </Table>
-      </TableContainer>
+                  )}
+                  <TableCell>
+                    <TextField
+                      fullWidth
+                      error={validatePreparedSpells()}
+                      size='small'
+                      variant='outlined'
+                      name='totalLoad'
+                      InputProps={{
+                        readOnly: true,
+                      }}
+                      inputProps={{
+                        style: { textAlign: 'center' },
+                      }}
+                      value={totalPreparedSpells() + ' / ' + maxSpells()}
+                    />
+                  </TableCell>
+                  <TableCell></TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </TableContainer>
+          {dwc === 'Cleric' ? (
+            <Button
+              className={classes.button}
+              variant='contained'
+              color='primary'
+              onClick={commune()}>
+              COMMUNE
+            </Button>
+          ) : (
+            <Button
+              className={classes.button}
+              variant='contained'
+              color='primary'
+              onClick={prepareSpells()}>
+              PREPARE SPELLS
+            </Button>
+          )}
+        </>
+      ) : null}
     </>
   );
 }
