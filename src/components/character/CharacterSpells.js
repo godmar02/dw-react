@@ -103,7 +103,7 @@ export default function CharacterSpells() {
   function commune() {
     //Delete any non-rotes moves, user can select new moves to add
     let newSpells = [...character.spells]; // copying the old array
-    newSpells = newSpells.filter((x) => x.level === 0);
+    newSpells = newSpells.filter((x) => parseInt(x.level, 10) === 0);
     setCharacter((character) => ({
       ...character,
       spells: newSpells,
@@ -114,9 +114,10 @@ export default function CharacterSpells() {
     //Unprepare any non-cantrips
     let newSpells = [...character.spells]; // copying the old array
     newSpells = newSpells.map((x) => {
-      if (x.level !== 1) {
+      if (parseInt(x.level, 10) !== 0) {
         x.prepared = false;
       }
+      return x;
     });
     setCharacter((character) => ({
       ...character,
@@ -178,7 +179,7 @@ export default function CharacterSpells() {
                                 updateSpellCheckbox(event, index)
                               }
                               color='primary'
-                              disabled={spell.level === 0}
+                              disabled={spell.level == 0}
                             />
                           </TableCell>
                         ) : null}
@@ -214,7 +215,7 @@ export default function CharacterSpells() {
                           />
                         </TableCell>
                         <TableCell style={{ width: 40 }}>
-                          {spell.level !== 0 ? (
+                          {spell.level === 1000 ? (
                             <Tooltip title='Delete'>
                               <IconButton
                                 aria-label='delete'
@@ -257,24 +258,24 @@ export default function CharacterSpells() {
                 </TableRow>
               </TableBody>
             </Table>
+            {dwc === 'Cleric' ? (
+              <Button
+                className={classes.button}
+                variant='contained'
+                color='primary'
+                onClick={() => commune()}>
+                COMMUNE
+              </Button>
+            ) : (
+              <Button
+                className={classes.button}
+                variant='contained'
+                color='primary'
+                onClick={() => prepareSpells()}>
+                PREPARE SPELLS
+              </Button>
+            )}
           </TableContainer>
-          {dwc === 'Cleric' ? (
-            <Button
-              className={classes.button}
-              variant='contained'
-              color='primary'
-              onClick={commune()}>
-              COMMUNE
-            </Button>
-          ) : (
-            <Button
-              className={classes.button}
-              variant='contained'
-              color='primary'
-              onClick={prepareSpells()}>
-              PREPARE SPELLS
-            </Button>
-          )}
         </>
       ) : null}
     </>

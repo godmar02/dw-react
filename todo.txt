@@ -1,5 +1,6 @@
 - FUNCTIONAL WORK
-    - CREATION - Wizard move errors
+    - CREATION - adding move errors
+    - Spell handling
     - Character Notes
     - Session Notes
     - GM view with abilties?
@@ -11,12 +12,6 @@
     - Dark Mode
     - Add character card sizing
     - Centre the Class add move
-
-
-
-SPELL RULES
-- The cleric knows all cleric spells of their level or lower, including their rotes. 
-- The wizard starts knowing their cantrips and three 1st level spells. When the wizard gains a level they learn a new spell. 
 
 
 ///WIZARD
@@ -32,14 +27,3 @@ You are one with stone. When you commune you are also granted a special version 
 
 Human
 Your faith is diverse. Choose one wizard spell. You can cast and be granted that spell as if it was a cleric spell.
-
-
-///
-Commune / Prepare Spells
-- Lose any spells already granted to you.
-- Prepare all of your rotes/cantrips, which never count against your limit.
-- Cleric - granted new spells of your choice whose total levels don’t exceed your own level+1, and none of which is a higher level than your own level.
-
-- Wizard - Unprepare any non-cantrips, user then prepares themselves
-- Cleric - Delete any non-rotes moves, user can select new moves to add
-
