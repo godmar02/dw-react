@@ -18,7 +18,6 @@ import {
 } from '@material-ui/core';
 import AddSpellState from 'components/contexts/AddSpellState';
 import AddSpell from 'components/character/AddSpell';
-import { class_details } from 'data/classDetails';
 
 const useStyles = makeStyles((theme) => ({
   table: {
@@ -101,9 +100,13 @@ export default function CharacterSpells() {
   }
 
   function commune() {
-    //Delete any non-rotes moves, user can select new moves to add
+    //Deletes any non-rotes moves, and resets forgotten for all moves
     let newSpells = [...character.spells]; // copying the old array
     newSpells = newSpells.filter((x) => parseInt(x.level, 10) === 0);
+    newSpells = newSpells.map((x) => {
+      x.forgotten = false;
+      return x;
+    });
     setCharacter((character) => ({
       ...character,
       spells: newSpells,
@@ -111,12 +114,13 @@ export default function CharacterSpells() {
   }
 
   function prepareSpells() {
-    //Unprepare any non-cantrips
+    //Unprepares any non-cantrips, and resets forgotten for all moves
     let newSpells = [...character.spells]; // copying the old array
     newSpells = newSpells.map((x) => {
       if (parseInt(x.level, 10) !== 0) {
         x.prepared = false;
       }
+      x.forgotten = false;
       return x;
     });
     setCharacter((character) => ({

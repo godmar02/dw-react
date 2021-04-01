@@ -108,12 +108,12 @@ export default function CampaignDetails() {
   const [charaMoveOption, setCharaMoveOption] = useState('');
   const [charaSpellOptions, setCharaSpellOptions] = useState([]);
   const [charaAbilities, setCharaAbilities] = useState([
-    { category: 'STR', score: '1', afflicted: false },
-    { category: 'DEX', score: '1', afflicted: false },
-    { category: 'CON', score: '1', afflicted: false },
-    { category: 'INT', score: '1', afflicted: false },
-    { category: 'WIS', score: '1', afflicted: false },
-    { category: 'CHA', score: '1', afflicted: false },
+    { category: 'STR', score: '8', afflicted: false },
+    { category: 'DEX', score: '8', afflicted: false },
+    { category: 'CON', score: '8', afflicted: false },
+    { category: 'INT', score: '8', afflicted: false },
+    { category: 'WIS', score: '8', afflicted: false },
+    { category: 'CHA', score: '8', afflicted: false },
   ]);
   const [charaGearOptions, setCharaGearOptions] = useState([]);
   const [charaBonds, setCharaBonds] = useState([]);
@@ -155,13 +155,14 @@ export default function CampaignDetails() {
     setCharaBonds([]);
     setCharaMoveOption('');
     setCharaGearOptions([]);
+    setCharaSpellOptions([]);
     setCharaAbilities([
-      { category: 'STR', score: '1', afflicted: false },
-      { category: 'DEX', score: '1', afflicted: false },
-      { category: 'CON', score: '1', afflicted: false },
-      { category: 'INT', score: '1', afflicted: false },
-      { category: 'WIS', score: '1', afflicted: false },
-      { category: 'CHA', score: '1', afflicted: false },
+      { category: 'STR', score: '8', afflicted: false },
+      { category: 'DEX', score: '8', afflicted: false },
+      { category: 'CON', score: '8', afflicted: false },
+      { category: 'INT', score: '8', afflicted: false },
+      { category: 'WIS', score: '8', afflicted: false },
+      { category: 'CHA', score: '8', afflicted: false },
     ]);
     setCharaFullName('');
     setActiveStep(0);
@@ -432,9 +433,9 @@ export default function CampaignDetails() {
     const spellChoices = charaSpellOptions.filter((v) => v === true).length;
     if (
       (charaClass === 'Barbarian' && moveChoice > 0) ||
-      (charaClass === 'Cleric' && spellChoices === 2) ||
+      //(charaClass === 'Cleric' && spellChoices === 2) ||
       (charaClass === 'Wizard' && spellChoices === 3) ||
-      !['Wizard', 'Cleric', 'Barbarian'].includes(charaClass)
+      !['Barbarian', 'Wizard'].includes(charaClass)
     ) {
       return (
         <Button
@@ -485,7 +486,7 @@ export default function CampaignDetails() {
                 }
                 let spellSchool = '';
                 if (spell.school) {
-                  spellSchool = ' (School: ' + spell.school + ')';
+                  spellSchool = ' (' + spell.school + ')';
                 }
                 const spellDescr =
                   spell.name +
@@ -517,7 +518,7 @@ export default function CampaignDetails() {
           </FormControl>
         </>
       );
-    } else if (charaClass === 'Cleric') {
+      /*} else if (charaClass === 'Cleric') {
       const spellChoices = class_details[charaClass].spells.filter(
         (x) => x.level === 1
       );
@@ -526,7 +527,7 @@ export default function CampaignDetails() {
           <br />
           <FormControl component='fieldset' className={classes.formControl}>
             <FormLabel component='legend'>
-              Choose two first level spell to additionally prepare:
+              Choose two first level spells to additionally prepare:
             </FormLabel>
             <br />
             <FormGroup>
@@ -560,7 +561,7 @@ export default function CampaignDetails() {
             </FormGroup>
           </FormControl>
         </>
-      );
+      );*/
     } else {
       return null;
     }
@@ -677,18 +678,53 @@ export default function CampaignDetails() {
         startingSpells = class_details[charaClass].spells.filter(
           (x) => x.level === 0
         );
-        const spellChoices = class_details[charaClass].spells.filter(
+        if (
+          charaRaceMove ===
+          'You are one with stone. When you commune you are also granted a special version of Words of the Unspeaking as a rote which only works on stone.'
+        ) {
+          const raceSpell = [
+            {
+              name: 'Words of the Unspeaking (Stone)',
+              description:
+                'With a touch you speak to the spirits within stone. The stone you touch answers three questions you pose, as best it can.',
+              level: 0,
+            },
+          ];
+          startingSpells = startingSpells.concat(raceSpell);
+        }
+        if (
+          charaRaceMove ===
+          'Magic is as natural as breath to you. Detect Magic is a cantrip for you.'
+        ) {
+          const raceSpell = [
+            {
+              name: 'Detect Magic',
+              description:
+                'One of your senses is briefly attuned to magic. The GM will tell you what here is magical.',
+              level: 0,
+              school: 'Divination',
+              ongoing: true,
+            },
+          ];
+          startingSpells = startingSpells.concat(raceSpell);
+        }
+        const spellOptions = class_details[charaClass].spells.filter(
           (x) => x.level === 1
         );
         let chosenSpell = '';
-        const newSpells = charaSpellOptions.map((option, index) => {
-          if (option) {
-            chosenSpell = spellChoices[index];
-          }
-          return chosenSpell;
-        });
+        const newSpells = charaSpellOptions
+          .map((option, index) => {
+            if (option) {
+              chosenSpell = spellOptions[index];
+            } else {
+              chosenSpell = null;
+            }
+            return chosenSpell;
+          })
+          .filter((x) => x !== null);
         startingSpells = startingSpells.concat(newSpells);
       }
+
       if (charaClass === 'Cleric') {
         //Adding forgotten
         startingSpells = startingSpells.map((x) => {
@@ -707,27 +743,31 @@ export default function CampaignDetails() {
 
       // STARTING GEAR
       let startingGear = class_details[charaClass].starting_gear;
-      let gearChoices = charaGearOptions.map((choice, index) => {
-        const choiceGroup = index;
-        let item = '';
-        // Lookup gear choices
-        if (Array.isArray(choice)) {
-          // For multi-choice options cycle through and for true vals pick option
-          choice.map((option, index) => {
-            if (option) {
-              item =
-                class_details[charaClass].starting_gear_options[choiceGroup]
-                  .options[index];
-            }
-            return item;
-          });
-        } else {
-          item =
-            class_details[charaClass].starting_gear_options[choiceGroup]
-              .options[choice];
-        }
-        return item;
-      });
+      let gearChoices = charaGearOptions
+        .map((choice, index) => {
+          const choiceGroup = index;
+          let item = '';
+          // Lookup gear choices
+          if (Array.isArray(choice)) {
+            // For multi-choice options cycle through and for true vals pick option
+            choice.map((option, index) => {
+              if (option) {
+                item =
+                  class_details[charaClass].starting_gear_options[choiceGroup]
+                    .options[index];
+              } else {
+                item = null;
+              }
+              return item;
+            });
+          } else {
+            item =
+              class_details[charaClass].starting_gear_options[choiceGroup]
+                .options[choice];
+          }
+          return item;
+        })
+        .filter((x) => x !== null);
       // Flatten array of choices and add to starting Gear
       startingGear = startingGear.concat(gearChoices.flat());
       // Converting gear into actual items and adding checkboxes
@@ -1073,7 +1113,7 @@ export default function CampaignDetails() {
                         }
                         let spellSchool = '';
                         if (spell.school) {
-                          spellSchool = ' (School: ' + spell.school + ')';
+                          spellSchool = ' (' + spell.school + ')';
                         }
                         return (
                           <Accordion key={index}>
@@ -1090,6 +1130,31 @@ export default function CampaignDetails() {
                           </Accordion>
                         );
                       })}
+                    {charaRaceMove ===
+                    'You are one with stone. When you commune you are also granted a special version of Words of the Unspeaking as a rote which only works on stone.' ? (
+                      <Accordion>
+                        <AccordionSummary expandIcon={<ExpandMore />}>
+                          Words of the Unspeaking (Stone)
+                        </AccordionSummary>
+                        <AccordionDetails>
+                          With a touch you speak to the spirits within stone.
+                          The stone you touch answers three questions you pose,
+                          as best it can.
+                        </AccordionDetails>
+                      </Accordion>
+                    ) : null}
+                    {charaRaceMove ===
+                    'Magic is as natural as breath to you. Detect Magic is a cantrip for you.' ? (
+                      <Accordion>
+                        <AccordionSummary expandIcon={<ExpandMore />}>
+                          Detect Magic (Cantrip) (Ongoing) (Divination)
+                        </AccordionSummary>
+                        <AccordionDetails>
+                          One of your senses is briefly attuned to magic. The GM
+                          will tell you what here is magical.
+                        </AccordionDetails>
+                      </Accordion>
+                    ) : null}
                     {spellOptions()}
                   </CardContent>
                 </Card>

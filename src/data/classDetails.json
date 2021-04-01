@@ -1995,7 +1995,6 @@
           "name": "Unseen Servant",
           "description": "You conjure a simple invisible construct that can do nothing but carry items. It has load 3 and carries anything you hand to it. It cannot pick up items on its own and can only carry those you give to it. Items carried by an unseen servant appear to float in the air a few paces behind you. An unseen servant that takes damage or leaves your presence is immediately dispelled, dropping any items it carried. Otherwise the unseen servant serves you until you end the spell.",
           "level": 0,
-          "school": "Ongoing",
           "ongoing": true
         },
         {
@@ -2073,7 +2072,6 @@
           "name": "Mimic",
           "description": "You take the form of someone you touch while casting this spell. Your physical characteristics match theirs exactly but your behavior may not. This change persists until you take damage or choose to return to your own form. While this spell is ongoing you lose access to all your wizard moves.",
           "level": 3,
-          "school": "Ongoing",
           "ongoing": true
         },
         {
