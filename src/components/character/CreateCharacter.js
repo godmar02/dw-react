@@ -118,7 +118,6 @@ export default function CampaignDetails() {
   const [charaGearOptions, setCharaGearOptions] = useState([]);
   const [charaBonds, setCharaBonds] = useState([]);
   const [activeStep, setActiveStep] = useState(0);
-  const [gearError, setGearError] = useState(false);
   const steps = getSteps();
 
   function handleNext() {
@@ -256,23 +255,25 @@ export default function CampaignDetails() {
     setCharaGearOptions(newGear);
   }
 
-  function addCharaGearMultiOptions(checked, option, index) {
-    setGearError(true);
-    let newGear = [...charaGearOptions];
-    if (!newGear[index]) {
-      newGear[index] = [];
+  function addCharaGearMultiOptions(event, index) {
+    let newArr = [...charaGearOptions];
+
+    if (!newArr[index]) {
+      newArr[index] = [];
     }
-    newGear[index][option] = checked;
-    setCharaGearOptions(newGear); // set array back
-    if (
-      charaGearOptions[index] &&
-      charaGearOptions[index].filter((v) => v === true).length ===
-        class_details[charaClass].starting_gear_options[index].multiplicity
-    ) {
-      setGearError(false);
+
+    if (event.currentTarget.checked) {
+      newArr[index] = [...newArr[index], event.target.name];
     } else {
-      setGearError(true);
+      newArr[index] = newArr[index].filter(
+        (item) => item !== event.target.name
+      );
     }
+
+    setCharaGearOptions(
+      newArr,
+      console.log('charaGearOptions', charaGearOptions)
+    );
   }
 
   function gearOptions() {
@@ -331,17 +332,9 @@ export default function CampaignDetails() {
                         control={
                           <Checkbox
                             color='primary'
-                            checked={
-                              charaGearOptions[choiceGroup]
-                                ? !!charaGearOptions[choiceGroup][option]
-                                : false
-                            }
+                            name={option}
                             onChange={(event) => {
-                              addCharaGearMultiOptions(
-                                event.target.checked,
-                                option,
-                                choiceGroup
-                              );
+                              addCharaGearMultiOptions(event, choiceGroup);
                             }}
                           />
                         }
@@ -366,11 +359,9 @@ export default function CampaignDetails() {
   function gearNext() {
     if (
       charaGearOptions &&
-      charaGearOptions.length ===
-        class_details[charaClass].starting_gear_options.length &&
-      !charaGearOptions.includes(null) &&
-      !charaGearOptions.includes(undefined) &&
-      !gearError
+      (charaGearOptions.length ===
+        class_details[charaClass].starting_gear_options.length ||
+        (charaClass === 'Fighter' && charaGearOptions[1].length === 2))
     ) {
       return (
         <Button
@@ -459,10 +450,17 @@ export default function CampaignDetails() {
     }
   }
 
-  function addCharaSpellOptions(checked, index) {
-    let newSpells = [...charaSpellOptions];
-    newSpells[index] = checked;
-    setCharaSpellOptions(newSpells);
+  function addCharaSpellOptions(event) {
+    let newArr = [];
+    if (event.currentTarget.checked) {
+      newArr = [...charaSpellOptions, event.target.name];
+    } else {
+      newArr = charaSpellOptions.filter((spell) => spell !== event.target.name);
+    }
+    setCharaSpellOptions(
+      newArr,
+      console.log('charaSpellOptions', charaSpellOptions)
+    );
   }
 
   function spellOptions() {
@@ -500,13 +498,9 @@ export default function CampaignDetails() {
                     control={
                       <Checkbox
                         color='primary'
-                        checked={
-                          charaSpellOptions[index]
-                            ? !!charaSpellOptions[index]
-                            : false
-                        }
+                        name={spell.name}
                         onChange={(event) => {
-                          addCharaSpellOptions(event.target.checked, index);
+                          addCharaSpellOptions(event);
                         }}
                       />
                     }
@@ -655,92 +649,101 @@ export default function CampaignDetails() {
     }
   }
 
+  function processMoves() {
+    // STARTING MOVES
+    let startingMoves = class_details[charaClass].moves.filter(
+      (x) => x.level === 'starting' && x.selected === true
+    );
+    if (charaMoveOption.length > 0) {
+      const newMoves = class_details[charaClass].moves.filter(
+        (x) => x.name === charaMoveOption
+      );
+      startingMoves = startingMoves.concat(newMoves);
+    }
+    return startingMoves;
+  }
+
+  function processSpells() {
+    // STARTING SPELLS
+    let startingSpells = [];
+    if (charaClass === 'Cleric' || charaClass === 'Wizard') {
+      // You start with all level 0 spells
+      startingSpells = class_details[charaClass].spells.filter(
+        (x) => x.level === 0
+      );
+      if (
+        charaRaceMove ===
+        'You are one with stone. When you commune you are also granted a special version of Words of the Unspeaking as a rote which only works on stone.'
+      ) {
+        const raceSpell = [
+          {
+            name: 'Words of the Unspeaking (Stone)',
+            description:
+              'With a touch you speak to the spirits within stone. The stone you touch answers three questions you pose, as best it can.',
+            level: 0,
+          },
+        ];
+        startingSpells = startingSpells.concat(raceSpell);
+      }
+      if (
+        charaRaceMove ===
+        'Magic is as natural as breath to you. Detect Magic is a cantrip for you.'
+      ) {
+        const raceSpell = [
+          {
+            name: 'Detect Magic',
+            description:
+              'One of your senses is briefly attuned to magic. The GM will tell you what here is magical.',
+            level: 0,
+            school: 'Divination',
+            ongoing: true,
+          },
+        ];
+        startingSpells = startingSpells.concat(raceSpell);
+      }
+      const spellOptions = class_details[charaClass].spells.filter(
+        (x) => x.level === 1
+      );
+      let chosenSpell = '';
+      const newSpells = charaSpellOptions
+        .map((option, index) => {
+          if (option) {
+            chosenSpell = spellOptions[index];
+          } else {
+            chosenSpell = null;
+          }
+          return chosenSpell;
+        })
+        .filter((x) => x !== null);
+      startingSpells = startingSpells.concat(newSpells);
+    }
+
+    if (charaClass === 'Cleric') {
+      //Adding forgotten
+      startingSpells = startingSpells.map((x) => {
+        return Object.assign({}, x, { forgotten: false });
+      });
+    } else if (charaClass === 'Wizard') {
+      //Adding prepared and forgotten
+      startingSpells = startingSpells.map((x) => {
+        if (x.level === 0) {
+          return Object.assign({}, x, { prepared: true, forgotten: false });
+        } else {
+          return Object.assign({}, x, { prepared: false, forgotten: false });
+        }
+      });
+    }
+    return startingSpells;
+  }
+
   function saveCharacter() {
     if (campaignURL && charaName) {
+      const startingMoves = processMoves();
+      const startingSpells = processSpells();
+      const maxHP = maxHp();
+
       // STARTING FUNDS
       let startingFunds = String(class_details[charaClass].starting_funds);
-
-      // STARTING MOVES
-      let startingMoves = class_details[charaClass].moves.filter(
-        (x) => x.level === 'starting' && x.selected === true
-      );
-      if (charaMoveOption.length > 0) {
-        const newMoves = class_details[charaClass].moves.filter(
-          (x) => x.name === charaMoveOption
-        );
-        startingMoves = startingMoves.concat(newMoves);
-      }
-
-      // STARTING SPELLS
-      let startingSpells = [];
-      if (charaClass === 'Cleric' || charaClass === 'Wizard') {
-        // You start with all level 0 spells
-        startingSpells = class_details[charaClass].spells.filter(
-          (x) => x.level === 0
-        );
-        if (
-          charaRaceMove ===
-          'You are one with stone. When you commune you are also granted a special version of Words of the Unspeaking as a rote which only works on stone.'
-        ) {
-          const raceSpell = [
-            {
-              name: 'Words of the Unspeaking (Stone)',
-              description:
-                'With a touch you speak to the spirits within stone. The stone you touch answers three questions you pose, as best it can.',
-              level: 0,
-            },
-          ];
-          startingSpells = startingSpells.concat(raceSpell);
-        }
-        if (
-          charaRaceMove ===
-          'Magic is as natural as breath to you. Detect Magic is a cantrip for you.'
-        ) {
-          const raceSpell = [
-            {
-              name: 'Detect Magic',
-              description:
-                'One of your senses is briefly attuned to magic. The GM will tell you what here is magical.',
-              level: 0,
-              school: 'Divination',
-              ongoing: true,
-            },
-          ];
-          startingSpells = startingSpells.concat(raceSpell);
-        }
-        const spellOptions = class_details[charaClass].spells.filter(
-          (x) => x.level === 1
-        );
-        let chosenSpell = '';
-        const newSpells = charaSpellOptions
-          .map((option, index) => {
-            if (option) {
-              chosenSpell = spellOptions[index];
-            } else {
-              chosenSpell = null;
-            }
-            return chosenSpell;
-          })
-          .filter((x) => x !== null);
-        startingSpells = startingSpells.concat(newSpells);
-      }
-
-      if (charaClass === 'Cleric') {
-        //Adding forgotten
-        startingSpells = startingSpells.map((x) => {
-          return Object.assign({}, x, { forgotten: false });
-        });
-      } else if (charaClass === 'Wizard') {
-        //Adding prepared and forgotten
-        startingSpells = startingSpells.map((x) => {
-          if (x.level === 0) {
-            return Object.assign({}, x, { prepared: true, forgotten: false });
-          } else {
-            return Object.assign({}, x, { prepared: false, forgotten: false });
-          }
-        });
-      }
-
       // STARTING GEAR
       let startingGear = class_details[charaClass].starting_gear;
       let gearChoices = charaGearOptions
@@ -805,9 +808,6 @@ export default function CampaignDetails() {
           }
         }
       });
-
-      //MaxHP
-      const maxHP = maxHp();
 
       // SAVE FUNCTION
       FirebaseService.saveCharacter(campaignURL, charaName, {
