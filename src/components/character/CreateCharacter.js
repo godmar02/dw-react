@@ -108,11 +108,11 @@ export default function CampaignDetails() {
   const [charaMoveOption, setCharaMoveOption] = useState('');
   const [charaSpellOptions, setCharaSpellOptions] = useState([]);
   const [charaAbilities, setCharaAbilities] = useState([
-    { category: 'STR', score: '8', afflicted: false },
-    { category: 'DEX', score: '8', afflicted: false },
-    { category: 'CON', score: '8', afflicted: false },
-    { category: 'INT', score: '8', afflicted: false },
-    { category: 'WIS', score: '8', afflicted: false },
+    { category: 'STR', score: '16', afflicted: false },
+    { category: 'DEX', score: '15', afflicted: false },
+    { category: 'CON', score: '13', afflicted: false },
+    { category: 'INT', score: '12', afflicted: false },
+    { category: 'WIS', score: '9', afflicted: false },
     { category: 'CHA', score: '8', afflicted: false },
   ]);
   const [charaGearOptions, setCharaGearOptions] = useState([]);
@@ -236,6 +236,12 @@ export default function CampaignDetails() {
     const newGear = [...charaGearOptions];
     newGear[index] = option;
     setCharaGearOptions(newGear);
+    console.log('charaGearOptions', charaGearOptions);
+    console.log('charaGearOptions.length', charaGearOptions.length);
+    console.log(
+      'charaGearOptions.includes(undefined)',
+      charaGearOptions.includes(undefined)
+    );
   }
 
   function addCharaGearMultiOptions(event, index) {
@@ -253,9 +259,12 @@ export default function CampaignDetails() {
       );
     }
 
-    setCharaGearOptions(
-      newArr,
-      console.log('charaGearOptions', charaGearOptions)
+    setCharaGearOptions(newArr);
+    console.log('charaGearOptions', charaGearOptions);
+    console.log('charaGearOptions.length', charaGearOptions.length);
+    console.log(
+      'charaGearOptions.includes(undefined)',
+      charaGearOptions.includes(undefined)
     );
   }
 
@@ -266,9 +275,12 @@ export default function CampaignDetails() {
     } else {
       newArr = charaSpellOptions.filter((spell) => spell !== event.target.name);
     }
-    setCharaSpellOptions(
-      newArr,
-      console.log('charaSpellOptions', charaSpellOptions)
+    setCharaSpellOptions(newArr);
+    console.log('charaSpellOptions', charaSpellOptions);
+    console.log('charaSpellOptions.length', charaGearOptions.length);
+    console.log(
+      'charaSpellOptions.includes(undefined)',
+      charaSpellOptions.includes(undefined)
     );
   }
 
@@ -397,7 +409,12 @@ export default function CampaignDetails() {
               aria-label='starting move choice'
               name='starting move choice'
               value={charaMoveOption}
-              onChange={(event) => setCharaMoveOption(event.target.value)}>
+              onChange={(event) =>
+                setCharaMoveOption(
+                  event.target.value,
+                  console.log('charaMoveOption.length', charaMoveOption.length)
+                )
+              }>
               {moveChoices.map((move, index) => {
                 return (
                   <FormControlLabel
@@ -446,21 +463,30 @@ export default function CampaignDetails() {
                   spellSchool +
                   ' - ' +
                   spell.description;
-                return (
-                  <FormControlLabel
-                    key={'checkbox' + index}
-                    control={
-                      <Checkbox
-                        color='primary'
-                        name={spell.name}
-                        onChange={(event) => {
-                          addCharaSpellOptions(event);
-                        }}
-                      />
-                    }
-                    label={spellDescr}
-                  />
-                );
+
+                if (
+                  charaRaceMove ===
+                    'Magic is as natural as breath to you. Detect Magic is a cantrip for you.' &&
+                  spell.name === 'Detect Magic'
+                ) {
+                  return null;
+                } else {
+                  return (
+                    <FormControlLabel
+                      key={'checkbox' + index}
+                      control={
+                        <Checkbox
+                          color='primary'
+                          name={spell.name}
+                          onChange={(event) => {
+                            addCharaSpellOptions(event);
+                          }}
+                        />
+                      }
+                      label={spellDescr}
+                    />
+                  );
+                }
               })}
             </FormGroup>
           </FormControl>
@@ -636,19 +662,11 @@ export default function CampaignDetails() {
         ];
         startingSpells = startingSpells.concat(raceSpell);
       }
-      const spellOptions = class_details[charaClass].spells.filter(
-        (x) => x.level === 1
+      const chosenSpells = class_details[charaClass].spells.filter((x) =>
+        charaSpellOptions.includes(x.name)
       );
-      let chosenSpell = '';
-      const newSpells = charaSpellOptions.map((option, index) => {
-        if (option) {
-          chosenSpell = spellOptions[index];
-        } else {
-          chosenSpell = null;
-        }
-        return chosenSpell;
-      });
-      startingSpells = startingSpells.concat(newSpells);
+      console.log('chosenSpells', chosenSpells);
+      startingSpells = startingSpells.concat(chosenSpells);
     }
 
     if (charaClass === 'Cleric') {
@@ -674,68 +692,65 @@ export default function CampaignDetails() {
     let startingFunds = String(class_details[charaClass].starting_funds);
     // STARTING GEAR
     let startingGear = class_details[charaClass].starting_gear;
-    let gearChoices = charaGearOptions
-      .map((choice, index) => {
-        const choiceGroup = index;
-        let item = '';
-        // Lookup gear choices
-        if (Array.isArray(choice)) {
-          // For multi-choice options cycle through and for true vals pick option
-          choice.map((option, index) => {
-            if (option) {
-              item =
-                class_details[charaClass].starting_gear_options[choiceGroup]
-                  .options[index];
-            } else {
-              item = null;
-            }
-            return item;
-          });
-        } else {
-          item =
+    let gearChoices = charaGearOptions.map((choice, index) => {
+      const choiceGroup = index;
+      let item = '';
+      // Lookup gear choices
+      if (Array.isArray(choice)) {
+        // For multi-choice options
+        choice.map((option) => {
+          return (item =
             class_details[charaClass].starting_gear_options[choiceGroup]
-              .options[choice];
-        }
-        return item;
-      })
-      .filter((x) => x !== null);
+              .options[option]);
+        });
+      } else {
+        //single item choice
+        item =
+          class_details[charaClass].starting_gear_options[choiceGroup].options[
+            choice
+          ];
+      }
+      return item;
+    });
     // Flatten array of choices and add to starting Gear
     startingGear = startingGear.concat(gearChoices.flat());
     // Converting gear into actual items and adding checkboxes
-    startingGear = startingGear.map((item) => {
-      // Stripping leading number and spaces for multiple items
-      const singleItem = item.replace(/^\d*x /, '');
+    startingGear = startingGear
+      .map((item) => {
+        // Stripping leading number and spaces for multiple items
+        const singleItem = item.replace(/^\d*x /, '');
 
-      if (singleItem === 'Coins') {
-        // If item is a coin then add it to starting funds
-        const coins = item.replace(/x Coins/, '');
-        startingFunds = String(
-          parseInt(startingFunds, 10) + parseInt(coins, 10)
-        );
-        return null;
-      } else {
-        if (singleItem === item) {
-          // If item is a single item
-          return Object.assign(
-            {},
-            items.find((x) => x.name === item),
-            { checkbox: false }
+        if (singleItem === 'Coins') {
+          // If item is a coin then add it to starting funds
+          const coins = item.replace(/x Coins/, '');
+          startingFunds = String(
+            parseInt(startingFunds, 10) + parseInt(coins, 10)
           );
+          return null;
         } else {
-          // If item is a multiple
-          const ammount = item.match(/^\d*/);
-          let singleObject = Object.assign(
-            {},
-            items.find((x) => x.name === singleItem),
-            { checkbox: false }
-          );
-          singleObject.uses = singleObject.uses * ammount;
-          singleObject.cost = singleObject.cost * ammount;
-          singleObject.weight = singleObject.weight * ammount;
-          return singleObject;
+          if (singleItem === item) {
+            // If item is a single item
+            return Object.assign(
+              {},
+              items.find((x) => x.name === item),
+              { checkbox: false }
+            );
+          } else {
+            // If item is a multiple
+            const ammount = item.match(/^\d*/);
+            let singleObject = Object.assign(
+              {},
+              items.find((x) => x.name === singleItem),
+              { checkbox: false }
+            );
+            singleObject.uses = singleObject.uses * ammount;
+            singleObject.cost = singleObject.cost * ammount;
+            singleObject.weight = singleObject.weight * ammount;
+            return singleObject;
+          }
         }
-      }
-    });
+      })
+      .filter((x) => x !== null);
     return [startingGear, startingFunds];
   }
 
@@ -1001,7 +1016,7 @@ export default function CampaignDetails() {
             </Button>
             <Button
               disabled={
-                !charaGearOptions ||
+                charaGearOptions.includes(undefined) ||
                 charaGearOptions.length !==
                   class_details[charaClass].starting_gear_options.length ||
                 (charaClass === 'Fighter' && charaGearOptions[1].length !== 2)
@@ -1091,7 +1106,7 @@ export default function CampaignDetails() {
                     'Magic is as natural as breath to you. Detect Magic is a cantrip for you.' ? (
                       <Accordion>
                         <AccordionSummary expandIcon={<ExpandMore />}>
-                          Detect Magic (Cantrip) (Ongoing) (Divination)
+                          Detect Magic (Ongoing) (Divination)
                         </AccordionSummary>
                         <AccordionDetails>
                           One of your senses is briefly attuned to magic. The GM
@@ -1130,8 +1145,7 @@ export default function CampaignDetails() {
             <Button
               disabled={
                 (charaClass === 'Barbarian' && charaMoveOption.length === 0) ||
-                (charaClass === 'Wizard' && charaSpellOptions.length !== 3) ||
-                ['Barbarian', 'Wizard'].includes(charaClass)
+                (charaClass === 'Wizard' && charaSpellOptions.length !== 3)
               }
               className={classes.button}
               variant='contained'
@@ -1151,7 +1165,7 @@ export default function CampaignDetails() {
                 title='Character Abilities'
               />
               <CardContent>
-                <p>Assign ability scores: 16, 15, 13, 12, 9, 8</p>
+                <p>Assign the following ability scores: 16, 15, 13, 12, 9, 8</p>
                 <Grid className={classes.root}>
                   <Grid item xs={12}>
                     <Grid container justify='center' spacing={1}>
