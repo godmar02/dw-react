@@ -128,23 +128,6 @@ export default function CampaignDetails() {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   }
 
-  function handleBondChange(event) {
-    let target = event.target;
-    if (target.checked) {
-      // Add to array
-      // Copying the old array and adding item
-      const newBonds = [...charaBonds, target.name];
-      // Set array back
-      setCharaBonds(newBonds);
-    } else {
-      // Remove from array
-      // Copying the old array
-      let newBonds = charaBonds.filter((bond) => bond !== target.name);
-      // Set array back
-      setCharaBonds(newBonds);
-    }
-  }
-
   function clearAttributes() {
     setCharaName('');
     setCharaClass('');
@@ -276,6 +259,50 @@ export default function CampaignDetails() {
     );
   }
 
+  function addCharaSpellOptions(event) {
+    let newArr = [];
+    if (event.currentTarget.checked) {
+      newArr = [...charaSpellOptions, event.target.name];
+    } else {
+      newArr = charaSpellOptions.filter((spell) => spell !== event.target.name);
+    }
+    setCharaSpellOptions(
+      newArr,
+      console.log('charaSpellOptions', charaSpellOptions)
+    );
+  }
+
+  function handleBondChange(event) {
+    let target = event.target;
+    let newBonds = [];
+    if (target.checked) {
+      newBonds = [...charaBonds, target.name];
+      setCharaBonds(newBonds);
+    } else {
+      newBonds = charaBonds.filter((bond) => bond !== target.name);
+    }
+    setCharaBonds(newBonds);
+  }
+
+  function updateAbilityScore(index, abScore) {
+    let newAbilities = [...charaAbilities]; // copying the old array
+    newAbilities[index] = {
+      ...charaAbilities[index],
+      score: abScore,
+    }; // replace value
+    setCharaAbilities(newAbilities); // set array back
+  }
+
+  function updateAbilityAfflicted(index) {
+    const newAffliction = !charaAbilities[index].afflicted; //switching boolean
+    let newAbilities = [...charaAbilities]; // copying the old array
+    newAbilities[index] = {
+      ...charaAbilities[index],
+      afflicted: newAffliction,
+    }; // replace value
+    setCharaAbilities(newAbilities); // set array back
+  }
+
   function gearOptions() {
     const gearChoices = class_details[charaClass].starting_gear_options;
     if (gearChoices.length > 0) {
@@ -325,7 +352,7 @@ export default function CampaignDetails() {
                 </FormLabel>
                 <FormGroup>
                   {gearChoice.options.map((gear, index) => {
-                    const option = index;
+                    const option = index.toString();
                     return (
                       <FormControlLabel
                         key={'checkbox' + option}
@@ -353,35 +380,6 @@ export default function CampaignDetails() {
       return output;
     } else {
       return <p>No move choices to make</p>;
-    }
-  }
-
-  function gearNext() {
-    if (
-      charaGearOptions &&
-      (charaGearOptions.length ===
-        class_details[charaClass].starting_gear_options.length ||
-        (charaClass === 'Fighter' && charaGearOptions[1].length === 2))
-    ) {
-      return (
-        <Button
-          className={classes.button}
-          variant='contained'
-          color='primary'
-          onClick={handleNext}>
-          Next
-        </Button>
-      );
-    } else {
-      return (
-        <Button
-          disabled
-          className={classes.button}
-          variant='contained'
-          color='primary'>
-          Next
-        </Button>
-      );
     }
   }
 
@@ -417,50 +415,6 @@ export default function CampaignDetails() {
     } else {
       return null;
     }
-  }
-
-  function moveNext() {
-    const moveChoice = charaMoveOption.length;
-    const spellChoices = charaSpellOptions.filter((v) => v === true).length;
-    if (
-      (charaClass === 'Barbarian' && moveChoice > 0) ||
-      //(charaClass === 'Cleric' && spellChoices === 2) ||
-      (charaClass === 'Wizard' && spellChoices === 3) ||
-      !['Barbarian', 'Wizard'].includes(charaClass)
-    ) {
-      return (
-        <Button
-          className={classes.button}
-          variant='contained'
-          color='primary'
-          onClick={handleNext}>
-          Next
-        </Button>
-      );
-    } else {
-      return (
-        <Button
-          disabled
-          className={classes.button}
-          variant='contained'
-          color='primary'>
-          Next
-        </Button>
-      );
-    }
-  }
-
-  function addCharaSpellOptions(event) {
-    let newArr = [];
-    if (event.currentTarget.checked) {
-      newArr = [...charaSpellOptions, event.target.name];
-    } else {
-      newArr = charaSpellOptions.filter((spell) => spell !== event.target.name);
-    }
-    setCharaSpellOptions(
-      newArr,
-      console.log('charaSpellOptions', charaSpellOptions)
-    );
   }
 
   function spellOptions() {
@@ -559,25 +513,6 @@ export default function CampaignDetails() {
     } else {
       return null;
     }
-  }
-
-  function updateAbilityScore(index, abScore) {
-    let newAbilities = [...charaAbilities]; // copying the old array
-    newAbilities[index] = {
-      ...charaAbilities[index],
-      score: abScore,
-    }; // replace value
-    setCharaAbilities(newAbilities); // set array back
-  }
-
-  function updateAbilityAfflicted(index) {
-    const newAffliction = !charaAbilities[index].afflicted; //switching boolean
-    let newAbilities = [...charaAbilities]; // copying the old array
-    newAbilities[index] = {
-      ...charaAbilities[index],
-      afflicted: newAffliction,
-    }; // replace value
-    setCharaAbilities(newAbilities); // set array back
   }
 
   function afflictedValue(ability, afflicted) {
@@ -705,16 +640,14 @@ export default function CampaignDetails() {
         (x) => x.level === 1
       );
       let chosenSpell = '';
-      const newSpells = charaSpellOptions
-        .map((option, index) => {
-          if (option) {
-            chosenSpell = spellOptions[index];
-          } else {
-            chosenSpell = null;
-          }
-          return chosenSpell;
-        })
-        .filter((x) => x !== null);
+      const newSpells = charaSpellOptions.map((option, index) => {
+        if (option) {
+          chosenSpell = spellOptions[index];
+        } else {
+          chosenSpell = null;
+        }
+        return chosenSpell;
+      });
       startingSpells = startingSpells.concat(newSpells);
     }
 
@@ -736,78 +669,84 @@ export default function CampaignDetails() {
     return startingSpells;
   }
 
+  function processGearFunds() {
+    // STARTING FUNDS
+    let startingFunds = String(class_details[charaClass].starting_funds);
+    // STARTING GEAR
+    let startingGear = class_details[charaClass].starting_gear;
+    let gearChoices = charaGearOptions
+      .map((choice, index) => {
+        const choiceGroup = index;
+        let item = '';
+        // Lookup gear choices
+        if (Array.isArray(choice)) {
+          // For multi-choice options cycle through and for true vals pick option
+          choice.map((option, index) => {
+            if (option) {
+              item =
+                class_details[charaClass].starting_gear_options[choiceGroup]
+                  .options[index];
+            } else {
+              item = null;
+            }
+            return item;
+          });
+        } else {
+          item =
+            class_details[charaClass].starting_gear_options[choiceGroup]
+              .options[choice];
+        }
+        return item;
+      })
+      .filter((x) => x !== null);
+    // Flatten array of choices and add to starting Gear
+    startingGear = startingGear.concat(gearChoices.flat());
+    // Converting gear into actual items and adding checkboxes
+    startingGear = startingGear.map((item) => {
+      // Stripping leading number and spaces for multiple items
+      const singleItem = item.replace(/^\d*x /, '');
+
+      if (singleItem === 'Coins') {
+        // If item is a coin then add it to starting funds
+        const coins = item.replace(/x Coins/, '');
+        startingFunds = String(
+          parseInt(startingFunds, 10) + parseInt(coins, 10)
+        );
+        return null;
+      } else {
+        if (singleItem === item) {
+          // If item is a single item
+          return Object.assign(
+            {},
+            items.find((x) => x.name === item),
+            { checkbox: false }
+          );
+        } else {
+          // If item is a multiple
+          const ammount = item.match(/^\d*/);
+          let singleObject = Object.assign(
+            {},
+            items.find((x) => x.name === singleItem),
+            { checkbox: false }
+          );
+          singleObject.uses = singleObject.uses * ammount;
+          singleObject.cost = singleObject.cost * ammount;
+          singleObject.weight = singleObject.weight * ammount;
+          return singleObject;
+        }
+      }
+    });
+    return [startingGear, startingFunds];
+  }
+
   function saveCharacter() {
     if (campaignURL && charaName) {
       const startingMoves = processMoves();
       const startingSpells = processSpells();
       const maxHP = maxHp();
-
-      // STARTING FUNDS
-      let startingFunds = String(class_details[charaClass].starting_funds);
-      // STARTING GEAR
-      let startingGear = class_details[charaClass].starting_gear;
-      let gearChoices = charaGearOptions
-        .map((choice, index) => {
-          const choiceGroup = index;
-          let item = '';
-          // Lookup gear choices
-          if (Array.isArray(choice)) {
-            // For multi-choice options cycle through and for true vals pick option
-            choice.map((option, index) => {
-              if (option) {
-                item =
-                  class_details[charaClass].starting_gear_options[choiceGroup]
-                    .options[index];
-              } else {
-                item = null;
-              }
-              return item;
-            });
-          } else {
-            item =
-              class_details[charaClass].starting_gear_options[choiceGroup]
-                .options[choice];
-          }
-          return item;
-        })
-        .filter((x) => x !== null);
-      // Flatten array of choices and add to starting Gear
-      startingGear = startingGear.concat(gearChoices.flat());
-      // Converting gear into actual items and adding checkboxes
-      startingGear = startingGear.map((item) => {
-        // Stripping leading number and spaces for multiple items
-        const singleItem = item.replace(/^\d*x /, '');
-
-        if (singleItem === 'Coins') {
-          // If item is a coin then add it to starting funds
-          const coins = item.replace(/x Coins/, '');
-          startingFunds = String(
-            parseInt(startingFunds, 10) + parseInt(coins, 10)
-          );
-          return null;
-        } else {
-          if (singleItem === item) {
-            // If item is a single item
-            return Object.assign(
-              {},
-              items.find((x) => x.name === item),
-              { checkbox: false }
-            );
-          } else {
-            // If item is a multiple
-            const ammount = item.match(/^\d*/);
-            let singleObject = Object.assign(
-              {},
-              items.find((x) => x.name === singleItem),
-              { checkbox: false }
-            );
-            singleObject.uses = singleObject.uses * ammount;
-            singleObject.cost = singleObject.cost * ammount;
-            singleObject.weight = singleObject.weight * ammount;
-            return singleObject;
-          }
-        }
-      });
+      const gearFunds = processGearFunds();
+      const startingGear = gearFunds[0];
+      const startingFunds = gearFunds[1];
 
       // SAVE FUNCTION
       FirebaseService.saveCharacter(campaignURL, charaName, {
@@ -1008,27 +947,20 @@ export default function CampaignDetails() {
               color='primary'>
               Back
             </Button>
-            {charaRace &&
-            charaAlignment &&
-            charaRaceMove &&
-            charaName &&
-            charaFullName ? (
-              <Button
-                className={classes.button}
-                variant='contained'
-                color='primary'
-                onClick={handleNext}>
-                Next
-              </Button>
-            ) : (
-              <Button
-                disabled
-                className={classes.button}
-                variant='contained'
-                color='primary'>
-                Next
-              </Button>
-            )}
+            <Button
+              disabled={
+                !charaRace ||
+                !charaAlignment ||
+                !charaRaceMove ||
+                !charaName ||
+                !charaFullName
+              }
+              className={classes.button}
+              variant='contained'
+              color='primary'
+              onClick={handleNext}>
+              Next
+            </Button>
           </>
         );
       case 1:
@@ -1067,7 +999,19 @@ export default function CampaignDetails() {
               color='primary'>
               Back
             </Button>
-            {gearNext()}
+            <Button
+              disabled={
+                !charaGearOptions ||
+                charaGearOptions.length !==
+                  class_details[charaClass].starting_gear_options.length ||
+                (charaClass === 'Fighter' && charaGearOptions[1].length !== 2)
+              }
+              className={classes.button}
+              variant='contained'
+              color='primary'
+              onClick={handleNext}>
+              Next
+            </Button>
           </>
         );
       case 2:
@@ -1183,7 +1127,18 @@ export default function CampaignDetails() {
               color='primary'>
               Back
             </Button>
-            {moveNext()}
+            <Button
+              disabled={
+                (charaClass === 'Barbarian' && charaMoveOption.length === 0) ||
+                (charaClass === 'Wizard' && charaSpellOptions.length !== 3) ||
+                ['Barbarian', 'Wizard'].includes(charaClass)
+              }
+              className={classes.button}
+              variant='contained'
+              color='primary'
+              onClick={handleNext}>
+              Next
+            </Button>
           </>
         );
       case 3:
