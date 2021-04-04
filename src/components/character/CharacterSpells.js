@@ -160,13 +160,9 @@ export default function CharacterSpells() {
                   <TableCell align='center' style={{ width: 65 }}>
                     LEVEL
                   </TableCell>
-                  <TableCell align='center'>
-                    <Tooltip title='Add Spell'>
-                      <IconButton aria-label='add' onClick={handleClickOpen}>
-                        <Add />
-                      </IconButton>
-                    </Tooltip>
-                  </TableCell>
+                  {character.dw_class === 'Wizard' ? (
+                    <TableCell></TableCell>
+                  ) : null}
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -218,8 +214,9 @@ export default function CharacterSpells() {
                             onChange={(event) => updateSpell(event, index)}
                           />
                         </TableCell>
-                        <TableCell style={{ width: 40 }}>
-                          {spell.level === 1000 ? (
+                        {character.dw_class === 'Wizard' &&
+                        spell.level !== 0 ? (
+                          <TableCell style={{ width: 40 }}>
                             <Tooltip title='Delete'>
                               <IconButton
                                 aria-label='delete'
@@ -227,8 +224,8 @@ export default function CharacterSpells() {
                                 <Delete />
                               </IconButton>
                             </Tooltip>
-                          ) : null}
-                        </TableCell>
+                          </TableCell>
+                        ) : null}
                       </TableRow>
                     );
                   })}
@@ -258,10 +255,19 @@ export default function CharacterSpells() {
                       value={totalPreparedSpells() + ' / ' + maxSpells()}
                     />
                   </TableCell>
-                  <TableCell></TableCell>
+                  {character.dw_class === 'Wizard' ? (
+                    <TableCell></TableCell>
+                  ) : null}
                 </TableRow>
               </TableBody>
             </Table>
+            <Button
+              className={classes.button}
+              variant='contained'
+              color='primary'
+              onClick={handleClickOpen}>
+              ADD SPELLS
+            </Button>
             {dwc === 'Cleric' ? (
               <Button
                 className={classes.button}
