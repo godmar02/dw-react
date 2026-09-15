@@ -5,8 +5,8 @@
   "homepage": "https://godmar02.github.io/dw-react",
   "dependencies": {
     "@fontsource/roboto": "^5.0.0",
-    "@mui/material": "^5.0.0",
-    "@mui/icons-material": "^5.0.0",
+    "@mui/material": "^9.0.0",
+    "@mui/icons-material": "^9.0.0",
     "@material-ui/lab": "^4.0.0-alpha.57",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
