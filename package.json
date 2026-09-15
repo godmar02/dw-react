@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://godmar02.github.io/dw-react",
   "dependencies": {
-    "@fontsource/roboto": "^4.2.1",
+    "@fontsource/roboto": "^5.0.0",
     "@mui/material": "^5.0.0",
     "@mui/icons-material": "^5.0.0",
     "@material-ui/lab": "^4.0.0-alpha.57",
