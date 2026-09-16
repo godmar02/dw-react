@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useParams } from 'react-router';
 import * as FirebaseService from 'services/firebase';
 import CampaignState from 'components/contexts/CampaignState';
-import { Add, Delete } from '@material-ui/icons';
+import { Add, Delete } from '@mui/icons-material';
 import {
   Card,
   CardContent,
@@ -12,8 +12,8 @@ import {
   IconButton,
   Tooltip,
   Typography,
-} from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+} from '@mui/material';
+import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles({
   root: {
@@ -46,7 +46,7 @@ export default function CampaignDetails() {
   return (
     <Grid className={classes.root}>
       <Grid item xs={12}>
-        <Grid container justify='center' spacing={1}>
+        <Grid container justifyContent='center' spacing={1}>
           {campaign.campaign &&
             campaign.campaign.map((campaign, index) => {
               return (

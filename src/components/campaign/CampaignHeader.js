@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router';
-import { Breadcrumbs } from '@material-ui/core';
+import { Breadcrumbs } from '@mui/material';
 
 export default function CampaignHeader() {
   const { campaignURL } = useParams();

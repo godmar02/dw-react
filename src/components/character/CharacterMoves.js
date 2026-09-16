@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import { AppBar, Box, Tab, Tabs } from '@material-ui/core';
+import { makeStyles } from '@mui/styles';
+import { AppBar, Box, Tab, Tabs } from '@mui/material';
 import CharacterStandardMoves from 'components/character/CharacterStandardMoves';
 import CharacterAdvancedMoves from 'components/character/CharacterAdvancedMoves';
 import CharacterClassMoves from 'components/character/CharacterClassMoves';

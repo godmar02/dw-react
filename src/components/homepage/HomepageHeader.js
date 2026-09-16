@@ -1,5 +1,5 @@
 import React from 'react';
-import { Breadcrumbs } from '@material-ui/core';
+import { Breadcrumbs } from '@mui/material';
 
 export default function HomepageHeader() {
   return (

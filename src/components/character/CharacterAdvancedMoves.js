@@ -3,9 +3,9 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
-} from '@material-ui/core';
-import { ExpandMore } from '@material-ui/icons';
-import { advanced_moves } from 'data/advancedMoves';
+} from '@mui/material';
+import { ExpandMore } from '@mui/icons-material';
+import advanced_moves from 'data/advancedMoves.json';
 import ReactMarkdown from 'react-markdown';
 
 export default function CharacterAdvancedMoves() {

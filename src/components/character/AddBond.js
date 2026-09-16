@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import AddBondState from 'components/contexts/AddBondState';
 import CharacterState from 'components/contexts/CharacterState';
-import { class_details } from 'data/classDetails';
+import class_details from 'data/classDetails.json';
 import {
   Button,
   Dialog,
@@ -13,8 +13,8 @@ import {
   FormControlLabel,
   RadioGroup,
   Radio,
-} from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+} from '@mui/material';
+import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme) => ({
   formControl: {

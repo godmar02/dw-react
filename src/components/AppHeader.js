@@ -6,9 +6,9 @@ import {
   Toolbar,
   Typography,
   Switch,
-} from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
-import { Brightness4, Menu } from '@material-ui/icons';
+} from '@mui/material';
+import { makeStyles } from '@mui/styles';
+import { Brightness4, Menu } from '@mui/icons-material';
 import UserProfile from 'components/profile/UserProfile';
 
 const useStyles = makeStyles((theme) => ({

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import * as FirebaseService from 'services/firebase';
 import HomepageState from 'components/contexts/HomepageState';
 import AuthState from 'components/contexts/AuthState';
-import { Add, Delete } from '@material-ui/icons';
+import { Add, Delete } from '@mui/icons-material';
 import {
   Button,
   Dialog,
@@ -21,8 +21,8 @@ import {
   TableRow,
   TextField,
   Tooltip,
-} from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+} from '@mui/material';
+import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles({
   table: {

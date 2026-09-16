@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import App from 'components/App';
 import * as FirebaseService from 'services/firebase';
 import AuthState from 'components/contexts/AuthState';
-import { Button } from '@material-ui/core';
+import { Button } from '@mui/material';
 
 function Index() {
   const [currentUser, setCurrentUser] = useState(null);

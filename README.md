@@ -1,6 +1,7 @@
 # DW-REACT
 
 This is a basic character sheet generator for Dungeon-World written in ReactJS and hosted on a Github Pages project page. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and created using the following steps:
+
 1. Install nodejs, npm and create-react-app
 2. Run `npx create-react-app dw-react` to create a new blank project
 3. Create a new blank repository on Github
@@ -9,6 +10,7 @@ This is a basic character sheet generator for Dungeon-World written in ReactJS a
 6. Following the deployment instructions here [Deployment - GitHub Pages](https://create-react-app.dev/docs/deployment/#github-pages) to ensure the project is set up for a GitHub pages deployment
 
 Optional steps to help with development:
+
 1. Ensure browser has React Developer Tools
 2. Ensure has 'react' and 'linter-eslint' when using Atom
 

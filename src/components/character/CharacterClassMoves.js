@@ -6,7 +6,7 @@ import {
   IconButton,
   TextField,
   Tooltip,
-} from '@material-ui/core';
+} from '@mui/material';
 import {
   Add,
   Delete,
@@ -14,12 +14,12 @@ import {
   ExpandMore,
   Save,
   Refresh,
-} from '@material-ui/icons';
+} from '@mui/icons-material';
 import ReactMarkdown from 'react-markdown';
 import CharacterState from 'components/contexts/CharacterState';
 import AddMoveState from 'components/contexts/AddMoveState';
 import AddMove from 'components/character/AddMove';
-import { class_details } from 'data/classDetails';
+import class_details from 'data/classDetails.json';
 
 export default function CharacterClassMoves() {
   const { character, setCharacter } = useContext(CharacterState);

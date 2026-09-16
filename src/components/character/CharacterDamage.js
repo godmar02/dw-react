@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import CharacterState from 'components/contexts/CharacterState';
-import { class_details } from 'data/classDetails';
-import { TextField } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import class_details from 'data/classDetails.json';
+import { TextField } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme) => ({
   textField: {

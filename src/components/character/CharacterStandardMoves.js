@@ -3,9 +3,9 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
-} from '@material-ui/core';
-import { ExpandMore } from '@material-ui/icons';
-import { standard_moves } from 'data/standardMoves';
+} from '@mui/material';
+import { ExpandMore } from '@mui/icons-material';
+import standard_moves from 'data/standardMoves.json';
 import ReactMarkdown from 'react-markdown';
 
 export default function CharacterStandardMoves() {

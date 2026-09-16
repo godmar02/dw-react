@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import CharacterState from 'components/contexts/CharacterState';
-import { ability_afflictions } from 'data/abilityAfflictions';
-import { Button, Card, CardContent, Grid, TextField } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import ability_afflictions from 'data/abilityAfflictions.json';
+import { Button, Card, CardContent, Grid, TextField } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme) => ({
   cardContent: {
@@ -119,7 +119,7 @@ export default function CharacterAbilities() {
   return (
     <Grid className={classes.root}>
       <Grid item xs={12}>
-        <Grid container justify='center' spacing={1}>
+        <Grid container justifyContent='center' spacing={1}>
           {character.abilities &&
             character.abilities.map((abilities, index) => {
               return (

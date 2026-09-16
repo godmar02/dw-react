@@ -1,7 +1,7 @@
 import React, { useContext, useMemo, useState } from 'react';
 import CharacterState from 'components/contexts/CharacterState';
-import { Add, Delete } from '@material-ui/icons';
-import { makeStyles } from '@material-ui/core/styles';
+import { Add, Delete } from '@mui/icons-material';
+import { makeStyles } from '@mui/styles';
 import {
   Button,
   Checkbox,
@@ -15,7 +15,7 @@ import {
   TableRow,
   TextField,
   Tooltip,
-} from '@material-ui/core';
+} from '@mui/material';
 import AddSpellState from 'components/contexts/AddSpellState';
 import AddSpell from 'components/character/AddSpell';
 

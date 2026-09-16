@@ -1,8 +1,8 @@
 import React, { useState, useMemo } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import DarkState from 'components/contexts/DarkState';
-import { Container, Typography } from '@material-ui/core';
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import { Container, Typography } from '@mui/material';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import ErrorPage from 'components/ErrorPage';
 import Homepage from 'components/homepage/Homepage';
 import AppHeader from 'components/AppHeader';
@@ -16,9 +16,9 @@ export default function App() {
   const palletType = darkState ? 'dark' : 'light';
   //const mainPrimaryColor = darkState ? orange[500] : lightBlue[500];
   //const mainSecondaryColor = darkState ? deepOrange[900] : deepPurple[500];
-  const darkTheme = createMuiTheme({
+  const darkTheme = createTheme({
     palette: {
-      type: palletType,
+      mode: palletType,
       //primary: {
       //  main: mainPrimaryColor,
       //},

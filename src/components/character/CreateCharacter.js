@@ -27,14 +27,14 @@ import {
   Stepper,
   StepLabel,
   TextField,
-} from '@material-ui/core';
-import { ExpandMore, Save } from '@material-ui/icons';
-import { makeStyles } from '@material-ui/core/styles';
+} from '@mui/material';
+import { ExpandMore, Save } from '@mui/icons-material';
+import { makeStyles } from '@mui/styles';
 import ReactMarkdown from 'react-markdown';
-import { class_details } from 'data/classDetails';
-import { dw_classes } from 'data/dwClasses';
-import { items } from 'data/items';
-import { ability_afflictions } from 'data/abilityAfflictions';
+import class_details from 'data/classDetails.json';
+import dw_classes from 'data/dwClasses.json';
+import items from 'data/items.json';
+import ability_afflictions from 'data/abilityAfflictions.json';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -1168,7 +1168,7 @@ export default function CampaignDetails() {
                 <p>Assign the following ability scores: 16, 15, 13, 12, 9, 8</p>
                 <Grid className={classes.root}>
                   <Grid item xs={12}>
-                    <Grid container justify='center' spacing={1}>
+                    <Grid container justifyContent='center' spacing={1}>
                       {charaAbilities.map((ability, index) => {
                         return (
                           <Grid item key={index}>
@@ -1376,7 +1376,7 @@ export default function CampaignDetails() {
         spacing={0}
         direction='column'
         alignItems='center'
-        justify='center'>
+        justifyContent='center'>
         <Grid item xs={12}>
           {getStepContent(activeStep)}
         </Grid>

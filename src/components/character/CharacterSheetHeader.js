@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router';
-import { Breadcrumbs } from '@material-ui/core';
+import { Breadcrumbs } from '@mui/material';
 import CharacterState from 'components/contexts/CharacterState';
 
 export default function CharacterSheetHeader() {

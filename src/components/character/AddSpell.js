@@ -19,11 +19,11 @@ import {
   MenuItem,
   Select,
   Typography,
-} from '@material-ui/core';
-import { ExpandMore } from '@material-ui/icons';
-import { makeStyles } from '@material-ui/core/styles';
+} from '@mui/material';
+import { ExpandMore } from '@mui/icons-material';
+import { makeStyles } from '@mui/styles';
 import ReactMarkdown from 'react-markdown';
-import { class_details } from 'data/classDetails';
+import class_details from 'data/classDetails.json';
 
 const useStyles = makeStyles((theme) => ({
   formControl: {

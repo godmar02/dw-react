@@ -9,9 +9,9 @@ import {
   DialogContentText,
   DialogTitle,
   TextField,
-} from '@material-ui/core';
-import Autocomplete from '@material-ui/lab/Autocomplete';
-import { items } from 'data/items';
+  Autocomplete,
+} from '@mui/material';
+import items from 'data/items.json';
 
 export default function AddItem() {
   const { open, setOpen } = useContext(AddItemState);

@@ -2,9 +2,9 @@ import React, { useContext, useMemo, useState } from 'react';
 import CharacterState from 'components/contexts/CharacterState';
 import AddItemState from 'components/contexts/AddItemState';
 import AddItem from 'components/character/AddItem';
-import { class_details } from 'data/classDetails';
-import { itemTypes } from 'data/itemTypes';
-import { itemTags } from 'data/itemTags';
+import class_details from 'data/classDetails.json';
+import itemTypes from 'data/itemTypes.json';
+import itemTags from 'data/itemTags.json';
 import {
   Box,
   Chip,
@@ -24,14 +24,14 @@ import {
   TableRow,
   TextField,
   Tooltip,
-} from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+} from '@mui/material';
+import { makeStyles } from '@mui/styles';
 import {
   Add,
   Delete,
   KeyboardArrowDown,
   KeyboardArrowUp,
-} from '@material-ui/icons';
+} from '@mui/icons-material';
 
 const useStyles = makeStyles((theme) => ({
   chips: {

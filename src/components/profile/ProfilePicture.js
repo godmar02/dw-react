@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import AuthState from 'components/contexts/AuthState';
 import ProfileState from 'components/contexts/ProfileState';
-import Avatar from '@material-ui/core/Avatar';
+import Avatar from '@mui/material/Avatar';
 
 export default function ProfilePicture() {
   const { currentUser } = useContext(AuthState);

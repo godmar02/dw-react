@@ -1,6 +1,6 @@
 import React from 'react';
-import { Grid } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import { Grid } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 import CharacterDamage from 'components/character/CharacterDamage';
 import CharacterArmour from 'components/character/CharacterArmour';
 import CharacterFunds from 'components/character/CharacterFunds';
@@ -20,7 +20,7 @@ export default function CharacterBasicStats() {
   return (
     <Grid className={classes.root}>
       <Grid item xs={12}>
-        <Grid container justify='center' spacing={1}>
+        <Grid container justifyContent='center' spacing={1}>
           <Grid item>
             <CharacterLevel />
           </Grid>

@@ -7,10 +7,10 @@ import {
   TableContainer,
   TableRow,
   TextField,
-} from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+} from '@mui/material';
+import { makeStyles } from '@mui/styles';
 import CharacterState from 'components/contexts/CharacterState';
-import { class_details } from 'data/classDetails';
+import class_details from 'data/classDetails.json';
 
 const useStyles = makeStyles({
   table: {
